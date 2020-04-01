@@ -8,13 +8,13 @@
 </head>
 <body>
 <%@ include file="Top.jsp" %>
-    <table align="center" style="margin-top:300px;">
+    <table align="center" style="margin-top:200px;">
         	<tr>
         	<form name="" method="post" action="BookMgr.jsp">
-          	  <td><button type="submit" style="border: none; "><img src="../img/book.png"></button></td>
+          	  <td><button type="submit" style="border: none; background: white"><img src="../img/book.png"></button></td>
           	 </form>
 			<form name="" method="post" action="MemMgr.jsp">
-          	  <td><button type="submit" style="border: none; padding-left: 10px;"><img src="../img/mem.png"></button></td>
+          	  <td><button type="submit" style="border: none; padding-left: 10px; background: white"><img src="../img/mem.png"></button></td>
           	</form>
        	 </tr>
         <tr align="center">
