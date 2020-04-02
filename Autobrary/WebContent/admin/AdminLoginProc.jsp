@@ -1,3 +1,4 @@
+<%@page import="encryption.PBKDF2_Encryption"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <jsp:useBean id="adset" class="database.AdminSet" /> <%-- 중요 --%>
 
