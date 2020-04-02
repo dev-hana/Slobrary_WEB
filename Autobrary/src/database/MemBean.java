@@ -1,5 +1,10 @@
 package database;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
+import encryption.PBKDF2_Encryption;
+
 public class MemBean {
 	private String RFID;
 	private String mem_id;
@@ -76,7 +81,12 @@ public class MemBean {
 		return mem_pw;
 	}
 	public void setMem_pw(String mem_pw) {
-		this.mem_pw = mem_pw;
+		try {
+			this.mem_pw = PBKDF2_Encryption.createHash(mem_pw);
+		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
 	}
 	
 	
