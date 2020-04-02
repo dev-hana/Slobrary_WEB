@@ -11,10 +11,10 @@
     <table align="center" style="margin-top:200px;">
         	<tr>
         	<form name="" method="post" action="BookMgr.jsp">
-          	  <td><button type="submit" style="border: none; background: white"><img src="../img/book.png"></button></td>
+          	  <td><button type="submit" style="border: none; background: white; padding-right:50px;"><img src="../img/book1.png"></button></td>
           	 </form>
 			<form name="" method="post" action="MemMgr.jsp">
-          	  <td><button type="submit" style="border: none; padding-left: 10px; background: white"><img src="../img/mem.png"></button></td>
+          	  <td><button type="submit" style="border: none; padding-left: 50px; background: white"><img src="../img/mem1.png"></button></td>
           	</form>
        	 </tr>
         <tr align="center">
