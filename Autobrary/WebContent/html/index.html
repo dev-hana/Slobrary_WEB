@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
+    <title>Autobrary</title>
+    <link href="index.css" rel="stylesheet">
+
+    <!-- 웹폰트 -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script> <!-- 아이콘 라이브러리-->
+    <!-- 부트스트랩 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="document" class="bg-light">
+        <header id="hd_wrap" class="bg-white">
+            <div id="header">
+                <ul id="user" class="nav justify-content-end">
+                    <li><a href="/web/login.do?menuIdx=414">로그인</a></li>
+                    <li><a href="/web/login.do?menuIdx=414">회원가입</a></li>
+                </ul>
+                <a href="/" class="logo">Autobrary</a>
+                <p>just take it!</p>
+            </div>
+            <div id="main_nav" class="shadow-sm pt-3 bg-white rounded">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item"><a class="nav-link" href="#">도서검색</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">공지사항</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">희망도서</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>
+                </ul>
+            </div>
+        </header>
+        <main id="main_wrap">
+            <div class="jumbotron p-5 mb-n3 bg-light">
+                <form>
+                    <div class="p-1 bg-white rounded rounded-pill shadow-sm mb-4">
+                        <div class="input-group">
+                            <input type="search" placeholder="도서 검색 (책 이름, 작가명, 출판사명)" aria-describedby="button-addon" class="form-control border-0 bg-white">
+                            <div class="input-group-append">
+                                <button id="button-addon" type="submit" class="btn btn-link"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div id="main-c" class="carousel slide" data-ride="carousel" data-interval="9000">
+                    <!--slideshow-->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col card border-0 shadow-sm ">
+                                    <div class="card-body">
+                                        <h4 class="card-title">card1</h4>
+                                        <img class="card-img-top" src="" alt="card1Img">
+                                        <p class="card-text">text</p>
+                                    </div>
+                                </div>
+                                <div class="card border-0 shadow-sm col">
+                                    <div class="card-body">
+                                        <h4 class="card-title">card1</h4>
+                                        <img class="card-img" src="" alt="card1Img">
+                                        <p class="card-text">text</p>
+                                    </div>
+                                </div>
+                                <div class="card border-0 shadow-sm col">
+                                    <div class="card-body">
+                                        <h4 class="card-title">card1</h4>
+                                        <img class="card-img" src="" alt="card1Img">
+                                        <p class="card-text">text</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--controls-->
+                    <a class="carousel-control-prev" href="#main-c" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#main-c" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="row ml-5 mr-5 con shadow-sm">
+                <div class="col">
+                    <h4 class="con-title">베스트도서</h4>
+                    <div id="bestbook-c" class="carousel slide" data-ride="carousel" data-interval="9000">
+                        <!--slideshow-->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="bestbook col">
+                                        <div class="thumbnail_image">
+                                            <img class="thumbnail" src="book.png" alt="book1">
+                                            <span class="border"></span>
+                                        </div>
+                                        <p class="book-name">text</p>
+                                    </div>
+                                    <div class="bestbook col">
+                                        <div class="thumbnail_image">
+                                            <img class="thumbnail" src="book.png" alt="book1">
+                                            <span class="border"></span>
+                                        </div>
+                                        <p class="book-name">text</p>
+                                    </div>
+                                    <div class="bestbook col">
+                                        <div class="thumbnail_image">
+                                            <img class="thumbnail" src="book.png" alt="book1">
+                                            <span class="border"></span>
+                                        </div>
+                                        <p class="book-name">text</p>
+                                    </div>
+                                    <div class="bestbook col">
+                                        <div class="thumbnail_image">
+                                            <img class="thumbnail" src="book.png" alt="book1">
+                                            <span class="border"></span>
+                                        </div>
+                                        <p class="book-name">text</p>
+                                    </div>
+                                    <div class="bestbook col">
+                                        <div class="thumbnail_image">
+                                            <img class="thumbnail" src="book.png" alt="book1">
+                                            <span class="border"></span>
+                                        </div>
+                                        <p class="book-name">text</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--controls-->
+                            <a class="carousel-control-prev" href="#bestbook-c" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#bestbook-c" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
