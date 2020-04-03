@@ -1,0 +1,17 @@
+.list-group li{
+	width: 650px;
+}
+ul {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.td2{
+		padding-left:10px;
+	}
+.timg{
+	padding-right:30px;
+}
+.btn{
+	font-size: 15px;
+}
