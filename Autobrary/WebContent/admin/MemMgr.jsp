@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 관리</title>
+<script language="JavaScript" src="script.js"></script>
 <style type="text/css">
     .th1{text-align:center; border:1px solid gray;background-color:#EAEAEA; width="72" height="45"; padding: 15px;}
     .th2 {border:1px solid gray; text-align:center; width="72" height="45"; padding: 15px;}
@@ -58,12 +59,15 @@
 	<td class="th2"><%=memBean.getMem_date()%></td>
  	<td class="th2"><%=memBean.getLoan_status()%></td>
  	<td class="th2" style="align:center">
-      <a class="btn" href="">상세정보</a>
+      <a class="btn" href="javascript:SendMem('<%=memBean.getMem_id()%>')">상세정보</a>
       </td>
      </tr>
  <%}%>
  </table>
  </div>
 <%@ include file="Bottom.jsp" %>
+<form name="sendMem" method="post" action="Memdetail.jsp">
+<input type=hidden name="mem_id">
+</form>
 </body>
 </html>

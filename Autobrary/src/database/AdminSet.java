@@ -2,6 +2,8 @@ package database;
 
 import java.sql.*;
 
+import encryption.PBKDF2_Encryption;
+
 /*
  * 작성자: 장지은
  * 파일 이름: AdminSet.java
@@ -26,12 +28,20 @@ public class AdminSet {
         boolean loginCon = false;
         try {
             con = pool.getConnection();
-            String strQuery = "select id, passwd from admin_info where id = ? and passwd = ?";
+            String strQuery = "select id, passwd from admin_info where id = ?";
             pstmt = con.prepareStatement(strQuery);
             pstmt.setString(1, admin_id);
-            pstmt.setString(2, admin_passwd);
             rs = pstmt.executeQuery();
-            loginCon = rs.next();
+            if (rs.next()) {
+            	/**
+            	 * PBKDF2_Encryption.validatePassword 함수를통해 비밀번호를 검증 및 결과 리턴. 2020.04.02 수정.
+            	 * @수정 devstar1224
+            	 */
+            	String hashData = rs.getString("passwd");
+            	if(PBKDF2_Encryption.validatePassword(admin_passwd, hashData)){
+            		return true;
+            	}
+            }
         } catch (Exception ex) {
             System.out.println("Exception" + ex);
         } finally {
