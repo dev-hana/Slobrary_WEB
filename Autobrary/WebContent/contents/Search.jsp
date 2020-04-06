@@ -119,7 +119,7 @@ function calcHeight(){
       </form>
     </div>
     	<iframe id="the_iframe" onload="calcHeight();" name="list" title="도서검색결과" frameborder="0" scrolling="no" style="display:none; overflow-x:hidden; overflow:auto; width:100%;"></iframe>
-    <script src="../js/extention/choices.js"></script>
+    
     
     <script>
       const customSelects = document.querySelectorAll("select");
