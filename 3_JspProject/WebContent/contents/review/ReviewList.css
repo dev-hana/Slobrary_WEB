@@ -1,0 +1,42 @@
+.mylist {
+    width: 500px;
+    padding: 20px;
+}
+
+.mylist img{
+    margin: 10px 10px 0px 0px;
+}
+#content {
+    width: 50%;
+}
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url(http://imagizer.imageshack.com/img923/4545/XdJDuY.png) no-repeat;  
+  cursor: pointer;
+  margin:-30px;
+}
+.heart-blast {
+  background-position: -2800px 0;
+  transition: background 1s steps(28);
+}
+
+.dropdown {
+    margin-bottom: 150px;
+}
+.dropdown button {
+    font-size: 12px;
+}
+
+.container-border {
+    border: 1px solid #ccc;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float:left;
+}

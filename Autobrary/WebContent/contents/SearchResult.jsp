@@ -19,7 +19,7 @@
   <% 		
 	String contentPage = request.getParameter("CONTENTPAGE");
 	if(contentPage==null){
-		contentPage="SearchResult.jsp?CONTENTPAGE=SearchProc.jsp&division=all";
+		contentPage="SearchProc.jsp?division=all";
 	}
 %>
 	<!-- 분류 메뉴 -->

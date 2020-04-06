@@ -1,0 +1,36 @@
+#info img{
+    width: 100px;
+    margin-bottom: 10px;
+}
+.jumbotron {
+    background-color: #FFDCDC;
+}
+.carousel-inner .item {
+    padding: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.carousel-inner .item #content{
+    width: 50%;
+}
+
+.carousel-inner .item img{
+    width: 200px;
+    margin: 10px 10px 0px 0px;
+}
+
+.carousel-control.right,
+.carousel-control.left {
+    background: none;
+    color: #FFDCDC;
+    z-index: 2;
+}
+
+.carousel-indicators li {
+    border-color: #FFDCDC;
+}
+
+.carousel-indicators li.active {
+    background-color: #FFDCDC;
+}
