@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <% request.setCharacterEncoding("UTF-8"); %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 4</title>
+    <title>Book Search Proc</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -15,6 +15,18 @@
     <link href="../css/SearchProc.css" rel="stylesheet" />
   </head>
   <body>
+  <%
+  	String category = (String) request.getParameter("category");
+  	String keyword = (String) request.getParameter("keyword");
+  	String keyoption = (String) request.getParameter("keyoption");
+  	String area = (String) request.getParameter("area");
+  	
+  	//System.out.println(category);
+  	//System.out.println(area);
+  	//System.out.println(keyoption);
+  	//System.out.println(keyword);
+  			
+  %>
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -27,7 +39,7 @@
   	<li class="list-group-item">
   	<table>
   		<tr>
-  			<th rowspan="5" class="timg"><img src="../img/book2.jpg" alt="Paris" width="90" height="110"></th>
+  			<th rowspan="5" class="timg"><img src="../img/book2.jpg" alt="책표지" width="90" height="110"></th>
   		</tr>
   		<tr>
   			<td class="td1">도서명</td><td class="td2">날씨가 좋으면 찾아가겠어</td>
