@@ -16,10 +16,29 @@
     </style>
   </head>
   <body>
+  
+<%
+  	String keyoption=request.getParameter("keyoption");
+  	String keyword=request.getParameter("keyword");
+  	String area = request.getParameter("area");
+  	String []categories;
+  	String category="";
+    
+  	if(request.getParameterValues("category")!=null){
+  		categories = request.getParameterValues("category");
+  		for(int i=0;i<categories.length;i++){
+  			category+=categories[i]+",";
+  		}
+  		
+  	}else{
+  		category="전체";
+  	}
+    
+  %>
   <% 		
 	String contentPage = request.getParameter("CONTENTPAGE");
 	if(contentPage==null){
-		contentPage="SearchProc.jsp?division=all";
+		contentPage="SearchProc.jsp?division=all&keyoption="+keyoption+"&keyword="+keyword+"&area="+area+"&category="+category;
 	}
 %>
 	<!-- 분류 메뉴 -->
@@ -28,7 +47,7 @@
         <div class="col">
             <ul class="nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link text-muted active" data-toggle="tab" href="SearchResult.jsp?CONTENTPAGE=SearchProc.jsp&division=all">전체</a>
+                <a class="nav-link text-muted active" data-toggle="tab" href="SearchResult.jsp?CONTENTPAGE=SearchProc.jsp&division=all&keyoption=<%=keyoption%>&keyword=<%=keyword%>&category=<%=category%>&area=<%=area%>">전체</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-muted" data-toggle="tab" href="SearchResult.jsp?CONTENTPAGE=SearchProc.jsp&division=book">단행본</a>
@@ -43,7 +62,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- 메뉴 선택시 출력화면 -->
     <div id="contentPage">
     	<jsp:include page="<%=contentPage%>" flush="false"/>
