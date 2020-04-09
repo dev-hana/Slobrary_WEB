@@ -1,6 +1,6 @@
-package bean;
+package database;
 
-public class BookInfo {
+public class BookBean {
 	private String id_num;
 	private String type;
 	private String name;
@@ -92,5 +92,4 @@ public class BookInfo {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
 }
