@@ -1,6 +1,6 @@
-package bean;
+package database;
 
-public class BookInfo {
+public class BookBean {
 	private String id_num;
 	private String type;
 	private String name;
@@ -8,10 +8,10 @@ public class BookInfo {
 	private String publisher;
 	private String issue;
 	private String form;
-	private int isbn;
+	private String isbn;
 	private String class_id;
 	private String language;
-	private String colloctor;
+	private String collector;
 	private String sign;
 	private String status;
 	public String getId_num() {
@@ -56,10 +56,10 @@ public class BookInfo {
 	public void setForm(String form) {
 		this.form = form;
 	}
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 	public String getClass_id() {
@@ -74,11 +74,11 @@ public class BookInfo {
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	public String getColloctor() {
-		return colloctor;
+	public String getCollector() {
+		return collector;
 	}
-	public void setColloctor(String colloctor) {
-		this.colloctor = colloctor;
+	public void setCollector(String collector) {
+		this.collector = collector;
 	}
 	public String getSign() {
 		return sign;
@@ -92,5 +92,4 @@ public class BookInfo {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
 }

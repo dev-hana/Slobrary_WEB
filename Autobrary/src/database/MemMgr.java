@@ -6,7 +6,6 @@ import java.util.Vector;
 
 import database.MemBean;
 import database.DBConnectionMgr;
-import database.MemBean;
 
 public class MemMgr {
 	
