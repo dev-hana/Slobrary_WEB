@@ -73,7 +73,6 @@ local.properties
 
 ### Java ###
 # Compiled class file
-*.class
 
 # Log file
 *.log
