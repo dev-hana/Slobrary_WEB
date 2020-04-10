@@ -50,13 +50,13 @@
                 <a class="nav-link text-muted active" data-toggle="tab" href="SearchResult.jsp?CONTENTPAGE=SearchProc.jsp&division=all&keyoption=<%=keyoption%>&keyword=<%=keyword%>&category=<%=category%>&area=<%=area%>">전체</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-muted" data-toggle="tab" href="SearchResult.jsp?CONTENTPAGE=SearchProc.jsp&division=book">단행본</a>
+                <a class="nav-link text-muted" data-toggle="tab" href="SearchResult.jsp?CONTENTPAGE=SearchProc.jsp&division=단행본&keyoption=<%=keyoption%>&keyword=<%=keyword%>&category=<%=category%>&area=<%=area%>">단행본</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-muted" data-toggle="tab" href="SearchResult.jsp?CONTENTPAGE=SearchProc.jsp&division=year">연간속행물</a>
+                <a class="nav-link text-muted" data-toggle="tab" href="SearchResult.jsp?CONTENTPAGE=SearchProc.jsp&division=연간속행물&keyoption=<%=keyoption%>&keyword=<%=keyword%>&category=<%=category%>&area=<%=area%>">연간속행물</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-muted" data-toggle="tab" href="SearchResult.jsp?CONTENTPAGE=SearchProc.jsp&division=nonbook">비도서</a>
+                <a class="nav-link text-muted" data-toggle="tab" href="SearchResult.jsp?CONTENTPAGE=SearchProc.jsp&division=비도서&keyoption=<%=keyoption%>&keyword=<%=keyword%>&category=<%=category%>&area=<%=area%>">비도서</a>
               </li>
             </ul>
         </div>

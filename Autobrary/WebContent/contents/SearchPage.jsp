@@ -36,7 +36,8 @@
 <div style="text-align:center">
   <div style="display: inline-block" class="sel sel--black-panther">
   <select name="keyoption" id="select-profession">
-  	<option value="all" selected disabled>검색옵션</option>
+  	<option value="all">검색옵션</option>
+  	<option value="all">전체</option>
     <option value="title">도서명</option>
     <option value="author">저자</option>
     <option value="publisher">출판사</option>
