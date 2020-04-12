@@ -1,6 +1,6 @@
-CREATE DATABASE `autobrary` DEFAULT CHARACTER SET utf8 ;
+CREATE DATABASE `slo` DEFAULT CHARACTER SET utf8 ;
 
-use autobrary;
+use slo;
 
 create table admin_info(
 	id varchar(20) primary key,
@@ -10,7 +10,6 @@ create table admin_info(
     add_date TIMESTAMP DEFAULT NOW(),
     a_rank varchar(10) not null
 );
-
 
 insert into admin_info values ( 'wldms3433', 'jang9703', '장지은', '01091473246', now(), 'master');
 
@@ -36,6 +35,8 @@ insert into member values ('12345', 'ji970', '1234', '장지은', 'F', '01091473
     
 alter table member modify mem_id varchar(20) not null unique;
 alter table member modify passwd longtext not null;
+
+alter table member modify adress longtext;
 
 select * from member;
 select * from member where mem_id = 'ji970';
@@ -64,7 +65,7 @@ create table book_info(
  alter table book_info add column image longblob;
 alter table book_info modify author longtext not null;
 alter table book_info modify ISBN bigint not null;
-INSERT INTO `autobrary`.`book_info`
+INSERT INTO book_info
 VALUES ('EM207872', '단행본', '팩트풀니스 : 우리가 세상을 오해하는 10가지 이유와 세상이 생각보다 괜찮은 이유', '한스 로슬링 ; 올라 로슬링 ; 안나 로슬링 뢴룬드 [공]지음 ; 이창신 옮김.', '김영사', '파주 : 김영사, 2019.', '473 p. : 삽도, 도표 ; 22 cm.', '9788934985068', '180', '한국어', '인문사회자료실', ' 182.3 로58ㅍ ', '대출가능', load_file('c:\\fact.jpg'));
 select * from book_info;
  insert into book_info(image) values (load_file('c:\\fact.jpg'));
@@ -106,4 +107,6 @@ create table watch_list(
 
 
 select * from member where RFID='12345';
+select * from book_info;
+
 
