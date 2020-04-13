@@ -10,6 +10,7 @@
   <head>
     <meta charset="utf-8">
     <title>Admin Login</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
   </head>
   <body align="center" style="margin-top:180px;">
     <h1 style="color:#042759;">&nbsp 관리자 로그인</h1>

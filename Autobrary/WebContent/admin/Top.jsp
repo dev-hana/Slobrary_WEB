@@ -18,4 +18,5 @@
     border: none;
     border-radius:5px;"
     onclick="location.href='AdminLogout.jsp' ">LOGOUT</button>
+    <link rel="shortcut icon" href="../img/favicon.ico">
   </div>
