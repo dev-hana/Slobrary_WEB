@@ -4,6 +4,7 @@
 
 ### Eclipse ###
 .metadata
+Servers/
 bin/
 tmp/
 *.tmp
