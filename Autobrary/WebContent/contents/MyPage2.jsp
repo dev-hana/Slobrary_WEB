@@ -5,12 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <link rel="shortcut icon" href="../img/favicon.ico">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <style>
-html, body {width: 100%; height: 100%;}
+html, body {
+	width: 100%; 
+	height: 100%;
+	font-family: 'Nanum Gothic Coding', monospace;
+}
 body{
 	background-color:#f2f3fa;
 	
@@ -61,7 +66,7 @@ a:hover {
 <title>Insert title here</title>
 </head>
 <body style="bgcolor:#f2f3fa;">
-	<div>
+	<div class="container">
 	<div class="contents">
 	<div style="float:left;">
 	<div class="myInfo shadow-sm p-3 mb-5 bg-white rounded">

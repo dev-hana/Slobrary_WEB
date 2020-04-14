@@ -7,7 +7,7 @@
 <link rel="shortcut icon" href="../img/favicon.ico">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<title>Insert title here</title>
+<title>404</title>
 <style>
 	body,html {
  	 height: 100%;
