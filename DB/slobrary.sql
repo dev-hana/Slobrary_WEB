@@ -15,6 +15,7 @@ create table admin_info(
 insert into admin_info values ( 'wldms3433', 'jang9703', '장지은', '01091473246', now(), 'master');
 
 select * from admin_info;
+
 alter table admin_info modify passwd longtext not null;
 alter table admin_info modify a_rank varchar(10);
 
@@ -31,6 +32,7 @@ create table member(
     loan_status char(3) not null,
     add_date timestamp default now()
 );
+
 
 select * from member;
 
@@ -62,6 +64,112 @@ create table sub_class(
 
 
 select * from sub_class;
+
+insert into sub_class(s_id, s_name, m_id) values('1', '도서학,서지학', '0');
+insert into sub_class(s_id, s_name, m_id) values('2', '문헌정보학', '0');
+insert into sub_class(s_id, s_name, m_id) values('3', '백과사전', '0');
+insert into sub_class(s_id, s_name, m_id) values('4', '강연집,수필집,연설문집', '0');
+insert into sub_class(s_id, s_name, m_id) values('5', '일반연속간행물', '0');
+insert into sub_class(s_id, s_name, m_id) values('6', '일반학회,단체,협회,기관', '0');
+insert into sub_class(s_id, s_name, m_id) values('7', '신문,언론,저널리즘', '0');
+insert into sub_class(s_id, s_name, m_id) values('8', '일반전집,총서', '0');
+insert into sub_class(s_id, s_name, m_id) values('9', '향토자료', '0');
+
+insert into sub_class(s_id, s_name, m_id) values('1', '형이상학', '1');
+insert into sub_class(s_id, s_name, m_id) values('2', '인식론,인과론,인간학', '1');
+insert into sub_class(s_id, s_name, m_id) values('3', '철학의 체계', '1');
+insert into sub_class(s_id, s_name, m_id) values('4', '경학', '1');
+insert into sub_class(s_id, s_name, m_id) values('5', '동양철학,사상', '1');
+insert into sub_class(s_id, s_name, m_id) values('6', '서양철학', '1');
+insert into sub_class(s_id, s_name, m_id) values('7', '논리학', '1');
+insert into sub_class(s_id, s_name, m_id) values('8', '심리학', '1');
+insert into sub_class(s_id, s_name, m_id) values('9', '윤리학,도덕철학', '1');
+
+insert into sub_class(s_id, s_name, m_id) values('1', '비교종교', '2');
+insert into sub_class(s_id, s_name, m_id) values('2', '불교', '2');
+insert into sub_class(s_id, s_name, m_id) values('3', '기독교', '2');
+insert into sub_class(s_id, s_name, m_id) values('4', '도교', '2');
+insert into sub_class(s_id, s_name, m_id) values('5', '천도교', '2');
+insert into sub_class(s_id, s_name, m_id) values('6', '신도', '2');
+insert into sub_class(s_id, s_name, m_id) values('7', '힌두교,브라만교', '2');
+insert into sub_class(s_id, s_name, m_id) values('8', '이슬람교(회교)', '2');
+insert into sub_class(s_id, s_name, m_id) values('9', '기타 제종교', '2');
+
+insert into sub_class(s_id, s_name, m_id) values('1', '통계학', '3');
+insert into sub_class(s_id, s_name, m_id) values('2', '경제학', '3');
+insert into sub_class(s_id, s_name, m_id) values('3', '사회학,사회문제', '3');
+insert into sub_class(s_id, s_name, m_id) values('4', '정치학', '3');
+insert into sub_class(s_id, s_name, m_id) values('5', '행정학', '3');
+insert into sub_class(s_id, s_name, m_id) values('6', '법학', '3');
+insert into sub_class(s_id, s_name, m_id) values('7', '교육학', '3');
+insert into sub_class(s_id, s_name, m_id) values('8', '풍석,예절,민속학', '3');
+insert into sub_class(s_id, s_name, m_id) values('9', '국방,군사학', '3');
+
+insert into sub_class(s_id, s_name, m_id) values('1', '수학', '4');
+insert into sub_class(s_id, s_name, m_id) values('2', '물리학', '4');
+insert into sub_class(s_id, s_name, m_id) values('3', '화학', '4');
+insert into sub_class(s_id, s_name, m_id) values('4', '천문학', '4');
+insert into sub_class(s_id, s_name, m_id) values('5', '지학', '4');
+insert into sub_class(s_id, s_name, m_id) values('6', '광물학', '4');
+insert into sub_class(s_id, s_name, m_id) values('7', '생명과학', '4');
+insert into sub_class(s_id, s_name, m_id) values('8', '식물학', '4');
+insert into sub_class(s_id, s_name, m_id) values('9', '동물학', '4');
+
+
+insert into sub_class(s_id, s_name, m_id) values('1', '의학', '5');
+insert into sub_class(s_id, s_name, m_id) values('2', '농업,농학', '5');
+insert into sub_class(s_id, s_name, m_id) values('3', '공학,공업일반,토목공학,환경공학', '5');
+insert into sub_class(s_id, s_name, m_id) values('4', '건축공학', '5');
+insert into sub_class(s_id, s_name, m_id) values('5', '기계꽁학', '5');
+insert into sub_class(s_id, s_name, m_id) values('6', '전기공학,전자공학', '5');
+insert into sub_class(s_id, s_name, m_id) values('7', '화학공학', '5');
+insert into sub_class(s_id, s_name, m_id) values('8', '제조업', '5');
+insert into sub_class(s_id, s_name, m_id) values('9', '생활과학', '5');
+
+insert into sub_class(s_id, s_name, m_id) values('1', '건축물', '6');
+insert into sub_class(s_id, s_name, m_id) values('2', '조각,조형예술', '6');
+insert into sub_class(s_id, s_name, m_id) values('3', '공예,장식미술', '6');
+insert into sub_class(s_id, s_name, m_id) values('4', '서예', '6');
+insert into sub_class(s_id, s_name, m_id) values('5', '회화,도화', '6');
+insert into sub_class(s_id, s_name, m_id) values('6', '사진예술', '6');
+insert into sub_class(s_id, s_name, m_id) values('7', '음악', '6');
+insert into sub_class(s_id, s_name, m_id) values('8', '공연예술,매체예술', '6');
+insert into sub_class(s_id, s_name, m_id) values('9', '오락,스포츠', '6');
+
+insert into sub_class(s_id, s_name, m_id) values('1', '한국어', '7');
+insert into sub_class(s_id, s_name, m_id) values('2', '중국어', '7');
+insert into sub_class(s_id, s_name, m_id) values('3', '일본어,기타아시아제어', '7');
+insert into sub_class(s_id, s_name, m_id) values('4', '영어', '7');
+insert into sub_class(s_id, s_name, m_id) values('5', '독일어', '7');
+insert into sub_class(s_id, s_name, m_id) values('6', '프랑스어', '7');
+insert into sub_class(s_id, s_name, m_id) values('7', '스페인어,포루투칼어', '7');
+insert into sub_class(s_id, s_name, m_id) values('8', '이탈리아어', '7');
+insert into sub_class(s_id, s_name, m_id) values('9', '기타제어', '7');
+
+insert into sub_class(s_id, s_name, m_id) values('1', '한국문학', '8');
+insert into sub_class(s_id, s_name, m_id) values('2', '중국문학', '8');
+insert into sub_class(s_id, s_name, m_id) values('3', '일본문학,기타아시아문학', '8');
+insert into sub_class(s_id, s_name, m_id) values('4', '영미문학', '8');
+insert into sub_class(s_id, s_name, m_id) values('5', '독일문학', '8');
+insert into sub_class(s_id, s_name, m_id) values('6', '프랑스문학', '8');
+insert into sub_class(s_id, s_name, m_id) values('7', '스페인,포르투칼문학', '8');
+insert into sub_class(s_id, s_name, m_id) values('8', '이탈리아문학', '8');
+insert into sub_class(s_id, s_name, m_id) values('9', '기타제문학', '8');
+
+insert into sub_class(s_id, s_name, m_id) values('1', '아시아', '9');
+insert into sub_class(s_id, s_name, m_id) values('2', '유럽', '9');
+insert into sub_class(s_id, s_name, m_id) values('3', '아프리카', '9');
+insert into sub_class(s_id, s_name, m_id) values('4', '북아메리카', '9');
+insert into sub_class(s_id, s_name, m_id) values('5', '남아메리카', '9');
+insert into sub_class(s_id, s_name, m_id) values('6', '오세아니아', '9');
+insert into sub_class(s_id, s_name, m_id) values('7', '양극지방', '9');
+insert into sub_class(s_id, s_name, m_id) values('8', '지리', '9');
+insert into sub_class(s_id, s_name, m_id) values('9', '전기', '9');
+
+select count(*) from sub_class;
+select * from sub_class;
+
+delete from sub_class where s_id is null;
 
 create table book_info(
 	id_num varchar(20) primary key,
