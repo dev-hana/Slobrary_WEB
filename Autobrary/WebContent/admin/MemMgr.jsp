@@ -43,7 +43,7 @@
  	<th class="th1">생년월일</th>
  	<th class="th1">전화번호</th>
  	<th class="th1">등록날짜</th>
- 	<th class="th1">대출가능여부</th>
+ 	<th class="th1">대출정보</th>
  	<th class="th1">관리</th>
  	
  	<%
