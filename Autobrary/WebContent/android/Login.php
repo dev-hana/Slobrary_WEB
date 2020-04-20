@@ -8,7 +8,7 @@
 	$statement = mysqli_prepare($con, "SELECT * FROM member WHERE MEM_ID = ?");	//테이블안아이디확인
 	mysqli_stmt_bind_param($statement, "s", $ID);	
 	mysqli_stmt_execute($statement);
-    $result = mtsqli_stmt_get_result($statement);
+    $result = mysqli_stmt_get_result($statement);
 
 	$response = array();	
 	$response["success"] = false;
