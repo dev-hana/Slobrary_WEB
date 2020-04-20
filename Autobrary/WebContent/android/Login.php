@@ -14,7 +14,7 @@
 
 	while(mysqli_stmt_fetch($statement)){
 		$response["success"] = true;
-		$response["ID"] = $ID;
+		$response["MEM_ID"] = $ID;
 		$response["PASSWD"] = $PASSWD;
 	}
 	
