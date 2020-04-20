@@ -3,7 +3,7 @@
 	
 	$ID = $_POST["ID"];
 
-	$statement = mysqli_prepare($con, "SELECT * FROM MEMBER WHERE ID = ?");	//테이블안아이디확인
+	$statement = mysqli_prepare($con, "SELECT * FROM MEMBER WHERE MEM_ID = ?");	//테이블안아이디확인
 	mysqli_stmt_bind_param($statement, "s", $ID);	
 	mysqli_stmt_execute($statement);
 
@@ -16,7 +16,7 @@
 	while(mysqli_stmt_fetch($statement)){
 		$response["success"] = true;
 		$response["ID"] = $ID;
-		$response["PASSWD"] = $Password;
+		$response["PASSWD"] = $PASSWD;
 	}
 	
 	
