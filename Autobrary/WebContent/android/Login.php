@@ -1,11 +1,15 @@
 <?php	//중복방지문
+/* 
+	작성자: 장지은
+ */
 
+	//***********************보안 정보 취급 유의********************************//
 	$con = mysqli_connect("www.slobrary.com", "slo", "legoslo2020", "slo");	//아이피,아이디,비번,디비이름
-	
+	//***********************보안 정보 취급 유의********************************//
 	$ID = $_POST["ID"];
 	
 	
-	$statement = mysqli_prepare($con, "SELECT * FROM member WHERE MEM_ID = ?");	//테이블안아이디확인
+	$statement = mysqli_prepare($con, "SELECT passwd FROM member WHERE MEM_ID = ?");	//테이블안아이디확인
 	mysqli_stmt_bind_param($statement, "s", $ID);	
 	mysqli_stmt_execute($statement);
     $result = mysqli_stmt_get_result($statement);
@@ -15,7 +19,6 @@
 
 	while($row = mysqli_fetch_assoc($result)){
 		$response["success"] = true;
-		$response["MEM_ID"] = $ID;
 		$response["PASSWD"]= $row["passwd"];
 	}
 	
