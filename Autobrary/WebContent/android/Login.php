@@ -2,8 +2,7 @@
 	$con = mysqli_connect("www.slobrary.com", "slo", "legoslo2020", "slo");	//아이피,아이디,비번,디비이름
 	
 	$ID = $_POST["ID"];
-
-	$statement = mysqli_prepare($con, "SELECT * FROM MEMBER WHERE MEM_ID = ?");	//테이블안아이디확인
+	$statement = mysqli_prepare($con, "SELECT * FROM member WHERE MEM_ID = ?");	//테이블안아이디확인
 	mysqli_stmt_bind_param($statement, "s", $ID);	
 	mysqli_stmt_execute($statement);
 
