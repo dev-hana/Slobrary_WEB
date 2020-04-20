@@ -16,7 +16,7 @@
 	while($row = mysqli_fetch_assoc($result)){
 		$response["success"] = true;
 		$response["MEM_ID"] = $ID;
-		$response["PASSWD"]= $row["PASSWD"];
+		$response["PASSWD"]= $row["passwd"];
 	}
 	
 	
