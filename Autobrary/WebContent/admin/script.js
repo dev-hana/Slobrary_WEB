@@ -3,10 +3,16 @@ function SendMem(mem_id) {
 	document.sendMem.submit();
 }
 
-function DelMem(rfid){
-	document.delMem.rfid.value=rfid;
+function DelMem(mem_id) {
+	document.delMem.mem_id.value=mem_id;
 	document.delMem.submit();
 }
+
+function UpMem(mem_id) {
+	document.upMem.mem_id.value=mem_id;
+	document.upMem.submit();
+}
+
 
 function SendBook(id_num) {
 	document.sendBook.id_num.value=id_num;

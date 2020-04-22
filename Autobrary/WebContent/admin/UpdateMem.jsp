@@ -13,7 +13,7 @@
 	String mem_id = request.getParameter("mem_id");
 	MemBean memBean= memMgr.getMember(mem_id);
 %>
-<title>상세정보</title>
+<title>회원수정</title>
 <style>
 table.type03 {
     border-collapse: collapse;
@@ -65,15 +65,15 @@ table.type03 td {
     </tr>
      <tr>
         <th scope="row">핸드폰</th>
-        <td><%=memBean.getMem_phone()%></td>
+        <td><input type="text" name="mem_phone" value="<%=memBean.getMem_phone()%>"></td>
     </tr>
     <tr>
         <th scope="row">주소</th>
-        <td><%=memBean.getMem_adress() %></td>
+        <td><input type="text" name="mem_address" value="<%=memBean.getMem_adress() %>"></td>
     </tr>
      <tr>
         <th scope="row">이메일</th>
-        <td><%=memBean.getMem_mail() %></td>
+        <td><input type="text" name="mem_mail" value="<%=memBean.getMem_mail() %>"></td>
     </tr>
      <tr>
         <th scope="row">대출가능여부</th>
@@ -83,13 +83,19 @@ table.type03 td {
         <th scope="row">가입날짜</th>
         <td><%=memBean.getMem_date()%></td>
     </tr>
+    <tr>
+        <th scope="row">탈퇴</th>
+        <td><a class="btn" href="javascript:DelMem('<%=memBean.getMem_id() %>')">탈퇴</a></td>
+    </tr>
 </table>
 <div style="text-align:center;">
-<a class="btn" href="javascript:SendMem('<%=memBean.getMem_id() %>')">수정</a>
-
+<a class="btn" href="javascript:UpMem('<%=memBean.getMem_id() %>')">수정완료</a>
 </div>
 <%@ include file="Bottom.jsp" %>
-<form name="sendMem" method="post" action="UpdateMem.jsp">
+<form name="upMem" method="post" action="UpdateMem.jsp">
+	<input type=hidden name="mem_id">
+</form>
+<form name="delMem" method="post" action="UpdateMem.jsp">
 	<input type=hidden name="mem_id">
 </form>
 </body>
