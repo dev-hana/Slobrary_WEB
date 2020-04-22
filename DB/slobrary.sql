@@ -34,8 +34,8 @@ create table member(
 );
 
 
-select * from member;
-
+select withdrawal from member;
+alter table member add column withdrawal timestamp;
 
 create table main_class(
 	m_id char(1) primary key,
