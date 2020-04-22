@@ -1,9 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
     <title>Autobrary</title>
     <link href="index.css" rel="stylesheet">
 
@@ -19,8 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-
+    
     <script>
         //달력 https://jerryjerryjerry.tistory.com/26
         var today = new Date();
@@ -74,32 +74,10 @@
             }
         }
     </script>
-
-    <style>
-        #search-searchbar div span {
-            background-color: #fff;
-            border: none;
-        }
-
-        #search-searchbar input {
-            background-color: #fff;
-            border: none;
-        }
-
-        #search-searchbar {
-            background-color: #fff;
-            padding: 5px;
-            border-radius: 30px;
-        }
-
-        #nav_header {
-            background: #fff;
-        }
-    </style>
 </head>
-
 <body class="bg-light">
     <header class="pt-4 shadow-sm bg-white">
+    <jsp:include page="Top.jsp" flush="false"/>
     </header>
     <div id="body-main" class="p-4">
         <div class="container">
@@ -400,47 +378,4 @@
         </div>
     </div>
 </body>
-<script>
-    $(document).ready(function() {
-        var $nav_header = $("#nav-header");
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100 && $nav_header.hasClass("navbar-light")) {
-                $nav_header.removeClass("navbar-light").addClass("navbar-dark bg-reverse fixed-top");
-                $("#logo-nav").show();
-            } else if ($(this).scrollTop() <= 100 && $nav_header.hasClass("navbar-dark bg-reverse fixed-top")) {
-                $nav_header.removeClass("navbar-dark bg-reverse fixed-top").addClass("navbar-light");
-                $("#logo-nav").hide();
-            }
-        }); //scroll
-    });
-
-    $(document).ready(function() {
-        var $default3 = $("#nav-size");
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100 && $default3.hasClass("container-fuil")) {
-                $default3.removeClass("container-fuil").addClass("container");
-            } else if ($(this).scrollTop() <= 100 && $default3.hasClass("container")) {
-                $default3.removeClass("container").addClass("container-fuil");
-            }
-        }); //scroll
-    });
-
-    jQuery(window).scroll(function() {
-        if (jQuery(window).scrollTop() > 100) {
-            jQuery('#logo-small').css('display', 'block');
-        } else {
-            jQuery('#logo-small').css('display', 'none');
-        }
-    });
-    jQuery(window).scroll(function() {
-        if (jQuery(window).scrollTop() > 100) {
-            jQuery('#nav-size').css('display', 'block');
-            jQuery('#nav-size-small').css('display', 'none');
-        } else {
-            jQuery('#nav-size').css('display', 'block');
-            jQuery('#nav-size-small').css('display', 'none');
-        }
-    });
-</script>
-
 </html>
