@@ -46,7 +46,9 @@ table.type03 td {
 <body>
 <%@ include file="Top.jsp" %> 
 <br><br>
+<form name="redForm" method="post" action="UpdateProc.jsp">
 <table class="type03" style="margin-left:auto; margin-right:auto;">
+
     <tr>
         <th scope="row">아이디</th>
         <td><%=mem_id %></td>
@@ -69,7 +71,7 @@ table.type03 td {
     </tr>
     <tr>
         <th scope="row">주소</th>
-        <td><input type="text" name="mem_address" value="<%=memBean.getMem_adress() %>"></td>
+        <td><input type="text" name="mem_adress" value="<%=memBean.getMem_adress() %>"></td>
     </tr>
      <tr>
         <th scope="row">이메일</th>
@@ -85,18 +87,17 @@ table.type03 td {
     </tr>
     <tr>
         <th scope="row">탈퇴</th>
-        <td><a class="btn" href="javascript:DelMem('<%=memBean.getMem_id() %>')">탈퇴</a></td>
+       <td><a class="btn" href="javascript:DelMem('<%=memBean.getMem_id() %>')">탈퇴</a></td> 
     </tr>
 </table>
 <div style="text-align:center;">
-<a class="btn" href="javascript:UpMem('<%=memBean.getMem_id() %>')">수정완료</a>
+<input type="submit" class="btn" value="수정완료">
 </div>
+<input type="hidden" name="mem_id" value="<%=mem_id %>">
+</form>
+
+
 <%@ include file="Bottom.jsp" %>
-<form name="upMem" method="post" action="UpdateMem.jsp">
-	<input type=hidden name="mem_id">
-</form>
-<form name="delMem" method="post" action="UpdateMem.jsp">
-	<input type=hidden name="mem_id">
-</form>
+
 </body>
 </html>

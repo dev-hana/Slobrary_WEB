@@ -115,7 +115,7 @@ public class MemMgr {
         boolean flag = false;
         try {
             con = pool.getConnection();
-            String strQuery = "update members set phone=?, adress=?, email =? where mem_id =? ";
+            String strQuery = "update member set phone=?, adress=?, email =? where mem_id =? ";
             
 
             pstmt = con.prepareStatement(strQuery);
@@ -123,7 +123,7 @@ public class MemMgr {
             pstmt.setString(1, regBean.getMem_phone());
             pstmt.setString(2, regBean.getMem_adress());
             pstmt.setString(3, regBean.getMem_mail());
-            pstmt.setString(2, regBean.getMem_id());
+            pstmt.setString(4, regBean.getMem_id());
             int count = pstmt.executeUpdate();
 
             if (count == 1) {
