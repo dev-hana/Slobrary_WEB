@@ -4,7 +4,8 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Select-Boxes</title>
+  <title>도서검색</title>
+  <link rel="shortcut icon" href="/img/favicon.ico">
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato|Quicksand'>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
 <link rel="stylesheet" href="../css/SearchPage.css"> 
