@@ -17,6 +17,13 @@ public class MemBean {
 	private String mem_mail;
 	private String loan_status;
 	private String mem_date;
+	private String withdrawal;
+	public String getWithdrawal() {
+		return withdrawal;
+	}
+	public void setWithdrawal(String withdrawal) {
+		this.withdrawal = withdrawal;
+	}
 	public String getRFID() {
 		return RFID;
 	}

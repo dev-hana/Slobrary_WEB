@@ -27,24 +27,24 @@ public class MemMgr {
 
         try {
             con = pool.getConnection();
-            String strQuery = "select * from member";
+            String strQuery = "select mem_id, name, gender, birth, phone, adress, email, loan_status, add_date, withdrawal from member";
             stmt = con.createStatement();
             rs = stmt.executeQuery(strQuery);
 
             while (rs.next()) {
                 MemBean memBean = new MemBean();
-                memBean.setRFID(rs.getString("RFID"));
-                memBean.setMem_id(rs.getString("mem_id"));
-                memBean.setMem_pw(rs.getString("passwd"));
-                memBean.setMem_name(rs.getString("name"));
-                memBean.setMem_gender(rs.getString("gender"));
-                memBean.setMem_phone(rs.getString("phone"));
-                memBean.setMem_birth(rs.getString("birth"));
-                memBean.setMem_date(rs.getString("add_date"));
-                memBean.setLoan_status(rs.getString("loan_status"));
-                vecList.add(memBean);
+                if(rs.getString("withdrawal")==null) {
+                	memBean.setMem_id(rs.getString("mem_id"));
+                	memBean.setMem_name(rs.getString("name"));
+                	memBean.setMem_gender(rs.getString("gender"));
+                	memBean.setMem_phone(rs.getString("phone"));
+                	memBean.setMem_birth(rs.getString("birth"));
+                	memBean.setMem_date(rs.getString("add_date"));
+                	memBean.setLoan_status(rs.getString("loan_status"));
+                	vecList.add(memBean);
+                }
             }
-        } catch (Exception ex) {
+        }catch (Exception ex) {
             System.out.println("Exception" + ex);
         } finally {
             pool.freeConnection(con, stmt, rs);
@@ -87,40 +87,6 @@ public class MemMgr {
         return memBean;
     }
     
-    public MemBean getMemberr(String RFID) {
-        Connection con = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        MemBean memBean = null;
-
-        try {
-            con = pool.getConnection();
-            String strQuery = "select * from member where RFID=?;";
-            pstmt = con.prepareStatement(strQuery);
-            pstmt.setString(1, RFID);
-            rs = pstmt.executeQuery();
-
-            if (rs.next()) {
-            	memBean = new MemBean();
-            	
-            	memBean.setRFID(rs.getString("RFID"));
-            	memBean.setMem_id(rs.getString("mem_id"));
-            	memBean.setMem_name(rs.getString("name"));
-            	memBean.setMem_gender(rs.getString("gender"));
-            	memBean.setMem_phone(rs.getString("phone"));    	 
-            	memBean.setMem_birth(rs.getString("birth"));
-                memBean.setMem_adress(rs.getString("adress"));
-            	memBean.setMem_mail(rs.getString("email"));
-            	memBean.setLoan_status(rs.getString("loan_status"));
-            	memBean.setMem_date(rs.getString("add_date"));
-            }
-        } catch (Exception ex) {
-            System.out.println("Exception" + ex);
-        } finally {
-            pool.freeConnection(con, pstmt, rs);
-        }
-        return memBean;
-    }
     
     public boolean deleteMember(MemBean memBean) {
     	Connection con = null;

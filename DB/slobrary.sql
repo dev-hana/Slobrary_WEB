@@ -33,9 +33,13 @@ create table member(
     add_date timestamp default now()
 );
 
-
 select withdrawal from member;
-alter table member add column withdrawal timestamp;
+alter table member modify column withdrawal timestamp;
+
+update member set withdrawal = now() where mem_id = 'dw';
+
+select mem_id, name, gender, birth, phone, adress, email, loan_status, add_date from member
+where withdrawal is null;
 
 create table main_class(
 	m_id char(1) primary key,
