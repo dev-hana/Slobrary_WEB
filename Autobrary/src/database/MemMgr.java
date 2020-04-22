@@ -108,5 +108,34 @@ public class MemMgr {
         }
         return flag;
     }
+    
+    public boolean memberUpdate(MemBean regBean) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        try {
+            con = pool.getConnection();
+            String strQuery = "update members set phone=?, adress=?, email =? where mem_id =? ";
+            
+
+            pstmt = con.prepareStatement(strQuery);
+
+            pstmt.setString(1, regBean.getMem_phone());
+            pstmt.setString(2, regBean.getMem_adress());
+            pstmt.setString(3, regBean.getMem_mail());
+            pstmt.setString(2, regBean.getMem_id());
+            int count = pstmt.executeUpdate();
+
+            if (count == 1) {
+                flag = true;
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
 
 }
