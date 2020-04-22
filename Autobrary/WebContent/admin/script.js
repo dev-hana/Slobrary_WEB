@@ -8,10 +8,6 @@ function DelMem(mem_id) {
 	document.delMem.submit();
 }
 
-function UpMem(mem_id) {
-	document.upMem.mem_id.value=mem_id;
-	document.upMem.submit();
-}
 
 
 function SendBook(id_num) {

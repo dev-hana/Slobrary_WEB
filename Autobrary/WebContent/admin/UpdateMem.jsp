@@ -95,7 +95,9 @@ table.type03 td {
 </div>
 <input type="hidden" name="mem_id" value="<%=mem_id %>">
 </form>
-
+<form name="delMem" method="post" action="DeleteProc.jsp">
+<input type=hidden name="mem_id">
+</form>
 
 <%@ include file="Bottom.jsp" %>
 

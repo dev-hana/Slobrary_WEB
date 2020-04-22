@@ -33,11 +33,11 @@ create table member(
     add_date timestamp default now()
 );
 
-select withdrawal from member;
+select * from member;
 alter table member modify column withdrawal timestamp;
 
 update member set withdrawal = now() where mem_id = 'dw';
-
+update member set withdrawal = null where mem_id = 'test';
 select mem_id, name, gender, birth, phone, adress, email, loan_status, add_date from member
 where withdrawal is null;
 

@@ -88,15 +88,15 @@ public class MemMgr {
     }
     
     
-    public boolean deleteMember(MemBean memBean) {
+    public boolean deleteMember(String mem_id) {
     	Connection con = null;
         PreparedStatement pstmt = null;
         boolean flag = false;
-       
+        String sql = "update member set withdrawal = now() where mem_id = ? ";
         try {
         	con = pool.getConnection();
-        	pstmt = con.prepareStatement("delete from member where mem_id = ?");
-        	pstmt.setString(1, memBean.getMem_id());
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, mem_id);
             int count = pstmt.executeUpdate();
             if (count == 1) {
                 flag = true;
