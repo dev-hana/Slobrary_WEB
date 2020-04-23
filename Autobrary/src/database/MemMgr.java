@@ -27,7 +27,7 @@ public class MemMgr {
 
         try {
             con = pool.getConnection();
-            String strQuery = "select mem_id, name, gender, birth, phone, adress, email, loan_status, add_date, withdrawal from member";
+            String strQuery = "select mem_id, name, gender, birth, phone, address, email, loan_status, add_date, withdrawal from member";
             stmt = con.createStatement();
             rs = stmt.executeQuery(strQuery);
 
@@ -74,7 +74,7 @@ public class MemMgr {
             	memBean.setMem_gender(rs.getString("gender"));
             	memBean.setMem_phone(rs.getString("phone"));    	 
             	memBean.setMem_birth(rs.getString("birth"));
-                memBean.setMem_adress(rs.getString("adress"));
+                memBean.setMem_address(rs.getString("address"));
             	memBean.setMem_mail(rs.getString("email"));
             	memBean.setLoan_status(rs.getString("loan_status"));
             	memBean.setMem_date(rs.getString("add_date"));
@@ -115,13 +115,13 @@ public class MemMgr {
         boolean flag = false;
         try {
             con = pool.getConnection();
-            String strQuery = "update member set phone=?, adress=?, email =? where mem_id =? ";
+            String strQuery = "update member set phone=?, address=?, email =? where mem_id =? ";
             
 
             pstmt = con.prepareStatement(strQuery);
 
             pstmt.setString(1, regBean.getMem_phone());
-            pstmt.setString(2, regBean.getMem_adress());
+            pstmt.setString(2, regBean.getMem_address());
             pstmt.setString(3, regBean.getMem_mail());
             pstmt.setString(4, regBean.getMem_id());
             int count = pstmt.executeUpdate();
