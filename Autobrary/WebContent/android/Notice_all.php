@@ -16,22 +16,26 @@ $date = $_POST["date"];
 $response["success"] = false;
 
 $statement = mysqli_prepare($con, "SELECT num, name, admin_id, date FROM notice ");
-mysqli_stmt_bind_param($statement, "isss", $mem_id);
+mysqli_stmt_bind_param($statement, "isss");
 mysqli_stmt_execute($statement);
-mysqli_stmt_store_result($statement);
-mysqli_stmt_bind_result($statement);
+$result = mysqli_stmt_get_result($statement);
+
 
 $response = array();
 $response["success"] = false;
+$count = 0;
+$response_r = array();
 
-while(mysqli_stmt_fetch($statement)){
+while($row = mysqli_fetch_array($result)){
     $response["success"] = true;
-    $response["num"] = $num;
-    $response["name"] = $name;
-    $response["admin_id"] = $admin_id;
-    $response["date"] = $date;
+    $response["num"]= $row["num"];
+    $response["name"]= $row["name"];
+    $response["admin_id"]= $row["admin_id"];
+    $response["date"]= $row["date"];
+    $response_r[$count] = $response;
+    $count = $count + 1;
 }
 
-echo json_encode($response);
+echo json_encode($response_r);
 mysqli_close($con);
 ?>
