@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
     <title>Autobrary</title>
-    <link href="index.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
 
     <!-- 웹폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
@@ -14,7 +14,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script> <!-- 아이콘 라이브러리-->
+	<!-- 아이콘 라이브러리-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <!-- 부트스트랩 4 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

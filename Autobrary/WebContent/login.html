@@ -9,66 +9,6 @@
         * {
             font-family: 'Noto Sans KR', sans-serif;
         }
-
-        #hd_wrap {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: #fff;
-            z-index: 50;
-        }
-
-        #hd_wrap+div {
-            margin-top: 199px;
-        }
-
-        #header {
-            width: 100%;
-            height: 120px;
-        }
-
-        #header .logo {
-            color: #A593E0;
-            font-family: 'Cinzel Decorative', cursive;
-            font-size: 2em;
-            display: block;
-            text-align: center;
-            margin-top: 40px;
-            text-decoration: none;
-        }
-
-        #header p {
-            color: #566270;
-            font-family: 'Cinzel Decorative', cursive;
-            text-align: center;
-            margin-top: -15px;
-        }
-
-        #user li {
-            margin-right: 10px;
-        }
-
-        #user li a {
-            font-size: 0.85em;
-            color: #A593E0;
-            text-decoration: none;
-        }
-
-        #main_wrap {
-            margin-top: 170px;
-            padding: 0px 100px 100px 100px;
-        }
-
-        #main_nav ul li a {
-            color: #566270;
-        }
-
-        #main_nav ul li a:hover {
-            color: #A593E0;
-            border-bottom: 2px #A593E0 solid;
-        }
-    
-        
         #submit-btn {
             background-color: #566270;
             color: #FFFFF3;
@@ -87,27 +27,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<body class="bg-light">
+<body  class="bg-light">
     <div id="document">
-        <header id="hd_wrap" class="bg-white">
-            <div id="header">
-                <ul id="user" class="nav justify-content-end">
-                    <li><a href="/web/login.do?menuIdx=414">로그인</a></li>
-                    <li><a href="/web/login.do?menuIdx=414">회원가입</a></li>
-                </ul>
-                <a href="/" class="logo">Autobrary</a>
-                <p>just take it!</p>
-            </div>
-            <div id="main_nav" class="shadow-sm pt-3 bg-white rounded">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item"><a class="nav-link" href="#">도서검색</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">공지사항</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">희망도서</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>
-                </ul>
-            </div>
-        </header>
-        <main id="main_wrap">
             <div class="row p-5">
                 <div class="col bg-white shadow-sm p-5">
                     <h4>로그인</h4>
@@ -125,11 +46,14 @@
                             <input type="checkbox" class="form-check-input" id="checkbox">
                             <label class="form-check-label" for="checkbox">내 정보 기억하기</label>
                         </div>
+                        <div class="form-group">
+                            <a href="#">비밀번호 찾기</a>
+                            <a href="#">회원가입</a>
+                        </div>
                         <button id="submit-btn" type="submit" class="btn">로그인</button>
                     </form>
                 </div>
             </div>
-        </main>
     </div>
 </body>
 
