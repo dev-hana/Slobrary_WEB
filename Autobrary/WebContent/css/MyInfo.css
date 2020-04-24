@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.row1{
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.table1{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+body{
+		font-family: 'Nanum Gothic Coding', monospace;
+	}
+img{
+	margin-bottom: 10px;
+}
+.btns{
+	text-align: center;
+	padding-bottom: 10px;
+}

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/css/WishBook.css" rel="stylesheet" />
 <link rel="shortcut icon" href="../img/favicon.ico">
  <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
@@ -13,36 +14,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-<style>
-body{
-		font-family: 'Nanum Gothic Coding', monospace;
-		background-color: #f7f9ff;
-	}
-.txt1{
-	text-align: right;
-	font-size: 15px;
-	color: #6E6E6E;
-}
-.title{
-	text-align: center;
-	padding-bottom: 15px;
-	padding-top: 15px;
-}
-.button{
-	text-align:center;
-	padding-bottom: 15px;
-}
-.table1{
-	padding-bottom:30px;
-	padding-top:15px;
-}
-</style>
-
 </head>
-<body>
+<body class="bg-light">
+<jsp:include page="../Top.jsp" flush="false"/>
 	<div class="container-fluid">
-		<div class="row justify-content-md-center">
-			<div class="col-sm-5 shadow-sm p-3 mb-5 bg-white rounded">
+		<div class="row mt-5 justify-content-md-center">
+			<div class="col-sm-4 shadow-sm p-3 mb-5 bg-white rounded">
 				<div class="title">
           		  <h4>희망도서 신청</h4>
       			  </div>
@@ -80,7 +57,7 @@ body{
 					
 				<!-- submit 버튼 -->	
 					<div class="button">
-						<button class="btn pl-5 pr-5" type="submit">확인</button>
+						<button class="btn btn-outline-primary pl-4 pr-4 pl-5 pr-5" type="submit">확인</button>
 					</div>
 				</form>	
 			</div>

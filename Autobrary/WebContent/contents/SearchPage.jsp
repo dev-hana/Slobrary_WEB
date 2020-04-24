@@ -28,9 +28,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 </head>
+
 <body>
-<div class="container-fluid">
-<div>
+<jsp:include page="../Top.jsp" flush="false"/>
+<div class="container-fluid" style="background-color: #EFF2FB;">
+<div class="row mt-3 pt-4 justify-content-md-center">
 <form action="SearchResult.jsp" method="post" target="list">
 <div style="text-align:center">
   <div style="display: inline-block" class="sel sel--black-panther">
@@ -52,7 +54,7 @@
          </div>
   </div>
   <div style="text-align:center">
-  <div class="cbox1 shadow-sm">
+  <div class="cbox1 bg-white shadow-sm">
   	<span class="checktitle">도서분류</span><br>
   	
   	<label>
@@ -107,7 +109,7 @@
   
   </div>
   
-  <div class="cbox2 shadow-sm">
+  <div class="cbox2 bg-white shadow-sm">
   	<span class="checktitle">국내외 분류</span><br>
   	<label>
   	<input type="radio" checked="checked" name="area" value="전체"/>

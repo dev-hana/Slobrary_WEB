@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+body{
+		font-family: 'Nanum Gothic Coding', monospace;
+	}
+.txt1{
+	text-align: right;
+	font-size: 15px;
+	color: #6E6E6E;
+}
+.title{
+	text-align: center;
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+.button{
+	text-align:center;
+	padding-bottom: 15px;
+}
+.table1{
+	padding-bottom:30px;
+	padding-top:15px;
+}

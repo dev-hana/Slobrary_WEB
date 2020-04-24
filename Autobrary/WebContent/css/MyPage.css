@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.row1{
+	border-bottom: 1px solid #c8c8c8;
+	padding-bottom: 10px;
+}
+.row2{
+	text-align: center;
+	padding-top: 30px;
+	
+	border-bottom: 1px solid #c8c8c8;
+}
+.row3{
+	text-align: center;
+	padding-top:15px;
+}
+.img1{
+	margin-bottom: 30px;
+}
+.mypage a:hover{
+	color: #424242;
+	text-decoration: none;
+}
+.mypage a:link { color: #424242; text-decoration: none;}
+.mypage a:visited { color: #424242; text-decoration: none;}

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
     <title>Autobrary</title>
-    <link href="css/top.css" rel="stylesheet">
+    <link href="/css/top.css" rel="stylesheet">
 
     <!-- 웹폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
