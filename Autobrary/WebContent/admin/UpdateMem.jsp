@@ -71,7 +71,7 @@ table.type03 td {
     </tr>
     <tr>
         <th scope="row">주소</th>
-        <td><input type="text" name="mem_adress" value="<%=memBean.getMem_adress() %>"></td>
+        <td><input type="text" name="mem_address" value="<%=memBean.getMem_address() %>"></td>
     </tr>
      <tr>
         <th scope="row">이메일</th>

@@ -23,14 +23,29 @@ body{
 	font-size: 15px;
 	color: #6E6E6E;
 }
+.title{
+	text-align: center;
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+.button{
+	text-align:center;
+	padding-bottom: 15px;
+}
+.table1{
+	padding-bottom:30px;
+	padding-top:15px;
+}
 </style>
 
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-6 shadow-sm p-3 mb-5 bg-white rounded">
-				<span>희망도서 시청</span>
+	<div class="container-fluid">
+		<div class="row justify-content-md-center">
+			<div class="col-sm-5 shadow-sm p-3 mb-5 bg-white rounded">
+				<div class="title">
+          		  <h4>희망도서 신청</h4>
+      			  </div>
 				<hr>
 				<form>
 				<!-- 도서신청 입력 -->
@@ -53,15 +68,18 @@ body{
 							<td><input class="form-control" type="text"></input></td>
 						</tr>
 					</table>
-				</div>
-				
-				<!-- 필수항목 안내 -->
+					
+					<!-- 필수항목 안내 -->
 					<div class="txt1 pr-3">
 						<span>* 필수입력 항목입니다.</span>
 					</div>
 					
+				</div>
+				
+				
+					
 				<!-- submit 버튼 -->	
-					<div>
+					<div class="button">
 						<button class="btn pl-5 pr-5" type="submit">확인</button>
 					</div>
 				</form>	

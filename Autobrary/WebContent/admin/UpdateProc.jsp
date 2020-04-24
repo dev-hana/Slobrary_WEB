@@ -15,7 +15,7 @@ if(flag){
 %>
 		<script>
 		alert("성공적으로 수정하였습니다");
-		location.href="Memdetail.jsp";
+		location.href="MemMgr.jsp";
 		</script>
 <%
 	}else{
