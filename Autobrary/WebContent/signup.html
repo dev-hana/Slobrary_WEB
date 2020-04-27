@@ -4,57 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
-    <title>Autobrary</title>
-    <style>
-        * {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-
-        #submit-btn {
-            background-color: #566270;
-            color: #FFFFF3;
-        }
-
-    </style>
-
+    <title>Slobrary - 회원가입</title>
+    <link href="css/signup.css" rel="stylesheet">
     <!-- 웹폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script> <!-- 아이콘 라이브러리-->
+    <!-- 아이콘 라이브러리-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
     <!-- 부트스트랩 4 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <style>
-        #img-tab {
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .img-cover {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center right;
-        }
-
-        .img-wrapper {
-            text-align: center;
-        }
-
-        #img-tab button {
-            margin-top: 20px;
-            padding: 7px 13px;
-            border-radius: 10px;
-            background: #fff;
-            font-size: 1em;
-        }
-
-    </style>
 </head>
 
 <body class="bg-light">
@@ -67,24 +29,32 @@
                 <form action="/action_page.php" id="signup-form" class="needs-validation" novalidate>
                     <div id="img-tab">
                         <div class="img-wrapper">
-                            <img id="user-img" class="img-cover" src="img/default/user.jpg" alt="프로필사진">
+                            <img id="imgPreview" class="img-cover" src="img/default/user.jpg" alt="프로필사진">
                         </div>
-                        <input type="file" id="img" style="display: none">
+                        <input type="file" id="imgInput" accept="img/*">
                         <button id="openImgUpload" class="btn btn-light shadow-sm" type="button"><i class="fas fa-camera"></i>&nbsp;&nbsp;사진 가져오기</button>
                     </div><br>
 
                     <div class="form-group">
                         <label for="email">이메일</label>
-                        <input type="email" class="form-control" id="email" placeholder="이메일 입력" name="email" required>
-                        <div class="invalid-feedback">형식이 맞지 않습니다.</div>
+                        <input type="email" class="form-control" id="email" placeholder="abc@slobrary.com" name="email" required>
+                        <div class="valid-feedback">d</div>
+                        <div class="invalid-feedback">이메일 형식으로 입력해주세요.</div>
                     </div>
                     <div class="form-group">
                         <label for="pwd">비밀번호</label>
-                        <input type="password" class="form-control" id="pwd" placeholder="비밀번호 입력" name="pswd" required>
+                        <div class="input-group">
+                        <input type="password" class="form-control" id="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                               placeholder="숫자, 대/소문자 포함 8글자 이상 입력해주세요." name="pwd" required>
+                        <button type="button" id="btnToggle_pwd" class="toggle"><i id="eyeIcon_pwd" class="fa fa-eye"></i></button>
+                            <div class="invalid-feedback">숫자, 대/소문자 포함 8글자 이상 입력해주세요.</div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="pwd-cheak" placeholder="비밀번호 확인" name="pswd" required equalTo="pwd">
-                        <div class="invalid-feedback">비밀번호가 서로 다릅니다.</div>
+                        <div class="input-group">
+                        <input type="password" class="form-control" id="pwdCheck" placeholder="비밀번호 확인" name="pwdCheck" required>
+                        <button type="button" id="btnToggle_pwdCheck" class="toggle"><i id="eyeIcon_pwdCheck" class="fa fa-eye"></i></button>
+                        </div>
                     </div><br>
 
                     <div class="form-group">
@@ -94,7 +64,7 @@
                     <div class="form-group">
                         <label for="phone">전화번호</label>
                         <input type="tel" class="form-control" pattern="^\d{3}-\d{4}-\d{4}$" id="phone" placeholder="000-0000-0000" name="phone" required>
-                        <div class="invalid-feedback">형식이 맞지 않습니다.</div>
+                        <div class="invalid-feedback">000-0000-0000 형식으로 입력해주세요.</div>
                     </div>
 
 
@@ -111,6 +81,7 @@
         </div>
     </div>
 
+    <!--이용약관 모달-->
     <div class="modal fade" id="modal-TOS" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -133,7 +104,7 @@
 </body>
 
 <script>
-    // Disable form submissions if there are invalid fields
+    // 유효성 검사 통과하지 않으면 다음 페이지로 넘어가지 않도록 하는 코드
     (function() {
         'use strict';
         window.addEventListener('load', function() {
@@ -142,7 +113,14 @@
             // Loop over them and prevent submission
             var validation = Array.prototype.filter.call(forms, function(form) {
                 form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
+                    // pwd와 pwdCheck의 값이 같은지 체크
+                    if ( document.getElementById("pwd").value != document.getElementById("pwdCheck").value ) {
+                        alert("Password mismatch");
+                        $("#pwdCheck").addClass('was-validated');
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    else if (form.checkValidity() === false) {
                         event.preventDefault();
                         event.stopPropagation();
                     }
@@ -150,11 +128,59 @@
                 }, false);
             });
         }, false);
+    }());
+    
+    // 사용자 사진 첨부 버튼
+    $('#openImgUpload').click(function() {
+        $('#imgInput').trigger('click');
+    })
+    
+    // 사진 첨부 시 사진 미리보기
+    function readInputFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#imgPreview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $('#imgInput').change(function(){
+        readInputFile(this);
     });
     
-    $('#openImgUpload').click(function() {
-        $('#img').trigger('click');
-    })
+    // 패스워드 show/hide 버튼
+    var pwd = document.getElementById('pwd');
+    var pwdCheck = document.getElementById('pwdCheck');
+    
+    var pwdIcon = document.getElementById('eyeIcon_pwd');
+    var pwdCheckIcon = document.getElementById('eyeIcon_pwdCheck');
+    
+    var btnPwd = document.getElementById('btnToggle_pwd');
+    var btnPwdCheck = document.getElementById('btnToggle_pwdCheck');
+    
+    function togglePwd() {
+        if(pwd.type === 'password') {
+            pwd.type = 'text';
+            pwdIcon.classList.add('fa-eye-slash');
+        }else {
+            pwd.type = 'password';
+            pwdIcon.classList.remove('fa-eye-slash');
+        }
+    }
+    
+    function togglePwdCheck() {
+        if(pwdCheck.type === 'password') {
+            pwdCheck.type = 'text';
+            pwdCheckIcon.classList.add('fa-eye-slash');
+        }else {
+            pwdCheck.type = 'password';
+            pwdCheckIcon.classList.remove('fa-eye-slash');
+        }
+    } 
+    
+    btnPwd.addEventListener('click',togglePwd,false);
+    btnPwdCheck.addEventListener('click',togglePwdCheck,false);  
 
 </script>
 

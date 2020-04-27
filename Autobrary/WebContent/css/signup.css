@@ -1,0 +1,53 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#submit-btn {
+    background-color: #566270;
+    color: #FFFFF3;
+}
+
+#img-tab {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.img-cover {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center right;
+}
+
+.img-wrapper {
+    text-align: center;
+}
+
+#img-tab button {
+    margin-top: 20px;
+    padding: 7px 13px;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 1em;
+}
+
+#imgInput {
+    display: none;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.toggle {
+    background: none;
+    border: none;
+    color: #337ab7;
+    font-weight: 600;
+    position: absolute;
+    right: .75em;
+    top: 0.4em;
+    z-index: 9;
+}
