@@ -14,6 +14,7 @@
             background-color: #566270;
             color: #FFFFF3;
         }
+
     </style>
 
     <!-- 웹폰트 -->
@@ -26,41 +27,111 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        #img-tab {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .img-cover {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center right;
+        }
+
+        .img-wrapper {
+            text-align: center;
+        }
+
+        #img-tab button {
+            margin-top: 20px;
+            padding: 7px 13px;
+            border-radius: 10px;
+            background: #fff;
+            font-size: 1em;
+        }
+
+    </style>
 </head>
 
 <body class="bg-light">
     <div id="document">
-            <div class="row p-5">
-                <div class="col bg-white shadow-sm p-5">
-                    <h4>회원가입</h4>
-                    <hr>
-                    <form action="/action_page.php" class="needs-validation" novalidate>
-                        <div class="form-group">
-                            <label for="uname">이메일</label>
-                            <input type="text" class="form-control" id="uname" placeholder="이메일 입력" name="uname" required>
-                            <div class="valid-feedback">완료</div>
-                            <div class="invalid-feedback">형식에 맞게 입력하세요.</div>
+        <div class="row p-5">
+            <div class="col bg-white shadow-sm p-5">
+                <h4>회원가입</h4>
+                <hr>
+
+                <form action="/action_page.php" id="signup-form" class="needs-validation" novalidate>
+                    <div id="img-tab">
+                        <div class="img-wrapper">
+                            <img id="user-img" class="img-cover" src="img/default/user.jpg" alt="프로필사진">
                         </div>
-                        <div class="form-group">
-                            <label for="pwd">비밀번호</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="비밀번호 입력" name="pswd" required>
-                            <input type="password" class="form-control" id="pwd-cheak" placeholder="비밀번호 확인" name="pswd" required>
-                            <div class="valid-feedback">완료</div>
-                            <div class="invalid-feedback">비밀번호가 서로 다릅니다.</div>
-                        </div>
-                        <div class="form-group form-check">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="remember" required> 이용약관에 동의합니다.
-                                <div class="valid-feedback">완료</div>
-                                <div class="invalid-feedback">계속하려면 체크하십시오.</div>
-                            </label>
-                        </div>
-                        <button id="submit-btn" type="submit" class="btn btn-primary">회원가입</button>
-                    </form>
+                        <input type="file" id="img" style="display: none">
+                        <button id="openImgUpload" class="btn btn-light shadow-sm" type="button"><i class="fas fa-camera"></i>&nbsp;&nbsp;사진 가져오기</button>
+                    </div><br>
+
+                    <div class="form-group">
+                        <label for="email">이메일</label>
+                        <input type="email" class="form-control" id="email" placeholder="이메일 입력" name="email" required>
+                        <div class="invalid-feedback">형식이 맞지 않습니다.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">비밀번호</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="비밀번호 입력" name="pswd" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="pwd-cheak" placeholder="비밀번호 확인" name="pswd" required equalTo="pwd">
+                        <div class="invalid-feedback">비밀번호가 서로 다릅니다.</div>
+                    </div><br>
+
+                    <div class="form-group">
+                        <label for="name">이름</label>
+                        <input type="name" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">전화번호</label>
+                        <input type="tel" class="form-control" pattern="^\d{3}-\d{4}-\d{4}$" id="phone" placeholder="000-0000-0000" name="phone" required>
+                        <div class="invalid-feedback">형식이 맞지 않습니다.</div>
+                    </div>
+
+
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember" required>
+                            <a href="#" data-toggle="modal" data-target="#modal-TOS">이용약관</a>에 동의합니다.
+                            <div class="invalid-feedback">계속하려면 체크하십시오.</div>
+                        </label>
+                    </div>
+                    <button id="submit-btn" type="submit" class="btn btn-primary">회원가입</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-TOS" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">이용약관</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-primary">동의</button>
                 </div>
             </div>
+        </div>
     </div>
 </body>
+
 <script>
     // Disable form submissions if there are invalid fields
     (function() {
@@ -79,7 +150,12 @@
                 }, false);
             });
         }, false);
-    })();
+    });
+    
+    $('#openImgUpload').click(function() {
+        $('#img').trigger('click');
+    })
+
 </script>
 
 </html>
