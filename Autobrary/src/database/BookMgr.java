@@ -270,5 +270,27 @@ public class BookMgr {
       	
          return result;
     }
+    
+    public boolean deleteBook(String id_num) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        String sql = "delete from book_info where id_num = ? ";
+        try {
+        	con = pool.getConnection();
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, id_num);
+            int count = pstmt.executeUpdate();
+            if (count == 1) {
+                flag = true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
 
 }
