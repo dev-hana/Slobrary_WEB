@@ -12,7 +12,7 @@
 	String id_num = request.getParameter("id_num");
 	BookBean bookBean = bookMgr.getBook(id_num);
 %>
-<title>상세정보-도서</title>
+<title>도서수정</title>
 <style>
 table.type03 {
     border-collapse: collapse;

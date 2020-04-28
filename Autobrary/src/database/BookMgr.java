@@ -186,5 +186,45 @@ public class BookMgr {
         }
         return bookList;
     }
+    
+    public BookBean getBook(String id_num) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        BookBean bookBean = null;
+        
+        try {
+            con = pool.getConnection();
+            String strQuery = "select * from book_info where id_num=? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, id_num);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+            	bookBean = new BookBean();
+            	
+            	 bookBean.setId_num(rs.getString("id_num"));
+                 bookBean.setType(rs.getString("type"));
+                 bookBean.setName(rs.getString("name"));
+                 bookBean.setAuthor(rs.getString("author"));
+                 bookBean.setPublisher(rs.getString("publisher"));
+                 bookBean.setIssue(rs.getString("issue"));
+                 bookBean.setForm(rs.getString("form"));
+                 bookBean.setIsbn(rs.getString("isbn"));
+                 bookBean.setClass_id(rs.getString("class_id"));
+                 bookBean.setLanguage(rs.getString("language"));
+                 bookBean.setCollector(rs.getString("collector"));
+                 bookBean.setSign(rs.getString("sign"));
+                 bookBean.setStatus(rs.getString("status"));
+                 bookBean.setImage(rs.getString("image"));
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return bookBean;
+    }
 
 }

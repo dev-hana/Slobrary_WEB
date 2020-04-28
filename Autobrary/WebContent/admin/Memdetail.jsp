@@ -13,7 +13,7 @@
 	String mem_id = request.getParameter("mem_id");
 	MemBean memBean= memMgr.getMember(mem_id);
 %>
-<title>상세정보</title>
+<title>상세정보-회원</title>
 <style>
 table.type03 {
     border-collapse: collapse;

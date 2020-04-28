@@ -14,6 +14,7 @@ public class BookBean {
 	private String collector;
 	private String sign;
 	private String status;
+	private String Image;
 	public String getId_num() {
 		return id_num;
 	}
@@ -92,4 +93,11 @@ public class BookBean {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public String getImage() {
+		return Image;
+	}
+	public void setImage(String image) {
+		Image = image;
+	}
+	
 }
