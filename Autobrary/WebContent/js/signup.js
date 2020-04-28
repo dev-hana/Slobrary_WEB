@@ -101,6 +101,7 @@ function modalImgSubmit() {
     imgUrl_ = imgUrl_ + selectImg;
     imgPreview.src = imgUrl_;
     $('#modal-img').modal('hide');
+    $('.modal-backdrop').remove();
 }
 
 //이용 약관 모달 동의 버튼 클릭시 적용
@@ -108,4 +109,5 @@ function modalAgreeTOS() {
     var checkTOS = document.getElementById('tosCheck');
     checkTOS.setAttribute('checked', 'true');
     $('#modal-TOS').modal('hide');
+    $('.modal-backdrop').remove();
 }

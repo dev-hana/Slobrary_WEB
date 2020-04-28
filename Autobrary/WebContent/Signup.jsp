@@ -1,6 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
@@ -18,11 +19,14 @@
     
     <link href="css/signup.css" rel="stylesheet">
 </head>
-
 <body class="bg-light">
+    <header class="pt-4 shadow-sm bg-white">
+    <jsp:include page="Top.jsp" flush="false"/>
+    </header>
     <div id="document">
-        <div class="row p-5">
-            <div class="col bg-white shadow-sm p-5">
+        <div class="row p-5 ml-5 mr-5">
+            <div class="col bg-white shadow-sm p-5 ml-5 mr-5">
+                <div id="wrapper">
                 <h4>회원가입</h4>
                 <hr>
 
@@ -96,6 +100,7 @@
                     </div>
                     <button id="submit-btn" type="submit" class="btn btn-primary">회원가입</button>
                 </form>
+                </div>
             </div>
         </div>
     </div>

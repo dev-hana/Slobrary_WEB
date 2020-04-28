@@ -50,7 +50,7 @@
                             </button>
 
                             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                                <a id="logo-nav" class="logo">AutoBrArY</a>
+                                <a id="logo-nav" class="logo"><!-- AutoBrArY -->sloBrArY</a>
                                 <ul id="nav-main" class="navbar-nav mr-auto">
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">도서검색<span class="sr-only">(current)</span></a>
@@ -80,8 +80,8 @@
                                     </li>
                                 </ul>
                                 <ul class="navbar-nav navbar-right">
-                                    <li class="nav-item"> <a href="#" class="nav-link">로그인</a></li>
-                                    <li class="nav-item"> <a href="#" class="nav-link ">회원가입</a></li>
+                                    <li class="nav-item"> <a href="Login.jsp" class="nav-link">로그인</a></li>
+                                    <li class="nav-item"> <a href="Signup.jsp" class="nav-link ">회원가입</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -2,6 +2,10 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+#wrapper {
+	margin:50px 20%;
+}
+
 #submit-btn {
     background-color: #566270;
     color: #FFFFF3;
