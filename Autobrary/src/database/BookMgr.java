@@ -6,6 +6,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import database.BookBean;
 import database.DBConnectionMgr;
 
@@ -225,6 +230,45 @@ public class BookMgr {
         }
         
         return bookBean;
+    }
+    
+    public boolean BookUpdate(HttpServletRequest req) {
+    	 Connection con = null;
+         PreparedStatement pstmt = null;
+         boolean result = false;
+         String uploadDir =this.getClass().getResource("").getPath();
+         uploadDir =	   uploadDir.substring(1,uploadDir.indexOf(".metadata"))+"Autobrary/WebContent/data";
+      	try {
+            con = pool.getConnection();
+            MultipartRequest multi = new MultipartRequest(req, uploadDir, 5 * 1024 * 1024, "UTF-8", new DefaultFileRenamePolicy());
+
+                String query = "update book_info set type = ?, name = ?, author = ?, publisher = ?, issue = ?,"
+                		+ "form = ?, isbn = ?, class_id = ?, language = ?, collector = ?, sign = ?, status = ?"
+                		+ "image = ? where id_num = ? ";
+                pstmt = con.prepareStatement(query);
+                pstmt.setString(1, multi.getParameter("type"));
+                pstmt.setString(2, multi.getParameter("name"));
+                pstmt.setString(3, multi.getParameter("author"));
+                pstmt.setString(4, multi.getParameter("publisher"));
+                pstmt.setString(5, multi.getParameter("issue"));
+                pstmt.setString(6, multi.getParameter("form"));
+                pstmt.setString(7, multi.getParameter("isbn"));
+                pstmt.setString(8, multi.getParameter("class_id"));
+                pstmt.setString(9, multi.getParameter("language"));
+                pstmt.setString(10, multi.getParameter("collector"));
+                pstmt.setString(11, multi.getParameter("sign"));
+                pstmt.setString(12, multi.getParameter("status"));
+                pstmt.setString(13, multi.getFilesystemName("image"));
+                pstmt.setString(14, multi.getParameter("id_num"));
+            int count = pstmt.executeUpdate();
+            if (count == 1) result = true;
+        } catch (Exception ex) {
+            System.out.println("Exception :" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+      	
+         return result;
     }
 
 }

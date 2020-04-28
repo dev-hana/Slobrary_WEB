@@ -13,4 +13,9 @@ function DelMem(mem_id) {
 	document.delMem.submit();
 }
 
+function DelBook(id_num) {
+	document.delBook.id_num.value=id_num;
+	document.delBook.submit();
+}
+
 //작성자: 장지은

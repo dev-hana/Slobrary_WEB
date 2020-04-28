@@ -45,6 +45,7 @@ table.type03 td {
 <body>
 <%@ include file="Top.jsp" %> 
 <br><br>
+<form name="redForm" method="post" action="UpdateBProc.jsp" enctype="multipart/form-data">
 <table class="type03" style="margin-left:auto; margin-right:auto;">
     <tr>
         <th scope="row">등록번호</th>
@@ -52,60 +53,70 @@ table.type03 td {
     </tr>
      <tr>
         <th scope="row">자료유형</th>
-        <td><%=bookBean.getType()%></td>
+        <td><input type="text" name="type" value="<%=bookBean.getType()%>"></td>
     </tr>
      <tr>
         <th scope="row">도서 이름</th>
-        <td><%=bookBean.getName() %></td>
+        <td><input type="text" name ="name" value="<%=bookBean.getName() %>"></td>
     </tr>
      <tr>
         <th scope="row">저자</th>
-        <td><%=bookBean.getAuthor()%></td>
+        <td><input type="text" name="author" value="<%=bookBean.getAuthor()%>"></td>
     </tr>
      <tr>
         <th scope="row">출판사</th>
-        <td><%=bookBean.getPublisher()%></td>
+        <td><input type="text" name="publisher" value="<%=bookBean.getPublisher()%>"></td>
     </tr>
     <tr>
         <th scope="row">발행사항</th>
-        <td><%=bookBean.getIssue() %></td>
+        <td><input type="text" name="issue" value="<%=bookBean.getIssue() %>"></td>
     </tr>
      <tr>
         <th scope="row">ISBN</th>
-        <td><%=bookBean.getIsbn() %></td>
+        <td><input type="text" name="isbn" value="<%=bookBean.getIsbn() %>"></td>
     </tr>
      <tr>
         <th scope="row">분류기호</th>
-        <td><%=bookBean.getClass_id()%></td>
+        <td><input type="text" name="class_id" value="<%=bookBean.getClass_id()%>"></td>
     </tr>
      <tr>
         <th scope="row">언어</th>
-        <td><%=bookBean.getLanguage()%></td>
+        <td><input type="text" name="language" value="<%=bookBean.getLanguage()%>"></td>
     </tr>
      <tr>
         <th scope="row">소장처</th>
-        <td><%=bookBean.getCollector()%></td>
+        <td><input type="text" name="collector" value="<%=bookBean.getCollector()%>"></td>
     </tr>
      <tr>
         <th scope="row">청구기호</th>
-        <td><%=bookBean.getSign()%></td>
+        <td><input type="text" name="sign" value="<%=bookBean.getSign()%>"></td>
     </tr>
      <tr>
         <th scope="row">도서상태</th>
-        <td><%=bookBean.getStatus()%></td>
+        <td><input type="text" name="status" value="<%=bookBean.getStatus()%>"></td>
     </tr>
      <tr>
         <th scope="row">이미지</th>
-        <td><img src="../data/<%=bookBean.getImage()%>"></td>
+        <td><img src="../data/<%=bookBean.getImage()%>">
+        <input type="file" name="image">
+        </td>
     </tr>
+    <tr>
+    	<th scope="row">삭제</th>
+    	<td><a class="btn" href="javascript:DelBook('<%=bookBean.getId_num() %>')">삭제</a></td>
 </table>
 <div style="text-align:center;">
-<a class="btn" href="javascript:SendBook('<%=bookBean.getId_num() %>')">수정</a>
+<input type="submit" class="btn" value="수정완료">
+</div>
+<input type="hidden" name="id_num" value="<%=id_num %>">
+</form>
+<form name="delBook" method="post" action="DeleteBProc.jsp">
+<input type=hidden name="id_num">
+</form>
 
 </div>
 <%@ include file="Bottom.jsp" %>
-<form name="sendBook" method="post" action="UpdateMem.jsp">
-	<input type=hidden name="id_num">
+
 </form>
 </body>
 </html>

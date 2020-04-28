@@ -104,7 +104,7 @@ table.type03 td {
 
 </div>
 <%@ include file="Bottom.jsp" %>
-<form name="sendBook" method="post" action="UpdateMem.jsp">
+<form name="sendBook" method="post" action="UpdateBook.jsp">
 	<input type=hidden name="id_num">
 </form>
 </body>
