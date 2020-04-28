@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
-    <title>Autobrary</title>
+    <title>Slobrary</title>
     <link href="/css/top.css" rel="stylesheet">
 
     <!-- 웹폰트 -->
@@ -26,7 +26,8 @@
         <div class="row ml-5 mr-5">
             <div id="logo-main" class="col-sm-3 m-auto d-none d-lg-block">
                 <a class="navbar-brand float-d-flex mr-auto logo mt-n3" href="#">
-                    AutoBrArY
+                    <!--AutoBrArY-->
+                    sloBrArY
                     <p>just take it!</p>
                 </a>
             </div>

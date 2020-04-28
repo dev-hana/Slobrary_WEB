@@ -24,12 +24,24 @@
     text-align: center;
 }
 
+
 #img-tab button {
     margin-top: 20px;
     padding: 7px 13px;
     border-radius: 10px;
-    background: #fff;
     font-size: 1em;
+    background: #fff;
+}
+
+#idCheck {
+    background: white;
+    font-size: .9em;
+    color: #337ab7;
+    position: absolute;
+    padding: 5px 10px;
+    right: .4em;
+    top: 0.17em;
+    z-index: 9;
 }
 
 .input-group {
@@ -38,12 +50,12 @@
 }
 
 .toggle {
-    background: none;
+    background: white;
     border: none;
     color: #337ab7;
     font-weight: 600;
     position: absolute;
-    right: .75em;
+    right: .7em;
     top: 0.4em;
     z-index: 9;
 }
