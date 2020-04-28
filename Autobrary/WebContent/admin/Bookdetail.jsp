@@ -96,7 +96,7 @@ table.type03 td {
     </tr>
      <tr>
         <th scope="row">이미지</th>
-        <td><img src="../data/<%=bookBean.getImage()%>"></td>
+        <td><img src="/data/<%=bookBean.getImage()%>"></td>
     </tr>
 </table>
 <div style="text-align:center;">
