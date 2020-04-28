@@ -1,5 +1,6 @@
 package database;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -237,7 +238,7 @@ public class BookMgr {
          PreparedStatement pstmt = null;
          boolean result = false;
          String uploadDir =this.getClass().getResource("").getPath();
-         uploadDir =	   uploadDir.substring(1,uploadDir.indexOf(".metadata"))+"Autobrary/WebContent/data";
+         uploadDir = File.separator + "var" + File.separator + "lib" + File.separator + "tomcat8" + File.separator + "webapps" + File.separator + "data";
       	try {
             con = pool.getConnection();
             MultipartRequest multi = new MultipartRequest(req, uploadDir, 5 * 1024 * 1024, "UTF-8", new DefaultFileRenamePolicy());
