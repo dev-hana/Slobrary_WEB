@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
     <title>Slobrary - 회원가입</title>
-    <link href="css/signup.css" rel="stylesheet">
     <!-- 웹폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:900&display=swap" rel="stylesheet">
@@ -16,35 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <style>
-        .image-radio input[type="radio"] {
-            display: none;
-        }
-
-        .image-radio-checked {
-            box-shadow: 0 0 20px #A593E0;
-            border-radius: 55px;
-        }
-        
-        #imgPreview {
-            padding: 15px;
-        }
-        
-        #modal-img .img-cover {
-            width: 100px;
-            height: 100px;
-            padding: 10px;
-        }
-        
-        #modal-img .col-sm {
-            text-align: center;
-            margin: 10px;
-        }
-        
-        #signup-form label{
-            margin-top: 10px;
-        }
-    </style>
+    
+    <link href="css/signup.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
@@ -67,17 +39,16 @@
                         <!-- 계정 정보 -->
                         <label for="mem_id">아이디</label>
                         <div class="input-group">
-                        <input type="text" class="form-control" id="mem_id" placeholder="아이디를 입력해주세요." name="mem_id" required>
-                        <button id="idCheck" class="btn btn-light" type="button">중복확인</button>
+                            <input type="text" class="form-control" id="mem_id" placeholder="아이디를 입력해주세요." name="mem_id" required>
+                            <button id="idCheck" class="btn btn-light" type="button">중복확인</button>
                         </div>
-                        
+
                         <label for="pwd">비밀번호</label>
                         <div class="input-group">
                             <input type="password" class="form-control" id="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" placeholder="숫자, 대/소문자 포함 8글자 이상 입력해주세요." name="mem_pw" required>
                             <button type="button" id="btnToggle_pwd" class="toggle"><i id="eyeIcon_pwd" class="fa fa-eye"></i></button>
                             <div class="invalid-feedback mb-3">숫자, 대/소문자 포함 8글자 이상 입력해주세요.</div>
                         </div>
-                        
                         <div class="input-group">
                             <input type="password" class="form-control" id="pwdCheck" placeholder="비밀번호 확인" name="pwdCheck" required>
                             <button type="button" id="btnToggle_pwdCheck" class="toggle"><i id="eyeIcon_pwdCheck" class="fa fa-eye"></i></button>
@@ -87,7 +58,7 @@
                         <!-- 회원 정보 -->
                         <label for="name">이름</label>
                         <input type="text" class="form-control" id="name" name="mem_name" required>
-                        
+
                         <label for="gender_male">성별</label>
                         <div class="mb-1 mt-n2">
                             <div class="custom-control custom-radio custom-control-inline">
@@ -95,22 +66,22 @@
                                 <label class="custom-control-label" for="gender_male">남</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="gender_female" name="mem_gender" class="custom-control-input"value="여">
+                                <input type="radio" id="gender_female" name="mem_gender" class="custom-control-input" value="여">
                                 <label class="custom-control-label" for="gender_female">여</label>
                             </div>
                         </div>
-                        
+
                         <label for="birth">생년월일</label>
                         <input type="date" class="form-control" id="birth" name="mem_birth" required>
-                        
+
                         <label for="phone">전화번호</label>
                         <input type="tel" class="form-control" pattern="^\d{3}-\d{4}-\d{4}$" id="phone" placeholder="000-0000-0000" name="mem_phone" required>
                         <div class="invalid-feedback">000-0000-0000 형식으로 입력해주세요.</div>
-                        
+
                         <label for="email">이메일</label>
                         <input type="email" class="form-control" id="email" placeholder="abc@slobrary.com" name="mem_mail" required>
                         <div class="invalid-feedback">이메일 형식으로 입력해주세요.</div>
-                        
+
                         <label for="addr">주소</label>
                         <input type="text" class="form-control" id="addr" placeholder="" name="mem_adress" required>
                     </div>
@@ -161,7 +132,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    
+
                     <div class="row">
                         <div class="col-sm">
                             <label class="image-radio">
@@ -225,118 +196,5 @@
     </div>
 </body>
 
-<script>
-    // 유효성 검사 통과하지 않으면 다음 페이지로 넘어가지 않도록 하는 코드
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Get the forms we want to add validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    // pwd와 pwdCheck의 값이 같은지 체크
-                    if (document.getElementById("pwd").value != document.getElementById("pwdCheck").value) {
-                        alert("Password mismatch");
-                        $("#pwdCheck").addClass('was-validated');
-                        event.preventDefault();
-                        event.stopPropagation();
-                    } else if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    }());
-
-    // 사진 첨부 시 사진 미리보기
-    function readInputFile(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#imgPreview').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $('#imgInput').change(function() {
-        readInputFile(this);
-    });
-
-    // 패스워드 show/hide 버튼
-    var pwd = document.getElementById('pwd');
-    var pwdCheck = document.getElementById('pwdCheck');
-
-    var pwdIcon = document.getElementById('eyeIcon_pwd');
-    var pwdCheckIcon = document.getElementById('eyeIcon_pwdCheck');
-
-    var btnPwd = document.getElementById('btnToggle_pwd');
-    var btnPwdCheck = document.getElementById('btnToggle_pwdCheck');
-
-    function togglePwd() {
-        if (pwd.type === 'password') {
-            pwd.type = 'text';
-            pwdIcon.classList.add('fa-eye-slash');
-        } else {
-            pwd.type = 'password';
-            pwdIcon.classList.remove('fa-eye-slash');
-        }
-    }
-
-    function togglePwdCheck() {
-        if (pwdCheck.type === 'password') {
-            pwdCheck.type = 'text';
-            pwdCheckIcon.classList.add('fa-eye-slash');
-        } else {
-            pwdCheck.type = 'password';
-            pwdCheckIcon.classList.remove('fa-eye-slash');
-        }
-    }
-
-    btnPwd.addEventListener('click', togglePwd, false);
-    btnPwdCheck.addEventListener('click', togglePwdCheck, false);
-
-    // 프로필 이미지 라디오 선택
-    $(document).ready(function() {
-        // add/remove checked class
-        $(".image-radio").each(function() {
-            if ($(this).find('input[type="radio"]').first().attr("checked")) {
-                $(this).addClass('image-radio-checked');
-            } else {
-                $(this).removeClass('image-radio-checked');
-            }
-        });
-
-        // sync the input state
-        $(".image-radio").on("click", function(e) {
-            $(".image-radio").removeClass('image-radio-checked');
-            $(this).addClass('image-radio-checked');
-            var $radio = $(this).find('input[type="radio"]');
-            $radio.prop("checked", !$radio.prop("checked"));
-
-            e.preventDefault();
-        });
-    });
-    
-    //프로필 이미지 선택 모달 버튼 클릭시 적용
-    function modalImgSubmit() {
-        var selectImg = $('input[name="image_radio"]:checked').val();
-        var imgPreview = document.getElementById('imgPreview');
-        var imgUrl_ = 'img/default/userImg/';
-        
-        imgUrl_ = imgUrl_+selectImg;
-        imgPreview.src = imgUrl_;
-        $('#modal-img').modal('hide');
-    }
-    
-    //이용 약관 모달 동의 버튼 클릭시 적용
-    function modalAgreeTOS() {
-        var checkTOS = document.getElementById('tosCheck');
-        checkTOS.setAttribute('checked','true');
-        $('#modal-TOS').modal('hide');
-    }
-</script>
-
+<script type="text/javascript" src="js/signup.js"></script>
 </html>
