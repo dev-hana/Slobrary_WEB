@@ -1,6 +1,7 @@
 package database;
 
 public class BookBean {
+	private String Image;
 	private String id_num;
 	private String type;
 	private String name;
@@ -14,6 +15,7 @@ public class BookBean {
 	private String collector;
 	private String sign;
 	private String status;
+	
 	public String getId_num() {
 		return id_num;
 	}
