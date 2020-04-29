@@ -3,16 +3,19 @@ function SendMem(mem_id) {
 	document.sendMem.submit();
 }
 
+function SendBook(id_num) {
+	document.sendBook.id_num.value=id_num;
+	document.sendBook.submit();
+}
+
 function DelMem(mem_id) {
 	document.delMem.mem_id.value=mem_id;
 	document.delMem.submit();
 }
 
-
-
-function SendBook(id_num) {
-	document.sendBook.id_num.value=id_num;
-	document.setdBook.submit;
+function DelBook(id_num) {
+	document.delBook.id_num.value=id_num;
+	document.delBook.submit();
 }
-	
+
 //작성자: 장지은

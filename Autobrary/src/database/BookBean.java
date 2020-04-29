@@ -92,4 +92,11 @@ public class BookBean {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public String getImage() {
+		return Image;
+	}
+	public void setImage(String image) {
+		Image = image;
+	}
+	
 }

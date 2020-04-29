@@ -1,0 +1,29 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#wrapper {
+	margin:50px 20%;
+}
+
+#submit-btn {
+    background-color: #566270;
+    color: #FFFFF3;
+}
+
+#login-form label {
+    margin-top: 10px;
+}
+
+#btn-group a {
+    margin: 0px 5px;
+}
+
+#btn-group span {
+    font-size: 0.8em;
+}
+
+#btn-group a,
+span {
+    color: #337ab7;
+}

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
-    <title>Autobrary</title>
+    <title>Slobrary</title>
     <link href="/css/top.css" rel="stylesheet">
 
     <!-- 웹폰트 -->
@@ -26,7 +26,8 @@
         <div class="row ml-5 mr-5">
             <div id="logo-main" class="col-sm-3 m-auto d-none d-lg-block">
                 <a class="navbar-brand float-d-flex mr-auto logo mt-n3" href="#">
-                    AutoBrArY
+                    <!--AutoBrArY-->
+                    sloBrArY
                     <p>just take it!</p>
                 </a>
             </div>
@@ -49,7 +50,7 @@
                             </button>
 
                             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                                <a id="logo-nav" class="logo">AutoBrArY</a>
+                                <a id="logo-nav" class="logo"><!-- AutoBrArY -->sloBrArY</a>
                                 <ul id="nav-main" class="navbar-nav mr-auto">
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">도서검색<span class="sr-only">(current)</span></a>
@@ -79,8 +80,8 @@
                                     </li>
                                 </ul>
                                 <ul class="navbar-nav navbar-right">
-                                    <li class="nav-item"> <a href="#" class="nav-link">로그인</a></li>
-                                    <li class="nav-item"> <a href="#" class="nav-link ">회원가입</a></li>
+                                    <li class="nav-item"> <a href="Login.jsp" class="nav-link">로그인</a></li>
+                                    <li class="nav-item"> <a href="Signup.jsp" class="nav-link ">회원가입</a></li>
                                 </ul>
                             </div>
                         </div>

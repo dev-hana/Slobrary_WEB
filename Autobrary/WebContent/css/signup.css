@@ -1,0 +1,93 @@
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#wrapper {
+	margin:50px 20%;
+}
+
+#submit-btn {
+    background-color: #566270;
+    color: #FFFFF3;
+}
+
+#img-tab {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.img-cover {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center right;
+}
+
+.img-wrapper {
+    text-align: center;
+}
+
+
+#img-tab button {
+    margin-top: 20px;
+    padding: 7px 13px;
+    border-radius: 10px;
+    font-size: 1em;
+    background: #fff;
+}
+
+#idCheck {
+    background: white;
+    font-size: .9em;
+    color: #337ab7;
+    position: absolute;
+    padding: 5px 10px;
+    right: .4em;
+    top: 0.17em;
+    z-index: 9;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.toggle {
+    background: white;
+    border: none;
+    color: #337ab7;
+    font-weight: 600;
+    position: absolute;
+    right: .7em;
+    top: 0.4em;
+    z-index: 9;
+}
+
+.image-radio input[type="radio"] {
+    display: none;
+}
+
+.image-radio-checked {
+    box-shadow: 0 0 20px #A593E0;
+    border-radius: 55px;
+}
+
+#imgPreview {
+    padding: 15px;
+}
+
+#modal-img .img-cover {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+}
+
+#modal-img .col-sm {
+    text-align: center;
+    margin: 10px;
+}
+
+#signup-form label {
+    margin-top: 10px;
+}

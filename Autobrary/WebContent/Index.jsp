@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
-    <title>Autobrary</title>
+    <title>Slobrary</title>
     <link href="css/index.css" rel="stylesheet">
 
     <!-- 웹폰트 -->

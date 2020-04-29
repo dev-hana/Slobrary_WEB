@@ -6,8 +6,15 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import database.BookBean;
 import database.DBConnectionMgr;
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
+import serverConnector.FileUploader;
 
 public class BookMgr {
 	private DBConnectionMgr pool = null;
@@ -185,5 +192,108 @@ public class BookMgr {
         }
         return bookList;
     }
+    
+    public BookBean getBook(String id_num) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        BookBean bookBean = null;
+        
+        try {
+            con = pool.getConnection();
+            String strQuery = "select * from book_info where id_num=? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, id_num);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+            	bookBean = new BookBean();
+            	
+            	 bookBean.setId_num(rs.getString("id_num"));
+                 bookBean.setType(rs.getString("type"));
+                 bookBean.setName(rs.getString("name"));
+                 bookBean.setAuthor(rs.getString("author"));
+                 bookBean.setPublisher(rs.getString("publisher"));
+                 bookBean.setIssue(rs.getString("issue"));
+                 bookBean.setForm(rs.getString("form"));
+                 bookBean.setIsbn(rs.getString("isbn"));
+                 bookBean.setClass_id(rs.getString("class_id"));
+                 bookBean.setLanguage(rs.getString("language"));
+                 bookBean.setCollector(rs.getString("collector"));
+                 bookBean.setSign(rs.getString("sign"));
+                 bookBean.setStatus(rs.getString("status"));
+                 bookBean.setImage(rs.getString("image"));
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return bookBean;
+    }
+    
+    public boolean BookUpdate(HttpServletRequest req) {
+    	 Connection con = null;
+         PreparedStatement pstmt = null;
+         boolean result = false;
+         //TODO : 리눅스에서 경로 오류날 수 있음 경로 오류시 File.separator 사용.
+		String uploadDir =req.getSession().getServletContext().getRealPath("/data");
+         System.out.println(uploadDir);
+
+      	try {
+            con = pool.getConnection();
+            MultipartRequest multi = new MultipartRequest(req, uploadDir, 5 * 1024 * 1024, "UTF-8", new DefaultFileRenamePolicy());
+            new FileUploader(multi.getFilesystemName("image"),  uploadDir + File.separator + multi.getFilesystemName("image"));
+                String query = "update book_info set type = ?, name = ?, author = ?, publisher = ?, issue = ?,"
+                		+ "form = ?, isbn = ?, class_id = ?, language = ?, collector = ?, sign = ?, status = ?,"
+                		+ "image = ? where id_num = ? ";
+                pstmt = con.prepareStatement(query);
+                pstmt.setString(1, multi.getParameter("type"));
+                pstmt.setString(2, multi.getParameter("name"));
+                pstmt.setString(3, multi.getParameter("author"));
+                pstmt.setString(4, multi.getParameter("publisher"));
+                pstmt.setString(5, multi.getParameter("issue"));
+                pstmt.setString(6, multi.getParameter("form"));
+                pstmt.setString(7, multi.getParameter("isbn"));
+                pstmt.setString(8, multi.getParameter("class_id"));
+                pstmt.setString(9, multi.getParameter("language"));
+                pstmt.setString(10, multi.getParameter("collector"));
+                pstmt.setString(11, multi.getParameter("sign"));
+                pstmt.setString(12, multi.getParameter("status"));
+                pstmt.setString(13, multi.getFilesystemName("image"));
+                pstmt.setString(14, multi.getParameter("id_num"));
+            int count = pstmt.executeUpdate();
+            if (count == 1) result = true;
+        } catch (Exception ex) {
+            System.out.println("Exception :" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+      	
+         return result;
+    }
+    
+    public boolean deleteBook(String id_num) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        String sql = "delete from book_info where id_num = ? ";
+        try {
+        	con = pool.getConnection();
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, id_num);
+            int count = pstmt.executeUpdate();
+            if (count == 1) {
+                flag = true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
 
 }
