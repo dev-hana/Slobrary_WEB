@@ -9,7 +9,7 @@
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato|Quicksand'>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
 <link rel="stylesheet" href="../css/SearchPage.css"> 
-<link href="../html/index.css" rel="stylesheet">
+<link href="/css/index.css" rel="stylesheet">
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,7 +31,7 @@
 
 <body>
 <jsp:include page="../Top.jsp" flush="false"/>
-<div class="container-fluid" style="background-color: #EFF2FB;">
+<div class="container-fluid"  >
 <div class="row mt-3 pt-4 justify-content-md-center">
 <form action="SearchResult.jsp" method="post" target="list">
 <div style="text-align:center">

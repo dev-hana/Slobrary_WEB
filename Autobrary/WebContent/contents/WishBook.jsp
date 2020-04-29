@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- 아이콘 -->
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link href="/css/WishBook.css" rel="stylesheet" />
 <link rel="shortcut icon" href="../img/favicon.ico">
  <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,6 +16,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
+<script>
+// Disable form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+
 </head>
 <body class="bg-light">
 <jsp:include page="../Top.jsp" flush="false"/>
@@ -21,45 +45,50 @@
 		<div class="row mt-5 justify-content-md-center">
 			<div class="col-sm-4 shadow-sm p-3 mb-5 bg-white rounded">
 				<div class="title">
-          		  <h4>희망도서 신청</h4>
-      			  </div>
+					<i style="font-size: 30px;" class="fas fa-book"></i>
+          		  <h4 style="display:inline-block; margin:15px; padding-bottom:2px; font-weight: 600;">희망도서 신청</h4>
+      			 </div>
 				<hr>
-				<form>
+				
+				
+				
+				<form class="needs-validation" method="post" action="WishBookProc" novalidate>
+				
+				<input type="text" value="yangz" hidden>
 				<!-- 도서신청 입력 -->
 				<div class="table1">
-					<table class="table table-bordered">
+					<table class="table table-borderless">
 						<tr>
-							<th scope="row">*도서명</th>
+							<th scope="row">도서명</th>
+							<td><input class="form-control" type="text" required></input></td>
+							<div class="invalid-feedback">도서명을 입력해주세요.</div>
+						</tr>
+						<tr>
+							<th scope="row">저자</th>
 							<td><input class="form-control" type="text" required></input></td>
 						</tr>
 						<tr>
-							<th scope="row">*저자</th>
+							<th scope="row">출판사</th>
 							<td><input class="form-control" type="text" required></input></td>
-						</tr>
-						<tr>
-							<th scope="row">*출판사</th>
-							<td><input class="form-control" type="text" required></input></td>
-						</tr>
-						<tr>
-							<th scope="row">출판연도</th>
-							<td><input class="form-control" type="text"></input></td>
 						</tr>
 					</table>
 					
 					<!-- 필수항목 안내 -->
 					<div class="txt1 pr-3">
-						<span>* 필수입력 항목입니다.</span>
+						<span>모든 항목을 입력해주세요.</span>
 					</div>
 					
 				</div>
 				
 				
 					
-				<!-- submit 버튼 -->	
-					<div class="button">
+						<!-- submit 버튼 -->	
+						<div class="button">
 						<button class="btn btn-outline-primary pl-4 pr-4 pl-5 pr-5" type="submit">확인</button>
 					</div>
 				</form>	
+				
+				</div>
 			</div>
 		</div>
 	</div>

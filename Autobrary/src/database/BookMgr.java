@@ -57,7 +57,6 @@ public class BookMgr {
         return vecList;
     }
     
-    
     public Vector searchBookList(String keyoption,String keyword,String category,String area,String type) {
 		Connection con = null;
         PreparedStatement pstmt = null;
