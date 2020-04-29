@@ -1,3 +1,4 @@
+<%@page import="bucketConnector.BucketManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -71,10 +72,6 @@ table.type03 td {
         <td><%=bookBean.getIssue() %></td>
     </tr>
      <tr>
-        <th scope="row">형태사항</th>
-        <td><%=bookBean.getForm() %></td>
-    </tr>
-     <tr>
         <th scope="row">ISBN</th>
         <td><%=bookBean.getIsbn() %></td>
     </tr>
@@ -100,7 +97,7 @@ table.type03 td {
     </tr>
      <tr>
         <th scope="row">이미지</th>
-        <td><img src="/data/<%=bookBean.getImage()%>"></td>
+        <td><img src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"></td>
     </tr>
 </table>
 <div style="text-align:center;">

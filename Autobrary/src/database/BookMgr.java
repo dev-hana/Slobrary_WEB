@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import bucketConnector.BucketManager;
 import database.BookBean;
 import database.DBConnectionMgr;
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
-import serverConnector.FileUploader;
 
 public class BookMgr {
 	private DBConnectionMgr pool = null;
@@ -245,7 +245,7 @@ public class BookMgr {
       	try {
             con = pool.getConnection();
             MultipartRequest multi = new MultipartRequest(req, uploadDir, 5 * 1024 * 1024, "UTF-8", new DefaultFileRenamePolicy());
-            new FileUploader(multi.getFilesystemName("image"),  uploadDir + File.separator + multi.getFilesystemName("image"));
+            new BucketManager().fileUpLoader(multi.getFilesystemName("image"),  uploadDir + File.separator + multi.getFilesystemName("image"));
                 String query = "update book_info set type = ?, name = ?, author = ?, publisher = ?, issue = ?,"
                 		+ "form = ?, isbn = ?, class_id = ?, language = ?, collector = ?, sign = ?, status = ?,"
                 		+ "image = ? where id_num = ? ";
