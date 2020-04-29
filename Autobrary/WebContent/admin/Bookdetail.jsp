@@ -71,6 +71,10 @@ table.type03 td {
         <td><%=bookBean.getIssue() %></td>
     </tr>
      <tr>
+        <th scope="row">형태사항</th>
+        <td><%=bookBean.getForm() %></td>
+    </tr>
+     <tr>
         <th scope="row">ISBN</th>
         <td><%=bookBean.getIsbn() %></td>
     </tr>

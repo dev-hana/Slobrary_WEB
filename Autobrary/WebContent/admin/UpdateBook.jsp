@@ -49,7 +49,7 @@ table.type03 td {
 <table class="type03" style="margin-left:auto; margin-right:auto;">
     <tr>
         <th scope="row">등록번호</th>
-        <td><%=id_num %></td>
+        <td><%=bookBean.getId_num() %></td>
     </tr>
      <tr>
         <th scope="row">자료유형</th>
@@ -70,6 +70,10 @@ table.type03 td {
     <tr>
         <th scope="row">발행사항</th>
         <td><input type="text" name="issue" value="<%=bookBean.getIssue() %>"></td>
+    </tr>
+    <tr>
+        <th scope="row">형태사항</th>
+        <td><input type="text" name="form" value="<%=bookBean.getForm() %>"></td>
     </tr>
      <tr>
         <th scope="row">ISBN</th>
