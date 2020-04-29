@@ -24,7 +24,6 @@ import io.minio.errors.XmlParserException;
 import sun.misc.BASE64Encoder;
 
 public class BucketManager {
-	
   public boolean fileUpLoader(String remoteName, String localPath) throws NoSuchAlgorithmException, IOException, InvalidKeyException{
 	boolean result = false;
 	  try {
@@ -34,7 +33,10 @@ public class BucketManager {
 		result = true;
     } catch(MinioException e) {
       System.out.println("Error occurred: " + e);
-    }
+    } catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 		return result;
   }
   
@@ -46,19 +48,15 @@ public boolean fileDownLoader(String findObjectName) throws InvalidKeyException,
 		InputStream stream = minioClient.getObject("slo", findObjectName);
 		writeInputStreamToFile(findObjectName, stream);
 		result = true;
-	} catch (InvalidEndpointException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (InvalidPortException e) {
+	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-
 	return result;
 }
 
 public String base64DownLoader(String findObjectName)  throws InvalidKeyException, ErrorResponseException, IllegalArgumentException, InsufficientDataException, InternalException, InvalidBucketNameException, InvalidResponseException, NoSuchAlgorithmException, XmlParserException, IOException {
-	String result = "";
+	String result = "NotLoaded";
 	try {
     	//********보안정보 취급 주의**********
 		MinioClient minioClient = new MinioClient("http://slobrary.com", 9000, "slo", "legoslo2020");
@@ -73,14 +71,11 @@ public String base64DownLoader(String findObjectName)  throws InvalidKeyExceptio
         byte fileArray[]=byteOutStream.toByteArray();
         result = "data:image/jpeg;base64," + base64Encoder.encodeBuffer(fileArray);
 
-	} catch (InvalidEndpointException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (InvalidPortException e) {
+	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	System.out.println(result);
+	// System.out.println(result);
 	return result;
 }
 
