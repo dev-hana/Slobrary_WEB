@@ -45,43 +45,38 @@
 		<div class="row mt-5 justify-content-md-center">
 			<div class="col-sm-4 shadow-sm p-3 mb-5 bg-white rounded">
 				<div class="title">
-					<i style="font-size: 30px;" class="fas fa-book"></i>
+					<i style="font-size: 25px;" class="fas fa-book"></i>
           		  <h4 style="display:inline-block; margin:15px; padding-bottom:2px; font-weight: 600;">희망도서 신청</h4>
       			 </div>
 				<hr>
 				
+				<form class="needs-validation" method="post" action="WishBookProc.jsp" novalidate>
 				
-				
-				<form class="needs-validation" method="post" action="WishBookProc" novalidate>
-				
+				<!-- 사용자 정보 숨김 -->
 				<input type="text" value="yangz" hidden>
+				
 				<!-- 도서신청 입력 -->
 				<div class="table1">
 					<table class="table table-borderless">
 						<tr>
+							<div class="input-group">
 							<th scope="row">도서명</th>
-							<td><input class="form-control" type="text" required></input></td>
-							<div class="invalid-feedback">도서명을 입력해주세요.</div>
+							<td><input class="form-control" type="text" placeholder="도서명을 입력해주세요" required></input>
+							<div class="invalid-feedback">항목을 기입해주세요.</div></td>
+							</div>
 						</tr>
 						<tr>
 							<th scope="row">저자</th>
-							<td><input class="form-control" type="text" required></input></td>
+							<td><input class="form-control" placeholder="저자를 입력해주세요" type="text" required></input>
+							<div class="invalid-feedback">항목을 기입해주세요.</div></td>
 						</tr>
 						<tr>
 							<th scope="row">출판사</th>
-							<td><input class="form-control" type="text" required></input></td>
+							<td><input class="form-control" type="text" placeholder="출판사을 입력해주세요" required></input>
+							<div class="invalid-feedback">항목을 기입해주세요.</div></td>
 						</tr>
 					</table>
-					
-					<!-- 필수항목 안내 -->
-					<div class="txt1 pr-3">
-						<span>모든 항목을 입력해주세요.</span>
-					</div>
-					
 				</div>
-				
-				
-					
 						<!-- submit 버튼 -->	
 						<div class="button">
 						<button class="btn btn-outline-primary pl-4 pr-4 pl-5 pr-5" type="submit">확인</button>
