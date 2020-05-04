@@ -83,28 +83,29 @@
     <div id="body-main" class="p-4">
         <div class="container">
             <div class="row justify-content-md-center">
-                <div id="userinfo" class="col-md-3 mr-3 p-0 pt-4 pb-4">
-                    <div class="img-wrapper">
-                        <img id="userinfo-img" class="img-cover" src="img/main-ex/profileImg.jpg" alt="프로필사진">
-                    </div>
+                <div id="userinfo" class="col-md-3 p-0 pt-4 pb-4">
                     <div class='bg-white rounded  shadow'>
-                        <div class="row mb-3 mt-n4 pl-3 pr-3">
+                        <div id="userinfo-status" class="p-4 mb-3">
+                            <p><span id="status-emoji">🤔</span><br>
+                                <span>'책이름'</span> 외 <span>n</span>권<br>
+                                연체까지 <span>0</span>일 남았어요!</p><br>
+                        </div>
+                        <div class="img-wrapper">
+                            <img id="userinfo-img" class="img-cover" src="img/default/userImg/girl1.png" alt="프로필사진">
+                        </div>
+                        <div class="row mb-3 mt-4 pl-3 pr-3">
                             <div class="mt-4" style="width: 100%; text-align: center;">
                                 <div id="userinfo-name" class="mt-2 mb-2">
                                     <p>윤고은나래</p>
                                     <i class="fas fa-bell"> 0</i>
                                 </div>
-                                <div id="userinfo-btn" class="btn-group" role="group">
+                                <div id="userinfo-btn" class="btn-group mb-3" role="group">
                                     <button type="button" class="btn">내 서재</button>
                                     <button type="button" class="btn ml-3">로그아웃</button>
                                 </div>
                             </div>
                         </div>
-                        <div id="userinfo-status" class="p-4 mb-3">
-                            <p><span id="status-emoji">🤔</span><br>
-                                <span>'책이름'</span> 외 <span>n</span>권<br>
-                                연체까지 <span>0</span>일 남았어요!</p>
-                        </div>
+
                         <div id="userinfo-history" class="row pl-3 pr-3">
                             <div class="col">
                                 <p>읽는 중</p>
@@ -122,14 +123,13 @@
                     </div>
                 </div>
 
-                <div data-ride="carousel" class=" col-md-6 ml-5 carousel-innercarousel carousel-fade" id="carousel-bookshelf">
+                <div data-ride="carousel" class="col-md-8 ml-5 carousel slide carousel-fade" id="carousel-bookshelf">
                     <ol class="carousel-indicators">
                         <li class="active" data-slide-to="0" data-target="#carousel-bookshelf"></li>
                         <li data-slide-to="1" data-target="#carousel-bookshelf"></li>
                         <li data-slide-to="2" data-target="#carousel-bookshelf"></li>
                     </ol>
-
-                    <div role="listbox">
+                    <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div id="bookshelf-today" class="col bookshelf">
                                 <p id="bookshelf-title">todAy's pick</p>
@@ -291,12 +291,12 @@
                         </div>
                     </div>
 
-                    <a data-slide="prev" role="button" href="#carousel-bookshelf" class="left carousel-control">
-                        <span aria-hidden="true" class="icon-prev"></span>
+                    <a data-slide="prev" role="button" href="#carousel-bookshelf" class="carousel-control-prev">
+                        <span aria-hidden="true" class="carousel-control-prev-icon"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a data-slide="next" role="button" href="#carousel-bookshelf" class="right carousel-control">
-                        <span aria-hidden="true" class="icon-next"></span>
+                    <a data-slide="next" role="button" href="#carousel-bookshelf" class="right carousel-control-next">
+                        <span aria-hidden="true" class="carousel-control-next-icon"></span>
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
