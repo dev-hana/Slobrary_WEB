@@ -24,11 +24,16 @@ import io.minio.errors.XmlParserException;
 import sun.misc.BASE64Encoder;
 
 public class BucketManager {
-  public boolean fileUpLoader(String remoteName, String localPath) throws NoSuchAlgorithmException, IOException, InvalidKeyException{
+	private final String HOST = "http://slobrary.com";
+	private final int PORT = 9000;
+	private final String ACCESS_KEY = "slo";
+	private final String SECRET_KEY = "legoslo2020";
+	
+  public boolean fileUpLoader(String remoteName, String localPath) throws NoSuchAlgorithmException, IOException, InvalidKeyException {
 	boolean result = false;
 	  try {
     	//********보안정보 취급 주의**********
-	MinioClient minioClient = new MinioClient("http://slobrary.com", 9000, "slo", "legoslo2020");
+	MinioClient minioClient = new MinioClient(HOST, PORT, ACCESS_KEY, SECRET_KEY);
       minioClient.putObject("slo", remoteName, localPath, null);
 		result = true;
     } catch(MinioException e) {
@@ -44,7 +49,7 @@ public boolean fileDownLoader(String findObjectName) throws InvalidKeyException,
 	boolean result = false;
 	try {
     	//********보안정보 취급 주의**********
-		MinioClient minioClient = new MinioClient("http://slobrary.com", 9000, "slo", "legoslo2020");
+		MinioClient minioClient = new MinioClient(HOST, PORT, ACCESS_KEY, SECRET_KEY);
 		InputStream stream = minioClient.getObject("slo", findObjectName);
 		writeInputStreamToFile(findObjectName, stream);
 		result = true;
@@ -59,7 +64,7 @@ public String base64DownLoader(String findObjectName)  throws InvalidKeyExceptio
 	String result = "NotLoaded";
 	try {
     	//********보안정보 취급 주의**********
-		MinioClient minioClient = new MinioClient("http://slobrary.com", 9000, "slo", "legoslo2020");
+		MinioClient minioClient = new MinioClient(HOST, PORT, ACCESS_KEY, SECRET_KEY);
 		InputStream stream = minioClient.getObject("slo", findObjectName);
 		BASE64Encoder base64Encoder = new BASE64Encoder();
         ByteArrayOutputStream byteOutStream=new ByteArrayOutputStream();
