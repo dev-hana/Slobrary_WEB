@@ -19,7 +19,7 @@
 <body>
 <%@ include file="Top.jsp" %> 
 <br><br>
-<%@ include file="MemTop.jsp" %>
+<%@ include file="SearchMem.jsp" %>
  <%Vector vResult= memMgr.getMemberList();%>
  <div style="width:94%;text-align:center;">
  <table align="center">
