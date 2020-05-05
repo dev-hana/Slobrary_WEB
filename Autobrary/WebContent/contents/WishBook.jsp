@@ -8,7 +8,7 @@
 <!-- 아이콘 -->
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link href="/css/WishBook.css" rel="stylesheet" />
-<link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="shortcut icon" href="/img/favicon.ico">
  <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">

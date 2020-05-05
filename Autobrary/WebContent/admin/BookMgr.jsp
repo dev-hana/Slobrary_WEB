@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>도서관리</title>
+ <link rel="shortcut icon" href="/img/favicon.ico">
 <script language="JavaScript" src="script.js"></script>
 <style type="text/css">
     .th1{text-align:center; border:1px solid gray;background-color:#EAEAEA; width="72" height="45"; padding: 15px;}

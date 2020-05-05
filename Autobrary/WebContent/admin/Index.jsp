@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Autobrary Admin Main</title>
+ <link rel="shortcut icon" href="/img/favicon.ico">
 </head>
 <body>
 <%@ include file="Top.jsp" %>

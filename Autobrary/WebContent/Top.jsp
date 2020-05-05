@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
     <title>Slobrary</title>
     <link href="/css/top.css" rel="stylesheet">
-
+	<link rel="shortcut icon" href="/img/favicon.ico">
     <!-- 웹폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
 <div id="header" class="container-fluid">
         <div class="row ml-5 mr-5">
             <div id="logo-main" class="col-sm-3 m-auto d-none d-lg-block">
-                <a class="navbar-brand float-d-flex mr-auto logo mt-n3" href="Index.jsp">
+                <a class="navbar-brand float-d-flex mr-auto logo mt-n3" href="/">
                     <!--AutoBrArY-->
                     sloBrArY
                     <p>just take it!</p>
@@ -50,7 +50,7 @@
                             </button>
 
                             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                                <a id="logo-nav" class="logo" href="Index.jsp"><!-- AutoBrArY -->sloBrArY</a>
+                                <a id="logo-nav" class="logo" href="/"><!-- AutoBrArY -->sloBrArY</a>
                                 <ul id="nav-main" class="navbar-nav mr-auto">
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">도서검색<span class="sr-only">(current)</span></a>
