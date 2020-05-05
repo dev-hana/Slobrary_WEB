@@ -19,21 +19,7 @@
 <body>
 <%@ include file="Top.jsp" %> 
 <br><br>
-<div style="text-align: center; display:inline;">
-<form name="search">
-	<select name="searchMem" style="font-size:20px; text-align:center;">
-		<option value="all">전체</option>
-		<option value="rfid">RFID</option>
-		<option value="memid">회원ID</option>
-		<option value="name">이름</option>
-	</select>
-	
-	<input type="text" name="result" style="width:500px;">
-	<input style="background:#042759; color:#FFFFFF; border: none; font-size:20px; text-align:center;" 
-	type="submit" value="search">
-</form>
-</div>
-<br><br>
+<%@ include file="MemTop.jsp" %>
  <%Vector vResult= memMgr.getMemberList();%>
  <div style="width:94%;text-align:center;">
  <table align="center">
