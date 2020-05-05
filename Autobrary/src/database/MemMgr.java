@@ -136,6 +136,67 @@ public class MemMgr {
         }
         return flag;
     }
-    
+    public Vector getMemberListS(String t, String r) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+        try {
+            con = pool.getConnection();
+            String strQuery;
+            if(t.equals("all")) {
+            	strQuery = "select mem_id, name, gender, birth, phone, address, email, loan_status, add_date, withdrawal from member"
+            		+ " where mem_id = ? or rfid = ? or name = ?";
+            	pstmt = con.prepareStatement(strQuery);
+                pstmt.setString(1, r);
+                pstmt.setString(2, r);
+                pstmt.setString(3, r);
+                rs = pstmt.executeQuery();
+            }
+            
+            else if(t.equals("rfid")) { 
+            	strQuery = "select mem_id, name, gender, birth, phone, address, email, loan_status, add_date, withdrawal from member"
+            		+ " where rfid = ? ";
+            	pstmt = con.prepareStatement(strQuery);
+            	pstmt.setString(1, r);
+            	rs = pstmt.executeQuery();
+            }
+            
+            else if (t.equals("mem_id")) { 
+            	strQuery = "select mem_id, name, gender, birth, phone, address, email, loan_status, add_date, withdrawal from member"
+            		+ " where mem_id = ? ";
+            	pstmt = con.prepareStatement(strQuery);
+            	pstmt.setString(1, r);
+            	rs = pstmt.executeQuery();
+            }
+            
+            else if (t.equals("name")) { 
+            	strQuery = "select mem_id, name, gender, birth, phone, address, email, loan_status, add_date, withdrawal from member"
+            		+ " where name = ? ";
+            	pstmt = con.prepareStatement(strQuery);
+            	pstmt.setString(1, r);
+            	rs = pstmt.executeQuery();
+            }
+
+            while (rs.next()) {
+                MemBean memBean = new MemBean();
+                if(rs.getString("withdrawal")==null) {
+                	memBean.setMem_id(rs.getString("mem_id"));
+                	memBean.setMem_name(rs.getString("name"));
+                	memBean.setMem_gender(rs.getString("gender"));
+                	memBean.setMem_phone(rs.getString("phone"));
+                	memBean.setMem_birth(rs.getString("birth"));
+                	memBean.setMem_date(rs.getString("add_date"));
+                	memBean.setLoan_status(rs.getString("loan_status"));
+                	vecList.add(memBean);
+                }
+            }
+        }catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        return vecList;
+    }
 
 }
