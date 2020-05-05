@@ -49,7 +49,7 @@ public class Sender {
 				"</tbody>\r\n" + 
 				"</table>\r\n" + 
 				"<div style=\"font-size: 12px; line-height: 19px; margin-top: 20px;\">\r\n" + 
-				"<div>SL:O Brary&nbsp;<br />Contact : support@slobrary.com<br />Website : https://www.slobrary.com<br />이 메일을 발신전용 메일입니다.</div>\r\n" + 
+				"<div>SL:O Brary&nbsp;<br />Contact : support@slobrary.com<br />Website : https://www.slobrary.com<br />이 메일은 발신전용 메일입니다.</div>\r\n" + 
 				"</div>\r\n" + 
 				"</div>\r\n" + 
 				"</div>\r\n" + 

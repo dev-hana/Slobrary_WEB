@@ -16,8 +16,8 @@ import javax.mail.internet.MimeMessage;
 public class MailConnecter extends Thread {
 	private String protocol = "smtp";
 	private String type = "text/html; charset=KSC5601";
-	private String userName = "no-reply";    //구글메일계정
-	private String password = "legoslo2020";    //구글메일계정
+	private String userName = "no-reply";   
+	private String password = "legoslo2020";   
 	private String host = "slobrary.com";
 	private int port = 25;	//25
 	private boolean starttlsEnable = false;
@@ -39,7 +39,7 @@ public class MailConnecter extends Thread {
 		this.subject = subject;
 		this.contents = contents;
 		this.fromEmail = "no-reply@slobrary.com";
-		this.fromName = "Slobrary";
+		this.fromName = "SL:O Brary";
 		this.list = list;
 	}
 
