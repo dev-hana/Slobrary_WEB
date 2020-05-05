@@ -9,6 +9,7 @@
 	}
 %>
  <br><br>
+     <link rel="shortcut icon" href="/img/favicon.ico">
   <div style="color:#042759;text-align:right;margin-right:500px;">
     &nbsp&nbsp
     <span style="font-weight:bold;font-size:20px;color:#000000">관리자님, 어서오세요</span> &nbsp&nbsp
@@ -18,5 +19,5 @@
     border: none;
     border-radius:5px;"
     onclick="location.href='AdminLogout.jsp' ">LOGOUT</button>
-    <link rel="shortcut icon" href="../img/favicon.ico">
+
   </div>
