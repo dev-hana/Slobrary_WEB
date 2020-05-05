@@ -25,7 +25,7 @@
 <div id="header" class="container-fluid">
         <div class="row ml-5 mr-5">
             <div id="logo-main" class="col-sm-3 m-auto d-none d-lg-block">
-                <a class="navbar-brand float-d-flex mr-auto logo mt-n3" href="#">
+                <a class="navbar-brand float-d-flex mr-auto logo mt-n3" href="Index.jsp">
                     <!--AutoBrArY-->
                     sloBrArY
                     <p>just take it!</p>
@@ -50,7 +50,7 @@
                             </button>
 
                             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                                <a id="logo-nav" class="logo"><!-- AutoBrArY -->sloBrArY</a>
+                                <a id="logo-nav" class="logo" href="Index.jsp"><!-- AutoBrArY -->sloBrArY</a>
                                 <ul id="nav-main" class="navbar-nav mr-auto">
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">도서검색<span class="sr-only">(current)</span></a>
@@ -103,6 +103,8 @@
                 $("#logo-nav").hide();
             }
         }); //scroll
+        
+        $('.dropdown-toggle').dropdown();	// dropdown 오류가 있어서 추가
     });
 
     $(document).ready(function() {
