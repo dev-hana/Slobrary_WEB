@@ -47,7 +47,7 @@ label {
 <body class="bg-light">
 	<div class="container-fluid">
 		<div class="row justify-content-md-center">
-			<div class="col-sm-4 shadow-sm p-3 mb-5 bg-white p-5">
+			<div class="col-xl-4 shadow-sm p-3 mb-5 bg-white p-5">
 				<div class="title">
 					<h4>아이디 찾기</h4><hr>
 				</div>

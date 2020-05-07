@@ -9,8 +9,8 @@
 <!-- 아이콘 -->
 <link rel="shortcut icon" href="../img/favicon.ico">
 
-<!-- 자바 스크립트 
-<script type="text/javascript" src="/js/formneeds.js"></script>-->
+<!-- 자바 스크립트 -->
+<script type="text/javascript" src="/js/formneeds.js"></script>
 
 <!-- 웹폰트 -->
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
@@ -42,6 +42,7 @@ label {
 }
 
 </style>
+
 <title>비밀번호 찾기</title>
 </head>
 <body class="bg-light">
@@ -52,12 +53,13 @@ label {
 					<h4>비밀번호 찾기</h4><hr>
 				</div>
 					<div>
-					<form action="/contents/FindIdProc.jsp" method="post" class="needs-validation" novalidate>
+					<form action="/contents/FindPwdProc.jsp" method="post" class="needs-validation" novalidate>
 						<div class="form-group">
+						<input type="hidden" name="pwd_type" value="인증번호">
 						<label for="mem_name">이름</label>
                         <div class="input-group mb-2">
                             <input type="text" class="form-control" placeholder="이름을 입력해주세요" name="mem_name" required>
-                            
+                          
                         </div>
                         
 							<label for="birth">생년월일</label>
@@ -66,14 +68,22 @@ label {
                         	</div>
 						<label for="mem_mail">이메일</label>
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="abc@slobrary.com" name="mem_name" required> 
+                            <input type="email" class="form-control" placeholder="abc@slobrary.com" name="mem_name" required>
+                            <button type="submit" class="btn btn-secondary">인증번호 발송</button>
                         </div>
-                        <p class="einfo">회원가입시 사용한 이메일을 입력해주세요.</p>   
-                        <div style="text-align:right;" class="pt-3">
-                        <button id="submit-btn" class="btn btn-secondary custom-btn btn-block pt-2 pb-2" type="submit">본인인증</button></div>
-						</div>
+                        <p class="einfo">회원가입시 사용한 이메일을 입력해주세요.</p>
 					</form>
 					
+					<form action="/contents/FindPwdProc.jsp" method="post" class="needs-validation" novalidate>
+						<label for="number">인증번호</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="인증번호를 입력해주세요" name="number" required>
+                        </div>
+						<input type="hidden" name="pwd_type" value="비밀번호찾기">
+                        <div style="text-align:right;" class="mt-3">
+                        <button id="submit-btn" class="btn btn-secondary custom-btn btn-block pt-2 pb-2" type="submit">다음</button></div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
