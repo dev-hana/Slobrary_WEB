@@ -43,23 +43,10 @@ label {
 }
 </style>
 <script type="text/javascript">
-$(document).ready(function () {
-    $("#myForm").validate({
-            new_pwd: {
-                required: true
-            },
-            ok_pwd: {
-                required: true,
-                equalTo: "input[name='new_pwd']"
-            }
-        },
-        messages: {
-            passwordConfirm: {
-                equalTo: '비밀번호가 일치하지 않습니다.'
-            }
-        },
-    });
-});
+state={
+		password:'',
+		confirmPassword:''
+}
 
 </script>
 <title>비밀번호 재설정</title>
@@ -76,13 +63,13 @@ $(document).ready(function () {
 						<div class="form-group">
 						<label for="new_pwd">새 비밀번호</label>
                         <div class="input-group mb-2">
-                            <input type="password" class="form-control" placeholder="숫자, 대/소문자 포함 8글자 이상 입력해주세요." name="new_pwd" required>
+                            <input id="passwordInput" type="password" class="form-control" placeholder="숫자, 대/소문자 포함 8글자 이상 입력해주세요." name="new_pwd" required>
                             
                         </div>
                         
 						<label for="ok_pwd">새 비밀번호 확인</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" name="ok_pwd" required> 
+                            <input id="confirmPasswordInput" type="password" class="form-control" name="ok_pwd" required> 
                         </div>
                         <div style="text-align:right;" class="mt-4 pt-3">
                         <button id="submit-btn" class="btn btn-secondary custom-btn btn-block pt-2 pb-2" type="submit">비밀번호 변경</button></div>

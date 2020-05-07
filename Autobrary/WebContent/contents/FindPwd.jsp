@@ -68,7 +68,7 @@ label {
                         	</div>
 						<label for="mem_mail">이메일</label>
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="abc@slobrary.com" name="mem_name" required>
+                            <input type="email" class="form-control" placeholder="abc@slobrary.com" name="mem_mail" required>
                             <button type="submit" class="btn btn-secondary">인증번호 발송</button>
                         </div>
                         <p class="einfo">회원가입시 사용한 이메일을 입력해주세요.</p>
