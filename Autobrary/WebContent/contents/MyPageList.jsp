@@ -18,7 +18,7 @@
 <body>
 
 <%
-			for(int i=0;i<5;i++){
+			for(int i=0;i<3;i++){
 		%>
 			<div class="row shadow-sm p-3 mb-5 bg-white rounded">
 			<div style="display: inline-block; padding-top:20px;">

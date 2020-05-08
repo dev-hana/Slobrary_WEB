@@ -57,6 +57,8 @@
                             <input type="password" class="form-control" id="pwdCheck" placeholder="비밀번호 확인" name="pwdCheck" required>
                             <button type="button" id="btnToggle_pwdCheck" class="toggle"><i id="eyeIcon_pwdCheck" class="fa fa-eye"></i></button>
                         </div>
+                        <div class="alert alert-success mt-2" id="alert-success">비밀번호가 일치합니다.</div>
+                        <div class="alert alert-danger mt-2" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
                         
                         <br>
                         <!-- 회원 정보 -->

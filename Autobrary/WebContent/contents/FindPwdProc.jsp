@@ -15,6 +15,7 @@
 		
 		//인증번호 발송을 누른경우
 		if(pwd_type.equals("인증번호")){
+			String id = request.getParameter("mem_id");
 			String name = request.getParameter("mem_name");
 			String birth = request.getParameter("mem_birth");
 			String email = request.getParameter("mem_mail");

@@ -56,10 +56,14 @@ label {
 					<form action="/contents/FindPwdProc.jsp" method="post" class="needs-validation" novalidate>
 						<div class="form-group">
 						<input type="hidden" name="pwd_type" value="인증번호">
+						<label for="mem_id">아이디</label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="mem_id" required>
+                        </div>
+                        
 						<label for="mem_name">이름</label>
                         <div class="input-group mb-2">
                             <input type="text" class="form-control" placeholder="이름을 입력해주세요" name="mem_name" required>
-                          
                         </div>
                         
 							<label for="birth">생년월일</label>
