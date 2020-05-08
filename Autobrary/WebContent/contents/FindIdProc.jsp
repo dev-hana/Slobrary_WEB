@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, database.*"%>
+<jsp:useBean id="memMgr" class="database.MemMgr" />
+<%
+request.setCharacterEncoding("UTF-8");
+String name = request.getParameter("name");
+String birth = request.getParameter("birth");
+String email = request.getParameter("email");
+
+String mem_id = memMgr.findId(name, birth, email);
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,10 +39,7 @@
 
 <!-- 일치하지 않는 경우 경고창 띄우고 이전 페이지로 이동 -->
 <%
-	request.setCharacterEncoding("UTF-8");
-	String name= request.getParameter("mem_name");
-	
-	if(name.equals("양지현")==false){
+	if(mem_id==null){
 
 	out.println("<script>alert('일치하는 회원정보가 없습니다.');history.back();</script>");	
 	}else{
@@ -50,7 +58,7 @@
 				</div>
 				<div style="border:#BDBDBD solid 1px;" class="pt-3 pl-4">
 					<table class="table table-borderless">
-						<tr><th>아이디</th><td>yangz</td> <th>가입일</th> <td>1999년 7월 27일</td> </tr>
+						<tr><th>아이디</th><td><%=mem_id %></td> <th>가입일</th> <td><%=birth %></td> </tr>
 					</table>
 				</div>
 				<div style="text-align:right;" class="mt-4">
@@ -60,6 +68,7 @@
 			</div>
 		</div>
 	</div>
-<%} %>
+<%} %> 
+
 </body>
 </html>
