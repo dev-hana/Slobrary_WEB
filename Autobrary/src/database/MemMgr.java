@@ -114,6 +114,34 @@ public class MemMgr {
         return mem_id;
     }
     
+    public String checkIdpw(String mem_id, String name, String birth, String email) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String check = null;
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select mem_id, withdrawal from member where mem_id = ? and name = ? and birth = ? and email = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, mem_id);
+            pstmt.setString(2, name);
+            pstmt.setString(3, birth);
+            pstmt.setString(4, email);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+            	if(rs.getString("withdrawal")==null) {
+            		check = rs.getString("mem_id");
+            	}
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        return check;
+    }
+    
     
     public boolean deleteMember(String mem_id) {
     	Connection con = null;

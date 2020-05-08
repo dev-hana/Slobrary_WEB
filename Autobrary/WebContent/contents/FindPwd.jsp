@@ -53,28 +53,35 @@ label {
 					<h4>비밀번호 찾기</h4><hr>
 				</div>
 					<div>
-					<form action="/contents/FindPwdProc.jsp" method="post" class="needs-validation" novalidate>
+					<form action="FindPwdProc.jsp" method="post" class="needs-validation" novalidate>
 						<div class="form-group">
+						
 						<input type="hidden" name="pwd_type" value="인증번호">
+						
+						<label for="mem_name">아이디</label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="mem_id" required>
+                          
+                        </div>
 						<label for="mem_name">이름</label>
                         <div class="input-group mb-2">
-                            <input type="text" class="form-control" placeholder="이름을 입력해주세요" name="mem_name" required>
+                            <input type="text" class="form-control" placeholder="이름을 입력해주세요" name="name" required>
                           
                         </div>
                         
 							<label for="birth">생년월일</label>
 							<div class="input-group mb-2">
-                        	<input type="date" class="form-control" id="birth" name="mem_birth" required>
+                        	<input type="text" class="form-control" placeholder="생년월일을 입력해수세요. 예)19001212" id="birth" name="birth" required>
                         	</div>
 						<label for="mem_mail">이메일</label>
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="abc@slobrary.com" name="mem_mail" required>
+                            <input type="email" class="form-control" placeholder="abc@slobrary.com" name="email" required>
                             <button type="submit" class="btn btn-secondary">인증번호 발송</button>
                         </div>
                         <p class="einfo">회원가입시 사용한 이메일을 입력해주세요.</p>
 					</form>
 					
-					<form action="/contents/FindPwdProc.jsp" method="post" class="needs-validation" novalidate>
+					<form action="FindPwdProc.jsp" method="post" class="needs-validation" novalidate>
 						<label for="number">인증번호</label>
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="인증번호를 입력해주세요" name="number" required>
