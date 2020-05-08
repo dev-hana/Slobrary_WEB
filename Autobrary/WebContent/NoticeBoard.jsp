@@ -1,21 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
     <title>Slobrary - 공지사항</title>
-    <!-- 웹폰트 -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
-    <!-- 아이콘 라이브러리-->
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <!-- 부트스트랩 4 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-    <style>
+     <jsp:include page="CND.jsp" flush="false"/>
+<style>
         * {
     font-family: 'Noto Sans KR', sans-serif;
 }
@@ -62,8 +54,13 @@
 </head>
 
 <body>
+	<header class="pt-4 shadow-sm bg-white">
+    <jsp:include page="Top.jsp" flush="false"/>
+    </header>
+    <div id="body-main" class="p-4">
+        <div class="container">
     <div class="wrapper">
-        <nav id="sidebar" class="p-4 pt-5">
+        <nav id="sidebar" class="mt-5 p-4 pt-5">
             <div class="sidebar-header mb-5">
                 <h1>안내사항</h1>
             </div>
@@ -73,7 +70,7 @@
             </ul>
         </nav>
         <div id="content">
-            <div class="mt-5 pt-2">
+        	<div class="mt-5 pt-2">
                 <h3>공지사항</h3>
             </div>
             <table class="table table-striped table-hover table-notice-board">
@@ -106,8 +103,9 @@
                     </tr>
                 </tbody>
             </table>
-            
-            
+            </div>
+            </div>
         </div>
     </div>
 </body>
+</html>
