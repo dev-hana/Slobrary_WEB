@@ -54,7 +54,7 @@
 </head>
 
 <body>
-	<header class="pt-4 shadow-sm bg-white">
+	<header>
     <jsp:include page="Top.jsp" flush="false"/>
     </header>
     <div id="body-main" class="p-4">

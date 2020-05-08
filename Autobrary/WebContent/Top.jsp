@@ -7,22 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
     <title>Slobrary</title>
     <link href="/css/top.css" rel="stylesheet">
-	<link rel="shortcut icon" href="/img/favicon.ico">
     <!-- 웹폰트 -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script> <!-- 아이콘 라이브러리-->
-    <!-- 부트스트랩 4 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<jsp:include page="/CND.jsp" flush="false"/>
 </head>
 <body>
-<div id="header" class="container-fluid">
+<div id="header" class="container-fluid pt-4 shadow-sm bg-white">
         <div class="row ml-5 mr-5">
             <div id="logo-main" class="col-sm-3 m-auto d-none d-lg-block">
                 <a class="navbar-brand float-d-flex mr-auto logo mt-n3" href="/">
