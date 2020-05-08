@@ -87,6 +87,61 @@ public class MemMgr {
         return memBean;
     }
     
+    public String findId(String name, String birth, String email) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String mem_id = null;
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select mem_id, withdrawal from member where name = ? and birth = ? and email = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, name);
+            pstmt.setString(2, birth);
+            pstmt.setString(3, email);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+            	if(rs.getString("withdrawal")==null) {
+            		mem_id = rs.getString("mem_id");
+            	}
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        return mem_id;
+    }
+    
+    public String checkIdpw(String mem_id, String name, String birth, String email) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String check = null;
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select mem_id, withdrawal from member where mem_id = ? and name = ? and birth = ? and email = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, mem_id);
+            pstmt.setString(2, name);
+            pstmt.setString(3, birth);
+            pstmt.setString(4, email);
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+            	if(rs.getString("withdrawal")==null) {
+            		check = rs.getString("mem_id");
+            	}
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        return check;
+    }
+    
     
     public boolean deleteMember(String mem_id) {
     	Connection con = null;
@@ -109,6 +164,7 @@ public class MemMgr {
         return flag;
     }
     
+    
     public boolean memberUpdate(MemBean regBean) {
         Connection con = null;
         PreparedStatement pstmt = null;
@@ -117,9 +173,7 @@ public class MemMgr {
             con = pool.getConnection();
             String strQuery = "update member set phone=?, address=?, email =? where mem_id =? ";
             
-
             pstmt = con.prepareStatement(strQuery);
-
             pstmt.setString(1, regBean.getMem_phone());
             pstmt.setString(2, regBean.getMem_address());
             pstmt.setString(3, regBean.getMem_mail());
