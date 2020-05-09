@@ -15,7 +15,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import bucketConnector.BucketManager;
 import database.BookBean;
 import database.DBConnectionMgr;
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
+
 
 public class BookMgr {
 	private DBConnectionMgr pool = null;

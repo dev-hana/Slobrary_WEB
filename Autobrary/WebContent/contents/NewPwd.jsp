@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String mem_id = (String)request.getParameter("mem_id");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +62,8 @@ state={
 					<h4>비밀번호 재설정</h4><hr>
 				</div>
 					<div>
-					<form action="/contents/NewPwdProc.jsp" method="post" id="myForm" class="needs-validation" novalidate>
+					<form action="NewPwdProc.jsp" method="post" id="myForm" class="needs-validation" novalidate>
+					<input type="hidden" name="mem_id" value=<%=mem_id %> >
 						<div class="form-group">
 						<label for="new_pwd">새 비밀번호</label>
                         <div class="input-group mb-2">

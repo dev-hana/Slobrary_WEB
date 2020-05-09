@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, database.*"%>
+<jsp:useBean id="memMgr" class="database.MemMgr" />
+<%
+	String mem_id = request.getParameter("mem_id");
+	MemBean memBean = memMgr.getMember(mem_id);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,41 +60,34 @@ label {
 				</div>
 					<div>
 					<div class="form-group">
-					<form action="FindPwdProc.jsp" method="post" class="needs-validation" novalidate>
+					<form action="FindPwProcProc.jsp" method="post" class="needs-validation" novalidate>
 					
-				
-						<input type="hidden" name="pwd_type" value="인증번호">
-						
 						<label for="id">아이디</label>
                         <div class="input-group mb-2">
-                            <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="mem_id" required>
-                          
+                           <a style="color:gray;"><%=memBean.getMem_name() %> </a>                     
                         </div>
-						<label for="mem_name">이름</label>
+						<label for="name">이름</label>
                         <div class="input-group mb-2">
-                            <input type="text" class="form-control" placeholder="이름을 입력해주세요" name="name" required>
-                          
+                           <a style="color:gray;"><%=memBean.getMem_name() %> </a>           
                         </div>
                         
 							<label for="birth">생년월일</label>
 							<div class="input-group mb-2">
-                        	<input type="text" class="form-control" placeholder="생년월일을 입력해수세요. 예)19001212" id="birth" name="birth" required>
+                        	 <a style="color:gray;"><%=memBean.getMem_birth() %> </a>        
                         	</div>
-						<label for="mem_mail">이메일</label>
+						<label for="email">이메일</label>
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="abc@slobrary.com" name="email" required>
-                            <button type="submit" class="btn btn-secondary">인증번호 발송</button>
-                        </div>
-                        <p class="einfo">회원가입시 사용한 이메일을 입력해주세요.</p>
-					
+                             <a style="color:gray;"><%=memBean.getMem_mail() %> </a>        
+                        </div>						
 						<label for="number">인증번호</label>
 						</form>
 						<form action="FindPwdProc.jsp" method="post" class="needs-validation" novalidate>
                         <div class="input-group">
                         <input type="text" class="form-control" placeholder="인증번호를 입력해주세요" name="number" required>
                         </div>
-						<input type="hidden" name="pwd_type" value="비밀번호찾기">
                         <div style="text-align:right;" class="mt-3">
+                        <input type="hidden" name="pwd_type" value="비밀번호찾기">
+                        <input type="hidden" name="mem_id" value=<%=memBean.getMem_id() %>>
                         <button id="submit-btn" class="btn btn-secondary custom-btn btn-block pt-2 pb-2" type="submit">다음</button>
                         </div>
                         </form>
