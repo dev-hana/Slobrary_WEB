@@ -65,7 +65,7 @@ label {
                         
 						<label for="mem_name">이름</label>
                         <div class="input-group mb-2">
-                            <input type="text" class="form-control" placeholder="이름을 입력해주세요" name="mem_name" required>
+                            <input type="text" class="form-control" placeholder="이름을 입력해주세요" name="name" required>
 
                         </div>
                         
