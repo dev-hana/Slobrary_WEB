@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <!-- 자바 스크립트 -->
-<script type="text/javascript" src="js/signup.js"></script>
+
 
 <!-- css -->
 <link href="/css/MyInfo.css" rel="stylesheet" />
@@ -76,79 +76,6 @@
 		</div>
 	</div>
 	</div>
-	
-	 <!--사용자 이미지 모달-->
-	<div class="modal fade" id="modal-img" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title">프로필 이미지</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="row">
-                        <div class="col-sm">
-                            <label class="image-radio">
-                                <div class="img-wrapper">
-                                    <img class="img-cover shadow-sm" src="/img/default/userImg/girl1.png">
-                                    <input type="radio" name="image_radio" value="girl1.png" checked>
-                                </div>
-                            </label>
-                        </div>
-                        <div class="col-sm">
-                            <label class="image-radio">
-                                <div class="img-wrapper">
-                                    <img class="img-cover shadow-sm" src="/img/default/userImg/girl2.png">
-                                    <input type="radio" name="image_radio" value="girl2.png">
-                                </div>
-                            </label>
-                        </div>
-                        <div class="col-sm">
-                            <label class="image-radio">
-                                <div class="img-wrapper">
-                                    <img class="img-cover shadow-sm" src="/img/default/userImg/girl3.png">
-                                    <input type="radio" name="image_radio" value="girl3.png">
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm">
-                            <label class="image-radio">
-                                <div class="img-wrapper">
-                                    <img class="img-cover shadow-sm" src="/img/default/userImg/boy1.png">
-                                    <input type="radio" name="image_radio" value="boy1.png">
-                                </div>
-                            </label>
-                        </div>
-                        <div class="col-sm">
-                            <label class="image-radio">
-                                <div class="img-wrapper">
-                                    <img class="img-cover shadow-sm" src="/img/default/userImg/boy2.png">
-                                    <input type="radio" name="image_radio" value="boy2.png">
-                                </div>
-                            </label>
-                        </div>
-                        <div class="col-sm">
-                            <label class="image-radio img-wrapper">
-                                <div class="img-wrapper">
-                                    <img class="img-cover shadow-sm" src="/img/default/userImg/boy3.png">
-                                    <input type="radio" name="image_radio" value="boy3.png">
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                    <button id="btnSelectUserImg" onclick="modalImgSubmit()" type="button" class="btn btn-primary">선택</button>
-                </div>
-            </div>
-        </div>
-    </div>
+	<jsp:include page="/contents/modal/SelectUserImg.jsp" flush="false"/>
 </body>
 </html>

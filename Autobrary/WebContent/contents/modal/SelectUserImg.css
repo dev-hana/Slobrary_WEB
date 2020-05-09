@@ -1,0 +1,39 @@
+.image-radio input[type="radio"] {
+    display: none;
+}
+
+.image-radio-checked {
+    box-shadow: 0 0 20px #A593E0;
+    border-radius: 55px;
+}
+
+#imgPreview {
+    padding: 15px;
+}
+
+#modal-img .img-cover {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+}
+
+#modal-img .col-sm {
+    text-align: center;
+    margin: 10px;
+}
+
+.img-cover {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center right;
+}
+.img-wrapper {
+	
+    text-align: center;
+}
+.image-radio{
+	width: 150px;
+    height: 150px;
+}

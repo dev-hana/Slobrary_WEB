@@ -19,14 +19,14 @@
 	<jsp:include page="../Top.jsp" flush="false"/>
 	<div class="container-fluid">
 		<div class="row mt-5 justify-content-md-center">
-			<div class="col-sm-3 mr-3">
+			<div class="col-xl-3 mr-3">
 				<div class="shadow-sm p-3 mb-5 bg-white rounded">
 				<div class="row1">
 					<div style="float:left;"><h5>내 정보</h5></div> <div><button class="btn btn-light btn-sm" style="margin-left: 165px;" type="sumbit">수정</button></div>
 				</div>
 				<div class="row2">
 					<div class="img1">
-						<img style="width:110px; height:110px;" class="rounded-circle" src="../img/profile.jpg">
+						<img style="width:110px; height:110px;" class="rounded-circle shadow-sm" src="/img/default/userImg/girl1.png">
 					</div>
 					<div style="text-align: left; margin-left: 10px; margin-bottom: 20px;">
 						<span>양지현 님</span>
@@ -43,7 +43,7 @@
 				</div>
 			</div>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-xl-4">
 				<jsp:include page="MyPageList.jsp" flush="false"/>
 			</div>
 		</div>	

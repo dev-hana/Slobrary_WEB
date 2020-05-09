@@ -70,8 +70,42 @@ function togglePwdCheck() {
 btnPwd.addEventListener('click', togglePwd, false);
 btnPwdCheck.addEventListener('click', togglePwdCheck, false);
 
+//비밀번호 일치 체크
+$(function(){
+	$("#pwd").keyup(function(){ 
+		var pwd1=$("#pwd").val();
+		var pwd2=$("#pwdCheck").val();
+		if(pwd1 != "" || pwd2 != ""){ 
+			if(pwd1 == pwd2){
+			$("#alert-success").show();
+			$("#alert-danger").hide(); 
+			$("#submit-btn").removeAttr("disabled");
+		}else{ 
+			$("#alert-success").hide(); 
+			$("#alert-danger").show(); 
+			$("#submit-btn").attr("disabled", "disabled"); 
+		} } }
+); });
+$(function(){
+	$("#pwdCheck").keyup(function(){ 
+		var pwd1=$("#pwd").val();
+		var pwd2=$("#pwdCheck").val();
+		if(pwd1 != "" || pwd2 != ""){ 
+			if(pwd1 == pwd2){
+			$("#alert-success").show();
+			$("#alert-danger").hide(); 
+			$("#submit-btn").removeAttr("disabled");
+		}else{ 
+			$("#alert-success").hide(); 
+			$("#alert-danger").show(); 
+			$("#submit-btn").attr("disabled", "disabled"); 
+		} } }
+); });
+
 // 프로필 이미지 라디오 선택
 $(document).ready(function () {
+	$("#alert-success").hide(); 
+	$("#alert-danger").hide();
     // add/remove checked class
     $(".image-radio").each(function () {
         if ($(this).find('input[type="radio"]').first().attr("checked")) {
@@ -111,3 +145,4 @@ function modalAgreeTOS() {
     $('#modal-TOS').modal('hide');
     $('.modal-backdrop').remove();
 }
+

@@ -22,6 +22,7 @@
 			String birth = request.getParameter("birth");
 			String email = request.getParameter("email");
 			mem_id = request.getParameter("mem_id");
+
 			String check = memMgr.checkIdpw(mem_id, name, birth, email);
 			
 			

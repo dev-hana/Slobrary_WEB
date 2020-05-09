@@ -6,21 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
     <title>Slobrary - 회원가입</title>
-    <!-- 웹폰트 -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:900&display=swap" rel="stylesheet">
-    <!-- 아이콘 라이브러리-->
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <!-- 부트스트랩 4 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    
+    <jsp:include page="/CND.jsp" flush="false"/>
     <link href="/css/signup.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-    <header class="pt-4 shadow-sm bg-white">
+    <header>
     <jsp:include page="Top.jsp" flush="false"/>
     </header>
     <div id="document">
@@ -57,6 +47,8 @@
                             <input type="password" class="form-control" id="pwdCheck" placeholder="비밀번호 확인" name="pwdCheck" required>
                             <button type="button" id="btnToggle_pwdCheck" class="toggle"><i id="eyeIcon_pwdCheck" class="fa fa-eye"></i></button>
                         </div>
+                        <div class="alert alert-success mt-2" id="alert-success">비밀번호가 일치합니다.</div>
+                        <div class="alert alert-danger mt-2" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
                         
                         <br>
                         <!-- 회원 정보 -->
