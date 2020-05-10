@@ -45,8 +45,9 @@ label {
 <title>아이디 찾기</title>
 </head>
 <body class="bg-light">
+	<jsp:include page="../Top.jsp" flush="false"/>
 	<div class="container-fluid">
-		<div class="row justify-content-md-center">
+		<div class="row justify-content-md-center mt-5">
 			<div class="col-xl-4 shadow-sm p-3 mb-5 bg-white p-5">
 				<div class="title">
 					<h4>아이디 찾기</h4><hr>
@@ -62,7 +63,7 @@ label {
                         
 							<label for="birth">생년월일</label>
 							<div class="input-group mb-2">
-                        	<input type="text" class="form-control" placeholder="생년월일을 입력해수세요. 예)19001212" id="birth" name="birth" required>
+                        	<input type="text" class="form-control" placeholder="생년월일을 입력해주세요.  예)19001212" id="birth" name="birth" required>
                         	</div>
 						<label for="mem_mail">이메일</label>
                         <div class="input-group">

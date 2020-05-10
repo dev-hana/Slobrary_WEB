@@ -42,18 +42,30 @@
  .Qcontents{
  	background: 
  }
- hr{
- 	border-top: 1px dashed #bbb;
+ .stxt{
+ 	color:#585858;
  }
-
+ .nm {
+  margin-top: -3rem !important;
+}
 </style>
 
 </head>
 <body>
 	<div class="container">
-	
-	<div class="row justify-content-md-center">
-		<div class="col-xl-12 col-md-8 rounded p-4">
+	<div class="row">
+		<div class="col-xl-12 p-4">
+			<div>
+				<h3>자주 묻는 질문 FAQ</h3>
+			</div>
+			<div class="stxt">
+				가장 자주 묻는 질문에 대한 내용을 쉽고 빠르게 확인하실 수 있습니다.
+			</div>
+			<hr>
+		</div>
+	</div>
+	<div class="row justify-content-md-center nm">
+		<div class="col-xl-12 col-md-8 rounded p-5">
 			<div id="accordion">
   				<div class="card">
     				<div class="card-header bg-light" id="heading1">

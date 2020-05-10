@@ -15,7 +15,9 @@
 			</div>
 		</div>
 		<div class="row justify-content-md-center" >
+			<div class="col-xs-12 col-md-8">
 			<jsp:include page="/contents/QnAList.jsp" flush="false"/>
+			</div>
 		</div>
 	</div>
 </body>

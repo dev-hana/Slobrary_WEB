@@ -25,7 +25,6 @@
 
 			String check = memMgr.checkIdpw(mem_id, name, birth, email);
 			
-			
 			//회원정보가 없을 경우
 			if(check == null){
 				out.println("<script>alert('일치하는 회원정보가 없습니다.');history.back();</script>");
