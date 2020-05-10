@@ -24,7 +24,7 @@
 			String email = request.getParameter("mem_mail");
 
 			
-			String check = memMgr.checkIdpw(mem_id, name, birth, email);
+			String check = memMgr.checkIdpw(id, name, birth, email);
 			
 			
 			//회원정보가 없을 경우
