@@ -12,7 +12,7 @@
 	
 %>
 	<script>
-   location.href="Index.jsp";
+   location.href="/	";
    </script>
    <%}else{%>
 

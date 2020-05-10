@@ -62,8 +62,8 @@ String mem_id = memMgr.findId(name, birth, email);
 					</table>
 				</div>
 				<div style="text-align:right;" class="mt-4">
-                    <button class="btn btn-outline-success mr-1" >로그인</button>
-					<button class="btn btn-outline-info" >비밀번호 찾기</button>
+                    <button class="btn btn-outline-success mr-1" onclick="location.href='../Login.jsp'" >로그인</button>
+					<button class="btn btn-outline-info" onclick="location.href='FindPwd.jsp' " >비밀번호 찾기</button>
 				</div>
 			</div>
 		</div>

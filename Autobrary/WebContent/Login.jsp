@@ -32,7 +32,9 @@
                             <label class="custom-control-label" for="remember">내 정보 기억하기</label>
                         </div>
                         <div id="btn-group" class="mt-3 mb-3 float-right">
-                            <a href="#">비밀번호 찾기</a>
+                        	<a href="contents/FindId.jsp">아이디 찾기</a>
+                        	<span>|</span>
+                            <a href="contents/FindPwd.jsp">비밀번호 찾기</a>
                             <span>|</span>
                             <a href="Signup.jsp">회원가입</a>
                         </div>
