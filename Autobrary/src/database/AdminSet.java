@@ -1,7 +1,7 @@
 package database;
 
 import java.sql.*;
-
+import database.AdminBean;
 import encryption.PBKDF2_Encryption;
 
 /*
@@ -50,4 +50,30 @@ public class AdminSet {
         return loginCon;
     }
     
+    public AdminBean getName(String admin_id) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        AdminBean adBean = null;
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select id, name from admin_info where id=? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, admin_id);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+            	adBean = new AdminBean();
+            	adBean.setAdmin_id(rs.getString("id"));
+            	adBean.setName(rs.getString("name"));
+            }
+            	
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        return adBean;
+    }
 }
