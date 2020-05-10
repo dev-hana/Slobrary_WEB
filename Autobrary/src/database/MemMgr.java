@@ -32,8 +32,7 @@ public class MemMgr {
              pstmt = con.prepareStatement(strQuery);
              pstmt.setString(1, mem_id);
              rs = pstmt.executeQuery();
-             
-             if (rs.next()) {
+             if(rs.next()) {
              	String hashData = rs.getString("passwd");
              	if(PBKDF2_Encryption.validatePassword(passwd, hashData)){
              		return true;
