@@ -21,6 +21,33 @@ public class MemMgr {
         }
     }
     
+    public boolean loginCheck(String mem_id, String passwd) {
+    	 Connection con = null;
+         PreparedStatement pstmt = null;
+         ResultSet rs = null;
+         boolean flag = false;
+         try {
+             con = pool.getConnection();
+             String strQuery = "select mem_id, passwd from member where mem_id = ? ";
+             pstmt = con.prepareStatement(strQuery);
+             pstmt.setString(1, mem_id);
+             rs = pstmt.executeQuery();
+             
+             if (rs.next()) {
+             	String hashData = rs.getString("passwd");
+             	if(PBKDF2_Encryption.validatePassword(passwd, hashData)){
+             		return true;
+             	}
+             }
+         } catch (Exception ex) {
+             System.out.println("Exception" + ex);
+         } finally {
+             pool.freeConnection(con, pstmt, rs);
+         }
+         
+         return flag;
+    }
+    
     public Vector getMemberList() {
         Connection con = null;
         Statement stmt = null;
@@ -66,21 +93,23 @@ public class MemMgr {
             pstmt = con.prepareStatement(strQuery);
             pstmt.setString(1, mem_id);
             rs = pstmt.executeQuery();
-
-            if (rs.next()) {
-            	memBean = new MemBean();
-            	
-            	memBean.setRFID(rs.getString("RFID"));
-            	memBean.setMem_id(rs.getString("mem_id"));
-            	memBean.setMem_name(rs.getString("name"));
-            	memBean.setMem_gender(rs.getString("gender"));
-            	memBean.setMem_phone(rs.getString("phone"));    	 
-            	memBean.setMem_birth(rs.getString("birth"));
-                memBean.setMem_address(rs.getString("address"));
-            	memBean.setMem_mail(rs.getString("email"));
-            	memBean.setLoan_status(rs.getString("loan_status"));
-            	memBean.setMem_date(rs.getString("add_date"));
+            if(rs.getString("withdrawal")==null) {
+            	if (rs.next()) {
+                	memBean = new MemBean();
+                	
+                	memBean.setRFID(rs.getString("RFID"));
+                	memBean.setMem_id(rs.getString("mem_id"));
+                	memBean.setMem_name(rs.getString("name"));
+                	memBean.setMem_gender(rs.getString("gender"));
+                	memBean.setMem_phone(rs.getString("phone"));    	 
+                	memBean.setMem_birth(rs.getString("birth"));
+                    memBean.setMem_address(rs.getString("address"));
+                	memBean.setMem_mail(rs.getString("email"));
+                	memBean.setLoan_status(rs.getString("loan_status"));
+                	memBean.setMem_date(rs.getString("add_date"));
+                }
             }
+            
         } catch (Exception ex) {
             System.out.println("Exception" + ex);
         } finally {
