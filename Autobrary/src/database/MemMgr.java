@@ -1,9 +1,11 @@
 package database;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
-
+import encryption.PBKDF2_Encryption;
 import database.MemBean;
 import database.DBConnectionMgr;
 
@@ -142,6 +144,29 @@ public class MemMgr {
         return check;
     }
     
+    public boolean updatepwd(String mem_id, String newpwd) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        String pwd = PBKDF2_Encryption.createHash(newpwd);
+        String sql = "update member set passwd = ? where mem_id = ? ";
+        try {
+        	con = pool.getConnection();
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, pwd);
+        	pstmt.setString(2, mem_id);
+            int count = pstmt.executeUpdate();
+            if (count == 1) {
+            	
+                flag = true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
     
     public boolean deleteMember(String mem_id) {
     	Connection con = null;

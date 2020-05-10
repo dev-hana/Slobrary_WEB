@@ -15,12 +15,16 @@
           	  <td><button type="submit" style="border: none; background: white; padding-right:50px;"><img src="../img/book1.png"></button></td>
           	 </form>
 			<form name="" method="post" action="MemMgr.jsp">
-          	  <td><button type="submit" style="border: none; padding-left: 50px; background: white"><img src="../img/mem1.png"></button></td>
+          	  <td><button type="submit" style="border: none; padding-right:50px; background: white"><img src="../img/mem1.png"></button></td>
+          	</form>
+          	<form name="" method="post" action="SetMgr.jsp">
+          	  <td><button type="submit" style="border: none; padding-left: 50px; background: white;"><img src="../img/setting.png"></button></td>
           	</form>
        	 </tr>
         <tr align="center">
-          <td style="font-weight:bold; font-size:20px;">도서 관리</td>
-          <td style="font-weight:bold; font-size:20px;">회원 관리</td>
+          <td style="font-weight:bold; font-size:20px; padding-right:50px;">도서 관리</td>
+          <td style="font-weight:bold; font-size:20px; padding-right:50px;">회원 관리</td>
+          <td style="font-weight:bold; font-size:20px; padding-left: 50px;">설정</td>
         </tr>
     </table>
     <%@ include file="Bottom.jsp" %>
