@@ -10,7 +10,8 @@
  	}
  	
  	else {
- 	MemBean memBean = memMgr.getMember(mem_id);
+ 		
+ 		MemBean memBean = memMgr.getMember(mem_id);
  	
  	
   %>
@@ -28,7 +29,7 @@
                         <div class="row mb-3 mt-4 pl-3 pr-3">
                             <div class="mt-4" style="width: 100%; text-align: center;">
                                 <div id="userinfo-name" class="mt-2 mb-2">
-                                    <p>hana</p>
+                                    <p><%=memBean.getMem_name() %></p>
                                     <i class="fas fa-bell"> 0</i>
                                 </div>
                                 <div id="userinfo-btn" class="btn-group mb-3" role="group">

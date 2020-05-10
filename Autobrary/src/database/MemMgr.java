@@ -3,7 +3,6 @@ package database;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.Vector;
 import encryption.PBKDF2_Encryption;
 import database.MemBean;
@@ -92,8 +91,8 @@ public class MemMgr {
             pstmt = con.prepareStatement(strQuery);
             pstmt.setString(1, mem_id);
             rs = pstmt.executeQuery();
-            if(rs.getString("withdrawal")==null) {
-            	if (rs.next()) {
+            if (rs.next()){
+            	if(rs.getString("withdrawal")==null){
                 	memBean = new MemBean();
                 	
                 	memBean.setRFID(rs.getString("RFID"));

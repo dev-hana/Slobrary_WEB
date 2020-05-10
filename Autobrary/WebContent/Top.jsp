@@ -69,10 +69,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <ul class="navbar-nav navbar-right">
-                                    <li class="nav-item"> <a href="Login.jsp" class="nav-link">로그인</a></li>
-                                    <li class="nav-item"> <a href="Signup.jsp" class="nav-link ">회원가입</a></li>
-                                </ul>
+                               <%@ include file="ShowLogin.jsp" %>
                             </div>
                         </div>
                     </div>
