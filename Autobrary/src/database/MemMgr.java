@@ -49,21 +49,29 @@ public class MemMgr {
     public boolean emailCheck(String email) {
         Connection con = null;
         PreparedStatement pstmt = null;
+        ResultSet rs = null;
         boolean flag = false;
         try {
             con = pool.getConnection();
-            String strQuery = "select email from mamber where email = ? "; 
+            String strQuery = "select email, withdrawal from member where email=?;";
             pstmt = con.prepareStatement(strQuery);
             pstmt.setString(1, email);
-            int count = pstmt.executeUpdate();
-
-            if (count == 1) {
-                flag = true;
+            rs = pstmt.executeQuery();
+            if (rs.next()){
+            	if(rs.getString("withdrawal")==null){
+                	if(rs.getString("email")==null)
+                		return false;
+                	else 
+                    	return true;
+                } else {
+                	return false;
+                }
             }
+            
         } catch (Exception ex) {
             System.out.println("Exception" + ex);
         } finally {
-            pool.freeConnection(con, pstmt);
+            pool.freeConnection(con, pstmt, rs);
         }
         return flag;
     }
