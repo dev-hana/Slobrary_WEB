@@ -29,12 +29,6 @@
    }
    }
    
-   function idCheck(){
-	   frm=document.info;
-	   
-	   url="IdCheckForm.jsp?id="+frm.mem_id.value;
-	   window.open(url,"id check","width=300,height=150");
-   }
     </script>
     <title>Slobrary - 회원가입</title>
     <jsp:include page="/CND.jsp" flush="false"/>

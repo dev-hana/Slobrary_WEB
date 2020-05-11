@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.atag:hover {
+	color: black;
+}
+a:link { color: #000; }
+
+a:visited { color: #000; text-decoration: none;}
