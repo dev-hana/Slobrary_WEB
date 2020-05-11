@@ -48,8 +48,8 @@ label {
 <body class="bg-light">
 <jsp:include page="../Top.jsp" flush="false"/>
 	<div class="container-fluid">
-		<div class="row justify-content-md-center mt-3">
-			<div class="col-sm-4 shadow-sm p-3 mb-5 bg-white p-5">
+		<div class="row justify-content-md-center mt-5">
+			<div class="col-xl-4 shadow-sm p-3 mb-5 bg-white p-5">
 				<div class="title">
 					<h4>비밀번호 찾기</h4><hr>
 				</div>
