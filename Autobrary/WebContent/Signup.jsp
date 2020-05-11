@@ -19,7 +19,6 @@
                 <div id="wrapper">
                 <h4>회원가입</h4>
                 <hr>
-
                 <form action="SignupProc.jsp" method="post" id="signup-form" class="needs-validation" novalidate>
                     <div id="img-tab">
                         <div class="img-wrapper">
