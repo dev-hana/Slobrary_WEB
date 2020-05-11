@@ -62,7 +62,9 @@
 				
 				if(number.equals(sessionNumber)){
 					session.removeAttribute("c_number");
-					response.sendRedirect("NewPwd.jsp?mem_id=" +request.getParameter("mem_id"));
+					session.setAttribute("id", mem_id);
+					session.setMaxInactiveInterval(3*60);
+					response.sendRedirect("NewPwd.jsp");
 				}else{
 					out.println("<script>alert('인증번호가 일치하지 않습니다');history.back();</script>");
 				}

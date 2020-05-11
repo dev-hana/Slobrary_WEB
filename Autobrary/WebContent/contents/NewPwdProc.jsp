@@ -13,6 +13,8 @@
 
 <%
 if(flag){
+	session.removeAttribute("id");
+	session.setMaxInactiveInterval(30*60);
 %>
 		<script>
 		alert("성공적으로 수정하였습니다");

@@ -28,6 +28,13 @@
        $('#the_iframe').show();
    }
    }
+   
+   function idCheck(){
+	   frm=document.info;
+	   
+	   url="IdCheckForm.jsp?id="+frm.mem_id.value;
+	   window.open(url,"id check","width=300,height=150");
+   }
     </script>
     <title>Slobrary - 회원가입</title>
     <jsp:include page="/CND.jsp" flush="false"/>
@@ -43,7 +50,7 @@
                 <div id="wrapper">
                 <h4>회원가입</h4>
                 <hr>
-                <form action="SignupProc.jsp" target="list" method="post" id="signup-form" class="needs-validation" novalidate>
+                <form action="SignupProc.jsp" name="info" target="list" method="post" id="signup-form" class="needs-validation" novalidate>
                 <input type="hidden" name="form_type" value="인증번호 발송">
                     <div id="img-tab">
                         <div class="img-wrapper">
@@ -58,12 +65,12 @@
                         <label for="mem_id">아이디</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="mem_id" placeholder="아이디를 입력해주세요." name="mem_id" required>
-                            <button id="idCheck" class="btn btn-light" type="button">중복확인</button>
+                            <button id="idCheck" onclick="openIdChk" class="btn btn-light" type="button">중복확인</button>
                         </div>
 
                         <label for="pwd">비밀번호</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" id="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" placeholder="숫자, 대/소문자 포함 8글자 이상 입력해주세요." name="mem_pw" required>
+                            <input type="password" class="form-control" id="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d](?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]){8,}$" placeholder="숫자, 대/소문자 포함 8글자 이상 입력해주세요." name="mem_pw" required>
                             <button type="button" id="btnToggle_pwd" class="toggle"><i id="eyeIcon_pwd" class="fa fa-eye"></i></button>
                             <div class="invalid-feedback mb-3">숫자, 대/소문자 포함 8글자 이상 입력해주세요.</div>
                         </div>

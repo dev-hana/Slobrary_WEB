@@ -39,7 +39,7 @@
 
                         <label for="pwd">비밀번호</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" id="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" placeholder="숫자, 대/소문자 포함 8글자 이상 입력해주세요." name="mem_pw" required>
+                            <input type="password" class="form-control" id="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d](?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]){8,}$" placeholder="숫자, 대/소문자 포함 8글자 이상 입력해주세요." name="mem_pw" required>
                             <button type="button" id="btnToggle_pwd" class="toggle"><i id="eyeIcon_pwd" class="fa fa-eye"></i></button>
                             <div class="invalid-feedback mb-3">숫자, 대/소문자 포함 8글자 이상 입력해주세요.</div>
                         </div>

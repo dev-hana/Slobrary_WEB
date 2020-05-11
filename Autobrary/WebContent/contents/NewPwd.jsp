@@ -76,12 +76,11 @@ $("input").keyup(function(){
 				</div>
 					<div>
 					<form action="NewPwdProc.jsp" method="post" id="myForm" class="needs-validation" novalidate>
-					<input type="hidden" name="mem_id" value=<%=mem_id %> >
+					<input type="hidden" name="mem_id" value=<%=mem_id %>>
 						<div class="form-group">
 						<label for="new_pwd">새 비밀번호</label>
                         <div class="input-group mb-2">
-                            <input id="pwd1" type="password" class="form-control" placeholder="숫자, 대/소문자 포함 8글자 이상 입력해주세요." name="new_pwd" required>
-                            
+                            <input id="pwd1" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d](?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]){8,}$" class="form-control" placeholder="숫자, 대/소문자 포함 8글자 이상 입력해주세요." name="new_pwd" required>
                         </div>
                         
 						<label for="ok_pwd">새 비밀번호 확인</label>
