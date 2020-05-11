@@ -1,10 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String mem_id = (String)session.getAttribute("loginKey");
+	if(mem_id==null) {
+	%>
+		   <script>
+		   alert("로그인 후 사용 가능합니다.");
+		   location.href="../Login.jsp";
+		   </script>
+	<% } else{
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>희망도서</title>
 
 <!-- 아이콘 -->
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
@@ -54,8 +64,8 @@
 				
 				<form class="needs-validation" method="post" action="WishBookProc.jsp" novalidate>
 				
-				<!-- 사용자 정보 숨김 (세션에 저장된 사용자 아이디 사용할 예정) -->
-				<input name="mem_id" type="text" value="yangz" hidden>
+				<input type="hidden" name="mem_id" type="text" value=<%=mem_id %> />
+				
 				
 				<!-- 도서신청 입력 -->
 				<div class="table1">
@@ -91,3 +101,4 @@
 	</div>
 </body>
 </html>
+<%}%>

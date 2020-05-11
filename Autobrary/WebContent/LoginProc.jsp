@@ -12,7 +12,7 @@
 	
 %>
 	<script>
-   location.href="/	";
+   location.href="/";
    </script>
    <%}else{%>
 

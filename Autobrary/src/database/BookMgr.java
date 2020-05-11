@@ -14,6 +14,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import bucketConnector.BucketManager;
 import database.BookBean;
+import database.WishBean;
 import database.DBConnectionMgr;
 
 
@@ -64,6 +65,40 @@ public class BookMgr {
         }
         return vecList;
     }
+    
+    public Vector getWishList(String mem_id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+        
+        try {
+            con = pool.getConnection();
+            String strQuery = "select * from wish_list where mem_id = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, mem_id);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+            	 WishBean wishBean = new WishBean();
+                 wishBean.setWish_id(rs.getString("wish_id"));
+                 wishBean.setMem_id(rs.getString("mem_id"));
+                 wishBean.setName(rs.getString("book_name"));
+                 wishBean.setAuthor(rs.getString("book_author"));
+                 wishBean.setPublisher(rs.getString("publish"));
+                 wishBean.setWish_date(rs.getString("wish_date"));
+                 wishBean.setStatus(rs.getString("status"));
+                 vecList.add(wishBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return vecList;
+    }
+    
     
     public Vector searchBookList(String keyoption,String keyword,String category,String area,String type) {
 		Connection con = null;
@@ -284,6 +319,31 @@ public class BookMgr {
         	con = pool.getConnection();
         	pstmt = con.prepareStatement(sql);
         	pstmt.setString(1, id_num);
+            int count = pstmt.executeUpdate();
+            if (count == 1) {
+                flag = true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
+    public boolean insertWish(String mem_id, String name, String author, String pub) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        String sql = "INSERT INTO wish_list(mem_id, book_name, book_author, publish) "
+        		+ "VALUES (?, ?, ?, ?) ";
+        try {
+        	con = pool.getConnection();
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, mem_id);
+        	pstmt.setString(2, name);
+        	pstmt.setString(3, author);
+        	pstmt.setString(4, pub);
             int count = pstmt.executeUpdate();
             if (count == 1) {
                 flag = true;

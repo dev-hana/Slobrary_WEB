@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="memMgr" class="database.MemMgr" />
+<%
+String mem_id = (String)session.getAttribute("loginKey");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +59,10 @@
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">도서관서비스</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                            <a class="dropdown-item" href="#">희망 도서</a>
+                                      	<form method="post" action="../contents/WishBook.jsp">
+                                        	<input type="submit" class="dropdown-item" value="희망 도서">
+                                        	<input type="hidden" name="mem_id" value=<%=mem_id %>/>
+                                         </form>   
                                             <a class="dropdown-item" href="#">문화 행사</a>
                                             <a class="dropdown-item" href="#">시설 이용</a>
                                         </div>
@@ -63,13 +70,20 @@
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">이용안내</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                            <a class="dropdown-item" href="#">도서관 소개</a>
+                                        
+                                       		<a class="dropdown-item" href="#">도서관 소개</a>                                       	                                
                                             <a class="dropdown-item" href="#">대출 및 반납</a>
                                             <a class="dropdown-item" href="#">자주 물어보는 질문</a>
                                         </div>
                                     </li>
                                 </ul>
-                               <%@ include file="ShowLogin.jsp" %>
+                                <%
+ 								if(mem_id == null) {%>
+ 								<ul class="navbar-nav navbar-right">
+    								<li class="nav-item"> <a href="Login.jsp" class="nav-link">로그인</a></li>
+   									<li class="nav-item"> <a href="Signup.jsp" class="nav-link ">회원가입</a></li>
+		 						</ul><%} else {%>
+								<div></div><%}%>
                             </div>
                         </div>
                     </div>
