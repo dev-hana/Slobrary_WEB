@@ -46,6 +46,36 @@ public class MemMgr {
          return flag;
     }
     
+    public boolean emailCheck(String email) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        boolean flag = false;
+        try {
+            con = pool.getConnection();
+            String strQuery = "select email, withdrawal from member where email=?;";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, email);
+            rs = pstmt.executeQuery();
+            if (rs.next()){
+            	if(rs.getString("withdrawal")==null){
+                	if(rs.getString("email")==null)
+                		return false;
+                	else 
+                    	return true;
+                } else {
+                	return false;
+                }
+            }
+            
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        return flag;
+    }
+    
     public Vector getMemberList() {
         Connection con = null;
         Statement stmt = null;

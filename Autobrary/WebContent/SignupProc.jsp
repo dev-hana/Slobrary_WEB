@@ -1,3 +1,6 @@
+<%@page import="database.MemMgr"%>
+<%@page import="mail.Sender"%>
+<%@page import="java.util.Random"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,7 +24,9 @@
 				String phone = request.getParameter("mem_phone");
 				String address = request.getParameter("mem_adress");
 				String email = request.getParameter("mem_mail");
-				
+				if(new MemMgr().emailCheck(email)){
+					out.println("<script>alert('이미 가입되어있는 이메일입니다.');</script>");
+				}else{
 				//사용자 정보 세션에 저장
 				session.setAttribute("id", id);
 				session.setAttribute("password", password);
@@ -31,12 +36,24 @@
 				session.setAttribute("phone", phone);
 				session.setAttribute("address", address);
 				session.setAttribute("email", email);
-				
-				//인증번호 랜덤 생성을 가정하고 번호 세션에 저장
-				session.setAttribute("cnum", "123");
-				
+				Random generator = new Random(); 
+				String randChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+				String first = Character.toString(randChar.charAt(generator.nextInt(randChar.length())));
+				int rand = generator.nextInt(999999); 
+				String randResult = first + rand;
+				session.setAttribute("cnum", randResult);
+				String title = "SL:O 회원가입 이메일 인증번호 입니다.";
+				String content = name + "사용자님, <br>" +
+						"귀하의 이메일 주소를 사용해 SL:O 회원가입 요청을 하였습니다. <br>"+
+						name + "님의 인증번호는 다음과 같습니다. <br>"+
+						"<h1>" + randResult + "</h1>" +
+						"<br>회원가입을 요청하지 않았다면, 이 메일은 무시하셔도 됩니다.<br>" +
+						"<b>누구에게도 이 인증번호를 알려주면 안됩니다.</b><br>" +
+						"다른 궁금한 사항이 있을경우 하단의 메일로 연락을 취해주시기 바랍니다.<br>" +
+						"SL:O 팀";
+				new Sender(title, content, email);
 				out.println("<script>alert('입력하신 메일로 인증번호가 발송되었습니다.');</script>");
-				
+				}
 			}//회원가입을 누른 경우
 			else{
 				

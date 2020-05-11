@@ -30,13 +30,16 @@
 				out.println("<script>alert('일치하는 회원정보가 없습니다.');history.back();</script>");
 			} else{
 				Random generator = new Random(); 
+				String randChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+				String first = Character.toString(randChar.charAt(generator.nextInt(randChar.length())));
 				int rand = generator.nextInt(999999); 
-				session.setAttribute("c_number", rand);
+				String randResult = first + rand;
+				session.setAttribute("c_number", randResult);
 				String title = "SL:O 비밀번호 찾기 인증번호 입니다.";
 				String content = name + "사용자님, <br>" +
 						"귀하의 이메일 주소를 통해 SL:O 계정에 대한 비밀번호 찾기를 요청을 하였습니다. <br>"+
 						name + "님의 인증번호는 다음과 같습니다. <br>"+
-						"<h1>" + rand + "</h1>" +
+						"<h1>" + randResult + "</h1>" +
 						"<br>비밀번호 찾기를 요청하지 않았다면, 타인이 비밀번호찾기를 시도하려는 것일 수 있습니다.<br>" +
 						"<b>누구에게도 이 인증번호를 알려주면 안됩니다.</b><br>" +
 						"부적절한 타인의 시도였다고 생각하면 하단의 메일로 연락을 취해주세요.<br>" +
