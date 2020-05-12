@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String mem_id = request.getParameter("mem_id");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +42,7 @@
 		
 		<form id="checkForm" class="needs-validation" novalidate>
 			<div class="input-group">
-           		<input type="text" class="form-control" id="userID" name="mem_id" required>
+           		<input type="text" class="form-control" id="userID" name="mem_id" placeholder=<%=mem_id %> required>
           	 	<button type="submit" class="btn btn-secondary">중복확인</button>
           	 </div>
 				</form>

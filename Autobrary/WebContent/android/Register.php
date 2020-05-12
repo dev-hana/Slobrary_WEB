@@ -14,17 +14,20 @@ $name = $_POST["name"];
 $gender = $_POST["gender"];
 $phone = $_POST["phone"];
 $birth = $_POST["birth"];
-$adress = $_POST["adress"];
+$address = $_POST["address"];
 $email = $_POST["email"];
 $response["success"] = false;
 
-$statement = mysqli_prepare($con, "INSERT INTO member(mem_id, passwd, name, gender, phone, birth, adress, email)  VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-mysqli_stmt_bind_param($statement, "ssssssss", $mem_id, $passwd, $name, $gender, $phone, $birth, $adress, $email);//ssss->string형으로 8개값받기
-mysqli_stmt_execute($statement);
+
+$statement = mysqli_prepare($con, "INSERT INTO member(mem_id, passwd, name, gender, phone, birth, address, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+mysqli_stmt_bind_param($statement, "ssssssss", $mem_id, $passwd, $name, $gender, $phone, $birth, $address, $email);//ssss->string형으로 8개값받기
+$result = mysqli_stmt_execute($statement);
+
 
 $response = array();
 $response["success"] = true;
 
+if(!$result) $response["success"] = false;
 
 echo json_encode($response);
 mysqli_close($con);

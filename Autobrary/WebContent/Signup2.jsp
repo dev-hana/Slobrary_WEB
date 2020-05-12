@@ -59,7 +59,7 @@
                         <label for="mem_id">아이디</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="mem_id" placeholder="아이디를 입력해주세요." name="mem_id" required>
-                            <button id="idCheck" onclick="openIdChk" class="btn btn-light" type="button">중복확인</button>
+                            <button id="idCheck" class="btn btn-light" onClick="location.href='IdCheckForm.jsp'">중복확인</button>
                         </div>
 
                         <label for="pwd">비밀번호</label>
