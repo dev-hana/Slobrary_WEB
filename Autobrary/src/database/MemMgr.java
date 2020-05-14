@@ -146,6 +146,29 @@ public class MemMgr {
         return memBean;
     }
     
+    public boolean confirmId(String mem_id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+    	boolean result = false;
+    	
+    	try {
+    		con = pool.getConnection();
+    		String strQuery = "select mem_id from member where mem_id=?";
+    		pstmt = con.prepareStatement(strQuery);
+    		pstmt.setString(1, mem_id);
+    		rs = pstmt.executeQuery();
+    		if(rs.next()) {
+    			result = true;
+    		}
+    	}catch(Exception e) {
+    		System.out.println("Exception" + e);
+    	}finally {
+    		pool.freeConnection(con, pstmt, rs);
+    	}
+    	return result;
+    }
+    
     public String findId(String name, String birth, String email) {
         Connection con = null;
         PreparedStatement pstmt = null;

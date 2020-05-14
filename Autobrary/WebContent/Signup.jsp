@@ -3,8 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
     <title>Slobrary - 회원가입</title>
     <jsp:include page="/CND.jsp" flush="false"/>
     <link href="/css/signup.css" rel="stylesheet">
@@ -19,7 +17,7 @@
                 <div id="wrapper">
                 <h4>회원가입</h4>
                 <hr>
-                <form action="SignupProc.jsp" method="post" id="signup-form" class="needs-validation" novalidate>
+                <form action="SignupProc.jsp" method="post" id="signup_form" class="needs-validation" novalidate>
                     <div id="img-tab">
                         <div class="img-wrapper">
                             <img id="imgPreview" class="img-cover shadow-sm" src="img/default/userImg/girl1.png" alt="프로필사진">
@@ -33,7 +31,7 @@
                         <label for="mem_id">아이디</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="mem_id" placeholder="아이디를 입력해주세요." name="mem_id" required>
-                            <button id="idCheck" class="btn btn-light" type="button">중복확인</button>
+                            <button id="idCheck" class="btn btn-light" type="button" onclick="confirmId()">중복확인</button>
                         </div>
 
                         <label for="pwd">비밀번호</label>
@@ -192,5 +190,5 @@
     </div>
 </body>
 
-<script type="text/javascript" src="js/signup.js"></script>
+<script type="text/javascript" src="js/signup.js?v=2"></script>
 </html>

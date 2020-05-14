@@ -101,7 +101,6 @@ $(function(){
 			$("#submit-btn").attr("disabled", "disabled"); 
 		} } }
 ); });
-
 // 프로필 이미지 라디오 선택
 $(document).ready(function () {
 	$("#alert-success").hide(); 
@@ -125,6 +124,19 @@ $(document).ready(function () {
         e.preventDefault();
     });
 });
+
+//아이디 중복 체크
+function confirmId() {
+	var idValue = document.getElementById('mem_id').value;
+	if(idValue== "") {
+		alert("ID를 입력해주세요");
+		return;
+	}
+	
+	url = "ConfirmId.jsp?id=" + idValue;
+	open(url, "confirm", "toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=300, height=200")
+}
+
 
 //프로필 이미지 선택 모달 버튼 클릭시 적용
 function modalImgSubmit() {
