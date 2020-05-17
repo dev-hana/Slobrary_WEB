@@ -8,7 +8,7 @@ $con = mysqli_connect("www.slobrary.com", "slo", "legoslo2020", "slo");	//아이
 //***********************보안 정보 취급 유의********************************//
 
 
-$email = $_GET["email"];
+$email = $_POST["email"];
 
 $response["success"] = false;
 
