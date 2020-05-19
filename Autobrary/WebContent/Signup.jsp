@@ -3,6 +3,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
+    <script type="text/javascript">
+    function calcHeight(){
+   	 //find the height of the internal page
+
+   	 var the_height=
+   	 document.getElementById('the_iframe').contentWindow.
+   	 document.body.scrollHeight;
+
+   	 //change the height of the iframe
+   	 document.getElementById('the_iframe').height=
+   	 the_height;
+
+   	 //document.getElementById('the_iframe').scrolling = "no";
+   	 document.getElementById('the_iframe').style.overflow = "hidden";
+   }
+
+   function iframeshow(){
+       if($('#the_iframe').css('display') == 'none'){
+       $('#the_iframe').show();
+   }else{
+       $('#the_iframe').show();
+   }
+   }
+   
+    </script>
     <title>Slobrary - 회원가입</title>
     <jsp:include page="/CND.jsp" flush="false"/>
     <link href="/css/signup.css" rel="stylesheet">
@@ -17,7 +44,8 @@
                 <div id="wrapper">
                 <h4>회원가입</h4>
                 <hr>
-                <form action="SignupProc.jsp" method="post" id="signup_form" class="needs-validation" novalidate>
+                <form action="SignupProc.jsp" name="info" target="list" method="post" id="signup-form" class="needs-validation" novalidate>
+                <input type="hidden" name="form_type" value="인증번호 발송">
                     <div id="img-tab">
                         <div class="img-wrapper">
                             <img id="imgPreview" class="img-cover shadow-sm" src="img/default/userImg/girl1.png" alt="프로필사진">
@@ -31,7 +59,7 @@
                         <label for="mem_id">아이디</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="mem_id" placeholder="아이디를 입력해주세요." name="mem_id" required>
-                            <button id="idCheck" class="btn btn-light" type="button" onclick="confirmId()">중복확인</button>
+                            <button id="idCheck" class="btn btn-light">중복확인</button>
                         </div>
 
                         <label for="pwd">비밀번호</label>
@@ -65,22 +93,29 @@
                         </div>
 
                         <label for="birth">생년월일</label>
-                        <input type="date" class="form-control" id="birth" name="mem_birth" required>
+                        <input type="text" class="form-control" id="birth" name="mem_birth" placeholder="예: 19870423" required>
 
                         <label for="phone">전화번호</label>
-                        <input type="tel" class="form-control" pattern="^\d{3}-\d{4}-\d{4}$" id="phone" placeholder="000-0000-0000" name="mem_phone" required>
-                        <div class="invalid-feedback">000-0000-0000 형식으로 입력해주세요.</div>
-
+                        <input type="tel" class="form-control" id="phone" placeholder="01012345678" name="mem_phone" required>
+                        <div class="invalid-feedback">01012345678 형식으로 입력해주세요.</div>
+						
+						<label for="addr">주소</label>
+                        <input type="text" class="form-control" id="addr" placeholder="" name="mem_adress" required>
+						
                         <label for="email">이메일</label>
+                        <div class="input-group">
                         <input type="email" class="form-control" id="email" placeholder="abc@slobrary.com" name="mem_mail" required>
+                        <button id="submit-btn" type="submit" class="btn btn-primary">인증번호 발송</button></div>
                         <div class="invalid-feedback">이메일 형식으로 입력해주세요.</div>
 
-                        <label for="addr">주소</label>
-                        <input type="text" class="form-control" id="addr" placeholder="" name="mem_adress" required>
                     </div>
-
-
-                    <div class="form-check mb-3">
+					</form>
+					<form action="SignupProc.jsp" target="list" method="post" id="signup-form" class="needs-validation" novalidate>
+					<input type="hidden" name="form_type" value="회원가입">
+					<label for="num">인증번호 확인</label>
+                    <input type="text" class="form-control" id="num" placeholder="" name="num" required>
+					
+                    <div class="form-check mb-3 mt-3">
                         <label class="form-check-label">
                             <input class="form-check-input" type="checkbox" id="tosCheck" required>
                             <a href="#" data-toggle="modal" data-target="#modal-TOS">이용약관</a>에 동의합니다.
@@ -92,6 +127,7 @@
                 </div>
             </div>
         </div>
+        <iframe id="the_iframe" onload="calcHeight();" name="list" title="도서검색결과" frameborder="0" scrolling="no" style="display:none; overflow-x:hidden; overflow:auto; width:100%;"></iframe>
     </div>
 
     <!--이용약관 모달-->
@@ -189,6 +225,20 @@
         </div>
     </div>
 </body>
-
-<script type="text/javascript" src="js/signup.js?v=2"></script>
+<script>
+	$('#idCheck').click(function(){
+		if( $('#mem_id').val() == ""){
+		alert("아이디를 입력해주세요.")
+		}else if( ($('#mem_id').val() < "0" || $('#mem_id').val() > "9") && ($('#mem_id').val() < "A" || $('#mem_id').val() > "Z")
+				&& ($('#mem_id').val() < "a" || $('#mem_id').val() > "z")){
+			alert("한글 및 특수문자는 아이디로 사용할 수 없습니다.");
+		}else{
+		
+		url="IdCheckProc.jsp?mem_id=" + $('#mem_id').val();
+		window.name = "parentForm";
+		window.open(url,"cildForm","width=300,height=150");
+		}
+		});
+</script>
+<script type="text/javascript" src="js/signup.js"></script>
 </html>

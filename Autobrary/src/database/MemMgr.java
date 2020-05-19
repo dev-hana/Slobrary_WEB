@@ -76,6 +76,30 @@ public class MemMgr {
         return flag;
     }
     
+    public boolean IdCheck(String mem_id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        boolean flag = false;
+        
+        try {
+        	con = pool.getConnection();
+        	String strQuery = "select count(mem_id) from member where mem_id = ? ";
+        	pstmt = con.prepareStatement(strQuery);
+        	pstmt.setString(1, mem_id);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+            	int count = rs.getInt(1);
+            	if(count == 0) return true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
     public Vector getMemberList() {
         Connection con = null;
         Statement stmt = null;
@@ -146,28 +170,7 @@ public class MemMgr {
         return memBean;
     }
     
-    public boolean confirmId(String mem_id) {
-    	Connection con = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-    	boolean result = false;
-    	
-    	try {
-    		con = pool.getConnection();
-    		String strQuery = "select mem_id from member where mem_id=?";
-    		pstmt = con.prepareStatement(strQuery);
-    		pstmt.setString(1, mem_id);
-    		rs = pstmt.executeQuery();
-    		if(rs.next()) {
-    			result = true;
-    		}
-    	}catch(Exception e) {
-    		System.out.println("Exception" + e);
-    	}finally {
-    		pool.freeConnection(con, pstmt, rs);
-    	}
-    	return result;
-    }
+  
     
     public String findId(String name, String birth, String email) {
         Connection con = null;
@@ -257,6 +260,35 @@ public class MemMgr {
         	con = pool.getConnection();
         	pstmt = con.prepareStatement(sql);
         	pstmt.setString(1, mem_id);
+            int count = pstmt.executeUpdate();
+            if (count == 1) {
+                flag = true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
+    public boolean insertMember(String mem_id, String passwd, String name, String gender, String birth, String phone, String address, String email) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        String pwd = PBKDF2_Encryption.createHash(passwd);
+        String sql = "insert into member(mem_id, passwd, name, gender, birth, phone, address, email) values (?, ?, ?, ?, ?, ?, ?, ?) ";
+        try {
+        	con = pool.getConnection();
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, mem_id);
+        	pstmt.setString(2, pwd);
+        	pstmt.setString(3, name);
+        	pstmt.setString(4, gender);
+        	pstmt.setString(5, birth);
+        	pstmt.setString(6, phone);
+        	pstmt.setString(7, address);
+        	pstmt.setString(8, email);
             int count = pstmt.executeUpdate();
             if (count == 1) {
                 flag = true;

@@ -126,7 +126,7 @@ $(document).ready(function () {
 });
 
 //아이디 중복 체크
-function confirmId() {
+/*function confirmId() {
 	var idValue = document.getElementById('mem_id').value;
 	if(idValue== "") {
 		alert("ID를 입력해주세요");
@@ -135,7 +135,10 @@ function confirmId() {
 	
 	url = "ConfirmId.jsp?id=" + idValue;
 	open(url, "confirm", "toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=300, height=200")
-}
+}*/
+
+
+
 
 
 //프로필 이미지 선택 모달 버튼 클릭시 적용

@@ -38,8 +38,8 @@
 											<p style="font-size:15px;" class="mt-4"><%= request.getParameter("id") %>님 회원가입을 성공적으로 완료했습니다.</p><br>
 									</div>
 								<div style="text-align:right;" class="mt-4">
-                    				<button class="btn btn-outline-success mr-1" >로그인</button>
-									<button class="btn btn-outline-info" >홈페이지</button>
+                    				<a href="Login.jsp" class="btn btn-outline-success mr-1" >로그인</a>
+									<a href="Index.jsp" class="btn btn-outline-info" >홈페이지</a>
 								</div>
 							</div>
 						</div>

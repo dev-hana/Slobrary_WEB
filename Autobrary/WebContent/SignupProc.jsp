@@ -1,8 +1,10 @@
-<%@page import="database.MemMgr"%>
+
 <%@page import="mail.Sender"%>
 <%@page import="java.util.Random"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, database.*" %>
+<jsp:useBean id="memMgr" class="database.MemMgr" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +18,12 @@
 			//사용자가 인증번호 발송을 누른경우 ( 비밀번호 암호화, 인증번호 생성 필요 )
 			//사용자가 회원가입 도중 페이지를 종료하거나 했을 경우 세션 만료 시간 설정 필요
 			if(form_type.equals("인증번호 발송")){
-				String id = request.getParameter("mem_id");
+				String mem_id = request.getParameter("mem_id");
 				String password = request.getParameter("mem_pw");
 				String name =request.getParameter("mem_name");
 				String gender = request.getParameter("mem_gender");
+				if(gender.equals("여")) gender="F";
+				else gender = "M";
 				String birth = request.getParameter("mem_birth");
 				String phone = request.getParameter("mem_phone");
 				String address = request.getParameter("mem_adress");
@@ -28,7 +32,7 @@
 					out.println("<script>alert('이미 가입되어있는 이메일입니다.');</script>");
 				}else{
 				//사용자 정보 세션에 저장
-				session.setAttribute("id", id);
+				session.setAttribute("mem_id", mem_id);
 				session.setAttribute("password", password);
 				session.setAttribute("name", name);
 				session.setAttribute("gender", gender);
@@ -71,10 +75,31 @@
 					if(num.equals(session.getAttribute("cnum"))){
 						//DB에 세션에 저장된 사용자 정보 등록 필요
 						
-						//완료 후 세션 모두 삭제 및 완료 페이지로 이동
-						String id = (String)session.getAttribute("id");
-						session.invalidate();
-						out.println("<script>window.top.location.href='SignupOk.jsp?id="+id+"';</script>");
+						//세션 불러오기
+						String mem_id = (String)session.getAttribute("mem_id");
+						String passwd = (String)session.getAttribute("password");
+						String name = (String)session.getAttribute("name");
+						String gender = (String)session.getAttribute("gender");
+						String birth = (String)session.getAttribute("birth");
+						String phone = (String)session.getAttribute("phone");
+						String address = (String)session.getAttribute("address");
+						String email = (String)session.getAttribute("address");
+						
+						boolean flag = memMgr.insertMember(mem_id, passwd, name, gender, birth, phone, address, email);
+						if(flag){
+							session.invalidate();
+							out.println("<script>window.top.location.href='SignupOk.jsp?id="+mem_id+"';</script>");
+						}
+						else{
+							%>
+							<script>
+							alert("회원가입을 실패하였습니다. 다시 시도해 주세요");
+							history.back();
+							</script>
+						<%	
+						}
+						
+						
 					}
 					//인증번호가 일치하지 않는 경우
 					else{
