@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, database.*"%>
 <jsp:useBean id="memMgr" class="database.MemMgr" />
+<jsp:useBean id="loanMgr" class="database.LoanMgr" />
+<jsp:useBean id="watchMgr" class="database.WatchMgr" />
 <%
 String mem_id = (String)session.getAttribute("loginKey");
 %>
@@ -83,6 +85,9 @@ String mem_id = (String)session.getAttribute("loginKey");
  	
  				else {				
  					MemBean memBean = memMgr.getMember(mem_id);
+ 					String loaning = loanMgr.countLoaning(mem_id);
+ 					String loaned = loanMgr.countLoaned(mem_id);
+ 					String watch = watchMgr.countWatch(mem_id);
  			 %>
   
   <div id="userinfo" class="col-md-3 p-0 pt-4 pb-4">
@@ -111,15 +116,15 @@ String mem_id = (String)session.getAttribute("loginKey");
                         <div id="userinfo-history" class="row pl-3 pr-3">
                             <div class="col">
                                 <p>읽는 중</p>
-                                <p id="history-reading" class="history-num">3</p>
+                                <p id="history-reading" class="history-num"><%=loaning %></p>
                             </div>
                             <div class="col">
                                 <p>읽은 책</p>
-                                <p id="history-read" class="history-num">9</p>
+                                <p id="history-read" class="history-num"><%=loaned %></p>
                             </div>
                             <div class="col">
                                 <p>읽고싶어요</p>
-                                <p id="history-wish" class="history-num">9</p>
+                                <p id="history-wish" class="history-num"><%=watch %></p>
                             </div>
                         </div>
                     </div>
