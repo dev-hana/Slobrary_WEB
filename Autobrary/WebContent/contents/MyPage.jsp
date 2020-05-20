@@ -37,7 +37,7 @@
 					<ul class="list-group mypage">
 						<li class="list-group-item list-group-item-action"><a href="#">대출도서</a></li>
 						<li class="list-group-item list-group-item-action"><a href="#">연체도서</a></li>
-						<li class="list-group-item list-group-item-action"><a href="#">희망도서</a></li>
+						<li class="list-group-item list-group-item-action"><a href="WishList.jsp">희망도서</a></li>
 					<li class="list-group-item list-group-item-action"><a href="#">관심도서</a></li>
 				</ul>
 				</div>

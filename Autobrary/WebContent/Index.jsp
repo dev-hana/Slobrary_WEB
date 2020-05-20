@@ -102,7 +102,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                                     <i class="fas fa-bell"> 0</i>
                                 </div>
                                 <div id="userinfo-btn" class="btn-group mb-3" role="group">
-                                    <button type="button" class="btn">내 서재</button>
+                                    <button type="button" class="btn" onclick="location.href='MyPage.jsp'">내 서재</button>
                                     <button type="button" class="btn ml-3"  onclick="location.href='LogoutProc.jsp'">로그아웃</button>
                                 </div>
                             </div>
