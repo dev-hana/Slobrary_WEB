@@ -83,7 +83,7 @@
 						String birth = (String)session.getAttribute("birth");
 						String phone = (String)session.getAttribute("phone");
 						String address = (String)session.getAttribute("address");
-						String email = (String)session.getAttribute("address");
+						String email = (String)session.getAttribute("email");
 						
 						boolean flag = memMgr.insertMember(mem_id, passwd, name, gender, birth, phone, address, email);
 						if(flag){

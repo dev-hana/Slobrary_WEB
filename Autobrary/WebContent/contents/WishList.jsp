@@ -12,7 +12,7 @@
 		   location.href="../Login.jsp";
 		   </script>
 	<%} else{
-		Vector vResult = bookMgr.getWishList(mem_id);
+		
 %>
 <!DOCTYPE html>
 <html>
@@ -48,28 +48,30 @@
 			<div>
 				<span class="ml-2 mb-3"><h3>희망도서 신청 목록</h3></span><hr>
 			</div>
+			<%Vector vResult = bookMgr.getWishList(mem_id); %>
 			<div class="p-3">
 			<table class="table table-hover">
 				<thead class="thead-light">
-					<tr>
 						<th scope="col">번호</th>
       					<th scope="col">도서명</th>
       					<th scope="col">저자명</th>
       					<th scope="col">출판사</th>
       					<th scope="col">상태</th>
-					</tr>
+      					<th scope="col">신청날짜</th>
 				</thead>
-				<tbody>
-					<!-- DB 결과 만큼 for문 시작점 -->
+					<%
+					for(int i = 0; i<vResult.size(); i++) {
+						WishBean wishBean = (WishBean)vResult.get(i);
+					%>           
 					<tr>
-      					<th scope="row">1(번호)</th>
-      					<td><a href="#">날씨가 좋으면 찾아가겠어요(도서명)</a></td>
-      					<td>이도우(저자명)</td>
-      					<td>동양출판사(출판사)</td>
-      					<td>접수(상태)</td>
+      					<th scope="row"><%=i + 1 %></th>
+      					<td><%=wishBean.getName() %></td>
+      					<td><%=wishBean.getAuthor() %></td>
+      					<td><%=wishBean.getPublisher() %></td>
+      					<td><%=wishBean.getStatus() %></td>
+      					<td><%=wishBean.getWish_date() %></td>
    					 </tr>
-   					 <!-- for문 끝 -->
-				</tbody>
+   				<%}%>
 			</table>
 			</div>
 		</div>

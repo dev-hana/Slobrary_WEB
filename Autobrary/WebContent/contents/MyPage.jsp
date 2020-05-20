@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, database.*"%>
+<jsp:useBean id="memMgr" class="database.MemMgr" />
+     <%
+	String mem_id = (String)session.getAttribute("loginKey");
+	if(mem_id==null) {
+	%>
+		   <script>
+		   alert("로그인 후 사용 가능합니다.");
+		   location.href="../Login.jsp";
+		   </script>
+	<%} else{
+		MemBean memBean = memMgr.getMember(mem_id);
+		
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,8 +43,8 @@
 						<img style="width:110px; height:110px;" class="rounded-circle shadow-sm" src="/img/default/userImg/girl1.png">
 					</div>
 					<div style="text-align: left; margin-left: 10px; margin-bottom: 20px;">
-						<span>양지현 님</span>
-						<p>didwlgus@naver.com</p>
+						<span><%=memBean.getMem_id() %></span>
+						<p><%=memBean.getMem_mail() %></p>
 					</div>
 				</div>
 				<div class="row3">
@@ -50,3 +64,4 @@
 	</div>
 </body>
 </html>
+<%}%>
