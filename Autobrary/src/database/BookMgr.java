@@ -79,7 +79,7 @@ public class BookMgr {
             pstmt.setString(1, mem_id);
             rs = pstmt.executeQuery();
 
-            if (rs.next()) {
+            while (rs.next()) {
             	 WishBean wishBean = new WishBean();
                  wishBean.setWish_id(rs.getString("wish_id"));
                  wishBean.setMem_id(rs.getString("mem_id"));

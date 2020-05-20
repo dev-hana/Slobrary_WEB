@@ -48,7 +48,7 @@
 			<div>
 				<span class="ml-2 mb-3"><h3>희망도서 신청 목록</h3></span><hr>
 			</div>
-			<%Vector vResult = bookMgr.getWishList(mem_id); %>
+			<%Vector List = bookMgr.getWishList(mem_id); %>
 			<div class="p-3">
 			<table class="table table-hover">
 				<thead class="thead-light">
@@ -60,8 +60,8 @@
       					<th scope="col">신청날짜</th>
 				</thead>
 					<%
-					for(int i = 0; i<vResult.size(); i++) {
-						WishBean wishBean = (WishBean)vResult.get(i);
+					for(int i = 0; i<List.size(); i++) {
+						WishBean wishBean = (WishBean)List.get(i);
 					%>           
 					<tr>
       					<th scope="row"><%=i + 1 %></th>
