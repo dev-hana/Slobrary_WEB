@@ -3,6 +3,7 @@
     
 <%@ page import="java.util.*, database.*" %>
 <jsp:useBean id="bookMgr" class="database.BookMgr" />
+<jsp:useBean id="bucketManager" class="bucketConnector.BucketManager" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,7 +102,7 @@ table.type03 td {
     </tr>
      <tr>
         <th scope="row">이미지</th>
-        <td><img src="../data/<%=bookBean.getImage()%>">
+        <td><img src="<%=bucketManager.base64DownLoader(bookBean.getImage())%>">
         <input type="file" name="image">
         </td>
     </tr>
