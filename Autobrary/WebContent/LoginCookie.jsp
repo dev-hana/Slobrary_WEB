@@ -7,7 +7,7 @@
 	String remember = request.getParameter("remember");
 	String chk = "";
 	if(remember != null && remember.equals("true")){
-		chk="checked";
+		chk="checked=\"checked\"";
 		Cookie idcookie = new Cookie("mem_id", mem_id);
 		Cookie chkcookie = new Cookie("chk", chk);
 		response.addCookie(idcookie);

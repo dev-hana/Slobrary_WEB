@@ -47,7 +47,7 @@
                         <input type="password" class="form-control" id="input_pw" name="mem_pw" placeholder="비밀번호를 입력해주세요.">
 
                         <div class="custom-control custom-checkbox mt-1">
-                            <input type="checkbox" class="custom-control-input" id="remember" name="remember" value="true" checked=<%=chk %> >
+                            <input type="checkbox" class="custom-control-input" id="remember" name="remember" value="true" <%=chk %> >
                             <label class="custom-control-label" for="remember">내 정보 기억하기</label>
                         </div>
                         <div id="btn-group" class="mt-3 mb-3 float-right">
