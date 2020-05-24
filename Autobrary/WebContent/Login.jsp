@@ -2,11 +2,20 @@
     pageEncoding="UTF-8"%>
 <%
 	Cookie[] idcookie = request.getCookies();
+	Cookie[] chkcookie = request.getCookies();
 	String id = "";
+	String chk="";
 	if(idcookie != null){
 		for(Cookie c : idcookie){
 			if(c.getName().equals("mem_id"))
 				id=c.getValue();
+			
+		}
+	}
+	if(chkcookie != null){
+		for(Cookie c : chkcookie){
+			if(c.getName().equals("chk"))
+				chk = c.getValue();
 		}
 	}
 %>
@@ -38,7 +47,7 @@
                         <input type="password" class="form-control" id="input_pw" name="mem_pw" placeholder="비밀번호를 입력해주세요.">
 
                         <div class="custom-control custom-checkbox mt-1">
-                            <input type="checkbox" class="custom-control-input" id="remember" name="remember" value="true">
+                            <input type="checkbox" class="custom-control-input" id="remember" name="remember" value="true" checked=<%=chk %> >
                             <label class="custom-control-label" for="remember">내 정보 기억하기</label>
                         </div>
                         <div id="btn-group" class="mt-3 mb-3 float-right">
