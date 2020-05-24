@@ -9,16 +9,14 @@
 	
 	if(loginCheck) {
 		session.setAttribute("loginKey", mem_id);
-	
-%>
-	<script>
-   location.href="/";
-   </script>
+		%><script>
+ 	 	location.href="/";
+  		 </script>
    <%}else{%>
 
-   <script>
-   alert("입력한 정보가 정확하지 않습니다.");
-   location.href="Login.jsp";
-   </script>
-
-<%}%>
+  		<script>
+   		alert("입력한 정보가 정확하지 않습니다.");
+   		location.href="Login.jsp";
+   		</script>
+	<%}%>
+<a href="Login.jsp">연결</a>
