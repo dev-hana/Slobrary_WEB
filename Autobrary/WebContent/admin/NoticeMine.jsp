@@ -50,7 +50,7 @@ String id = (String)session.getAttribute("adminKey");
  			<td class="th2"><%=ntBean.getName()%></td>
  			<td class="th2"><%=ntBean.getDate()%></td>
  			<td class="th2" style="align:center">
-    		  <a class="btn" href="javascript:SendBook('<%=ntBean.getNum()%>')">수정</a>
+    		  <a class="btn" href="javascript:SendBook('<%=ntBean.getNum()%>')">관리</a>
       		</td>
     	 </tr>
      
