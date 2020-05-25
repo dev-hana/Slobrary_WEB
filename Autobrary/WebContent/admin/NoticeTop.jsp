@@ -21,7 +21,7 @@ ul li:first-child{border-left :none;}
 <div style="text-align:center;">
 	<ul id="index">
           <li><a href="NoticeAll.jsp" >전체공지</a></li>
-          <li><a href="" >나의공지</a></li>
+          <li><a href="NoticeMine.jsp" >나의공지</a></li>
           <li><a href="" >등록</a></li>
       </ul>
 </div>
