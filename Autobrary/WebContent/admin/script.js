@@ -18,4 +18,8 @@ function DelBook(id_num) {
 	document.delBook.submit();
 }
 
+
+
+
+
 //작성자: 장지은

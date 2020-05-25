@@ -59,5 +59,8 @@
 
 <%@ include file="Bottom.jsp" %>
 
+<form name="sendBook" method="post" action="NoticeMgr.jsp">
+<input type=hidden name="id_num">
+</form>
 </body>
 </html>
