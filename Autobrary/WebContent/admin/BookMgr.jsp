@@ -22,8 +22,9 @@
 </head>
 <body>
 <%@ include file="Top.jsp" %> 
-
+<%@ include file="Bookside.jsp" %>
 <br><br>
+
 
 <%Vector vResult = bookMgr.getBookList(); %>
  <div style="width:94%;text-align:center;">
