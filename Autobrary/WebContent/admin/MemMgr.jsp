@@ -12,12 +12,6 @@
 <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
 <script language="JavaScript" src="script.js"></script>
-<style type="text/css">
-    .th1{text-align:center; border:1px solid gray;background-color:#EAEAEA; width="72" height="45"; padding: 15px;}
-    .th2 {border:1px solid gray; text-align:center; width="72" height="45"; padding: 15px;}
-    .btn {background-color:#042759;font-weight:bold;color:#FFFFFF;border: none;border-radius:5px;}
-    .id {background-color:#FFFFFF; border:0; outline:0;}
-</style>
 <script type="text/javascript">
  $(function(){
      $("#tablesort").dataTable();
