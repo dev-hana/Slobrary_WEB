@@ -71,11 +71,14 @@ table.type03 td {
 </table>
 <div style="text-align:center;">
 <a class="btn" href="javascript:SendBook('<%=ntBean.getNum() %>')">수정</a>
-
+<a class="btn" href="javascript:DelMem('<%=ntBean.getNum() %>')">삭제</a>
 </div>
 <%@ include file="Bottom.jsp" %>
 <form name="sendBook" method="post" action="UpdateNotice.jsp">
 	<input type=hidden name="id_num">
+</form>
+<form name="delMem" method="post" action="NoticeDel.jsp">
+	<input type=hidden name="mem_id">
 </form>
 </body>
 </html>

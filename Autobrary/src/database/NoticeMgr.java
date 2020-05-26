@@ -184,4 +184,26 @@ public class NoticeMgr {
         return flag;
     }
     
+    public boolean deleteNotice(String num) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        String sql = "delete from notice where num = ? ";
+        try {
+        	con = pool.getConnection();
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, num);
+       
+            int count = pstmt.executeUpdate();
+            if (count == 1) {
+                flag = true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
 }
