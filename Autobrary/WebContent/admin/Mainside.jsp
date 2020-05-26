@@ -37,13 +37,12 @@
 <div class="body">
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="Notice.jsp">공지사항</a>
-  <a href="#">베스트셀러</a>
-  <a href="#">희망도서</a>
-  <a href="#">일정</a>
+  <a href="MemMgr.jsp">회원</a>
+  <a href="BookMgr.jsp">도서</a>
+  <a href="SetMgr.jsp">기타 설정</a>
 </div>
 
-<span style="font-size:30px;cursor:pointer; padding-left:50px;" onclick="openNav()">&#9776; 설정</span>
+<span style="font-size:30px;cursor:pointer; padding-left:50px;" onclick="openNav()">&#9776; Menu</span>
 </div>
 
 <script>

@@ -15,5 +15,6 @@
 <div style="text-align:center;">
 <img alt="" src="../img/LOGO2.png">
 </div>
+<%@ include file="Bottom.jsp" %>
 </body>
 </html>
