@@ -5,7 +5,6 @@
 <html>
 <head>
 <title>Footer</title>
-<%@ include file="/CND.jsp" %>
 <link href="css/footer.css" rel="stylesheet">
 </head>
 <body>
