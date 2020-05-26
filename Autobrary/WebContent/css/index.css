@@ -191,29 +191,8 @@
 }
 
 #body-sub {
-    margin-top: 50px;
+    margin-top: 70px;
 }
-
-#calendar-view {
-    max-width: 300px;
-
-}
-
-#calendar thead {
-    border-bottom: 1px #A593E0;
-}
-
-
-#calendar td {
-    text-align: center;
-    border-radius: 50px;
-}
-
-#calendar-caption {
-    font-size: 0.8em;
-
-}
-
 #quick-menu {
     list-style: none;
     text-align: center;
@@ -221,8 +200,11 @@
 
 #quick-menu li {
     display: inline-block;
-    width: 110px;
+    margin:0px 45px;
+}
 
+#quick-menu li a {
+	text-decoration: none;
 }
 
 .quick-menu-icon {
@@ -240,14 +222,20 @@
     border-bottom: 1px solid lightgray;
 }
 
-.menu-title {
-    font-size: 1.4em;
+.forum h1 {
+    font-size: 1.5em;
+    padding-top: 10px;
 }
 
-.menu-title i {
-    font-size: 0.8em;
+.forum a {
+	position: relative;
+	top: -30px;
+	font-size: 1em;
+    text-decoration: none;
 }
-
+.forum a:hover {
+	text-decoration: none;
+}
 
 
 @media (min-width: 768px) {

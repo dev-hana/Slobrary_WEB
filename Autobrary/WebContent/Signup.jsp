@@ -3,9 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
-    <script type="text/javascript">
+	<script type="text/javascript">
     function calcHeight(){
    	 //find the height of the internal page
 
@@ -31,7 +29,7 @@
    
     </script>
     <title>Slobrary - 회원가입</title>
-    <jsp:include page="/CND.jsp" flush="false"/>
+    <%@ include file="/CND.jsp" %>
     <link href="/css/signup.css" rel="stylesheet">
 </head>
 <body class="bg-light">

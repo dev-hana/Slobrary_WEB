@@ -3,3 +3,8 @@
 * {
     font-family: 'Noto Sans KR', sans-serif;
 }
+
+.container {
+  width: 1200px;
+  max-width: none !important;
+}

@@ -10,65 +10,9 @@ String mem_id = (String)session.getAttribute("loginKey");
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
     <title>Slobrary</title>
     <link href="css/index.css?v=4" rel="stylesheet">
-	<jsp:include page="/CND.jsp" flush="false"/>
-    
-    <script>
-        //달력 https://jerryjerryjerry.tistory.com/26
-        var today = new Date();
-        var date = new Date();
-
-        function prevCalendar() {
-            today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
-            buildCalendar();
-        }
-
-        function nextCalendar() {
-            today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-            buildCalendar();
-        }
-
-        function buildCalendar() {
-            var doMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-            var lastDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-            var tbCalendar = document.getElementById("calendar");
-            var tbCalendarYM = document.getElementById("tbCalendarYM");
-            tbCalendarYM.innerHTML = (today.getMonth() + 1) + "월 도서관 일정"; //today.getFullYear() + "년 " 
-
-
-            while (tbCalendar.rows.length > 2) {
-                tbCalendar.deleteRow(tbCalendar.rows.length - 1);
-            }
-            var row = null;
-            row = tbCalendar.insertRow();
-            var cnt = 0;
-            for (i = 0; i < doMonth.getDay(); i++) {
-                cell = row.insertCell();
-                cnt = cnt + 1;
-            }
-            /*달력 출력*/
-            for (i = 1; i <= lastDate.getDate(); i++) {
-                cell = row.insertCell();
-                cell.innerHTML = i;
-                cnt = cnt + 1;
-                if (cnt % 7 == 1) {
-                    cell.innerHTML = "<font color=#ee5522>" + i //일요일 표시 색
-                }
-                if (cnt % 7 == 0) {
-                    cell.innerHTML = "<font color=#226dee>" + i //토요일 표시 색
-                    row = calendar.insertRow();
-                }
-                if (today.getFullYear() == date.getFullYear() &&
-                    today.getMonth() == date.getMonth() &&
-                    i == date.getDate()) {
-                    cell.bgColor = "#FAF58C"; //오늘 날짜 표시 색
-                }
-            }
-        }
-    </script>
+	<%@ include file="/CND.jsp" %>
 </head>
 <body class="bg-light">
     <header>
@@ -90,7 +34,7 @@ String mem_id = (String)session.getAttribute("loginKey");
  					String watch = watchMgr.countWatch(mem_id);
  			 %>
   
-  <div id="userinfo" class="col-md-3 p-0 pt-4 pb-4">
+  				<div id="userinfo" class="col-xs-3 p-0 pt-4 pb-4">
                     <div class='bg-white rounded  shadow'>
                         <div id="userinfo-status" class="p-4 mb-3">
                             <p><span id="status-emoji">🤔</span><br>
@@ -130,7 +74,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                     </div>
                 </div>
   <%}%>
-                <div data-ride="carousel" class="col-md-8 ml-5 carousel slide carousel-fade" id="carousel-bookshelf">
+                <div data-ride="carousel" class="col-xs-8 ml-5 carousel slide carousel-fade" id="carousel-bookshelf">
                     <ol class="carousel-indicators">
                         <li class="active" data-slide-to="0" data-target="#carousel-bookshelf"></li>
                         <li data-slide-to="1" data-target="#carousel-bookshelf"></li>
@@ -312,78 +256,61 @@ String mem_id = (String)session.getAttribute("loginKey");
         </div>
     </div>
 
-    <div id="body-sub" class="row justify-content-md-center">
-        <div id="calendar-view" class="col-md-3 p-0">
-            <table id="calendar" class="table table-borderless shadow-sm">
-                <thead class="shadow-sm">
-                    <tr>
-                        <td><label onclick="prevCalendar()"><i class="fas fa-chevron-left"></i></label></td>
-                        <td align="center" id="tbCalendarYM" colspan="5">
-                            yyyy년 m월</td>
-                        <td><label onclick="nextCalendar()"><i class="fas fa-chevron-right"></i>
+	<div id="body-sub" class="container pl-5 pr-5">
+    	<div class="row justify-content-md-center">
+        	<div id="calendar-view" class="col-xs-3" style="width:350px;">
+            	<jsp:include page="/Calendar.jsp" flush="false"/>
+        	</div>
 
-                            </label></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td align="center">일</td>
-                        <td align="center">월</td>
-                        <td align="center">화</td>
-                        <td align="center">수</td>
-                        <td align="center">목</td>
-                        <td align="center">금</td>
-                        <td align="center">토</td>
-                    </tr>
-                    <script language="javascript" type="text/javascript">
-                        buildCalendar();
-                    </script>
-                    <tr id="calendar-caption">
-                        <td colspan="7">오늘 휴관일 행사일</td>
-                    </tr>
-                </tbody>
-
-            </table>
-        </div>
-
-        <div class="col-md-6">
-            <div class="row m-auto">
-            <ul id="quick-menu">
-                <li><i class="fas fa-comment quick-menu-icon shadow-sm"></i><br>자주 묻는 질문</li>
-                <li><i class="fas fa-info quick-menu-icon shadow-sm"></i><br>도서관 안내</li>
-                <li><i class="fas fa-door-open quick-menu-icon shadow-sm"></i><br>시설대여</li>
-                <li><i class="fas fa-book-open quick-menu-icon shadow-sm"></i><br>희망도서신청</li>
-            </ul>
-            </div>
-        <div class="row">
-            <div class="col">
-                <hr class="shadow-sm">
-                <div class="forum">
-                <p class="menu-title">공지사항 <i class="fas fa-plus float-right"></i></p>
-                    <table class="table">
-                <tbody>
-      <tr>
-        <td style="width: 10%">1</td>
-        <td  style="width: 70%">오늘의 공지사항</td>
-        <td style="width: 20%">2020.04.17</td>
-      </tr>
-                    <tr>
-        <td style="width: 10%">2</td>
-        <td  style="width: 70%">오늘의 공지사항</td>
-        <td style="width: 20%">2020.04.17</td>
-      </tr>
-                    <tr>
-        <td style="width: 10%">3</td>
-        <td  style="width: 70%">오늘의 공지사항</td>
-        <td style="width: 20%">2020.04.17</td>
-      </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-            </div>
-        </div>
-        </div>
+        	<div class="col-xs-9 pl-5" style="width:850px;">
+            	<div class="row justify-content-md-center">
+            		<ul id="quick-menu">
+                		<li><a href="#"><i class="fas fa-comment quick-menu-icon shadow-sm"></i><br>자주 묻는 질문</a></li>
+                		<li><a href="#"><i class="fas fa-info quick-menu-icon shadow-sm"></i><br>도서관 안내</a></li>
+                		<li><a href="#"><i class="fas fa-door-open quick-menu-icon shadow-sm"></i><br>시설대여</a></li>
+                		<li><a href="#"><i class="fas fa-book-open quick-menu-icon shadow-sm"></i><br>희망도서신청</a></li>
+            		</ul>
+            	</div>
+        		<div class="row">
+            		<div class="col">
+                		<hr class="shadow-sm">
+                		<div class="forum">
+                			<h1 class="menu-title">공지사항</h1>
+                			<a class="fas fa-plus float-right" href="#"></a>
+                    		<table class="table table-striped table-hover table-notice-board">
+                				<tbody>
+      								<tr>
+       				 					<td style="width: 10%">1</td>
+        								<td  style="width: 70%">오늘의 공지사항</td>
+        								<td style="width: 20%">2020.04.17</td>
+      								</tr>
+                    				<tr>
+        								<td style="width: 10%">2</td>
+        								<td  style="width: 70%">오늘의 공지사항</td>
+        								<td style="width: 20%">2020.04.17</td>
+      								</tr>
+                  			  		<tr>
+        								<td style="width: 10%">3</td>
+        								<td  style="width: 70%">오늘의 공지사항</td>
+        								<td style="width: 20%">2020.04.17</td>
+      								</tr>
+      								<tr>
+        								<td style="width: 10%">4</td>
+        								<td  style="width: 70%">오늘의 공지사항</td>
+        								<td style="width: 20%">2020.04.17</td>
+      								</tr>
+      								<tr>
+        								<td style="width: 10%">5</td>
+        								<td  style="width: 70%">오늘의 공지사항</td>
+        								<td style="width: 20%">2020.04.17</td>
+      								</tr>
+                       			</tbody>
+                    		</table>
+                		</div>
+            		</div>
+        		</div>
+       	 	</div>
+    	</div>
     </div>
 </body>
-</html>s
+</html>

@@ -22,10 +22,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=1">
-    <title>Slobrary - 로그인</title>
-	<jsp:include page="/CND.jsp" flush="false"/>
+	<title>Slobrary - 로그인</title>
+	<%@ include file="/CND.jsp" %>
     <link href="css/login.css" rel="stylesheet">
 </head>
 <body class="bg-light">
