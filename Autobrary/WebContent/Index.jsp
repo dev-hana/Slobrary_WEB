@@ -256,7 +256,7 @@ String mem_id = (String)session.getAttribute("loginKey");
         </div>
     </div>
 
-	<div id="body-sub" class="container pl-5 pr-5">
+	<div id="body-sub" class="container pl-5 pr-5 mb-5">
     	<div class="row justify-content-md-center">
         	<div id="calendar-view" class="col-xs-3" style="width:350px;">
             	<jsp:include page="/Calendar.jsp" flush="false"/>
@@ -312,5 +312,7 @@ String mem_id = (String)session.getAttribute("loginKey");
        	 	</div>
     	</div>
     </div>
+    
+    <jsp:include page="/Footer.jsp" flush="false"/>
 </body>
 </html>
