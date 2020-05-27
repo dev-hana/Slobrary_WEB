@@ -288,19 +288,19 @@ String mem_id = (String)session.getAttribute("loginKey");
                             <div class="row mt-5 ml-5 mr-5">
                                 <div class="book col-4">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="추천 4">
+                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="대출중 1">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="추천 5">
+                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="대출중 2">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="추천 6">
+                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="대출중 3">
                                         <span class="border"></span>
                                     </a>
                                 </div>
@@ -318,19 +318,19 @@ String mem_id = (String)session.getAttribute("loginKey");
                             <div class="row mt-5 ml-5 mr-5">
                                 <div class="book col-4">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="추천 4">
+                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="읽은책 1">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="추천 5">
+                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="읽은책 2">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="추천 6">
+                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="읽은책 3">
                                         <span class="border"></span>
                                     </a>
                                 </div>
@@ -348,19 +348,19 @@ String mem_id = (String)session.getAttribute("loginKey");
                             <div class="row mt-5 ml-5 mr-5">
                                 <div class="book col-4">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="추천 4">
+                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="위시 1">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="추천 5">
+                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="위시 2">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="추천 6">
+                                        <img class="thumbnail" src="/img/main-ex/bookcover.jpg" alt="위시 3">
                                         <span class="border"></span>
                                     </a>
                                 </div>

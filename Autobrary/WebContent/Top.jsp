@@ -58,7 +58,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">도서관서비스</a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                        <div class="dropdown-menu" aria-labelledby="dropdown02">
                                       	<form method="post" action="../contents/WishBook.jsp">
                                         	<input type="submit" class="dropdown-item" value="희망 도서">
                                         	<input type="hidden" name="mem_id" value=<%=mem_id %>/>
@@ -69,8 +69,8 @@ String mem_id = (String)session.getAttribute("loginKey");
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">이용안내</a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                        
+                                        <div class="dropdown-menu" aria-labelledby="dropdown03">
+                              
                                        		<a class="dropdown-item" href="#">도서관 소개</a>                                       	                                
                                             <a class="dropdown-item" href="#">대출 및 반납</a>
                                             <a class="dropdown-item" href="#">자주 물어보는 질문</a>
@@ -83,7 +83,10 @@ String mem_id = (String)session.getAttribute("loginKey");
     								<li class="nav-item"> <a href="Login.jsp" class="nav-link">로그인</a></li>
    									<li class="nav-item"> <a href="Signup.jsp" class="nav-link ">회원가입</a></li>
 		 						</ul><%} else {%>
-								<div></div><%}%>
+								<ul class="navbar-nav navbar-right">
+    								<li class="nav-item"> <a href="../contents/MyPage.jsp" class="nav-link">마이페이지</a></li>
+   									<li class="nav-item"> <a href="LogoutProc.jsp" class="nav-link ">로그아웃</a></li>
+		 						</ul><%}%>
                             </div>
                         </div>
                     </div>
@@ -106,6 +109,11 @@ String mem_id = (String)session.getAttribute("loginKey");
         }); //scroll
         
         $('.dropdown-toggle').dropdown();	// dropdown 오류가 있어서 추가
+        $('.dropdown').hover(function () {
+            $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
+        }, function () {
+            $(this).find('.dropdown-menu').first().stop(true, true).slideUp(105)
+        });
     });
 
     $(document).ready(function() {
