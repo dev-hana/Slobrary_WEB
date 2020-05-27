@@ -11,7 +11,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 <html>
 <head>
     <title>Slobrary</title>
-    <link href="css/index.css?v=4" rel="stylesheet">
+    <link href="css/index.css?v=5" rel="stylesheet">
 	<%@ include file="/CND.jsp" %>
 </head>
 <body class="bg-light">
@@ -24,7 +24,7 @@ String mem_id = (String)session.getAttribute("loginKey");
            <%
           	
  				if(mem_id == null) {
- 					%><div></div><%
+ 					%><div id="userinfo" class="col-xs-3 p-0 pt-4 pb-4"></div><%
  				}
  	
  				else {				
@@ -74,186 +74,207 @@ String mem_id = (String)session.getAttribute("loginKey");
                     </div>
                 </div>
   <%}%>
-                <div data-ride="carousel" class="col-xs-8 ml-5 carousel slide carousel-fade" id="carousel-bookshelf">
-                    <ol class="carousel-indicators">
-                        <li class="active" data-slide-to="0" data-target="#carousel-bookshelf"></li>
-                        <li data-slide-to="1" data-target="#carousel-bookshelf"></li>
-                        <li data-slide-to="2" data-target="#carousel-bookshelf"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div id="bookshelf-today" class="col bookshelf">
-                                <p id="bookshelf-title">todAy's pick</p>
-                                <div class="row bookshelf-level">
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="row rounded shelf shadow">
-                                    </div>
-                                </div>
-                                <div class="row bookshelf-level">
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="row rounded shelf shadow">
-                                    </div>
-                                </div>
-                            </div>
+             <div id="carousel" class="col-xs-9 ml-5 carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <!-- 신간도서 -->
+            <div class="carousel-item active">
+                <div class="bookshelf container">
+                    <div class="row">
+                        <div class="book col-4">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="신간 1">
+                                <span class="border"></span>
+                            </a>
                         </div>
-                        <div class="carousel-item">
-                            <div class="col bookshelf">
-                                <p id="bookshelf-title">bestseller</p>
-                                <div class="row bookshelf-level">
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover2.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover2.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover2.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="row rounded shelf shadow">
-                                    </div>
-                                </div>
-                                <div class="row bookshelf-level">
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover2.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover2.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover2.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="row rounded shelf shadow">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="신간 2">
+                                <span class="border"></span>
+                            </a>
                         </div>
-                        <div class="carousel-item">
-                            <div class="col bookshelf">
-                                <p id="bookshelf-title">new</p>
-                                <div class="row bookshelf-level">
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="row rounded shelf shadow">
-                                    </div>
-                                </div>
-                                <div class="row bookshelf-level">
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="thumbnail_image shadow">
-                                            <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="오늘의 추천 책">
-                                            <span class="border"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="row rounded shelf shadow">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="신간 3">
+                                <span class="border"></span>
+                            </a>
                         </div>
                     </div>
+                    <div class="row mb-4">
+                        <div class="rounded shelf shadow"></div>
+                    </div>
 
-                    <a data-slide="prev" role="button" href="#carousel-bookshelf" class="carousel-control-prev">
-                        <span aria-hidden="true" class="carousel-control-prev-icon"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a data-slide="next" role="button" href="#carousel-bookshelf" class="right carousel-control-next">
-                        <span aria-hidden="true" class="carousel-control-next-icon"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                    <div class="row">
+                        <div class="book col-4">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="신간 4">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="신간 5">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="신간 6">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="rounded shelf shadow"></div>
+                    </div>
                 </div>
 
+                <div class="carousel-caption">
+                    <div>
+                        <h2>NEW</h2>
+                        <p>We meticously build each site to get results</p>
+                        <span class="btn btn-sm btn-outline-secondary">Learn More</span>
+                    </div>
+                </div>
             </div>
+            <!-- 베스트셀러 -->
+            <div class="carousel-item">
+                <div class="bookshelf container">
+                    <div class="row">
+                        <div class="book col-4">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="베스트 1">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="베스트 2">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="베스트 3">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="rounded shelf shadow"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="book col-4">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="베스트 4">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="베스트 5">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="베스트 6">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="rounded shelf shadow"></div>
+                    </div>
+                </div>
+
+                <div class="carousel-caption">
+                    <div>
+                        <h2>BestSeller</h2>
+                        <p>We meticously build each site to get results</p>
+                        <span class="btn btn-sm btn-outline-secondary">Learn More</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 오늘의 추천 책 -->
+            <div class="carousel-item">
+                <div class="bookshelf container">
+                    <div class="row">
+                        <div class="book col-4">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="추천 1">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="추천 2">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="추천 3">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="rounded shelf shadow"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="book col-4">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="추천 4">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="추천 5">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                        <div class="col-4 book">
+                            <a class="thumbnail_image shadow" href="#">
+                                <img class="thumbnail" src="img/main-ex/bookcover3.jpg" alt="추천 6">
+                                <span class="border"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="rounded shelf shadow"></div>
+                    </div>
+                </div>
+
+                <div class="carousel-caption">
+                    <div>
+                        <h2>Today's Pick</h2>
+                        <p>We meticously build each site to get results</p>
+                        <span class="btn btn-sm btn-outline-secondary">Learn More</span>
+                    </div>
+                </div>
+            </div>
+            <!-- /.carousel-item -->
         </div>
+        <!-- /.carousel-inner -->
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div> 
+    </div>
+    </div>
     </div>
 
 	<div id="body-sub" class="container pl-5 pr-5 mb-5">
