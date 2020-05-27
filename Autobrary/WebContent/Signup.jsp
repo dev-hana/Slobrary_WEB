@@ -13,7 +13,7 @@
 
    	 //change the height of the iframe
    	 document.getElementById('the_iframe').height=
-   	 the_height;
+   	 the_height;W
 
    	 //document.getElementById('the_iframe').scrolling = "no";
    	 document.getElementById('the_iframe').style.overflow = "hidden";

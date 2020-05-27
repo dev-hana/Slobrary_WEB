@@ -10,7 +10,7 @@
 		response.sendRedirect("AdminLogin.jsp");
 	} else {
 		
-	
+		session.setAttribute("admin_id", admin_id);
 		AdminBean adBean = adSet.getName(admin_id);
 	
 %>

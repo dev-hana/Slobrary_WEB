@@ -41,6 +41,7 @@
   <a href="#">베스트셀러</a>
   <a href="#">희망도서</a>
   <a href="#">일정</a>
+  <a href="Admin.jsp">관리자</a>
 </div>
 
 <span style="font-size:30px;cursor:pointer; padding-left:50px;" onclick="openNav()">&#9776; 설정</span>

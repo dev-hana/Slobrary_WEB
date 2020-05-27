@@ -1,16 +1,22 @@
 package database;
 
-public class AdminBean {
-	private String admin_id;
+public class ArequestBean {
+	private String id;
+	private String passwd;
 	private String name;
 	private String phone;
 	private String date;
-	private String rank;
-	public String getAdmin_id() {
-		return admin_id;
+	public String getId() {
+		return id;
 	}
-	public void setAdmin_id(String admin_id) {
-		this.admin_id = admin_id;
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPasswd() {
+		return passwd;
+	}
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 	public String getName() {
 		return name;
@@ -30,11 +36,6 @@ public class AdminBean {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public String getRank() {
-		return rank;
-	}
-	public void setRank(String rank) {
-		this.rank = rank;
-	}
+	
 	
 }
