@@ -49,9 +49,10 @@
   margin-top: -3rem !important;
 }
 </style>
-
+<jsp:include page="../Top.jsp" flush="false"/>
 </head>
 <body>
+
 	<div class="container">
 	<div class="row">
 		<div class="col-xl-12 p-4">

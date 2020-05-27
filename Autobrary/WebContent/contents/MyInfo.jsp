@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <!-- 자바 스크립트 -->
-
+<script type="text/javascript" src="/js/formneeds.js"></script>
 
 <!-- css -->
 <link href="/css/MyInfo.css" rel="stylesheet" />
@@ -22,6 +22,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 <title>마이페이지 수정</title>
+
 </head>
 
 <body class="bg-light">
@@ -29,7 +30,7 @@
 	<div class="back">
 	<div class="container-fluid">
 		<div class="row mt-5 justify-content-md-center">
-			<div class="col-sm-4 shadow-sm p-3 mb-5 bg-white rounded">
+			<div class="col-xl-4 shadow-sm p-3 mb-5 bg-white rounded">
 			
 			<form class="needs-validation" method="post" action="MyInfoProc.jsp" novalidate>
 				<!-- 프로필 이미지 -->
@@ -55,7 +56,7 @@
 						</tr>
 						<tr>
 							<th scope="row">전화번호</th>
-							<td><input name="mem_phone" class="form-control" type="text" value="010-1234-5678" required></input></td>
+							<td><input name="mem_phone" class="form-control" type="text" value="01012345678" required></input></td>
 						</tr>
 						<tr>
 							<th scope="row">주소</th>
@@ -69,7 +70,7 @@
 				</div>
 				<div class="btns">
 					<button class="btn btn-outline-primary pl-4 pr-4" type="submit">확인</button>
-					<button class="btn btn btn-outline-danger pl-4 pr-4">취소</button>
+					<button onclick="location.href='MyPage.jsp'" type="button" class="btn btn btn-outline-danger pl-4 pr-4">취소</button>
 				</div>
 				</form>
 			</div>

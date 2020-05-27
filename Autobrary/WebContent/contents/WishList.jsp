@@ -46,8 +46,15 @@
 	<div class="row justify-content-md-center mt-3">
 		<div class="col-xl-8">
 			<div>
-				<span class="ml-2 mb-3"><h3>희망도서 신청 목록</h3></span><hr>
+				<div style="display: inline-block;">
+					<span class="ml-2 mb-3"><h3>희망도서 신청 목록</h3></span>
+				</div>
+				<div style="display: inline-block; float: right;" class="mt-4 mr-2" >
+					<button onClick="location.href='WishBook.jsp'" class="btn btn-outline-secondary">희망도서신청</button>
+				</div>
+				<hr>
 			</div>
+			
 			<%Vector List = bookMgr.getWishList(mem_id); %>
 			<div class="p-3">
 			<table class="table table-hover">
