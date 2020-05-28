@@ -24,6 +24,8 @@
         }
         
         .sidebar-header {
+        	padding-bottom: 10px;
+        	border-bottom: 1px solid white;
         }
         
         .sidebar-menu li{
@@ -38,7 +40,12 @@
         
         #content {
             width: 100%;
-            padding: 10px 20px;
+            padding-top: 50px; 
+            padding-left: 50px;
+        }
+        
+        #content h1 {
+        	font-size: 2em;
         }
         
         .table-notice-board {
@@ -54,10 +61,9 @@
 	<header>
     <jsp:include page="Top.jsp" flush="false"/>
     </header>
-    <div id="body-main" class="p-4">
-        <div class="container">
-    <div class="wrapper">
-        <nav id="sidebar" class="mt-5 p-4 pt-5">
+        <div style="margin: 0px 150px;">
+    <div class="wrapper mt-5">
+        <nav id="sidebar" class="p-4 pt-5 mr-4">
             <div class="sidebar-header mb-5">
                 <h1>안내사항</h1>
             </div>
@@ -67,16 +73,14 @@
             </ul>
         </nav>
         <div id="content">
-        	<div class="mt-5 pt-2">
-                <h3>공지사항</h3>
-            </div>
+                <h1 class="mb-4">공지사항</h1>
             <table class="table table-striped table-hover table-notice-board">
                 <thead>
                     <tr>
                         <th>번호</th>
                         <th>제목</th>
-                        <th>날짜</th>
-                        <th>조회수</th>
+                        <th>작성일</th>
+                        <th>작성자</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,8 +90,26 @@
                         <td>2020.04.17</td>
                         <td>0</td>
                     </tr>
-                    <tr>
+                    <tr onClick="">
                         <td>2</td>
+                        <td>오늘의 공지사항</td>
+                        <td>2020.04.17</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>오늘의 공지사항</td>
+                        <td>2020.04.17</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>오늘의 공지사항</td>
+                        <td>2020.04.17</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
                         <td>오늘의 공지사항</td>
                         <td>2020.04.17</td>
                         <td>0</td>
@@ -102,7 +124,24 @@
             </table>
             </div>
             </div>
+            <div class="mt-5" style="margin-left: 250px;">
+            <nav aria-label="Page navigation">
+            	<ul class="pagination justify-content-center">
+            		<li class="page-item disabled"><a class="page-link" href="#">이전</a></li>
+            		<li class="page-item active"><a class="page-link" href="#">1<span class="sr-only">(current)</span></a></li>
+            		<li class="page-item"><a class="page-link" href="#">2</a></li>
+            		<li class="page-item"><a class="page-link" href="#">3</a></li>
+            		<li class="page-item"><a class="page-link" href="#">다음</a></li>
+            	</ul>
+            </nav>
+            <form class="form-inline justify-content-center">
+            	<select class="custom-select">
+            		<option value="all" selected>전체</option>
+            	</select>
+            	<input type="text" class="form-control">
+            	<button type="submit" class="btn btn-outline-secondary">검색</button>
+            </form>
+            </div>
         </div>
-    </div>
 </body>
 </html>
