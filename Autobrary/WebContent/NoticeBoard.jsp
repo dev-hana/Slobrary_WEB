@@ -4,8 +4,8 @@
 	
 <%
 	String category = "안내사항";
-	String pageNames = "공지사항, 도서관 달력";
-	String pageUrls = "NoticeBoard.jsp, Calendar.jsp";
+	String pageNames = "공지사항, 도서관 일정";
+	String pageUrls = "NoticeBoard.jsp, CalendarPage.jsp";
 	String currentPage = "공지사항";
 	request.setCharacterEncoding("UTF-8");
 	

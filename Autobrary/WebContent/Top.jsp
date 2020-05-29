@@ -53,7 +53,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">안내사항</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdown01">
                                             <a class="dropdown-item" href="/NoticeBoard.jsp">공지사항</a>
-                                            <a class="dropdown-item" href="#">도서관 일정</a>
+                                            <a class="dropdown-item" href="/CalendarPage.jsp">도서관 일정</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
