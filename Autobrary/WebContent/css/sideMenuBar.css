@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+#sidebar {
+	min-width: 250px;
+	max-width: 250px;
+	background: #866ec7;
+	color: #fff;
+	transition: all .3s;
+	position: relative;
+}
+
+.sidebar-header {
+	padding-bottom: 10px;
+	border-bottom: 1px solid white;
+}
+
+.sidebar-menu li {
+	padding: 10px 0px;
+	font-size: 1.2em;
+}
+
+.sidebar-menu li a {
+	color: #fff;
+	text-decoration: none;
+}
