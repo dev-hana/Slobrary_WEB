@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String viewType = request.getParameter("view");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +46,8 @@
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            plugins: ['interaction', 'dayGrid', 'bootstrap'],
+        	plugins: ['interaction', 'dayGrid', 'bootstrap'],
+            
             header: {
                 left : 'title',
                 right : 'today, prev, next'
@@ -57,10 +61,11 @@
             themeSystem : 'bootstrap',
             locale : 'ko'
         });
-        
-        calendar.on('dateClick', function(info) {
-            console.log('clicked on ' + info.dateStr);
-        })
+        <% if(viewType.equals("page")) { %>
+        	calendar.on('dateClick', function(info) {
+            	console.log('clicked on ' + info.dateStr);
+        	})
+        <%}%>
 
         calendar.render();
     });

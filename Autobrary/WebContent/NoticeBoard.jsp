@@ -1,14 +1,7 @@
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Slobrary - 공지사항</title>
-<%@ include file="/CND.jsp"%>
-<link rel="stylesheet" href="/css/noticeBoard.css">
-</head>
-
+	
 <%
 	String category = "안내사항";
 	String pageNames = "공지사항, 도서관 달력";
@@ -17,7 +10,13 @@
 	request.setCharacterEncoding("UTF-8");
 	
 %>
-
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slobrary - <%=currentPage%></title>
+<%@ include file="/CND.jsp"%>
+<link rel="stylesheet" href="/css/noticeBoard.css">
+</head>
 <body>
 	<header>
 		<jsp:include page="Top.jsp" flush="false" />
@@ -33,7 +32,7 @@
 			</jsp:include>
 			
 			<div id="content">
-				<h1 class="mb-4">공지사항</h1>
+				<h1 class="mb-4"><%=currentPage%></h1>
 				<table class="table table-striped table-hover table-notice-board">
 					<thead>
 						<tr>

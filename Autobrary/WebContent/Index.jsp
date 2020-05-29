@@ -378,7 +378,9 @@ String mem_id = (String)session.getAttribute("loginKey");
 		%>
         <div class="row justify-content-md-center">
             <div id="calendar-view" class="col-xs-3 pt-5"" style="width: 350px;">
-                <jsp:include page="/Calendar.jsp" flush="false" />
+                <jsp:include page="/Calendar.jsp" flush="false">
+                	<jsp:param value="widget" name="view"/>
+                </jsp:include>
             </div>
 
             <div class="col-xs-9 pl-5" style="width: 850px;">
