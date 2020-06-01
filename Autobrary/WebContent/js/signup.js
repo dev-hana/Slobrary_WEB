@@ -146,7 +146,8 @@ function modalImgSubmit() {
     var selectImg = $('input[name="image_radio"]:checked').val();
     var imgPreview = document.getElementById('imgPreview');
     var imgUrl_ = 'img/default/userImg/';
-
+    
+    document.getElementById('mem_img').value=selectImg;
     imgUrl_ = imgUrl_ + selectImg;
     imgPreview.src = imgUrl_;
     $('#modal-img').modal('hide');

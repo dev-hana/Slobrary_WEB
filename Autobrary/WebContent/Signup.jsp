@@ -13,7 +13,7 @@
 
    	 //change the height of the iframe
    	 document.getElementById('the_iframe').height=
-   	 the_height;W
+   	 the_height;
 
    	 //document.getElementById('the_iframe').scrolling = "no";
    	 document.getElementById('the_iframe').style.overflow = "hidden";
@@ -49,7 +49,7 @@
                             <img id="imgPreview" class="img-cover shadow-sm" src="img/default/userImg/girl1.png" alt="프로필사진">
                         </div>
                         <button id="openImgUpload" data-toggle="modal" data-target="#modal-img" class="btn btn-light shadow-sm" type="button"><i class="fas fa-camera"></i>&nbsp;&nbsp;프로필 사진 선택</button>
-                        <input type="hidden" name="mem_img" value="girl1.png">
+                        <input type="hidden" id="mem_img" name="mem_img" value="girl1.png">
                     </div><br>
 
                     <div class="form-group">
