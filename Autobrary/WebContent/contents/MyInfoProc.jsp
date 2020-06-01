@@ -7,9 +7,25 @@
 	String mem_id = request.getParameter("mem_id");
 	String address = request.getParameter("mem_address");
 	String img = request.getParameter("mem_img");
-	boolean flag = memMgr.memberUpdateMy(mem_id, address);
-	
-	System.out.println(img);
+	boolean flag = memMgr.memberUpdateMy(mem_id, address, img);
 	
 %>
-<%=img %>
+
+<%
+if(flag){
+%>		session.setAttribute("loginKey", mem_id);
+		<script>
+		alert("성공적으로 수정하였습니다");
+		location.href="MyPage.jsp";
+		</script>
+<%
+	}else{
+%>
+		<script>
+		alert("수정도중 에러가 발생하였습니다.");
+		history.back();
+		</script>
+
+<%
+	  }
+%>

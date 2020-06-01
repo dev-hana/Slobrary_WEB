@@ -333,17 +333,18 @@ public class MemMgr {
     }
     
     
-    public boolean memberUpdateMy(String mem_id, String address) {
+    public boolean memberUpdateMy(String mem_id, String address, String img) {
         Connection con = null;
         PreparedStatement pstmt = null;
         boolean flag = false;
         try {
             con = pool.getConnection();
-            String strQuery = "update member set address =? where mem_id =? ";
+            String strQuery = "update member set address =?, profile_img = ?  where mem_id =? ";
             
             pstmt = con.prepareStatement(strQuery);
             pstmt.setString(1, address);
-            pstmt.setString(2, mem_id);
+            pstmt.setString(2, img);
+            pstmt.setString(3, mem_id);
             int count = pstmt.executeUpdate();
 
             if (count == 1) {
