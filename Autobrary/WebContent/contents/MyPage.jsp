@@ -23,7 +23,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>마이페이지</title>
 <!-- 아이콘 -->
 <link rel="shortcut icon" href="/img/favicon.ico">
 <!-- css -->

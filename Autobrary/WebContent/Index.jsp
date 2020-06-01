@@ -261,7 +261,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                     <p style="height: 1px; background-color: lightgray; margin: 10px 100px;"></p>
                 </div>
                 <div class="img-wrapper mb-2">
-                    <img id="userinfo-img" class="img-cover" src="/img/default/userImg/girl1.png" alt="프로필사진">
+                    <img id="userinfo-img" class="img-cover" src="/img/default/userImg/<%=memBean.getProfile() %>" alt="프로필사진">
                 </div>
                 <div id="userinfo-name" class="mt-2 mb-4">
                     <p><%=memBean.getMem_name() %></p>

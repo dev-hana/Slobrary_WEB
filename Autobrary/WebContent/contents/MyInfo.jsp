@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ page import="java.util.*, database.*"%>
+<jsp:useBean id="memMgr" class="database.MemMgr" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +29,10 @@
 
 <body class="bg-light">
 	<jsp:include page="../Top.jsp" flush="false"/>
+	<%
+		String mem_id = (String)session.getAttribute("loginKey");
+		MemBean memBean = memMgr.getMember(mem_id);
+	%>
 	<div class="back">
 	<div class="container-fluid">
 		<div class="row mt-5 justify-content-md-center">
@@ -48,23 +54,23 @@
 					<table class="table table-borderless">
 						<tr>
 							<th scope="row">이름</th>
-							<td><input name="mem_name" class="form-control" type="text" value="양지" required></input></td>
+							<td><%=memBean.getMem_name() %></td>
 						</tr>
 						<tr>
 							<th scope="row">이메일</th>
-							<td><input name="mem_mail" class="form-control" type="email" value="yangz@naver.com" required></input></td>
+							<td><%=memBean.getMem_mail() %></td>
 						</tr>
 						<tr>
 							<th scope="row">전화번호</th>
-							<td><input name="mem_phone" class="form-control" type="text" value="01012345678" required></input></td>
+							<td><%=memBean.getMem_phone() %></td>
 						</tr>
 						<tr>
 							<th scope="row">주소</th>
-							<td><input name="mem_address" class="form-control" type="text" value="서울시 구로구" required></input></td>
+							<td><input name="mem_address" class="form-control" type="text" value="<%=memBean.getMem_address() %>" required></input></td>
 						</tr>
 						<tr>
 							<th scope="row">가입일</th>
-							<td>2020-04-22</td>
+							<td><%=memBean.getMem_date() %></td>
 						</tr>
 					</table>
 				</div>
@@ -72,6 +78,7 @@
 					<button class="btn btn-outline-primary pl-4 pr-4" type="submit">확인</button>
 					<button onclick="location.href='MyPage.jsp'" type="button" class="btn btn btn-outline-danger pl-4 pr-4">취소</button>
 				</div>
+				<input type="hidden" name="mem_id" value="<%=memBean.getMem_id() %>" >
 				</form>
 			</div>
 		</div>

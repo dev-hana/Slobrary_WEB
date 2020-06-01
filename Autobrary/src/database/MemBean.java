@@ -18,6 +18,14 @@ public class MemBean {
 	private String loan_status;
 	private String mem_date;
 	private String withdrawal;
+	private String profile;
+	
+	public String getProfile() {
+		return profile;
+	}
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
 	public String getWithdrawal() {
 		return withdrawal;
 	}
