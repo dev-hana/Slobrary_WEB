@@ -86,6 +86,6 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="../contents/modal/SelectUserImg.js?v=4"></script>
+    <script type="text/javascript" src="/contents/modal/SelectUserImg.js"></script>
 </body>
 </html>

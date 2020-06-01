@@ -7,11 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="/Top.jsp" flush="false"/>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row justify-content-md-center mt-4">
 			<div class="col-xs-12 col-md-8">
-				<jsp:include page="/contents/QnAMenu.jsp" flush="false"/>
 			</div>
 		</div>
 		<div class="row justify-content-md-center" >

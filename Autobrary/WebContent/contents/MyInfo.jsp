@@ -24,7 +24,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 <title>마이페이지 수정</title>
+<script type="text/javascript">
 
+</script>
 </head>
 
 <body class="bg-light">
@@ -42,7 +44,7 @@
 				<!-- 프로필 이미지 -->
 					<div id="img-tab">
                         <div class="img-wrapper">
-                            <img id="imgPreview" class="img-cover shadow-sm" src="/img/default/userImg/<%=memBean.getProfile() %>" alt="프로필사진">
+                            <img id="imgPreview" class="img-cover shadow-sm" src="/img/default/userImg/girl1.png" alt="프로필사진">
                         </div>
                         <button id="openImgUpload" data-toggle="modal" data-target="#modal-img" class="btn btn-light shadow-sm" type="button"><i class="fas fa-camera"></i>&nbsp;&nbsp;프로필 사진 선택</button>
                         <input type="hidden" id="mem_img" name="mem_img" value="<%=memBean.getProfile()%>">
