@@ -159,6 +159,7 @@ public class MemMgr {
                     memBean.setMem_address(rs.getString("address"));
                 	memBean.setMem_mail(rs.getString("email"));
                 	memBean.setLoan_status(rs.getString("loan_status"));
+                	memBean.setMem_date(rs.getString("add_date"));
                 	memBean.setProfile(rs.getString("profile_img"));
                 }
             }
@@ -273,12 +274,12 @@ public class MemMgr {
         return flag;
     }
     
-    public boolean insertMember(String mem_id, String passwd, String name, String gender, String birth, String phone, String address, String email) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public boolean insertMember(String mem_id, String passwd, String name, String gender, String birth, String phone, String address, String email, String img) throws NoSuchAlgorithmException, InvalidKeySpecException {
     	Connection con = null;
         PreparedStatement pstmt = null;
         boolean flag = false;
         String pwd = PBKDF2_Encryption.createHash(passwd);
-        String sql = "insert into member(mem_id, passwd, name, gender, birth, phone, address, email) values (?, ?, ?, ?, ?, ?, ?, ?) ";
+        String sql = "insert into member(mem_id, passwd, name, gender, birth, phone, address, email, profile_img) values (?, ?, ?, ?, ?, ?, ?, ?, ?) ";
         try {
         	con = pool.getConnection();
         	pstmt = con.prepareStatement(sql);
@@ -290,6 +291,8 @@ public class MemMgr {
         	pstmt.setString(6, phone);
         	pstmt.setString(7, address);
         	pstmt.setString(8, email);
+        	pstmt.setString(9, img);
+        	
             int count = pstmt.executeUpdate();
             if (count == 1) {
                 flag = true;

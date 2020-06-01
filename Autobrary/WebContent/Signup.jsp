@@ -49,7 +49,7 @@
                             <img id="imgPreview" class="img-cover shadow-sm" src="img/default/userImg/girl1.png" alt="프로필사진">
                         </div>
                         <button id="openImgUpload" data-toggle="modal" data-target="#modal-img" class="btn btn-light shadow-sm" type="button"><i class="fas fa-camera"></i>&nbsp;&nbsp;프로필 사진 선택</button>
-                        <input type="hidden" name="mem_img" value="girl1.png">
+                        <input type="hidden" name="mem_img" id="mem_img" value="girl1.png">
                     </div><br>
 
                     <div class="form-group">
