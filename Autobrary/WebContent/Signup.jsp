@@ -50,6 +50,7 @@
                         </div>
                         <button id="openImgUpload" data-toggle="modal" data-target="#modal-img" class="btn btn-light shadow-sm" type="button"><i class="fas fa-camera"></i>&nbsp;&nbsp;프로필 사진 선택</button>
                         <input type="hidden" id="mem_img" name="mem_img" value="girl1.png">
+
                     </div><br>
 
                     <div class="form-group">

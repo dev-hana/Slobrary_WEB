@@ -47,19 +47,19 @@ String mem_id = (String)session.getAttribute("loginKey");
                                 <a id="logo-nav" class="logo" href="/"><!-- AutoBrArY -->sloBrArY</a>
                                 <ul id="nav-main" class="navbar-nav mr-auto">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">도서검색<span class="sr-only">(current)</span></a>
+                                        <a class="nav-link" href="/contents/SearchPage.jsp">도서검색<span class="sr-only">(current)</span></a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">안내사항</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                            <a class="dropdown-item" href="#">공지사항</a>
-                                            <a class="dropdown-item" href="#">도서관 일정</a>
+                                            <a class="dropdown-item" href="/NoticeBoard.jsp">공지사항</a>
+                                            <a class="dropdown-item" href="/CalendarPage.jsp">도서관 일정</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">도서관서비스</a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                      	<form method="post" action="../contents/WishBook.jsp">
+                                        <div class="dropdown-menu" aria-labelledby="dropdown02">
+                                      	<form method="post" action="/contents/WishBook.jsp">
                                         	<input type="submit" class="dropdown-item" value="희망 도서">
                                         	<input type="hidden" name="mem_id" value=<%=mem_id %>/>
                                          </form>   
@@ -69,11 +69,11 @@ String mem_id = (String)session.getAttribute("loginKey");
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">이용안내</a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                        
+                                        <div class="dropdown-menu" aria-labelledby="dropdown03">
+                              
                                        		<a class="dropdown-item" href="#">도서관 소개</a>                                       	                                
                                             <a class="dropdown-item" href="#">대출 및 반납</a>
-                                            <a class="dropdown-item" href="#">자주 물어보는 질문</a>
+                                            <a class="dropdown-item" href="/contents/QnAPage.jsp">자주 물어보는 질문</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -83,7 +83,10 @@ String mem_id = (String)session.getAttribute("loginKey");
     								<li class="nav-item"> <a href="Login.jsp" class="nav-link">로그인</a></li>
    									<li class="nav-item"> <a href="Signup.jsp" class="nav-link ">회원가입</a></li>
 		 						</ul><%} else {%>
-								<div></div><%}%>
+								<ul class="navbar-nav navbar-right">
+    								<li class="nav-item"> <a href="/contents/MyPage.jsp" class="nav-link">마이페이지</a></li>
+   									<li class="nav-item"> <a href="LogoutProc.jsp" class="nav-link ">로그아웃</a></li>
+		 						</ul><%}%>
                             </div>
                         </div>
                     </div>
@@ -106,6 +109,11 @@ String mem_id = (String)session.getAttribute("loginKey");
         }); //scroll
         
         $('.dropdown-toggle').dropdown();	// dropdown 오류가 있어서 추가
+        $('.dropdown').hover(function () {
+            $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
+        }, function () {
+            $(this).find('.dropdown-menu').first().stop(true, true).slideUp(105)
+        });
     });
 
     $(document).ready(function() {

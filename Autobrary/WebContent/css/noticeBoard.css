@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.wrapper {
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+#content {
+	width: 100%;
+	padding-top: 50px;
+	padding-left: 50px;
+}
+
+#content h1 {
+	font-size: 2em;
+}
+
+.table-notice-board {
+	
+}
+
+.table-notice-board th:nth-child(2) {
+	width: 70%;
+}

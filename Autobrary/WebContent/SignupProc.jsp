@@ -18,6 +18,7 @@
 			//사용자가 인증번호 발송을 누른경우 ( 비밀번호 암호화, 인증번호 생성 필요 )
 			//사용자가 회원가입 도중 페이지를 종료하거나 했을 경우 세션 만료 시간 설정 필요
 			if(form_type.equals("인증번호 발송")){
+				String img = request.getParameter("mem_img");
 				String mem_id = request.getParameter("mem_id");
 				String password = request.getParameter("mem_pw");
 				String name =request.getParameter("mem_name");
@@ -28,6 +29,7 @@
 				String phone = request.getParameter("mem_phone");
 				String address = request.getParameter("mem_adress");
 				String email = request.getParameter("mem_mail");
+				System.out.println(img);
 				if(new MemMgr().emailCheck(email)){
 					out.println("<script>alert('이미 가입되어있는 이메일입니다.');</script>");
 				}else{
@@ -40,6 +42,7 @@
 				session.setAttribute("phone", phone);
 				session.setAttribute("address", address);
 				session.setAttribute("email", email);
+				session.setAttribute("img", img);
 				Random generator = new Random(); 
 				String randChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 				String first = Character.toString(randChar.charAt(generator.nextInt(randChar.length())));
@@ -84,8 +87,10 @@
 						String phone = (String)session.getAttribute("phone");
 						String address = (String)session.getAttribute("address");
 						String email = (String)session.getAttribute("email");
+						String img = (String)session.getAttribute("img");
+								
 						
-						boolean flag = memMgr.insertMember(mem_id, passwd, name, gender, birth, phone, address, email);
+						boolean flag = memMgr.insertMember(mem_id, passwd, name, gender, birth, phone, address, email, img);
 						if(flag){
 							session.invalidate();
 							out.println("<script>window.top.location.href='SignupOk.jsp?id="+mem_id+"';</script>");

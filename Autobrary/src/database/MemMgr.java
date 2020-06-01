@@ -108,7 +108,7 @@ public class MemMgr {
 
         try {
             con = pool.getConnection();
-            String strQuery = "select mem_id, name, gender, birth, phone, address, email, loan_status, add_date, withdrawal from member";
+            String strQuery = "select mem_id, name, gender, birth, phone, address, email, loan_status, add_date, withdrawal, profile_img from member";
             stmt = con.createStatement();
             rs = stmt.executeQuery(strQuery);
 
@@ -122,6 +122,7 @@ public class MemMgr {
                 	memBean.setMem_birth(rs.getString("birth"));
                 	memBean.setMem_date(rs.getString("add_date"));
                 	memBean.setLoan_status(rs.getString("loan_status"));
+                	memBean.setProfile(rs.getString("profile_img"));
                 	vecList.add(memBean);
                 }
             }
@@ -159,6 +160,7 @@ public class MemMgr {
                 	memBean.setMem_mail(rs.getString("email"));
                 	memBean.setLoan_status(rs.getString("loan_status"));
                 	memBean.setMem_date(rs.getString("add_date"));
+                	memBean.setProfile(rs.getString("profile_img"));
                 }
             }
             
@@ -272,12 +274,12 @@ public class MemMgr {
         return flag;
     }
     
-    public boolean insertMember(String mem_id, String passwd, String name, String gender, String birth, String phone, String address, String email) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public boolean insertMember(String mem_id, String passwd, String name, String gender, String birth, String phone, String address, String email, String img) throws NoSuchAlgorithmException, InvalidKeySpecException {
     	Connection con = null;
         PreparedStatement pstmt = null;
         boolean flag = false;
         String pwd = PBKDF2_Encryption.createHash(passwd);
-        String sql = "insert into member(mem_id, passwd, name, gender, birth, phone, address, email) values (?, ?, ?, ?, ?, ?, ?, ?) ";
+        String sql = "insert into member(mem_id, passwd, name, gender, birth, phone, address, email, profile_img) values (?, ?, ?, ?, ?, ?, ?, ?, ?) ";
         try {
         	con = pool.getConnection();
         	pstmt = con.prepareStatement(sql);
@@ -289,6 +291,8 @@ public class MemMgr {
         	pstmt.setString(6, phone);
         	pstmt.setString(7, address);
         	pstmt.setString(8, email);
+        	pstmt.setString(9, img);
+        	
             int count = pstmt.executeUpdate();
             if (count == 1) {
                 flag = true;
@@ -327,6 +331,32 @@ public class MemMgr {
         }
         return flag;
     }
+    
+    
+    public boolean memberUpdateMy(String mem_id, String address) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        try {
+            con = pool.getConnection();
+            String strQuery = "update member set address =? where mem_id =? ";
+            
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, address);
+            pstmt.setString(2, mem_id);
+            int count = pstmt.executeUpdate();
+
+            if (count == 1) {
+                flag = true;
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
     public Vector getMemberListS(String t, String r) {
     	Connection con = null;
         PreparedStatement pstmt = null;
