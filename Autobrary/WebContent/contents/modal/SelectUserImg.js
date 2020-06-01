@@ -29,8 +29,8 @@ function modalImgSubmit() {
 
     imgUrl_ = imgUrl_ + selectImg;
     imgPreview.src = imgUrl_;
-    document.getElementById("mem_img").value = selectImg;
     
+    document.getElementById('mem_img').value=selectImg;
     $('#modal-img').modal('hide');
     $('.modal-backdrop').remove();
 }

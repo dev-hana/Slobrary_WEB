@@ -48,6 +48,7 @@
                         <input type="hidden" id="mem_img" name="mem_img" value="<%=memBean.getProfile()%>">
                     </div>
 					<hr>
+					
 				
 				<!-- 정보  -->
 				<div class="table1">
