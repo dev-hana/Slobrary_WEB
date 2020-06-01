@@ -25,10 +25,12 @@ $(document).ready(function () {
 function modalImgSubmit() {
     var selectImg = $('input[name="image_radio"]:checked').val();
     var imgPreview = document.getElementById('imgPreview');
-    var imgUrl_ = '/img/default/userImg/';
+    var imgUrl_ = 'img/default/userImg/';
 
     imgUrl_ = imgUrl_ + selectImg;
     imgPreview.src = imgUrl_;
+    document.getElementById("mem_img").value = selectImg;
+    
     $('#modal-img').modal('hide');
     $('.modal-backdrop').remove();
 }

@@ -29,7 +29,6 @@
 				String phone = request.getParameter("mem_phone");
 				String address = request.getParameter("mem_adress");
 				String email = request.getParameter("mem_mail");
-				System.out.println(img);
 				if(new MemMgr().emailCheck(email)){
 					out.println("<script>alert('이미 가입되어있는 이메일입니다.');</script>");
 				}else{

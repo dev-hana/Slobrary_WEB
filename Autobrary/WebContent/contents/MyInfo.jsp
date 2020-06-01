@@ -42,10 +42,10 @@
 				<!-- 프로필 이미지 -->
 					<div id="img-tab">
                         <div class="img-wrapper">
-                            <img id="imgPreview" class="img-cover shadow-sm" src="/img/default/userImg/girl1.png" alt="프로필사진">
+                            <img id="imgPreview" class="img-cover shadow-sm" src="/img/default/userImg/<%=memBean.getProfile() %>" alt="프로필사진">
                         </div>
                         <button id="openImgUpload" data-toggle="modal" data-target="#modal-img" class="btn btn-light shadow-sm" type="button"><i class="fas fa-camera"></i>&nbsp;&nbsp;프로필 사진 선택</button>
-                        <input type="hidden" name="mem_img" value="girl1.png">
+                        <input type="hidden" id="mem_img" name="mem_img" value="<%=memBean.getProfile()%>">
                     </div>
 					<hr>
 				

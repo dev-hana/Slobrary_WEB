@@ -47,7 +47,7 @@
 				</div>
 				<div class="row2">
 					<div class="img1">
-						<img style="width:110px; height:110px;" class="rounded-circle shadow-sm" src="/img/default/userImg/girl1.png">
+						<img style="width:110px; height:110px;" class="rounded-circle shadow-sm" src="/img/default/userImg/<%=memBean.getProfile()%>">
 					</div>
 					<div style="text-align: left; margin-left: 10px; margin-bottom: 20px;">
 						<span><%=memBean.getMem_id() %></span>
