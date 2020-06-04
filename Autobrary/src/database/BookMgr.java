@@ -56,6 +56,7 @@ public class BookMgr {
                 bookBean.setCollector(rs.getString("collector"));
                 bookBean.setSign(rs.getString("sign"));
                 bookBean.setStatus(rs.getString("status"));
+                bookBean.setDate(rs.getString("add_date"));
                 vecList.add(bookBean);
             }
         } catch (Exception ex) {
@@ -258,6 +259,7 @@ public class BookMgr {
                  bookBean.setCollector(rs.getString("collector"));
                  bookBean.setSign(rs.getString("sign"));
                  bookBean.setStatus(rs.getString("status"));
+                 bookBean.setDate(rs.getString("add_date"));
                  bookBean.setImage(rs.getString("image"));
             }
         } catch (Exception ex) {
@@ -322,7 +324,7 @@ public class BookMgr {
            con = pool.getConnection();
            MultipartRequest multi = new MultipartRequest(req, uploadDir, 5 * 1024 * 1024, "UTF-8", new DefaultFileRenamePolicy());
            new BucketManager().fileUpLoader(multi.getFilesystemName("image"),  uploadDir + File.separator + multi.getFilesystemName("image"));
-               String quer = "insret book_info values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now()) ";
+               String query = "insert book_info values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now()) ";
                pstmt = con.prepareStatement(query);
                pstmt.setString(1, multi.getParameter("id_num"));
                pstmt.setString(2, multi.getParameter("type"));

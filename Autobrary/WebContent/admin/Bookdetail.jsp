@@ -95,6 +95,10 @@ table.type03 td {
         <th scope="row">도서상태</th>
         <td><%=bookBean.getStatus()%></td>
     </tr>
+    <tr>
+        <th scope="row">추가날짜</th>
+        <td><%=bookBean.getDate() %></td>
+    </tr>
      <tr>
         <th scope="row">이미지</th>
         <td><img src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"></td>

@@ -4,7 +4,7 @@
 <%
 	boolean result = false;
 
-	result = bookMgr.BookUpdate(request);
+	result = bookMgr.BookInsert(request);
 	
 	if(result) {
 %>

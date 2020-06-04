@@ -15,6 +15,14 @@ public class BookBean {
 	private String sign;
 	private String status;
 	private String Image;
+	private String date;
+	
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
 	public String getId_num() {
 		return id_num;
 	}

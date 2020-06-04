@@ -38,6 +38,7 @@
  		<th class="th1">분류기호</th>
  		<th class="th1">소장처</th>
  		<th class="th1">도서상태</th>
+ 		<th class="th1">날짜</th>
  		<th class="th1">관리</th>
  	</thead>
  	<tbody>
@@ -55,6 +56,7 @@
  			<td class="th2"><%=bookBean.getClass_id()%></td>
 			<td class="th2"><%=bookBean.getCollector()%></td>
  			<td class="th2"><%=bookBean.getStatus()%></td>
+ 			<td class="th2"><%=bookBean.getDate()%></td>
  			<td class="th2" style="align:center">
     		  <a class="btn" href="javascript:SendBook('<%=bookBean.getId_num()%>')">상세정보</a>
       		</td>

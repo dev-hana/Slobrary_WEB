@@ -102,6 +102,10 @@ table.type03 td {
         <td><input type="text" name="status" value="<%=bookBean.getStatus()%>"></td>
     </tr>
      <tr>
+        <th scope="row">추가날짜</th>
+        <td><%=bookBean.getDate() %></td>
+    </tr>
+     <tr>
         <th scope="row">이미지</th>
         <td><img src="<%=bucketManager.base64DownLoader(bookBean.getImage())%>">
         <input type="file" name="image">
