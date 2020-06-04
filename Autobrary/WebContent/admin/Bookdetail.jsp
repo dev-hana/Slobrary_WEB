@@ -103,6 +103,11 @@ table.type03 td {
         <th scope="row">이미지</th>
         <td><img src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"></td>
     </tr>
+    <tr>
+        <th scope="row">베스트샐러</th>
+        <td><a class="btn" href="javascript:BestBook('<%=bookBean.getId_num() %>')">등록</a></td>
+    </tr>
+    
 </table>
 <div style="text-align:center;">
 <a class="btn" href="javascript:SendBook('<%=bookBean.getId_num() %>')">수정</a>
@@ -111,6 +116,10 @@ table.type03 td {
 <%@ include file="Bottom.jsp" %>
 <form name="sendBook" method="post" action="UpdateBook.jsp">
 	<input type=hidden name="id_num">
+</form>s
+<form name="bestBook" method="post" action="BookBest.jsp">
+	<input type=hidden name="id_num">
 </form>
+
 </body>
 </html>

@@ -67,6 +67,7 @@
  </table>
  </div>
 
+
 <%@ include file="Bottom.jsp" %>
 
 <form name="sendBook" method="post" action="Bookdetail.jsp">

@@ -18,7 +18,10 @@ function DelBook(id_num) {
 	document.delBook.submit();
 }
 
-
+function BestBook(id_num){
+	document.bestBook.id_num.value=id_num;
+	document.bestBook.submit();
+}
 
 
 
