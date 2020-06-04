@@ -46,7 +46,7 @@ input[type=text]{
 <body>
 <%@ include file="Top.jsp" %> 
 <%@ include file="Bookside.jsp" %>
-
+<br><br>
 <form name="redForm" method="post" action="BookRegProc.jsp" enctype="multipart/form-data">
 <table class="type03" style="margin-left:auto; margin-right:auto;">
     <tr>

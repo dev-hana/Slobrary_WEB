@@ -317,12 +317,12 @@ public class BookMgr {
         //TODO : 리눅스에서 경로 오류날 수 있음 경로 오류시 File.separator 사용.
 		String uploadDir =req.getSession().getServletContext().getRealPath("/data");
         System.out.println(uploadDir);
-        String now = "now()";
+
      	try {
            con = pool.getConnection();
            MultipartRequest multi = new MultipartRequest(req, uploadDir, 5 * 1024 * 1024, "UTF-8", new DefaultFileRenamePolicy());
            new BucketManager().fileUpLoader(multi.getFilesystemName("image"),  uploadDir + File.separator + multi.getFilesystemName("image"));
-               String query = "insret book_info values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+               String quer = "insret book_info values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now()) ";
                pstmt = con.prepareStatement(query);
                pstmt.setString(1, multi.getParameter("id_num"));
                pstmt.setString(2, multi.getParameter("type"));
@@ -338,7 +338,6 @@ public class BookMgr {
                pstmt.setString(12, multi.getParameter("sign"));
                pstmt.setString(13, multi.getParameter("status"));
                pstmt.setString(14, multi.getFilesystemName("image"));
-               pstmt.setString(15, now);
            int count = pstmt.executeUpdate();
            if (count == 1) result = true;
        } catch (Exception ex) {
