@@ -310,6 +310,46 @@ public class BookMgr {
          return result;
     }
     
+    public boolean BookInsert(HttpServletRequest req) {
+   	 Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean result = false;
+        //TODO : 리눅스에서 경로 오류날 수 있음 경로 오류시 File.separator 사용.
+		String uploadDir =req.getSession().getServletContext().getRealPath("/data");
+        System.out.println(uploadDir);
+        String now = "now()";
+     	try {
+           con = pool.getConnection();
+           MultipartRequest multi = new MultipartRequest(req, uploadDir, 5 * 1024 * 1024, "UTF-8", new DefaultFileRenamePolicy());
+           new BucketManager().fileUpLoader(multi.getFilesystemName("image"),  uploadDir + File.separator + multi.getFilesystemName("image"));
+               String query = "insret book_info values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+               pstmt = con.prepareStatement(query);
+               pstmt.setString(1, multi.getParameter("id_num"));
+               pstmt.setString(2, multi.getParameter("type"));
+               pstmt.setString(3, multi.getParameter("name"));
+               pstmt.setString(4, multi.getParameter("author"));
+               pstmt.setString(5, multi.getParameter("publisher"));
+               pstmt.setString(6, multi.getParameter("issue"));
+               pstmt.setString(7, multi.getParameter("form"));
+               pstmt.setString(8, multi.getParameter("isbn"));
+               pstmt.setString(9, multi.getParameter("class_id"));
+               pstmt.setString(10, multi.getParameter("language"));
+               pstmt.setString(11, multi.getParameter("collector"));
+               pstmt.setString(12, multi.getParameter("sign"));
+               pstmt.setString(13, multi.getParameter("status"));
+               pstmt.setString(14, multi.getFilesystemName("image"));
+               pstmt.setString(15, now);
+           int count = pstmt.executeUpdate();
+           if (count == 1) result = true;
+       } catch (Exception ex) {
+           System.out.println("Exception :" + ex);
+       } finally {
+           pool.freeConnection(con, pstmt);
+       }
+     	
+        return result;
+   }
+    
     public boolean deleteBook(String id_num) {
     	Connection con = null;
         PreparedStatement pstmt = null;

@@ -47,7 +47,7 @@ input[type=text]{
 <%@ include file="Top.jsp" %> 
 <%@ include file="Bookside.jsp" %>
 
-<form name="redForm" method="post" action="UpdateBProc.jsp" enctype="multipart/form-data">
+<form name="redForm" method="post" action="BookRegProc.jsp" enctype="multipart/form-data">
 <table class="type03" style="margin-left:auto; margin-right:auto;">
     <tr>
         <th scope="row">등록번호</th>
