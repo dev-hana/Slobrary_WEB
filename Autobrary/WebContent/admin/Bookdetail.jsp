@@ -104,8 +104,15 @@ table.type03 td {
         <td><img src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"></td>
     </tr>
     <tr>
+    <%
+    	boolean flag = bookMgr.countBest(bookBean.getId_num());
+    	String result = "등록";
+    	if(flag) {
+    		result = "취소";
+    	}
+    %>
         <th scope="row">베스트샐러</th>
-        <td><a class="btn" href="javascript:BestBook('<%=bookBean.getId_num() %>')">등록</a></td>
+        <td><a class="btn" href="javascript:BestBook('<%=bookBean.getId_num() %>')"><%=result %></a></td>
     </tr>
     
 </table>
@@ -117,7 +124,7 @@ table.type03 td {
 <form name="sendBook" method="post" action="UpdateBook.jsp">
 	<input type=hidden name="id_num">
 </form>s
-<form name="bestBook" method="post" action="BookBest.jsp">
+<form name="bestBook" method="post" action="BookBestProc.jsp">
 	<input type=hidden name="id_num">
 </form>
 

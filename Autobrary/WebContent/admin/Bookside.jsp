@@ -39,7 +39,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="BookMgr.jsp">도서 목록</a>
   <a href="BookReg.jsp">도서 등록</a>
-  <a href="BookBset.jsp">베스트샐러</a>
+  <a href="BookBest.jsp">베스트샐러</a>
   <a href="Index.jsp">MAIN</a>
 </div>
 
