@@ -23,12 +23,11 @@ $statement = mysqli_prepare($con, "INSERT INTO member(mem_id, passwd, name, gend
 mysqli_stmt_bind_param($statement, "ssssssss", $mem_id, $passwd, $name, $gender, $phone, $birth, $address, $email);//ssss->string형으로 8개값받기
 $result = mysqli_stmt_execute($statement);
 
-
 $response = array();
 $response["success"] = true;
 
 if(!$result) $response["success"] = false;
 
-echo json_encode($response);
+echo json_encode($response, JSON_UNESCAPED_UNICODE);
 mysqli_close($con);
 ?>

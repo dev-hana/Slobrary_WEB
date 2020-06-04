@@ -45,6 +45,7 @@ table.type03 td {
 </head>
 <body>
 <%@ include file="Top.jsp" %> 
+<%@ include file="Mainside.jsp" %>
 <br><br>
 <form name="redForm" method="post" action="UpdateProc.jsp">
 <table class="type03" style="margin-left:auto; margin-right:auto;">
