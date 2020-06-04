@@ -38,7 +38,8 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="BookMgr.jsp">도서 목록</a>
-  <a href="#">도서 등록</a>
+  <a href="BookReg.jsp">도서 등록</a>
+  <a href="Index.jsp">MAIN</a>
 </div>
 
 <span style="font-size:30px;cursor:pointer; padding-left:50px;" onclick="openNav()">&#9776; 도서 관리</span>
