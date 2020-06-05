@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 .row1{
 	
 	padding-bottom: 10px;
@@ -23,3 +24,22 @@
 .mypage a:link { color: #424242; text-decoration: none;}
 .mypage a:visited { color: #424242; text-decoration: none;}
 
+#img-tab {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.img-cover {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center right;
+}
+
+.img-wrapper {
+    text-align: center;
+}
+#imgPreview {
+    padding: 15px;
+}

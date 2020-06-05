@@ -22,9 +22,6 @@
 <!-- 아이콘 -->
 <link rel="shortcut icon" href="../img/favicon.ico">
 
-<!-- css -->
-<link href="/css/wishList.css" rel="stylesheet" />
-
 <!-- 자바 스크립트 -->
 <script type="text/javascript" src="/js/formneeds.js"></script>
 

@@ -1,39 +1,20 @@
 @charset "UTF-8";
-
-img{
-		width:100px;
-		hight:120px;
-		margin-bottom: 50px;
-	}
-	.info{
-		margin-top: 20px;
-	}
-	h5{
+.linkA:hover{
 	color: #A593E0;
-	}
-	.bt{
-		color: #7b5ce6;
-		font-size: 15px;
-	}
-	.ts{
-		font-size: 12px;
-		color: #6a696e;
-	}
-	.td{
-		font-size:13px;
-	}
-	.span1{
-		color:#146eff;
-	}
-	.span2{
-		padding: 5px;
-		padding-left:9px;
-		padding-right:9px;
-		border: 1px solid #A593E0;
-		border-radius: 8px;
-	}
-	.state{
-		padding-left: 120px;
-		font-size: 13px;
-		color: #A593E0;
-	}
+	text-decoration: none;
+}
+.linkA:link { color: #A593E0; text-decoration: none;}
+.linkA:visited { color: #A593E0; text-decoration: none;}
+
+.loan{
+	color: #146eff;
+}
+.return{
+	color: #FF0000;
+}
+.img{
+	text-align: center;
+}
+.overdate{
+	color: #FF0000;
+}

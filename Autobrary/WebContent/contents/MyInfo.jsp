@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/CND.jsp" %>
  <%@ page import="java.util.*, database.*"%>
 <jsp:useBean id="memMgr" class="database.MemMgr" />
 <!DOCTYPE html>
@@ -12,21 +13,9 @@
 <script type="text/javascript" src="/js/formneeds.js"></script>
 
 <!-- css -->
-<link href="/css/MyInfo.css" rel="stylesheet" />
+<link href="/css/MyInfo.css?v=2" rel="stylesheet" />
 
-<!-- 아이콘 -->
-<link rel="shortcut icon" href="../img/favicon.ico">
- 
-<!-- 부트스트랩 -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-<title>마이페이지 수정</title>
-<script type="text/javascript">
-
-</script>
+<title>개인정보 수정</title>
 </head>
 
 <body class="bg-light">
@@ -76,13 +65,13 @@
 							<td><%=memBean.getMem_date() %></td>
 						</tr>
 					</table>
-				</div>
 				<div class="btns">
 					<button class="btn btn-outline-primary pl-4 pr-4" type="submit">확인</button>
 					<button onclick="location.href='MyPage.jsp'" type="button" class="btn btn btn-outline-danger pl-4 pr-4">취소</button>
 				</div>
 				<input type="hidden" name="mem_id" value="<%=memBean.getMem_id() %>" >
 				</form>
+				<div style="float:right;"><button class="btn">회원탈퇴</button></div>
 			</div>
 		</div>
 	</div>

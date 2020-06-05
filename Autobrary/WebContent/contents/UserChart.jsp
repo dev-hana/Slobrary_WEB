@@ -52,7 +52,7 @@
 			responsive: true,
 			title: {
 		        display: true,
-		        text: '나의 독서 점유율'
+		        text: '나의 독서 그래프'
 		      },
 			legend: {
 				display: false,

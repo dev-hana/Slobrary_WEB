@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, database.*"%>
+<%@ include file="/CND.jsp" %>
 <jsp:useBean id="memMgr" class="database.MemMgr" />
+
      <%
-     String contentPage=request.getParameter("contentPage");
+     String contentPage=request.getParameter("CONTENTPAGE");
      if(contentPage==null){
-    	 contentPage="MyPageList.jsp";
+    	 contentPage="MyPageList.jsp?type=loanbook";
      }
      
 	String mem_id = (String)session.getAttribute("loginKey");
@@ -24,55 +26,70 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<!-- 아이콘 -->
-<link rel="shortcut icon" href="/img/favicon.ico">
 <!-- css -->
-<link href="/css/MyPage.css?v=1" rel="stylesheet" />
- <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
+<link href="/css/MyPage.css?v=2" rel="stylesheet" />
 </head>
 <body class="bg-light">
+	<header>
 	<jsp:include page="../Top.jsp" flush="false"/>
-	<div class="container-fluid">
-		<div class="row mt-5 justify-content-md-center">
-			<div class="col-xl-3 mr-3">
-				<div class="shadow-sm p-3 mb-5 bg-white rounded">
-				<div class="row1 mb-4">
-					<div style="float:left;"><h5>내 정보</h5></div> <div style="float:right;"><button onClick="location.href='MyInfo.jsp'" class="btn btn-outline-secondary btn-sm" type="sumbit">수정</button></div>
-				</div>
-				<div class="row2">
-					<div class="img1">
-						<img style="width:110px; height:110px;" class="rounded-circle shadow-sm" src="/img/default/userImg/<%=memBean.getProfile()%>">
-					</div>
-					<div style="text-align: left; margin-left: 10px; margin-bottom: 20px;">
-						<span><%=memBean.getMem_id() %></span>
-						<p><%=memBean.getMem_mail() %></p>
-					</div>
-				</div>
-				<div class="row3">
-					<ul class="list-group mypage">
-						<li class="list-group-item list-group-item-action"><a href="#">내 서재</a></li>
-						<li class="list-group-item list-group-item-action"><a href="#">연체도서</a></li>
-						<li class="list-group-item list-group-item-action"><a href="WishList.jsp">희망도서</a></li>
-					<li class="list-group-item list-group-item-action"><a href="#">관심도서</a></li>
-				</ul>
-				</div>
-			</div>
-				<div class="shadow-sm p-4 mb-5 bg-white rounded">
-					<jsp:include page="/contents/UserChart.jsp" flush="false"/>
-				</div>
-			</div>
-			<div class="col-xl-4">
-				<jsp:include page="<%=contentPage %>" flush="false"/>
+	</header>
+	
+	<div class="row mt-5 justify-content-md-center"">
+		<!-- 마이페이지 개인정보 및 메뉴 -->
+        <div class="col-xl-3 mr-2">
+        <div class="bg-white shadow-sm rounded p-2">
+        	<!-- 타이틀 및 수정버튼 -->
+        	<div class="mt-3 pl-3 pr-3">
+        		<div style="float:left;"><h5>내 정보</h5></div> <div style="float:right;">
+        		<button onClick="location.href='MyInfo.jsp'" class="btn btn-outline-secondary btn-sm" type="sumbit">수정</button></div>
+        	</div><br><hr>
+        	
+        	<!-- 회원 이미지 및 간략한 정보 -->
+        	<div>
+        		<div class="pt-2 pb-5" id="img-tab">
+                     <div class="img-wrapper">
+                          <img id="imgPreview" class="img-cover shadow-sm" src="/img/default/userImg/girl1.png" alt="프로필사진">
+                     </div>
+                     <input type="hidden" id="mem_img" name="mem_img" value="<%=memBean.getProfile()%>">
+                </div>
+                <div class="pl-3 pr-3">
+                	<div><span><%=memBean.getMem_id() %></span></div>
+					<div></div><span><%=memBean.getMem_mail() %></span></div>
+             </div><hr>
+             
+             <!-- 메뉴 -->
+             <div class="mb-3 pt-3 pb-1">
+             	<jsp:include page="/contents/MyPageMenu.jsp" flush="false"/>
+             </div>
+             </div>
+        </div>
+        
+        <!-- 서재 컨텐츠 -->
+        <div class="col-md-7">
+        	<div class="bg-white shadow-sm rounded p-2">
+        		<jsp:include page="<%=contentPage %>" flush="false"/>
+        	</div>
+        </div>
+    </div>
+	
+	<%
+		if(contentPage.equals("MyPageList.jsp?type=loanbook")){
+			String record = "MyPageList.jsp?type=allrecord";
+	%>
+		<div class="row mt-5 p-3 justify-content-md-center">
+			<div class="col-xl-10 bg-white shadow-sm rounded p-4">
+				<jsp:include page="<%=record %>" flush="false"/>
 			</div>
 		</div>
-		
-	</div>
+	<%
+		}else{
+			
+			%>
+			<div><br></div>
+			<%
+		}
+	%>
+	
 </body>
 </html>
 <%}%>

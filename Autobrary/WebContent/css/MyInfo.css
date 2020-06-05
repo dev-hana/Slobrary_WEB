@@ -63,3 +63,10 @@ img{
     text-align: center;
     margin: 10px;
 }
+
+.withdraw:hover{
+	color: #A593E0;
+	text-decoration: none;
+}
+.withdraw:link { color: #A593E0; text-decoration: none;}
+.withdraw:visited { color: #A593E0; text-decoration: none;}

@@ -9,7 +9,5 @@
 	String img = request.getParameter("mem_img");
 	boolean flag = memMgr.memberUpdateMy(mem_id, address);
 	
-	System.out.println(img);
-	
 %>
 <%=img %>
