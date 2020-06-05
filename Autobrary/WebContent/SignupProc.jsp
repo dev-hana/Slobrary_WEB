@@ -27,7 +27,7 @@
 				else gender = "M";
 				String birth = request.getParameter("mem_birth");
 				String phone = request.getParameter("mem_phone");
-				String address = request.getParameter("mem_adress");
+				String address = request.getParameter("addr");
 				String email = request.getParameter("mem_mail");
 				if(new MemMgr().emailCheck(email)){
 					out.println("<script>alert('이미 가입되어있는 이메일입니다.');</script>");
