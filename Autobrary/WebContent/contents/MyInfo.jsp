@@ -25,7 +25,19 @@
 
 <title>마이페이지 수정</title>
 <script type="text/javascript">
+function goPopup(){
+	// 주소검색을 수행할 팝업 페이지를 호출합니다.
+	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+	var pop = window.open("/popup/AddressPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	
+	// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+}
 
+function jusoCallBack(roadFullAddr){
+		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.	
+		document.info.mem_address.value = roadFullAddr;		
+}
 </script>
 </head>
 
@@ -40,7 +52,7 @@
 		<div class="row mt-5 justify-content-md-center">
 			<div class="col-xl-4 shadow-sm p-3 mb-5 bg-white rounded">
 			
-			<form class="needs-validation" method="post" action="MyInfoProc.jsp" novalidate>
+			<form class="needs-validation" name="info" method="post" action="MyInfoProc.jsp" novalidate>
 				<!-- 프로필 이미지 -->
 					<div id="img-tab">
                         <div class="img-wrapper">
@@ -69,7 +81,12 @@
 						</tr>
 						<tr>
 							<th scope="row">주소</th>
-							<td><input name="mem_address" class="form-control" type="text" value="<%=memBean.getMem_address() %>" required></input></td>
+							<td>
+								<div class="input-group">
+								<input name="mem_address" id="mem_address" class="form-control" type="text" value="<%=memBean.getMem_address() %>" required="true" readonly="true" />
+								<button type="button" id="address" class="btn btn-light" onclick="goPopup()">주소검색</button>
+								</div>
+							</td>
 						</tr>
 						<tr>
 							<th scope="row">가입일</th>

@@ -115,7 +115,7 @@
 						<label for="addr">주소</label>
 						<div class="input-group">
                         <input type="text" class="form-control" id="addr" placeholder="" name="addr" required="true" readonly="true" />
-                        <button id="idCheck" class="btn btn-light" onclick="goPopup()">주소검색</button>
+                        <button id="address" class="btn btn-light" onclick="goPopup()">주소검색</button>
 						</div>
 						
                         <label for="email">이메일</label>
