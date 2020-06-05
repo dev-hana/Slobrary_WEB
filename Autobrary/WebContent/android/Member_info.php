@@ -13,7 +13,7 @@ $mem_id = $_POST["mem_id"];
 
 $response["success"] = false;
 
-$statement = mysqli_prepare($con, "SELECT name, email FROM member WHERE mem_id = ? ");
+$statement = mysqli_prepare($con, "SELECT name, email, profile_img FROM member WHERE mem_id = ? ");
 mysqli_stmt_bind_param($statement, "s", $mem_id);
 mysqli_stmt_execute($statement);
 $result = mysqli_stmt_get_result($statement);
@@ -25,7 +25,7 @@ while($row = mysqli_fetch_array($result)){
 	$response["success"] = true;
 	$response["name"] = $row["name"];
  	$response["email"] = $row["email"];
-    
+	$response["profile_img"] = $row["profile_img"];
 }
 
 echo json_encode($response, JSON_UNESCAPED_UNICODE);
