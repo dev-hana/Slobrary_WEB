@@ -15,7 +15,35 @@
 <!-- css -->
 <link href="/css/MyInfo.css?v=2" rel="stylesheet" />
 
+<<<<<<< HEAD
 <title>개인정보 수정</title>
+=======
+<!-- 아이콘 -->
+<link rel="shortcut icon" href="../img/favicon.ico">
+ 
+<!-- 부트스트랩 -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<title>마이페이지 수정</title>
+<script type="text/javascript">
+function goPopup(){
+	// 주소검색을 수행할 팝업 페이지를 호출합니다.
+	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+	var pop = window.open("/popup/AddressPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	
+	// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+}
+
+function jusoCallBack(roadFullAddr){
+		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.	
+		document.info.mem_address.value = roadFullAddr;		
+}
+</script>
+>>>>>>> 636827c1c7ccfb819b6b4700579b77742f76c40f
 </head>
 
 <body class="bg-light">
@@ -29,11 +57,11 @@
 		<div class="row mt-5 justify-content-md-center">
 			<div class="col-xl-4 shadow-sm p-3 mb-5 bg-white rounded">
 			
-			<form class="needs-validation" method="post" action="MyInfoProc.jsp" novalidate>
+			<form class="needs-validation" name="info" method="post" action="MyInfoProc.jsp" novalidate>
 				<!-- 프로필 이미지 -->
 					<div id="img-tab">
                         <div class="img-wrapper">
-                            <img id="imgPreview" class="img-cover shadow-sm" src="/img/default/userImg/girl1.png" alt="프로필사진">
+                            <img id="imgPreview" class="img-cover shadow-sm" src="/img/default/userImg/<%=memBean.getProfile() %>" alt="프로필사진">
                         </div>
                         <button id="openImgUpload" data-toggle="modal" data-target="#modal-img" class="btn btn-light shadow-sm" type="button"><i class="fas fa-camera"></i>&nbsp;&nbsp;프로필 사진 선택</button>
                         <input type="hidden" id="mem_img" name="mem_img" value="<%=memBean.getProfile()%>">
@@ -58,7 +86,12 @@
 						</tr>
 						<tr>
 							<th scope="row">주소</th>
-							<td><input name="mem_address" class="form-control" type="text" value="<%=memBean.getMem_address() %>" required></input></td>
+							<td>
+								<div class="input-group">
+								<input name="mem_address" id="mem_address" class="form-control" type="text" value="<%=memBean.getMem_address() %>" required="true" readonly="true" />
+								<button type="button" id="address" class="btn btn-light" onclick="goPopup()">주소검색</button>
+								</div>
+							</td>
 						</tr>
 						<tr>
 							<th scope="row">가입일</th>

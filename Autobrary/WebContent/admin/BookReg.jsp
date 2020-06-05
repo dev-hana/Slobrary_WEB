@@ -1,19 +1,10 @@
-<%@page import="bucketConnector.BucketManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%@ page import="java.util.*, database.*" %>
-<jsp:useBean id="bookMgr" class="database.BookMgr" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<script language="JavaScript" src="script.js"></script>
-<%
-	String id_num = request.getParameter("id_num");
-	BookBean bookBean = bookMgr.getBook(id_num);
-%>
-<title>상세정보-도서</title>
+<title>도서등록</title>
 <style>
 table.type03 {
     border-collapse: collapse;
@@ -25,7 +16,7 @@ table.type03 {
 }
 table.type03 th {
     width: 147px;
-    padding: 10px;
+    padding: 30px;
     font-weight: bold;
     vertical-align: top;
     color: #153d73;
@@ -41,92 +32,85 @@ table.type03 td {
     border-bottom: 1px solid #ccc;
 }
 .btn {background-color:#042759;font-weight:bold;color:#FFFFFF;border: none;border-radius:5px;}
+input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 </style>
 </head>
 <body>
 <%@ include file="Top.jsp" %> 
+<%@ include file="Bookside.jsp" %>
 <br><br>
+<form name="redForm" method="post" action="BookRegProc.jsp" enctype="multipart/form-data">
 <table class="type03" style="margin-left:auto; margin-right:auto;">
     <tr>
         <th scope="row">등록번호</th>
-        <td><%=id_num %></td>
+        <td><input type="text" name="id_num" placeholder="예: ED3211"></td>
     </tr>
      <tr>
         <th scope="row">자료유형</th>
-        <td><%=bookBean.getType()%></td>
+        <td><input type="text" name="type" placeholder="예: 단행본"></td>
     </tr>
      <tr>
         <th scope="row">도서 이름</th>
-        <td><%=bookBean.getName() %></td>
+        <td><input type="text" name="name" placeholder="도서 이름을 입력하세요"></td>
     </tr>
      <tr>
         <th scope="row">저자</th>
-        <td><%=bookBean.getAuthor()%></td>
+        <td><input type="text" name="author" placeholder="작가 이름을 입력하세요"></td>
     </tr>
      <tr>
         <th scope="row">출판사</th>
-        <td><%=bookBean.getPublisher()%></td>
+        <td><input type="text" name="publisher" placeholder="출판사를 입력하세요"></td>
     </tr>
     <tr>
         <th scope="row">발행사항</th>
-        <td><%=bookBean.getIssue() %></td>
+        <td><input type="text" name="issue" placeholder="예: 서울: 이후, 2002. "></td>
+    </tr>
+    <tr>
+        <th scope="row">형태사항</th>
+        <td><input type="text" name="form" placeholder="127 p, ; 21nm."></td>
     </tr>
      <tr>
         <th scope="row">ISBN</th>
-        <td><%=bookBean.getIsbn() %></td>
+        <td><input type="text" name="isbn" placeholder="ISBN"></td>
     </tr>
      <tr>
         <th scope="row">분류기호</th>
-        <td><%=bookBean.getClass_id()%></td>
+        <td><input type="text" name="class_id" placeholder="180"></td>
     </tr>
      <tr>
         <th scope="row">언어</th>
-        <td><%=bookBean.getLanguage()%></td>
+        <td><input type="text" name="language" placeholder="한국어"></td>
     </tr>
      <tr>
         <th scope="row">소장처</th>
-        <td><%=bookBean.getCollector()%></td>
+        <td><input type="text" name="collector" placeholder="도서관/../"></td>
     </tr>
      <tr>
         <th scope="row">청구기호</th>
-        <td><%=bookBean.getSign()%></td>
+        <td><input type="text" name="sign" placeholder="183.4 나821ㅁ"></td>
     </tr>
      <tr>
         <th scope="row">도서상태</th>
-        <td><%=bookBean.getStatus()%></td>
-    </tr>
-    <tr>
-        <th scope="row">추가날짜</th>
-        <td><%=bookBean.getDate() %></td>
+        <td><input type="text" name="status" placeholder="예약중"></td>
     </tr>
      <tr>
         <th scope="row">이미지</th>
-        <td><img src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"></td>
+        <td>
+        <input style="padding:30px;" type="file" name="image">
+        </td>
     </tr>
-    <tr>
-    <%
-    	boolean flag = bookMgr.countBest(bookBean.getId_num());
-    	String result = "등록";
-    	if(flag) {
-    		result = "취소";
-    	}
-    %>
-        <th scope="row">베스트샐러</th>
-        <td><a class="btn" href="javascript:BestBook('<%=bookBean.getId_num() %>')"><%=result %></a></td>
-    </tr>
-    
 </table>
 <div style="text-align:center;">
-<a class="btn" href="javascript:SendBook('<%=bookBean.getId_num() %>')">수정</a>
-
+<input type="submit" class="btn" value="추가">
 </div>
-<%@ include file="Bottom.jsp" %>
-<form name="sendBook" method="post" action="UpdateBook.jsp">
-	<input type=hidden name="id_num">
-</form>s
-<form name="bestBook" method="post" action="BookBestProc.jsp">
-	<input type=hidden name="id_num">
 </form>
-
 </body>
 </html>

@@ -25,6 +25,7 @@
     }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
 <title>공지사항등록</title>
 
 <!-- SmartEditor를 사용하기 위해서 다음 js파일을 추가 (경로 확인) -->

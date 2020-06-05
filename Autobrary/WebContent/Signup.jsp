@@ -27,6 +27,20 @@
    }
    }
    
+   function goPopup(){
+		// 주소검색을 수행할 팝업 페이지를 호출합니다.
+		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+		var pop = window.open("/popup/AddressPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+		
+		// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+	    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+	}
+
+	function jusoCallBack(roadFullAddr){
+			// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.	
+			document.info.addr.value = roadFullAddr;		
+	}
+   
     </script>
     <title>Slobrary - 회원가입</title>
     <%@ include file="/CND.jsp" %>
@@ -99,7 +113,10 @@
                         <div class="invalid-feedback">01012345678 형식으로 입력해주세요.</div>
 						
 						<label for="addr">주소</label>
-                        <input type="text" class="form-control" id="addr" placeholder="" name="mem_adress" required>
+						<div class="input-group">
+                        <input type="text" class="form-control" id="addr" placeholder="" name="addr" required="true" readonly="true" />
+                        <button id="address" class="btn btn-light" onclick="goPopup()">주소검색</button>
+						</div>
 						
                         <label for="email">이메일</label>
                         <div class="input-group">

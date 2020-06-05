@@ -15,6 +15,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import bucketConnector.BucketManager;
 import database.BookBean;
 import database.WishBean;
+import database.BestBean;
 import database.DBConnectionMgr;
 
 
@@ -56,6 +57,7 @@ public class BookMgr {
                 bookBean.setCollector(rs.getString("collector"));
                 bookBean.setSign(rs.getString("sign"));
                 bookBean.setStatus(rs.getString("status"));
+                bookBean.setDate(rs.getString("add_date"));
                 vecList.add(bookBean);
             }
         } catch (Exception ex) {
@@ -65,6 +67,36 @@ public class BookMgr {
         }
         return vecList;
     }
+    
+    public Vector getBestList() {
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select * from bestseller";
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(strQuery);
+
+            while (rs.next()) {
+                BestBean bestBean = new BestBean();
+                bestBean.setBest_id(rs.getString("best_id"));
+                bestBean.setAdmin_id(rs.getString("admin_id"));
+                bestBean.setId_num(rs.getString("book_id"));
+                bestBean.setAdd_date(rs.getString("best_date"));
+                vecList.add(bestBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, stmt, rs);
+        }
+        return vecList;
+    }
+    
+    
     
     public Vector getWishList(String mem_id) {
     	Connection con = null;
@@ -99,6 +131,7 @@ public class BookMgr {
         return vecList;
     }
     
+ 
     
     public Vector searchBookList(String keyoption,String keyword,String category,String area,String type) {
 		Connection con = null;
@@ -258,6 +291,7 @@ public class BookMgr {
                  bookBean.setCollector(rs.getString("collector"));
                  bookBean.setSign(rs.getString("sign"));
                  bookBean.setStatus(rs.getString("status"));
+                 bookBean.setDate(rs.getString("add_date"));
                  bookBean.setImage(rs.getString("image"));
             }
         } catch (Exception ex) {
@@ -268,6 +302,68 @@ public class BookMgr {
         
         return bookBean;
     }
+    
+    public BestBean getBest(String id_num) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        BestBean bestBean = null;
+        
+        try {
+            con = pool.getConnection();
+            String strQuery = "select * from bestseller where book_id = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, id_num);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+            	bestBean = new BestBean();
+            	
+            	bestBean.setBest_id(rs.getString("best_id"));
+            	bestBean.setAdmin_id(rs.getString("admin_id"));
+            	bestBean.setId_num(rs.getString("book_id"));
+            	bestBean.setAdd_date(rs.getString("best_date"));
+
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return bestBean;
+    }
+    
+    public boolean countBest(String id_num) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        boolean flag = false;
+        
+        try {
+            con = pool.getConnection();
+            String strQuery = "select count(best_id) from bestseller where book_id = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, id_num);
+            rs = pstmt.executeQuery();
+            if(rs.next()) {
+            	if(rs.getString("count(best_id)").equals("0")) {
+            		flag = false;
+            	}else {
+            		flag = true;
+            	}
+            }
+            
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return flag;
+    }
+    
+    
     
     public boolean BookUpdate(HttpServletRequest req) {
     	 Connection con = null;
@@ -310,6 +406,47 @@ public class BookMgr {
          return result;
     }
     
+    public boolean BookInsert(HttpServletRequest req) {
+   	 Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean result = false;
+        //TODO : 리눅스에서 경로 오류날 수 있음 경로 오류시 File.separator 사용.
+		String uploadDir =req.getSession().getServletContext().getRealPath("/data");
+        System.out.println(uploadDir);
+
+     	try {
+           con = pool.getConnection();
+           MultipartRequest multi = new MultipartRequest(req, uploadDir, 5 * 1024 * 1024, "UTF-8", new DefaultFileRenamePolicy());
+           new BucketManager().fileUpLoader(multi.getFilesystemName("image"),  uploadDir + File.separator + multi.getFilesystemName("image"));
+               String query = "insert book_info values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now()) ";
+               pstmt = con.prepareStatement(query);
+               pstmt.setString(1, multi.getParameter("id_num"));
+               pstmt.setString(2, multi.getParameter("type"));
+               pstmt.setString(3, multi.getParameter("name"));
+               pstmt.setString(4, multi.getParameter("author"));
+               pstmt.setString(5, multi.getParameter("publisher"));
+               pstmt.setString(6, multi.getParameter("issue"));
+               pstmt.setString(7, multi.getParameter("form"));
+               pstmt.setString(8, multi.getParameter("isbn"));
+               pstmt.setString(9, multi.getParameter("class_id"));
+               pstmt.setString(10, multi.getParameter("language"));
+               pstmt.setString(11, multi.getParameter("collector"));
+               pstmt.setString(12, multi.getParameter("sign"));
+               pstmt.setString(13, multi.getParameter("status"));
+               pstmt.setString(14, multi.getFilesystemName("image"));
+           int count = pstmt.executeUpdate();
+           if (count == 1) result = true;
+       } catch (Exception ex) {
+           System.out.println("Exception :" + ex);
+       } finally {
+           pool.freeConnection(con, pstmt);
+       }
+     	
+        return result;
+   }
+    
+    
+    
     public boolean deleteBook(String id_num) {
     	Connection con = null;
         PreparedStatement pstmt = null;
@@ -319,6 +456,27 @@ public class BookMgr {
         	con = pool.getConnection();
         	pstmt = con.prepareStatement(sql);
         	pstmt.setString(1, id_num);
+            int count = pstmt.executeUpdate();
+            if (count == 1) {
+                flag = true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
+    public boolean deleteBest(String id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        String sql = "delete from bestseller where best_id = ? ";
+        try {
+        	con = pool.getConnection();
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, id);
             int count = pstmt.executeUpdate();
             if (count == 1) {
                 flag = true;
@@ -344,6 +502,28 @@ public class BookMgr {
         	pstmt.setString(2, name);
         	pstmt.setString(3, author);
         	pstmt.setString(4, pub);
+            int count = pstmt.executeUpdate();
+            if (count == 1) {
+                flag = true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
+    public boolean insertBest(String id_num, String admin) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        String sql = "INSERT INTO bestseller(book_id, admin_id) values (?, ?) ";
+        try {
+        	con = pool.getConnection();
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, id_num);
+        	pstmt.setString(2, admin);
             int count = pstmt.executeUpdate();
             if (count == 1) {
                 flag = true;
