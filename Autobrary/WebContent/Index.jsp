@@ -1,9 +1,11 @@
+<%@page import="bucketConnector.BucketManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, database.*"%>
 <jsp:useBean id="memMgr" class="database.MemMgr" />
 <jsp:useBean id="loanMgr" class="database.LoanMgr" />
 <jsp:useBean id="watchMgr" class="database.WatchMgr" />
+<jsp:useBean id="bookMgr" class="database.BookMgr" />
 <%
 String mem_id = (String)session.getAttribute("loginKey");
 %>
@@ -250,6 +252,28 @@ String mem_id = (String)session.getAttribute("loginKey");
  					String loaning = loanMgr.countLoaning(mem_id);
  					String loaned = loanMgr.countLoaned(mem_id);
  					String watch = watchMgr.countWatch(mem_id);
+ 					
+ 					
+ 					Vector vLoaninfo = bookMgr.getLoan(mem_id);
+ 					String loanImage[] = new String [3];
+ 					
+ 					if(vLoaninfo.size() == 0){
+ 						loanImage[0] = "noimage.png";
+ 						loanImage[1] = "noimage.png";
+ 						loanImage[2] = "noimage.png";
+ 					}else if(vLoaninfo.size() == 1){
+ 						loanImage[1] = "noimage.png";
+ 						loanImage[2] = "noimage.png";
+ 					}else if(vLoaninfo.size() == 2){
+ 						loanImage[2] = "noimage.png";
+ 					}
+ 					
+ 					for(int i = 0; i<vLoaninfo.size(); i++){
+ 						LoanBean loanBean = (LoanBean)vLoaninfo.get(i);
+ 						BookBean bookBean = bookMgr.getBook(loanBean.getId_num());
+ 						loanImage[i] = bookBean.getImage();
+ 					}
+ 					
  	%>
 		<div class="row justify-content-md-center mb-5">
             <div id="userinfo" class="col-xs-3" style="width: 350px; background: #fff;">
@@ -288,19 +312,19 @@ String mem_id = (String)session.getAttribute("loginKey");
                             <div class="row mt-5 ml-5 mr-5">
                                 <div class="book col-4">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/noimage.png" alt="대출중 1">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(loanImage[0])%>" alt="대출중 1">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/noimage.png" alt="대출중 2">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(loanImage[1])%>" alt="대출중 2">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/noimage.png" alt="대출중 3">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(loanImage[2])%>" alt="대출중 3">
                                         <span class="border"></span>
                                     </a>
                                 </div>
@@ -391,7 +415,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                         <li><a href="#"><i class="fas fa-info quick-menu-icon shadow-sm"></i><br>도서관
                                 안내</a></li>
                         <li><a href="#"><i class="fas fa-door-open quick-menu-icon shadow-sm"></i><br>시설대여</a></li>
-                        <li><a href="#"><i class="fas fa-book-open quick-menu-icon shadow-sm"></i><br>희망도서신청</a></li>
+                        <li><a href="contents/WishBook.jsp"><i class="fas fa-book-open quick-menu-icon shadow-sm"></i><br>희망도서신청</a></li>
                     </ul>
                 </div>
                 <div class="row">
