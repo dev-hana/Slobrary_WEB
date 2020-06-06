@@ -18,7 +18,7 @@
         <div class="row p-5 ml-5 mr-5">
             <div class="col bg-white shadow-sm p-5 ml-5 mr-5">
                 <div id="wrapper">
-                
+                            관리자 신청
                 <hr>
                 <form action="AdminRequProc.jsp" name="info" target="list" method="post" id="signup-form" class="needs-validation" novalidate>
              
@@ -29,7 +29,7 @@
                             <input type="text" class="form-control" id="id" placeholder="아이디를 입력해주세요." name="id" required>
                             <button id="idCheck" class="btn btn-light">중복확인</button>
                         </div>
-
+						<br>
                         <label for="pwd">비밀번호</label>
                         <div class="input-group">
                             <input type="password" class="form-control" id="pwd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d](?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]){8,}$" placeholder="숫자, 대/소문자 포함 8글자 이상 입력해주세요." name="pwd" required>
@@ -47,10 +47,22 @@
                         <!-- 회원 정보 -->
                         <label for="name">이름</label>
                         <input type="text" class="form-control" id="name" name="name" required>
-
+						<br>
                         <label for="phone">전화번호</label>
                         <input type="tel" class="form-control" id="phone" placeholder="01012345678" name="phone" required>
                         <div class="invalid-feedback">01012345678 형식으로 입력해주세요.</div>
+                        <br>
+                        <label for="rank">직위</label>
+                        <div class="mb-1 mt-n2">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="staff" name="rank" class="custom-control-input" value="staff" checked>
+                                <label class="custom-control-label" for="gender_male">staff</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="master" name="rank" class="custom-control-input" value="master">
+                                <label class="custom-control-label" for="gender_female">master</label>
+                            </div>
+                        </div>
                         
                     </div>
                     <button id="submit-btn" type="submit" class="btn btn-primary">신청하기</button>

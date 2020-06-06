@@ -72,6 +72,12 @@ table.type03 td {
         <th scope="row">등록날자</th>
         <td><%=aqBean.getDate()%></td>
     </tr>
+    <tr>
+        <th scope="row">직위</th>
+        <td>
+		<%=aqBean.getRank() %>
+		</td>
+    </tr>
 </table>
 <div style="text-align:center;">
 
