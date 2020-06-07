@@ -254,25 +254,90 @@ String mem_id = (String)session.getAttribute("loginKey");
  					String watch = watchMgr.countWatch(mem_id);
  					
  					
- 					Vector vLoaninfo = bookMgr.getLoan(mem_id);
+ 					//대출중인 도서의 이미지 상위 3개
+ 					Vector vLoaninfo = bookMgr.getLoan3(mem_id);
  					String loanImage[] = new String [3];
- 					
+ 					String loanId[] = new String [3];
  					if(vLoaninfo.size() == 0){
  						loanImage[0] = "noimage.png";
  						loanImage[1] = "noimage.png";
  						loanImage[2] = "noimage.png";
+ 						loanId[0] = "No Image";
+ 						loanId[1] = "No Image";
+ 						loanId[2] = "No Image";
  					}else if(vLoaninfo.size() == 1){
  						loanImage[1] = "noimage.png";
  						loanImage[2] = "noimage.png";
+ 						loanId[1] = "No Image";
+ 						loanId[2] = "No Image";
  					}else if(vLoaninfo.size() == 2){
  						loanImage[2] = "noimage.png";
+ 						loanId[2] = "No Image";
  					}
  					
  					for(int i = 0; i<vLoaninfo.size(); i++){
  						LoanBean loanBean = (LoanBean)vLoaninfo.get(i);
  						BookBean bookBean = bookMgr.getBook(loanBean.getId_num());
  						loanImage[i] = bookBean.getImage();
+ 						loanId[i] = bookBean.getId_num();
  					}
+ 					
+ 					//읽은 도서의 이미지 상위 3개
+ 					Vector vReturninfo = bookMgr.getReturn3(mem_id);
+ 					String returnImage[] = new String [3];
+ 					String returnId[] = new String[3];
+ 					if(vReturninfo.size() == 0){
+ 						returnImage[0] = "noimage.png";
+ 						returnImage[1] = "noimage.png";
+ 						returnImage[2] = "noimage.png";
+ 						returnId[0] = "No Image";
+ 						returnId[1] = "No Image";
+ 						returnId[2] = "No Image";
+ 					}else if(vReturninfo.size() == 1){
+ 						returnImage[1] = "noimage.png";
+ 						returnImage[2] = "noimage.png";
+ 						returnId[1] = "No Image";
+ 						returnId[2] = "No Image";
+ 					} else if(vReturninfo.size() == 2){
+ 						returnImage[2] = "noimage.png";
+ 						returnId[2] = "No Image";
+ 					}
+ 					for(int i = 0; i<vReturninfo.size(); i++){
+ 						LoanBean loanBean = (LoanBean)vReturninfo.get(i);
+ 						BookBean bookBean = bookMgr.getBook(loanBean.getId_num());
+ 						returnImage[i] = bookBean.getImage();
+ 						returnId[i] = bookBean.getId_num();
+ 					}
+ 					
+ 					
+ 					//위시리스트 도서 이지미 상위 3개
+ 					Vector vWatchinfo = watchMgr.getWatch3(mem_id);
+ 					String watchImage[] = new String [3];
+ 					String watchId[] = new String[3];
+ 					if(vWatchinfo.size() == 0){
+ 						watchImage[0] = "noimage.png";
+ 						watchImage[1] = "noimage.png";
+ 						watchImage[2] = "noimage.png";
+ 						watchId[0] = "No Image";
+ 						watchId[1] = "No Image";
+ 						watchId[2] = "No Image";
+ 					}else if(vWatchinfo.size() == 1){
+ 						watchImage[1] = "noimage.png";
+ 						watchImage[2] = "noimage.png";
+ 						watchId[1] = "No Image";
+ 						watchId[2] = "No Image";
+ 					} else if(vWatchinfo.size() == 2){
+ 						watchImage[2] = "noimage.png";
+ 						watchId[2] = "No Image";
+ 					}
+ 					for(int i = 0; i<vWatchinfo.size(); i++){
+ 						WatchBean watchBean = (WatchBean)vWatchinfo.get(i);
+ 						BookBean bookBean = bookMgr.getBook(watchBean.getBook_id());
+ 						watchImage[i] = bookBean.getImage();
+ 						watchId[i] = bookBean.getId_num();
+ 					}
+ 					
+ 					
  					
  	%>
 		<div class="row justify-content-md-center mb-5">
@@ -312,19 +377,19 @@ String mem_id = (String)session.getAttribute("loginKey");
                             <div class="row mt-5 ml-5 mr-5">
                                 <div class="book col-4">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(loanImage[0])%>" alt="대출중 1">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(loanImage[0])%>" alt="<%=loanId[0] %>">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(loanImage[1])%>" alt="대출중 2">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(loanImage[1])%>" alt="<%=loanId[1] %>">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(loanImage[2])%>" alt="대출중 3">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(loanImage[2])%>" alt="<%=loanId[2] %>">
                                         <span class="border"></span>
                                     </a>
                                 </div>
@@ -342,19 +407,19 @@ String mem_id = (String)session.getAttribute("loginKey");
                             <div class="row mt-5 ml-5 mr-5">
                                 <div class="book col-4">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/noimage.png" alt="읽은책 1">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(returnImage[0])%>" alt="<%=returnId[0] %>">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/noimage.png" alt="읽은책 2">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(returnImage[1])%>" alt="<%=returnId[1] %>">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/noimage.png" alt="읽은책 3">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(returnImage[2])%>" alt="<%=returnId[2] %>">
                                         <span class="border"></span>
                                     </a>
                                 </div>
@@ -372,19 +437,19 @@ String mem_id = (String)session.getAttribute("loginKey");
                             <div class="row mt-5 ml-5 mr-5">
                                 <div class="book col-4">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/noimage.png" alt="위시 1">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(watchImage[0])%>" alt="<%=watchId[0] %>">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/noimage.png" alt="위시 2">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(watchImage[1])%>" alt="<%=watchId[1] %>">
                                         <span class="border"></span>
                                     </a>
                                 </div>
                                 <div class="col-4 book">
                                     <a class="thumbnail_image shadow" href="#">
-                                        <img class="thumbnail" src="/img/noimage.png" alt="위시 3">
+                                        <img class="thumbnail" src="<%=new BucketManager().base64DownLoader(watchImage[2])%>" alt="<%=watchId[2] %>">
                                         <span class="border"></span>
                                     </a>
                                 </div>

@@ -49,5 +49,35 @@ public class WatchMgr {
     	
     	return count;
     }
+    
+    public Vector getWatch3(String mem_id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+        
+        try {
+            con = pool.getConnection();
+            String strQuery = "select book_id, watch_date " + 
+            		"from watch_list " + 
+            		"where mem_id = ? LIMIT 3 ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, mem_id);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {     	 
+            	 WatchBean watchBean = new WatchBean();
+            	 watchBean.setBook_id(rs.getString("book_id"));
+            	 watchBean.setDate(rs.getString("watch_date"));           
+
+                 vecList.add(watchBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return vecList;
+    }
 
 }
