@@ -7,11 +7,9 @@
 	String mem_id = request.getParameter("mem_id");
 	String address = request.getParameter("mem_address");
 	String img = request.getParameter("mem_img");
-<<<<<<< HEAD
-	boolean flag = memMgr.memberUpdateMy(mem_id, address);
-=======
+
 	boolean flag = memMgr.memberUpdateMy(mem_id, address, img);
->>>>>>> 636827c1c7ccfb819b6b4700579b77742f76c40f
+
 	
 %>
 
