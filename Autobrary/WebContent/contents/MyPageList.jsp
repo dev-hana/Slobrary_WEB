@@ -29,14 +29,13 @@
 			<td class="img pt-3">
 				<img width="120" height="140" alt="이미지가 없습니다." src="/img/book2.jpg">
 			</td>
-			<td><span class="title">도서명 : <a class="linkA" href="# ">내가 원하는 것을 나도 모를 때</a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : 동양출판사&nbsp;&nbsp;&#124;&nbsp;&nbsp;발행연도 : 2020</span><br>
-			<span>등록번호 : 15657-1564&nbsp;&nbsp;&#124;&nbsp;&nbsp;ISBN : 123456789123&nbsp;&nbsp;&#124;&nbsp;&nbsp;위치 : 675-4 가.5</span>
+			<td><span class="title">도서명 : <a class="linkA" href="# ">내가 원하는 것을 나도 모를 때</a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : 김도우&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : 동양출판사</span>
 			<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;2020/07/20</sapn>
 			<br><span class="return">반납일&nbsp;</span><span>:&nbsp;2020/07/27</span>
 			<br>
 			<div class="mt-3 mb-2 pr-2" style="float:right;">
 				<form>
-					<input type="hidden" name="watch_id" value="1">
+					<input type="hidden" name="id_num" value="1">
 					<button class="btn btn-outline-secondary mb-1">리뷰하기</button>
 				</form>
 			</div>
@@ -63,14 +62,13 @@
 			<td class="img pt-3">
 				<img width="120" height="140" alt="이미지가 없습니다." src="/img/book2.jpg">
 			</td>
-			<td><span class="title">도서명 : <a class="linkA" href="# ">내가 원하는 것을 나도 모를 때</a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : 동양출판사&nbsp;&nbsp;&#124;&nbsp;&nbsp;발행연도 : 2020</span><br>
-			<span>등록번호 : 15657-1564&nbsp;&nbsp;&#124;&nbsp;&nbsp;ISBN : 123456789123&nbsp;&nbsp;&#124;&nbsp;&nbsp;위치 : 675-4 가.5</span>
+			<td><span class="title">도서명 : <a class="linkA" href="# ">내가 원하는 것을 나도 모를 때</a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : 김도우&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : 동양출판사</span>
 			<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;2020/07/20</sapn>
 			<br><span class="loan">반납완료일&nbsp;</span><span>:&nbsp;2020/07/27</span>
 			<br>
 			<div class="mt-3 mb-2 pr-2" style="float:right;">
 				<form>
-					<input type="hidden" name="watch_id" value="1">
+					<input type="hidden" name="id_num" value="1">
 					<button class="btn btn-outline-secondary mb-1">리뷰하기</button>
 				</form>
 			</div>
@@ -97,8 +95,7 @@
 			<td>
 				<img width="120" height="140" alt="이미지가 없습니다." src="/img/book2.jpg">
 			</td>
-			<td><span>도서명 : <a class="linkA" href="#">내가 원하는 것을 나도 모를 때</a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : 동양출판사&nbsp;&nbsp;&#124;&nbsp;&nbsp;발행연도 : 2020</span><br>
-			<span>등록번호 : 15657-1564&nbsp;&nbsp;&#124;&nbsp;&nbsp;ISBN : 123456789123&nbsp;&nbsp;&#124;&nbsp;&nbsp;위치 : 675-4 가.5</span>
+			<td><span class="title">도서명 : <a class="linkA" href="# ">내가 원하는 것을 나도 모를 때</a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : 김도우&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : 동양출판사</span>
 			<div class="mt-3 mb-2 pr-1" style="float:right;">
 				<form>
 					<!-- 관심도서 아이디 자리 -->
@@ -130,8 +127,7 @@
 							<img width="120" height="140" alt="이미지가 없습니다." src="/img/book2.jpg">
 						</td>
 						<td>
-							<span class="title">도서명 : <a class="linkA" href="#">내가 원하는 것을 나도 모를 때</a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : 동양출판사&nbsp;&nbsp;&#124;&nbsp;&nbsp;발행연도 : 2020</span><br>
-							<span>등록번호 : 15657-1564&nbsp;&nbsp;&#124;&nbsp;&nbsp;ISBN : 123456789123&nbsp;&nbsp;&#124;&nbsp;&nbsp;위치 : 675-4 가.5</span>
+							<td><span class="title">도서명 : <a class="linkA" href="# ">내가 원하는 것을 나도 모를 때</a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : 김도우&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : 동양출판사</span>
 							<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;2020/07/20</sapn>
 							<br><span class="return">반납일&nbsp;</span><span>:&nbsp;2020/07/27</span>
 							<br>
