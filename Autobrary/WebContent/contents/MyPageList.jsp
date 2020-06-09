@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
     <%@ page import="java.util.*, database.*"%>
     <jsp:useBean id="bookMgr" class="database.BookMgr" />
+    <%@ page import="java.text.*" %>
 <%@ include file="/CND.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -36,26 +37,31 @@
 					name = name + "..";
 				}
 				String author = bookBean.getAuthor();
-				if(author.length() > 3){
-					author = author.substring(0, 3);
+				if(author.length() > 4){
+					author = author.substring(0, 4);
 					author = author + "..";
 				}
 				String publisher = bookBean.getPublisher();
 				if(publisher.length() > 4) {
-					publisher = publisher.substring(0, 3);
+					publisher = publisher.substring(0, 4);
 					publisher = publisher + "..";
 				}
 				
-				String loan_date = loanBean.getLoan_date();
-				loan_date = loan_date.substring(0, 10);
-				Date from = new Date();
+				String loan_date = loanBean.getLoan_date().substring(0, 10);
+			
 				SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
-				loan_date = fm.format(from);
+				Date loan = fm.parse(loan_date);
 				
-				Date return_date = fm.parse(loan_date);
 				Calendar cal = Calendar.getInstance();
-				cal.setTime(return_date);
-				cal.add(Calendar.DATE, 14);	
+				cal.setTime(loan);
+				cal.add(Calendar.DATE, 14);
+				
+				String return_date = fm.format(cal.getTime());
+				Date return_time = fm.parse(return_date);
+				Date date = new Date();
+				
+				long loanT = return_time.getTime() - date.getTime();
+				long resultT = loanT / (24*60*60*1000);
 	
 		%>
 		<tr>
@@ -63,7 +69,7 @@
 				<img width="120" height="140" alt="이미지가 없습니다." src="/img/book2.jpg">
 			</td>
 			<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 :<%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 :<%=publisher %></span>
-			<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loan_date %></sapn>
+			<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loanBean.getLoan_date().substring(0, 10) %></sapn>
 			<br><span class="return">반납일&nbsp;</span><span>:&nbsp;<%=return_date %></span>
 			<br>
 			<div class="mt-3 mb-2 pr-2" style="float:right;">
@@ -72,7 +78,7 @@
 					<button class="btn btn-outline-secondary mb-1">리뷰하기</button>
 				</form>
 			</div>
-			<div class="bg-light p-3 mt-2">반납일까지&nbsp;<span class="loan">3일</span>&nbsp;남았습니다!</div>
+			<div class="bg-light p-3 mt-2">반납일까지&nbsp;<span class="loan"><%=resultT %>일</span>&nbsp;남았습니다!</div>
 			</td>
 		</tr>
 		<%
