@@ -55,12 +55,13 @@ public class WatchMgr {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         Vector vecList = new Vector();
-        
+
         try {
             con = pool.getConnection();
             String strQuery = "select book_id, watch_date " + 
             		"from watch_list " + 
-            		"where mem_id = ? LIMIT 3 ";
+            		"where mem_id = ? order by watch_date desc LIMIT 3 ";
+
             pstmt = con.prepareStatement(strQuery);
             pstmt.setString(1, mem_id);
             rs = pstmt.executeQuery();
@@ -76,7 +77,6 @@ public class WatchMgr {
         } finally {
             pool.freeConnection(con, pstmt, rs);
         }
-        
         return vecList;
     }
 

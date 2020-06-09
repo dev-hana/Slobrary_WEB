@@ -1,5 +1,8 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="java.util.*, database.*"%>
+    <jsp:useBean id="bookMgr" class="database.BookMgr" />
 <%@ include file="/CND.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -12,6 +15,7 @@
 <body>
 
 	<%
+		String mem_id = (String)session.getAttribute("loginKey");
 		String type = request.getParameter("type");
 	 	//type="interest";
 		if(type.equals("loanbook")){
@@ -22,16 +26,45 @@
 	</div>
 	<table class="table">
 		<%
-			for(int i=0; i<3;i++){
+			Vector vLoan = bookMgr.getLoan(mem_id);
+			for(int i=0; i<vLoan.size();i++){
+				LoanBean loanBean = (LoanBean)vLoan.get(i);
+				BookBean bookBean = bookMgr.getBook(loanBean.getId_num());
+				String name = bookBean.getName();
+				if(name.length() > 17){
+					name = name.substring(0, 15);
+					name = name + "..";
+				}
+				String author = bookBean.getAuthor();
+				if(author.length() > 3){
+					author = author.substring(0, 3);
+					author = author + "..";
+				}
+				String publisher = bookBean.getPublisher();
+				if(publisher.length() > 4) {
+					publisher = publisher.substring(0, 3);
+					publisher = publisher + "..";
+				}
 				
+				String loan_date = loanBean.getLoan_date();
+				loan_date = loan_date.substring(0, 10);
+				Date from = new Date();
+				SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
+				loan_date = fm.format(from);
+				
+				Date return_date = fm.parse(loan_date);
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(return_date);
+				cal.add(Calendar.DATE, 14);	
+	
 		%>
 		<tr>
 			<td class="img pt-3">
 				<img width="120" height="140" alt="이미지가 없습니다." src="/img/book2.jpg">
 			</td>
-			<td><span class="title">도서명 : <a class="linkA" href="# ">내가 원하는 것을 나도 모를 때</a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : 김도우&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : 동양출판사</span>
-			<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;2020/07/20</sapn>
-			<br><span class="return">반납일&nbsp;</span><span>:&nbsp;2020/07/27</span>
+			<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 :<%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 :<%=publisher %></span>
+			<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loan_date %></sapn>
+			<br><span class="return">반납일&nbsp;</span><span>:&nbsp;<%=return_date %></span>
 			<br>
 			<div class="mt-3 mb-2 pr-2" style="float:right;">
 				<form>

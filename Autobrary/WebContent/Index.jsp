@@ -6,6 +6,8 @@
 <jsp:useBean id="loanMgr" class="database.LoanMgr" />
 <jsp:useBean id="watchMgr" class="database.WatchMgr" />
 <jsp:useBean id="bookMgr" class="database.BookMgr" />
+
+<jsp:useBean id="noticeMgr" class="database.NoticeMgr" />
 <%
 String mem_id = (String)session.getAttribute("loginKey");
 %>
@@ -253,8 +255,8 @@ String mem_id = (String)session.getAttribute("loginKey");
  					String loaned = loanMgr.countLoaned(mem_id);
  					String watch = watchMgr.countWatch(mem_id);
  					
- 					
- 					//대출중인 도서의 이미지 상위 3개
+ 					//대출중인 도서 이미지 상위 3개(날짜기준)
+
  					Vector vLoaninfo = bookMgr.getLoan3(mem_id);
  					String loanImage[] = new String [3];
  					String loanId[] = new String [3];
@@ -336,8 +338,6 @@ String mem_id = (String)session.getAttribute("loginKey");
  						watchImage[i] = bookBean.getImage();
  						watchId[i] = bookBean.getId_num();
  					}
- 					
- 					
  					
  	%>
 		<div class="row justify-content-md-center mb-5">
@@ -489,33 +489,24 @@ String mem_id = (String)session.getAttribute("loginKey");
                         <div class="forum">
                             <h1 class="menu-title">공지사항</h1>
                             <a class="fas fa-plus float-right" href="#"></a>
+                            <%
+                            	Vector vNotice = noticeMgr.getNoticeList5();
+                            
+                            %>
                             <table class="table table-striped table-hover table-notice-board">
                                 <tbody>
+                                <%for(int i = 0; i<vNotice.size(); i++){
+                                	NoticeBean notBean = (NoticeBean)vNotice.get(i);
+                                	String notice_date = notBean.getDate();
+                                	
+                                %>
                                     <tr>
-                                        <td style="width: 10%">1</td>
-                                        <td style="width: 70%">오늘의 공지사항</td>
-                                        <td style="width: 20%">2020.04.17</td>
+                                        <td style="width: 10%"><%=i+1 %></td>
+                                        <td style="width: 70%"><%=notBean.getName() %></td>
+                                        <td style="width: 20%"><%=notice_date.substring(0, 10) %></td>
                                     </tr>
-                                    <tr>
-                                        <td style="width: 10%">2</td>
-                                        <td style="width: 70%">오늘의 공지사항</td>
-                                        <td style="width: 20%">2020.04.17</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width: 10%">3</td>
-                                        <td style="width: 70%">오늘의 공지사항</td>
-                                        <td style="width: 20%">2020.04.17</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width: 10%">4</td>
-                                        <td style="width: 70%">오늘의 공지사항</td>
-                                        <td style="width: 20%">2020.04.17</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="width: 10%">5</td>
-                                        <td style="width: 70%">오늘의 공지사항</td>
-                                        <td style="width: 20%">2020.04.17</td>
-                                    </tr>
+                                <%}%>
+                                 
                                 </tbody>
                             </table>
                         </div>

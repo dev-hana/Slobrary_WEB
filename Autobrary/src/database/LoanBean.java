@@ -8,6 +8,10 @@ public class LoanBean {
 	private String return_date;
 	private String return_type;
 	private String status;
+	
+	public void setReturn_date(String return_date) {
+		this.return_date = return_date;
+	}
 	public String getLoan_id() {
 		return loan_id;
 	}
@@ -35,9 +39,6 @@ public class LoanBean {
 	public String getReturn_date() {
 		return return_date;
 	}
-	public void setReturn_date(String return_date) {
-		this.return_date = return_date;
-	}
 	public String getReturn_type() {
 		return return_type;
 	}
@@ -50,7 +51,5 @@ public class LoanBean {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
 
 }
