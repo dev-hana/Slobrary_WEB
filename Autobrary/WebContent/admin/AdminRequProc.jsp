@@ -8,7 +8,8 @@
     	String pwd = request.getParameter("pwd");
     	String name = request.getParameter("name");
     	String phone = request.getParameter("phone");
-    	boolean flag = adMgr.insertAdminRequ(id, pwd, name, phone);
+    	String rank = request.getParameter("rank");
+    	boolean flag = adMgr.insertAdminRequ(id, pwd, name, phone, rank);
     %>
 <%
 if(flag){

@@ -6,6 +6,14 @@ public class ArequestBean {
 	private String name;
 	private String phone;
 	private String date;
+	private String rank;
+	
+	public String getRank() {
+		return rank;
+	}
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
 	public String getId() {
 		return id;
 	}

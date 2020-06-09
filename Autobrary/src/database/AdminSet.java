@@ -157,7 +157,7 @@ public class AdminSet {
                 aqBean.setPhone(rs.getString("phone"));
                 aqBean.setDate(rs.getString("req_date"));
                 aqBean.setPasswd(rs.getString("passwd"));
-                
+                aqBean.setRank(rs.getString("a_rank"));
                 vecList.add(aqBean);
             }
         } catch (Exception ex) {
@@ -188,6 +188,7 @@ public class AdminSet {
                 aqBean.setPhone(rs.getString("phone"));
                 aqBean.setDate(rs.getString("req_date"));
                 aqBean.setPasswd(rs.getString("passwd"));
+                aqBean.setRank(rs.getString("a_rank"));
             }
         } catch (Exception ex) {
             System.out.println("Exception" + ex);
@@ -223,14 +224,38 @@ public class AdminSet {
         return flag;
     }
     
+    public boolean IdRequCheck(String id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        boolean flag = false;
+        
+        try {
+        	con = pool.getConnection();
+        	String strQuery = "select count(id) from admin_request where id = ? ";
+        	pstmt = con.prepareStatement(strQuery);
+        	pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+            	int count = rs.getInt(1);
+            	if(count == 0) return true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
    
     
-    public boolean insertAdminRequ(String id, String pwd, String name, String phone) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public boolean insertAdminRequ(String id, String pwd, String name, String phone, String rank) throws NoSuchAlgorithmException, InvalidKeySpecException {
     	Connection con = null;
         PreparedStatement pstmt = null;
         boolean flag = false;
         String pwd_ = PBKDF2_Encryption.createHash(pwd);
-        String sql = "insert into admin_request(id, passwd, name, phone) values (?, ?, ?, ?) ";
+        String sql = "insert into admin_request(id, passwd, name, phone, a_rank) values (?, ?, ?, ?, ?) ";
         try {
         	con = pool.getConnection();
         	pstmt = con.prepareStatement(sql);
@@ -238,6 +263,8 @@ public class AdminSet {
         	pstmt.setString(2, pwd_);
         	pstmt.setString(3, name);
         	pstmt.setString(4, phone);
+        	pstmt.setString(5, rank);
+
 
             int count = pstmt.executeUpdate();
             if (count == 1) {
@@ -248,6 +275,52 @@ public class AdminSet {
         } finally {
             pool.freeConnection(con, pstmt);
         }
+        return flag;
+    }
+    
+    public boolean confirmAdmin(ArequestBean reqBean){
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        String sql = "insert into admin_info(id, passwd, name, phone, a_rank) values (?, ?, ?, ?, ?) ";
+        try {
+        	con = pool.getConnection();
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, reqBean.getId());
+        	pstmt.setString(2, reqBean.getPasswd());
+        	pstmt.setString(3, reqBean.getName());
+        	pstmt.setString(4, reqBean.getPhone());
+        	pstmt.setString(5, reqBean.getRank());
+            int count = pstmt.executeUpdate();
+            if (count == 1) {
+                flag = true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
+    public boolean deleteArequest(String id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        String sql = "delete from admin_request where id = ? ";
+        try {
+        	con = pool.getConnection();
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, id);
+        	int count = pstmt.executeUpdate();
+        	if (count == 1) {
+        		flag = true;
+        	}
+        }catch (Exception ex) {//
+        	System.out.println("Exception" + ex);
+    	} finally {
+    		pool.freeConnection(con, pstmt);
+    	}
         return flag;
     }
 }

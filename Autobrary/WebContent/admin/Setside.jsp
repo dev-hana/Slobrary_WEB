@@ -38,7 +38,6 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="Notice.jsp">공지사항</a>
-  <a href="#">베스트셀러</a>
   <a href="#">희망도서</a>
   <a href="#">일정</a>
   <a href="Admin.jsp">관리자</a>
