@@ -505,6 +505,40 @@ public class BookMgr {
         return vecList;
     }
     
+    
+    public Vector getReturn(String mem_id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+        String status = "반납";
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select id_num, loan_date, return_type, return_date " + 
+            		"from book_loan " + 
+            		"where mem_id = ? and status = ? order by return_date desc ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, mem_id);
+            pstmt.setString(2, status);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {     	 
+            	 LoanBean loanBean = new LoanBean();
+            	 loanBean.setId_num(rs.getString("id_num"));
+                 loanBean.setLoan_date(rs.getString("loan_date"));           
+                 loanBean.setReturn_date(rs.getString("return_date"));
+                 loanBean.setReturn_type(rs.getString("return_type"));
+                 vecList.add(loanBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+
+        return vecList;
+    }
+    
     public Vector getReturn3(String mem_id) {
     	Connection con = null;
         PreparedStatement pstmt = null;
