@@ -48,6 +48,36 @@ public class NoticeMgr {
         return vecList;
     }
     
+    public Vector getNoticeList5() {
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select * from notice order by date desc LIMIT 5 ";
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(strQuery);
+
+            while (rs.next()) {
+                NoticeBean ntBean = new NoticeBean();
+                ntBean.setNum(rs.getString("num"));
+                ntBean.setAdmin_id(rs.getString("admin_id"));
+                ntBean.setName(rs.getString("name"));
+                ntBean.setDate(rs.getString("date"));
+                ntBean.setContent(rs.getString("content"));
+                
+                vecList.add(ntBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, stmt, rs);
+        }
+        return vecList;
+    }
+    
     public Vector getMyList(String id) {
     	Connection con = null;
         PreparedStatement pstmt = null;
@@ -135,6 +165,8 @@ public class NoticeMgr {
         
         return ntBean;
     }
+    
+    
     
     public String searchId(String num) {
     	Connection con = null;
