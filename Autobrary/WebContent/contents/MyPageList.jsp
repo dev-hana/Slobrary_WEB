@@ -277,7 +277,7 @@
 							<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loan_date %></sapn>
 							<br><span class="return">반납일&nbsp;</span><span>:&nbsp;<%=return_date %></span>
 							<br>
-							<div class="bg-light p-3 mt-2">반납일로부터&nbsp;&nbsp;<span class="overdate"><%=Math.abs(resultT) %></span>&nbsp;&nbsp;연체되었습니다.</div>
+							<div class="bg-light p-3 mt-2">반납일로부터&nbsp;&nbsp;<span class="overdate"><%=Math.abs(resultT) %></span>일&nbsp;&nbsp;연체되었습니다.</div>
 						</td>
 					</tr>
 			<%
