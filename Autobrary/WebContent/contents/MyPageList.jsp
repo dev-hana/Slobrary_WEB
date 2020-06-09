@@ -1,4 +1,5 @@
 <%@page import="java.text.SimpleDateFormat"%>
+<%@page import="bucketConnector.BucketManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="java.util.*, database.*"%>
@@ -66,7 +67,7 @@
 		%>
 		<tr>
 			<td class="img pt-3">
-				<img width="120" height="140" alt="이미지가 없습니다." src="/img/book2.jpg">
+				<img width="120" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
 			</td>
 			<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 :<%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 :<%=publisher %></span>
 			<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loanBean.getLoan_date().substring(0, 10) %></sapn>
@@ -128,8 +129,7 @@
 		<table class="table table">
 		<%
 			for(int i=0; i<3;i++){
-				
-		%>
+				%>
 		<tr>
 			<td>
 				<img width="120" height="140" alt="이미지가 없습니다." src="/img/book2.jpg">
