@@ -28,9 +28,13 @@
 	</div>
 	<table class="table">
 		<%
+		
 			Vector vLoan = bookMgr.getLoan(mem_id);
 			for(int i=0; i<vLoan.size();i++){
 				LoanBean loanBean = (LoanBean)vLoan.get(i);
+				String loan_id = "loan" + Integer.toString(i); //반납 남은 일수 css바꾸기 위한 태그 아이디값
+				String loan_text = "loantext" + Integer.toString(i); //연체 도서 text 바꾸기 위한 태그 아이디값
+				
 				BookBean bookBean = bookMgr.getBook(loanBean.getId_num());
 				String name = bookBean.getName();
 				if(name.length() > 17){
@@ -79,7 +83,27 @@
 					<button class="btn btn-outline-secondary mb-1">리뷰하기</button>
 				</form>
 			</div>
-			<div class="bg-light p-3 mt-2">반납일까지&nbsp;<span class="loan"><%=resultT %>일</span>&nbsp;남았습니다!</div>
+			<div class="bg-light p-3 mt-2" id="<%=loan_text %>">반납일까지&nbsp;<span class="loan" id="<%=loan_id %>" ><%=resultT %>일</span>&nbsp;남았습니다!
+			<% if(resultT < 0){
+					%>
+					
+					<script>
+						$("#<%=loan_text%>").html("<span class=\"loan\" id=\"<%=loan_id %>\" ><%=Math.abs(resultT + 14)%>일</span>&nbsp;연체되었습니다!");
+						var getId = document.getElementById("<%=loan_id %>");
+						getId.style.color="#ff0000";
+					</script>
+					<%
+				}else{
+					%>
+					<script>
+						var getId = document.getElementById("<%=loan_id %>");
+						getId.style.color="#146eff";
+						
+					</script>
+					<%
+				}
+			%>
+			</div>
 			</td>
 		</tr>
 		<%
