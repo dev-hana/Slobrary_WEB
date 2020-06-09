@@ -64,6 +64,19 @@
                             </div>
                         </div>
                         
+                        
+						<label for="rank">직위</label>
+                        <div class="mb-1 mt-n2">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="staff" name="rank" class="custom-control-input" value="staff" checked>
+                                <label class="custom-control-label" for="gender_male">staff</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="master" name="rank" class="custom-control-input" value="master">
+                                <label class="custom-control-label" for="gender_female">master</label>
+                            </div>
+                        </div>
+                        
                     </div>
                     <button id="submit-btn" type="submit" class="btn btn-primary">신청하기</button>
 					</form>

@@ -15,9 +15,7 @@
 <!-- css -->
 <link href="/css/MyInfo.css?v=2" rel="stylesheet" />
 
-<<<<<<< HEAD
 <title>개인정보 수정</title>
-=======
 <!-- 아이콘 -->
 <link rel="shortcut icon" href="../img/favicon.ico">
  
@@ -43,7 +41,6 @@ function jusoCallBack(roadFullAddr){
 		document.info.mem_address.value = roadFullAddr;		
 }
 </script>
->>>>>>> 636827c1c7ccfb819b6b4700579b77742f76c40f
 </head>
 
 <body class="bg-light">

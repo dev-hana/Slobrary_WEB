@@ -29,7 +29,7 @@
 <!-- css -->
 <link href="/css/MyPage.css?v=2" rel="stylesheet" />
 </head>
-<body class="bg-light">
+<body class="bg-light mb-3">
 	<header>
 	<jsp:include page="../Top.jsp" flush="false"/>
 	</header>
@@ -89,7 +89,9 @@
 			<%
 		}
 	%>
-	
+	<footer>
+		<jsp:include page="/Footer.jsp" flush="false"/>
+	</footer>
 </body>
 </html>
 <%}%>

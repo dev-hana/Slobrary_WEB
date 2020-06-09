@@ -225,6 +225,30 @@ public class AdminSet {
         return flag;
     }
     
+    public boolean IdRequCheck(String id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        boolean flag = false;
+        
+        try {
+        	con = pool.getConnection();
+        	String strQuery = "select count(id) from admin_request where id = ? ";
+        	pstmt = con.prepareStatement(strQuery);
+        	pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+            	int count = rs.getInt(1);
+            	if(count == 0) return true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
+    
    
     
     public boolean insertAdminRequ(String id, String pwd, String name, String phone, String rank) throws NoSuchAlgorithmException, InvalidKeySpecException {
@@ -298,4 +322,5 @@ public class AdminSet {
         }
         return flag;
     }
+    
 }

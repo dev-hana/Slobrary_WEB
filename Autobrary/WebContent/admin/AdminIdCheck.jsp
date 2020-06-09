@@ -7,6 +7,14 @@
 <% 
 	String id = request.getParameter("id");
 	boolean flag = adMgr.IdCheck(id);
+	if(flag){
+		boolean flag_ = adMgr.IdRequCheck(id);
+		if(flag_){
+			flag = true;
+		}else{
+			flag = false;
+		}
+	}
 
 %>
 
