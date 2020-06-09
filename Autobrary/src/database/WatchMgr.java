@@ -79,5 +79,34 @@ public class WatchMgr {
         }
         return vecList;
     }
+    
+    public Vector getWatch(String mem_id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select book_id " + 
+            		"from watch_list " + 
+            		"where mem_id = ? order by watch_date desc ";
+
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, mem_id);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {     	 
+            	 WatchBean watchBean = new WatchBean();
+            	 watchBean.setBook_id(rs.getString("book_id"));         
+
+                 vecList.add(watchBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        return vecList;
+    }
 
 }

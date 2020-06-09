@@ -4,6 +4,7 @@
     pageEncoding="UTF-8"%>
     <%@ page import="java.util.*, database.*"%>
     <jsp:useBean id="bookMgr" class="database.BookMgr" />
+    <jsp:useBean id="watchMgr" class="database.WatchMgr" />
     <%@ page import="java.text.*" %>
 <%@ include file="/CND.jsp" %>
 <!DOCTYPE html>
@@ -196,13 +197,34 @@
 		</div>
 		<table class="table table">
 		<%
-			for(int i=0; i<3;i++){
-				%>
+			Vector vWatch = watchMgr.getWatch(mem_id);
+			for(int i=0; i<vWatch.size();i++){
+				WatchBean watchBean = (WatchBean)vWatch.get(i);
+				BookBean bookBean = bookMgr.getBook(watchBean.getBook_id());
+				String watch_id = "watch" + Integer.toString(i); //도서 상태에 따른 css를 바꾸기 위한 태그 아이디값
+				
+				String name = bookBean.getName();
+				if(name.length() > 17){
+					name = name.substring(0, 15);
+					name = name + "..";
+				}
+				String author = bookBean.getAuthor();
+				if(author.length() > 4){
+					author = author.substring(0, 4);
+					author = author + "..";
+				}
+				String publisher = bookBean.getPublisher();
+				if(publisher.length() > 4) {
+					publisher = publisher.substring(0, 4);
+					publisher = publisher + "..";
+				}
+				String status = bookBean.getStatus();
+		%>
 		<tr>
 			<td>
-				<img width="120" height="140" alt="이미지가 없습니다." src="/img/book2.jpg">
+				<img width="120" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
 			</td>
-			<td><span class="title">도서명 : <a class="linkA" href="# ">내가 원하는 것을 나도 모를 때</a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : 김도우&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : 동양출판사</span>
+			<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : <%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : <%=publisher %></span>
 			<div class="mt-3 mb-2 pr-1" style="float:right;">
 				<form>
 					<!-- 관심도서 아이디 자리 -->
@@ -210,7 +232,25 @@
 					<button class="btn btn-outline-dark mb-5">관심도서삭제</button>
 				</form>
 			</div>
-			<div class="bg-light p-3 mt-5"><span>상태 : 대출불가(대출중)</span></div>
+			<div class="bg-light p-3 mt-5">상태: <span id="<%=watch_id%>">&nbsp;&nbsp;<%=status %></span></div>
+			<% if(status.equals("대출가능")){
+					%>
+					
+					<script>
+						var getId = document.getElementById("<%=watch_id %>");
+						getId.style.color="#146eff";
+					</script>
+					<%
+				}else{
+					%>
+					<script>
+						var getId = document.getElementById("<%=watch_id %>");
+						getId.style.color="#ff0000";
+						
+					</script>
+					<%
+				}
+			%>
 			</td>
 		</tr>
 		<%
