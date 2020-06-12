@@ -30,11 +30,9 @@
 <link href="/css/MyPage.css?v=2" rel="stylesheet" />
 </head>
 <body class="bg-light mb-3">
-	<header>
 	<jsp:include page="../Top.jsp" flush="false"/>
-	</header>
-	
-	<div class="row mt-5 justify-content-md-center"">
+
+	<div class="row mt-5 justify-content-md-center">
 		<!-- 마이페이지 개인정보 및 메뉴 -->
         <div class="col-xl-3 mr-2">
         <div class="bg-white shadow-sm rounded p-2">
@@ -48,9 +46,8 @@
         	<div>
         		<div class="pt-2 pb-5" id="img-tab">
                      <div class="img-wrapper">
-                          <img id="imgPreview" class="img-cover shadow-sm" src="/img/default/userImg/girl1.png" alt="프로필사진">
+                          <img id="imgPreview" class="img-cover shadow-sm" src="/img/default/userImg/<%=memBean.getProfile()%>" alt="프로필사진">
                      </div>
-                     <input type="hidden" id="mem_img" name="mem_img" value="<%=memBean.getProfile()%>">
                 </div>
                 <div class="pl-3 pr-3">
                 	<div><span><%=memBean.getMem_id() %></span></div>
@@ -89,9 +86,7 @@
 			<%
 		}
 	%>
-	<footer>
-		<jsp:include page="/Footer.jsp" flush="false"/>
-	</footer>
+	
 </body>
 </html>
 <%}%>

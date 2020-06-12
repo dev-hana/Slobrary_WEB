@@ -72,7 +72,7 @@
 		%>
 		<tr>
 			<td class="img pt-3">
-				<img width="120" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
+				<img width="110" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
 			</td>
 			<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 :<%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 :<%=publisher %></span>
 			<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loanBean.getLoan_date().substring(0, 10) %></sapn>
@@ -150,7 +150,7 @@
 				%>
 					<tr>
 			<td class="img pt-3">
-				<img width="120" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
+				<img width="110" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
 			</td>
 			<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : <%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : <%=publisher %></span>
 			<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loan_date %></sapn>
@@ -221,8 +221,8 @@
 				String status = bookBean.getStatus();
 		%>
 		<tr>
-			<td>
-				<img width="120" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
+			<td class="img pt-3">
+				<img width="110" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
 			</td>
 			<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : <%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : <%=publisher %></span>
 			<div class="mt-3 mb-2 pr-1" style="float:right;">
@@ -310,7 +310,7 @@
 		%>
 					<tr>
 						<td class="img pt-3">
-							<img width="120" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
+							<img width="110" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
 						</td>
 						<td>
 							<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : <%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : <%=publisher %></span>

@@ -36,24 +36,16 @@
 
 </head>
 <body class="bg-light">
-<jsp:include page="../Top.jsp" flush="false"/>
 
 <!-- 희망도서 목록 -->
-<div class="container-fluid">
-	<div class="row justify-content-md-center mt-3">
-		<div class="col-xl-8">
-			<div>
-				<div style="display: inline-block;">
-					<span class="ml-2 mb-3"><h3>희망도서 신청 목록</h3></span>
-				</div>
-				<div style="display: inline-block; float: right;" class="mt-4 mr-2" >
-					<button onClick="location.href='WishBook.jsp'" class="btn btn-outline-secondary">희망도서신청</button>
-				</div>
-				<hr>
-			</div>
+				
+			<div class="pl-3 pb-2 pt-3 pr-3">
+        		<div style="float:left;"><h4>희망도서 신청 목록</h4></div> <div style="float:right;">
+        		<button onClick="location.href='WishBook.jsp'" class="btn btn-outline-secondary float-right">희망도서신청</button></div>
+        	</div><br><hr>
 			
 			<%Vector List = bookMgr.getWishList(mem_id); %>
-			<div class="p-3">
+			<div class="p-3 mt-2">
 			<table class="table table-hover">
 				<thead class="thead-light">
 						<th scope="col">번호</th>
@@ -78,9 +70,7 @@
    				<%}%>
 			</table>
 			</div>
-		</div>
-	</div>
-</div>
+
 </body>
 </html>
 <%}%>

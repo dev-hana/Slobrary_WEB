@@ -101,7 +101,7 @@ function jusoCallBack(roadFullAddr){
 				</div>
 				<input type="hidden" name="mem_id" value="<%=memBean.getMem_id() %>" >
 				</form>
-				<div style="float:right;"><button class="btn">회원탈퇴</button></div>
+				<div style="float:right;"><button onclick="location.href='Withdraw.jsp'" type="button" class="btn btn-sm">회원탈퇴</button></div>
 			</div>
 		</div>
 	</div>

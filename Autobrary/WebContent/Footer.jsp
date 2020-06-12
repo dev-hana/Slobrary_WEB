@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/CND.jsp" %>
 	<%-- <jsp:include page="/Footer.jsp" flush="false"/>로 사용 --%>
 <!DOCTYPE html>
 <html>

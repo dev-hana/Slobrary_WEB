@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/CND.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,6 @@
 <!-- 웹폰트 -->
 <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
-<!-- 부트스트랩 -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 <style type="text/css">
  .textQ{
@@ -49,33 +45,22 @@
   margin-top: -3rem !important;
 }
 </style>
-<jsp:include page="../Top.jsp" flush="false"/>
 </head>
 <body>
-
-	<div class="container">
-	<div class="row">
-		<div class="col-xl-12 p-4">
-			<div>
-				<h3>자주 묻는 질문 FAQ</h3>
-			</div>
-			<div class="stxt">
-				가장 자주 묻는 질문에 대한 내용을 쉽고 빠르게 확인하실 수 있습니다.
-			</div>
-			<hr>
-		</div>
-	</div>
-	<div class="row justify-content-md-center nm">
-		<div class="col-xl-12 col-md-8 rounded p-5">
-			<div id="accordion">
+	
+	
+	<div class="mt-2">
+		<div id="accordion">
   				<div class="card">
     				<div class="card-header bg-light" id="heading1">
 						<div class="Q collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1" style="display: inline-block">
+						<!-- 질문 -->
 						<span class="textQ mr-3" style="display: inline-block">Q</span>도서관 이용시간과 휴관일은 어떻게 되나요?</div>
     				</div>
     			<div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
       				<div class="card-body">
       					<div>
+      						<!-- 답 -->
 							<div class="A" style="display: inline-block">
 							<span class="textA mr-3">A</span>다음 표를 참고해주세요.</div>
 							<div class="mt-4">
@@ -99,6 +84,7 @@
       				<div class="card-body">
       					<div>
 							<div class="A" style="display: inline-block">
+							<!-- 답 -->
 							<span class="textA mr-3">A</span>열람실은 별도의 절차 없이 이용가능합니다.</div>
 						</div>
         			</div>
@@ -137,9 +123,6 @@
     			</div>
   			</div>
  		</div>
- 	</div>
- </div>
- 
-</div>
+	</div>
 </body>
 </html>

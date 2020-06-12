@@ -15,7 +15,7 @@
 
 <%
 if(flag){
-%>		session.setAttribute("loginKey", mem_id);
+%>
 		<script>
 		alert("성공적으로 수정하였습니다");
 		location.href="MyPage.jsp";

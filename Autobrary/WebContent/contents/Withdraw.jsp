@@ -21,12 +21,32 @@
 	color:#DF0101;
 }
 </style>
+<script type="text/javascript">
+//비밀번호 일치검사
+$(function(){
+$("#alert-success").hide(); 
+$("#alert-danger").hide(); 
+$("input").keyup(function(){ 
+	var pwd1=$("#pwd1").val();
+	var pwd2=$("#pwd2").val();
+	if(pwd1 != "" || pwd2 != ""){ 
+		if(pwd1 == pwd2){ 
+		$("#alert-success").show();
+		$("#alert-danger").hide(); 
+		$("#submit-btn").removeAttr("disabled");
+	}else{ $("#alert-success").hide(); 
+	$("#alert-danger").show(); 
+	$("#submit-btn").attr("disabled", "disabled"); 
+	} } }); });
+
+</script>
+<script type="text/javascript" src="/js/formneeds.js"></script>
 </head>
 <body class="bg-light">
 	<header>
 		<jsp:include page="../Top.jsp" flush="false"/>
 	</header>
-	<div class="container-fluid">
+	<div class="container-fluid mb-3">
 	<div class="row mt-5 justify-content-md-center">
 		<div class="col-xl-8 p-5 m-1 bg-white shadow-sm rounded">
 			<div class="mb-3">
@@ -45,12 +65,40 @@
 				</div>
 			</div>
 			<div>
-				<form>
-					
+				<form action="WithdrawProc.jsp" method="post" class="needs-validation" novalidate>
+					<div class="form-check mb-2 mt-2 mr-2 float-right">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" required>
+                            	위 내용에 동의합니다.
+                            <div class="invalid-feedback">탈퇴를 진행하시려면 체크하십시오.</div>
+                        </label>
+                    </div><br>
+					<div class="form-group row mt-5">
+						<div class="col">
+							<label for="pwd1">비밀번호</label>
+                        	<div class="input-group mb-2">
+                           	 	<input type="password" class="form-control" name="pwd1" id="pwd1" required>
+                        	</div>
+                        </div>
+                        <div class="col">
+                       	 	<label for="pwd2">비밀번호 확인</label>
+                      		<div class="input-group mb-2">
+                            	<input type="password" class="form-control" name="pwd2" id="pwd2" required>
+                        	</div>
+                        </div>
+                   	</div>
+                   	<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+                    <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+                    
+                   	<div class="float-right mt-5">
+                   		<button id="submit-btn" onclick="history.back()" class="btn btn-outline-success pr-4 pl-4" type="button">취소</button>
+                   		<button id="submit-btn" class="btn btn-outline-danger" type="submit">탈퇴하기</button>
+                   	</div>
 				</form>
 			</div>
 		</div>
 	</div>
 	</div>
+	<jsp:include page="/Footer.jsp" flush="false"/>
 </body>
 </html>
