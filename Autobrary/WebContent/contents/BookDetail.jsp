@@ -6,6 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.book{
+	font-size: 13px;
+	color: #585858;
+}
+.table{
+	text-align: center;
+}
+.author{
+	font-size: 12px;
+	color: #585858;
+}
+.bt{
+	border-top: 2px solid #D8D8D8;
+}
+
+</style>
 </head>
 <body class="bg-light">
 	<jsp:include page="../Top.jsp" flush="false"/>
@@ -23,7 +40,7 @@
 				<div class="mt-2 pr-2 pl-2" style="display: inline-block;">
 					<table>
 						<tr>
-							<td rowspan="6"><img width="160" height="190" alt="이미지가 없습니다." src="/img/book2.jpg"></td>
+							<td rowspan="6" class="p-2 pl-3 pr-3 pb-2 mr-2"><img width="130" height="170" alt="이미지가 없습니다." src="/img/book2.jpg"></td>
 							<td class="pr-4 pl-2">저자명</td>
 							<td>이도우</td>
 						</tr>
@@ -58,7 +75,8 @@
 				</div>
 				</div>
 				
-				<div class="mt-5 pl-3">
+				<div>
+				<div class="mt-5 mb-3 pl-3">
 					<h6>소장정보</h6>
 				</div>
 				<div class=" pl-2 pr-2">
@@ -83,7 +101,48 @@
 			 	%>
 					</table>
 				</div>
+				</div>
 				
+				<div class="mt-2">
+				<div class="mt-5 mb-3 pl-3">
+					<span>
+						<h6>이 책과 저자가 같은(동명인) 도서</h6>
+					</span>
+				</div>
+				<div class="pl-2 pr-2"">
+					<table class="table table-borderless pl-2 pr-2 bt ">
+						<tr>
+							<td class="pt-4">
+								<img width="115" height="160" alt="이미지가 없습니다." src="/img/book2.jpg">
+							</td>
+							<td class="pt-4">
+								<img width="115" height="160" alt="이미지가 없습니다." src="/img/book2.jpg">
+							</td>
+							<td class="pt-4">
+								<img width="115" height="160" alt="이미지가 없습니다." src="/img/book2.jpg">
+							</td>
+							<td class="pt-4">
+								<img width="115" height="160" alt="이미지가 없습니다." src="/img/book2.jpg">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="book">내가 원하는 것을...</span><br><span class="author">이도우</span>
+							</td>
+							<td>
+								<span class="book">내가 원하는 것을...</span><br><span class="author">이도우</span>
+							</td>
+							<td>
+								<span class="book">내가 원하는 것을...</span><br><span class="author">이도우</span>
+							</td>
+							<td>
+								<span class="book">내가 원하는 것을...</span><br><span class="author">이도우</span>
+							</td>
+						</tr>
+					</table>
+					<hr>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

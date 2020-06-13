@@ -15,7 +15,7 @@
 <body>
  <div class="row bg-light justify-content-md-center">
   <div class="col-xl-7 bg-white shadow-sm rounded p-3">
-  	<div class="mt-3 mb-3">
+  	<div class="pl-2 mt-3 mb-3">
   		<h4>검색결과</h4>
   	</div>
 	<table class="table">
@@ -43,7 +43,7 @@
 				</form>
 			</div>
 			</div>
-			<div class="bg-light p-3 mt-4">상태: <span>&nbsp;&nbsp;대출가능</span></div>
+			<div class="bg-light p-3 mt-4">상태 : <span>&nbsp;&nbsp;대출가능</span></div>
 			</td>
 		</tr>
 		
