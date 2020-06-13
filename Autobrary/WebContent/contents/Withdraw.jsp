@@ -42,11 +42,11 @@ $("input").keyup(function(){
 </script>
 <script type="text/javascript" src="/js/formneeds.js"></script>
 </head>
-<body class="bg-light">
+<body class="bg-light pb-4">
 	<header>
 		<jsp:include page="../Top.jsp" flush="false"/>
 	</header>
-	<div class="container-fluid mb-3">
+	<div class="container-fluid">
 	<div class="row mt-5 justify-content-md-center">
 		<div class="col-xl-8 p-5 m-1 bg-white shadow-sm rounded">
 			<div class="mb-3">
@@ -99,6 +99,6 @@ $("input").keyup(function(){
 		</div>
 	</div>
 	</div>
-	<jsp:include page="/Footer.jsp" flush="false"/>
+	<br><br>
 </body>
 </html>

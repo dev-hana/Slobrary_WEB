@@ -113,16 +113,16 @@
 					<table class="table table-borderless pl-2 pr-2 bt ">
 						<tr>
 							<td class="pt-4">
-								<img width="115" height="160" alt="이미지가 없습니다." src="/img/book2.jpg">
+								<img width="115" height="160" alt="이미지가 없습니다." src="/img/ex1.jpg">
 							</td>
 							<td class="pt-4">
-								<img width="115" height="160" alt="이미지가 없습니다." src="/img/book2.jpg">
+								<img width="115" height="160" alt="이미지가 없습니다." src="/img/ex2.jpg">
 							</td>
 							<td class="pt-4">
-								<img width="115" height="160" alt="이미지가 없습니다." src="/img/book2.jpg">
+								<img width="115" height="160" alt="이미지가 없습니다." src="/img/ex3.jpg">
 							</td>
 							<td class="pt-4">
-								<img width="115" height="160" alt="이미지가 없습니다." src="/img/book2.jpg">
+								<img width="115" height="160" alt="이미지가 없습니다." src="/img/ex4.png">
 							</td>
 						</tr>
 						<tr>
