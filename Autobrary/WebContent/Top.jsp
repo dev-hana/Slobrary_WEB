@@ -80,12 +80,12 @@ String mem_id = (String)session.getAttribute("loginKey");
                                 <%
  								if(mem_id == null) {%>
  								<ul class="navbar-nav navbar-right">
-    								<li class="nav-item"> <a href="Login.jsp" class="nav-link">로그인</a></li>
-   									<li class="nav-item"> <a href="Signup.jsp" class="nav-link ">회원가입</a></li>
+    								<li class="nav-item"> <a href="/Login.jsp" class="nav-link">로그인</a></li>
+   									<li class="nav-item"> <a href="/Signup.jsp" class="nav-link ">회원가입</a></li>
 		 						</ul><%} else {%>
 								<ul class="navbar-nav navbar-right">
     								<li class="nav-item"> <a href="/contents/MyPage.jsp" class="nav-link">마이페이지</a></li>
-   									<li class="nav-item"> <a href="LogoutProc.jsp" class="nav-link ">로그아웃</a></li>
+   									<li class="nav-item"> <a href="/LogoutProc.jsp" class="nav-link ">로그아웃</a></li>
 		 						</ul><%}%>
                             </div>
                         </div>

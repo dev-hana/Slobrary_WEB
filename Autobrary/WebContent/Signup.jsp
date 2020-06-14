@@ -143,7 +143,7 @@
                 </div>
             </div>
         </div>
-        <iframe id="the_iframe" onload="calcHeight();" name="list" title="도서검색결과" frameborder="0" scrolling="no" style="display:none; overflow-x:hidden; overflow:auto; width:100%;"></iframe>
+        <iframe id="the_iframe" onload="calcHeight();" name="list" title="팝업" frameborder="0" scrolling="no" style="display:none; overflow-x:hidden; overflow:auto; width:100%;"></iframe>
     </div>
 
     <!--이용약관 모달-->

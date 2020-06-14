@@ -13,13 +13,13 @@
 		if(flag) {
 			 %><script>
 			alert("성공적으로 신청하였습니다.");
-			location.href="../contents/WishList.jsp";
+			location.href="/contents/WishList.jsp";
 			 </script><%
 
 		}else{
 		%><script>
 			alert("신청 실패, 다시 시도해주세요");
-			location.href="../contents/WishBook.jsp";
+			location.href="/contents/WishBook.jsp";
 			 </script><%
 		}
 	%>
