@@ -41,7 +41,7 @@ footer {
 		<a href=""><li>제휴</li></a>
 		<a href=""><li>개인정보 보호 정책</li></a>
 		<p id='abc'>
-			<b>&nbsp ⓒ Copyright </b> <b id='ab'> &nbsp Autobrary.com</b>
+			<b>&nbsp ⓒ Copyright </b> <b id='ab'> &nbsp slobrary.com</b>
 		</p>
 	</ul>
 </div>
