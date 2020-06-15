@@ -79,6 +79,8 @@ public class AdminSet {
         }
         return flag;
     }
+    
+  
 
     
     public AdminBean getName(String admin_id) {
