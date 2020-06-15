@@ -31,7 +31,6 @@
  		<th class="th1">이름</th>
  		<th class="th1">핸드폰번호</th>
  		<th class="th1">직위</th>
- 		<th class="th1">관리</th>
  	</thead>
  	<tbody>
  	<%
@@ -44,9 +43,6 @@
  			<td class="th2"><%=adminBean.getName()%></td>
  			<td class="th2"><%=adminBean.getPhone()%></td>
  			<td class="th2"><%=adminBean.getRank()%></td>
- 			<td class="th2" style="align:center">
-    		  <a class="btn" href="javascript:SendBook('<%=adminBean.getAdmin_id()%>')">상세정보</a>
-      		</td>
     	 </tr>
      
  	<%}%>
