@@ -5,8 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>전체관리자</title>
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
@@ -17,10 +15,14 @@
      $("#tablesort").dataTable();
  });
  </script>
+<meta charset="UTF-8">
+<title>전체관리자</title>
+
 </head>
 <body>
 <%@ include file="Top.jsp" %> 
 <%@ include file="Setside.jsp" %>
+<%@ include file="AdminTop.jsp" %>
 <br><br>
 
 <%Vector vAdmin = amMgr.getAdminList(); %>

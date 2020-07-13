@@ -24,7 +24,8 @@ public class AdminSet {
             System.out.println("Error !!");
         }
     }
-
+    
+ 
     public boolean adminCheck(String admin_id, String admin_passwd) {
         Connection con = null;
         PreparedStatement pstmt = null;
