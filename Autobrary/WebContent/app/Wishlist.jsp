@@ -15,10 +15,9 @@ for(int i = 0; i<vResult.size(); i++) {
 
 	JSONObject data = new JSONObject(); 
 	data.put("wish_id", wishBean.getWish_id());
-	data.put("mem_id", wishBean.getMem_id());
 	data.put("book_name", wishBean.getName());
-	data.put("author", wishBean.getAuthor());
-	data.put("publisher", wishBean.getPublisher());
+	data.put("book_author", wishBean.getAuthor());
+	data.put("publish", wishBean.getPublisher());
 	data.put("status", wishBean.getStatus());
 	data.put("wish_date", wishBean.getWish_date());
 
