@@ -56,9 +56,13 @@ String mem_id = memMgr.findId(name, birth, email);
 				<div>
 					<p style="font-size:15px;">회원님의 정보와 일치하는 아이디입니다.</p><br>
 				</div>
+				<%
+					MemBean memBean = memMgr.getMember(mem_id);
+					String date = memBean.getMem_date(); //가입일 가져오기
+				%>
 				<div style="border:#BDBDBD solid 1px;" class="pt-3 pl-4">
 					<table class="table table-borderless">
-						<tr><th>아이디</th><td><%=mem_id %></td> <th>가입일</th> <td><%=birth %></td> </tr>
+						<tr><th>아이디</th><td><%=mem_id %></td> <th>가입일</th> <td><%=date %></td> </tr>
 					</table>
 				</div>
 				<div style="text-align:right;" class="mt-4">
