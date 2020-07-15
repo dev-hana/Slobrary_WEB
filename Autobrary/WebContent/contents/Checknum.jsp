@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/CND.jsp" %>
 <%@ page import="java.util.*, database.*"%>
 <jsp:useBean id="memMgr" class="database.MemMgr" />
 <%
@@ -11,22 +12,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<!-- 아이콘 -->
-<link rel="shortcut icon" href="../img/favicon.ico">
-
-<!-- 자바 스크립트 -->
-<script type="text/javascript" src="/js/formneeds.js"></script>
-
-<!-- 웹폰트 -->
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
-    
-<!-- 부트스트랩 -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
 <style>
 * {
     font-family: 'Noto Sans KR', sans-serif;
@@ -48,11 +33,11 @@ label {
 }
 
 </style>
-
+<jsp:include page="../Top.jsp" flush="false"/>
 <title>비밀번호 찾기</title>
 </head>
 <body class="bg-light">
-	<div class="container-fluid">
+	<div class="container-fluid mt-4">
 		<div class="row justify-content-md-center">
 			<div class="col-sm-4 shadow-sm p-3 mb-5 bg-white p-5">
 				<div class="title">

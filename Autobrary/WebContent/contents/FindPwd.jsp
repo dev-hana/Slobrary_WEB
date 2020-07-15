@@ -47,7 +47,7 @@ label {
 </head>
 <body class="bg-light">
 <jsp:include page="../Top.jsp" flush="false"/>
-	<div class="container-fluid">
+	<div class="container-fluid mt-5">
 		<div class="row justify-content-md-center mt-5">
 			<div class="col-xl-4 shadow-sm p-3 mb-5 bg-white p-5">
 				<div class="title">
