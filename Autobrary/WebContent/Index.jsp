@@ -112,48 +112,42 @@ String mem_id = (String)session.getAttribute("loginKey");
 						<div class="col-xs-6">
 							<div class="bookshelf container">
 								<div class="row ml-5 mr-5">
-									<div class="col-4 book">
+								<%
+								Vector vResult = bookMgr.getBestList6();
+								for(int i = 0; i<3; i++){
+									BestBean bestBean = (BestBean)vResult.get(i);
+									BookBean bookBean = bookMgr.getBook(bestBean.getId_num());
+								
+								%>
+								<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 1"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"
+											alt="<%=bestBean.getId_num() %>"> <span class="border"></span>
 										</a>
-									</div>
-									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 2"> <span class="border"></span>
-										</a>
-									</div>
-									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 3"> <span class="border"></span>
-										</a>
-									</div>
+								</div>
+								
+								<% }%>
+									
 								</div>
 								<div class="row mb-4 ml-4 mr-4">
 									<div class="rounded shelf shadow"></div>
 								</div>
 
 								<div class="row ml-5 mr-5">
-									<div class="book col-4">
+									<%
+								for(int i = 3; i<6; i++){
+									BestBean bestBean = (BestBean)vResult.get(i);
+									BookBean bookBean = bookMgr.getBook(bestBean.getId_num());
+								
+								%>
+								<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 4"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"
+											alt="<%=bestBean.getId_num() %>"> <span class="border"></span>
 										</a>
-									</div>
-									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 5"> <span class="border"></span>
-										</a>
-									</div>
-									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 6"> <span class="border"></span>
-										</a>
-									</div>
+								</div>
+								
+								<% }%>
 								</div>
 								<div class="row mb-4 ml-4 mr-4">
 									<div class="rounded shelf shadow"></div>
