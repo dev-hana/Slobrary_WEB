@@ -96,6 +96,34 @@ public class BookMgr {
         return vecList;
     }
     
+    public Vector getBestList6() {
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select * from bestseller order by best_date desc LIMIT 6 ";
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(strQuery);
+
+            while (rs.next()) {
+                BestBean bestBean = new BestBean();
+                bestBean.setBest_id(rs.getString("best_id"));
+                bestBean.setAdmin_id(rs.getString("admin_id"));
+                bestBean.setId_num(rs.getString("book_id"));
+                bestBean.setAdd_date(rs.getString("best_date"));
+                vecList.add(bestBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, stmt, rs);
+        }
+        return vecList;
+    }
+    
     
     
     public Vector getWishList(String mem_id) {
@@ -109,6 +137,38 @@ public class BookMgr {
             String strQuery = "select * from wish_list where mem_id = ? ";
             pstmt = con.prepareStatement(strQuery);
             pstmt.setString(1, mem_id);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+            	 WishBean wishBean = new WishBean();
+                 wishBean.setWish_id(rs.getString("wish_id"));
+                 wishBean.setMem_id(rs.getString("mem_id"));
+                 wishBean.setName(rs.getString("book_name"));
+                 wishBean.setAuthor(rs.getString("book_author"));
+                 wishBean.setPublisher(rs.getString("publish"));
+                 wishBean.setWish_date(rs.getString("wish_date"));
+                 wishBean.setStatus(rs.getString("status"));
+                 vecList.add(wishBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return vecList;
+    }
+    
+    public Vector getWishListall() {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+        
+        try {
+            con = pool.getConnection();
+            String strQuery = "select * from wish_list ";
+            pstmt = con.prepareStatement(strQuery);
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
@@ -571,7 +631,5 @@ public class BookMgr {
 
         return vecList;
     }
-    
-    
 
 }

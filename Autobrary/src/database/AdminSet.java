@@ -24,7 +24,8 @@ public class AdminSet {
             System.out.println("Error !!");
         }
     }
-
+    
+ 
     public boolean adminCheck(String admin_id, String admin_passwd) {
         Connection con = null;
         PreparedStatement pstmt = null;
@@ -79,6 +80,8 @@ public class AdminSet {
         }
         return flag;
     }
+    
+  
 
     
     public AdminBean getName(String admin_id) {
