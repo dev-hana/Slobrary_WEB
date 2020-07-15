@@ -111,23 +111,35 @@ String mem_id = (String)session.getAttribute("loginKey");
 						</div>
 						<div class="col-xs-6">
 							<div class="bookshelf container">
+							<%
+							Vector vResult = bookMgr.getBestList6();
+							String bestImage[] = new String [6];
+							String bestId[] = new String [6];
+							for(int i = 0; i<vResult.size(); i++){
+								BestBean bestBean = (BestBean)vResult.get(i);
+								BookBean bookBean = bookMgr.getBook(bestBean.getId_num());
+								bestImage[i] = bookBean.getImage();
+								bestId[i] = bestBean.getId_num();
+							}
+							
+							%>
 								<div class="row ml-5 mr-5">
 									<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 1"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[0])%>"
+											alt="<%=bestId[0] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 2"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[1])%>"
+											alt="<%=bestId[1] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 3"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[2])%>"
+											alt="<%=bestId[2] %>"> <span class="border"></span>
 										</a>
 									</div>
 								</div>
@@ -138,20 +150,20 @@ String mem_id = (String)session.getAttribute("loginKey");
 								<div class="row ml-5 mr-5">
 									<div class="book col-4">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 4"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[3])%>"
+											alt="<%=bestId[3] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 5"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[4])%>"
+											alt="<%=bestId[4] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover2.jpg"
-											alt="베스트 6"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[5])%>"
+											alt="<%=bestId[5] %>"> <span class="border"></span>
 										</a>
 									</div>
 								</div>
