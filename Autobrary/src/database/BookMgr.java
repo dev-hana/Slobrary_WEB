@@ -603,7 +603,5 @@ public class BookMgr {
 
         return vecList;
     }
-    
-    
 
 }
