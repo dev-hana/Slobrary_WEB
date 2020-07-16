@@ -124,6 +124,33 @@ public class BookMgr {
         return vecList;
     }
     
+    public Vector getNewList6() {
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select distinct image, id_num, add_date from book_info order by add_date LIMIT 6 ";
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(strQuery);
+
+            while (rs.next()) {
+                BookBean bookBean = new BookBean();
+                bookBean.setImage(rs.getString("image"));
+                bookBean.setId_num(rs.getString("id_num"));
+               
+                vecList.add(bookBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, stmt, rs);
+        }
+        return vecList;
+    }
+    
     
     
     public Vector getWishList(String mem_id) {

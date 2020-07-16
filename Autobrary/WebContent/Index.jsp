@@ -45,23 +45,35 @@ String mem_id = (String)session.getAttribute("loginKey");
 						</div>
 						<div class="col-xs-6">
 							<div class="bookshelf container">
+							<%
+							//신간 도서 6개
+							Vector vNew = bookMgr.getNewList6();
+							String newImage[] = new String [6];
+							String newId[] = new String [6];
+							for(int i = 0; i<vNew.size(); i++){
+								BookBean bookBean = (BookBean)vNew.get(i);
+								newImage[i] = bookBean.getImage();
+								newId[i] = bookBean.getId_num();
+							}
+							
+							%>
 								<div class="row ml-5 mr-5">
 									<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover3.jpg"
-											alt="신간 1"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[0])%>"
+											alt="<%=newId[0] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover3.jpg"
-											alt="신간 2"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[1])%>"
+											alt="<%=newId[1] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover3.jpg"
-											alt="신간 3"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[2])%>"
+											alt="<%=newId[2] %>"> <span class="border"></span>
 										</a>
 									</div>
 								</div>
@@ -72,20 +84,20 @@ String mem_id = (String)session.getAttribute("loginKey");
 								<div class="row ml-5 mr-5">
 									<div class="book col-4">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover3.jpg"
-											alt="신간 4"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[3])%>"
+											alt="<%=newId[3] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover3.jpg"
-											alt="신간 5"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[4])%>"
+											alt="<%=newId[4] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
 										<a class="thumbnail_image shadow" href="#"> <img
-											class="thumbnail" src="/img/main-ex/bookcover3.jpg"
-											alt="신간 6"> <span class="border"></span>
+											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[5])%>"
+											alt="<%=newId[5] %>"> <span class="border"></span>
 										</a>
 									</div>
 								</div>
