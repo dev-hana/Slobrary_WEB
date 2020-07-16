@@ -565,6 +565,67 @@ public class BookMgr {
         return vecList;
     }
     
+    
+    
+    public LoanBean getLoannew(String mem_id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        LoanBean loanBean = null;
+        String status = "대출";
+        
+        try {
+            con = pool.getConnection();
+            String strQuery = "select id_num from book_loan where mem_id = ? and status = ? order by loan_date LIMIT 1 ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, mem_id);
+            pstmt.setString(2, status);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+            	loanBean = new LoanBean();
+            	
+            	loanBean.setId_num(rs.getString("id_num"));
+            	
+
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return loanBean;
+    }
+    
+    public String countLoan(String mem_id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String status = "대출";
+        String count="0";
+        
+        try {
+            con = pool.getConnection();
+            String strQuery = "select count(*) from book_loan where mem_id = ? and status = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, mem_id);
+            pstmt.setString(2, status);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+            	count = rs.getString("count(*)");
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return count;
+    }
+    
+   
    
     
     public Vector getReturn(String mem_id) {
