@@ -46,7 +46,7 @@ table.type03 td {
 <body>
 <%@ include file="Top.jsp" %> 
 <br><br>
-<form name="redForm" method="post" action="UpdateBProc.jsp" enctype="multipart/form-data">
+<form name="redForm" method="post" action="WishMgr.jsp" enctype="multipart/form-data">
 <table class="type03" style="margin-left:auto; margin-right:auto;">
     <tr>
         <th scope="row">신청번호</th>
@@ -75,7 +75,23 @@ table.type03 td {
     <tr>
         <th scope="row">신청현황</th>
         <td>
-        
+        	<%=wishBean.getStatus() %>
+        </td>
+    </tr>
+</table>
+
+<div style="text-align:center;">
+<input type="submit" class="btn" value="확인">
+</div>
+</form>
+
+
+<br><br>
+<form method="post" action="UpdateWishStatus.jsp">
+<table class="type03" style="margin-left:auto; margin-right:auto;">
+    <tr>
+    <th>신청 현황 변경</th>
+        <td>
         	<select name="status" id="status">
         		<option value="신청중">신청중</option>
         		<option value="접수평가">접수평가</option>
@@ -83,19 +99,15 @@ table.type03 td {
         		<option value="등록완료">등록완료</option>
         		<option value="인계완료">인계완료</option>
         	</select>
-        	<script>
-        	
-        	$('#status').val('<%=wishBean.getStatus()%>').prop("selected", true);
-        	</script>
         </td>
     </tr>
 </table>
-
 <div style="text-align:center;">
-<input type="submit" class="btn" value="수정완료">
-<input type="hidden" name="id_num" value="<%=wish_id %>">
+<input type="submit" class="btn" value="현황 수정">
+<input type="hidden" name="wish_id" value="<%=wish_id %>">
 </div>
 </form>
+
 <%@ include file="Bottom.jsp" %>
 </body>
 </html>

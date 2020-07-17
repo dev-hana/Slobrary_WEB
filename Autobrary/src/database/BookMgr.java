@@ -253,6 +253,32 @@ public class BookMgr {
         return wishBean;
     }
     
+    public boolean updateWish(String wish_id, String status) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        boolean flag = false;
+        
+        try {
+            con = pool.getConnection();
+            String strQuery = "update wish_list set status = ? where wish_id=? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, status);
+            pstmt.setString(2, wish_id);
+
+            int count = pstmt.executeUpdate();
+            if (count == 1) flag = true;
+            	
+            
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return flag;
+    }
+    
     public Vector getReturnForandroid(String mem_id) {
     	Connection con = null;
         PreparedStatement pstmt = null;
