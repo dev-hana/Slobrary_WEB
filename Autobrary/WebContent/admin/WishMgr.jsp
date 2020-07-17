@@ -22,7 +22,7 @@
 </head>
 <body>
 <%@ include file="Top.jsp" %> 
-<%@ include file="Bookside.jsp" %>
+<%@ include file="Setside.jsp" %>
 <br><br>
 
 
