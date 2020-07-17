@@ -66,7 +66,7 @@
 
 <%@ include file="Bottom.jsp" %>
 
-<form name="sendBook" method="post" action="Bookdetail.jsp">
+<form name="sendBook" method="post" action="Wishdetail.jsp">
 <input type=hidden name="id_num">
 </form>
 </body>
