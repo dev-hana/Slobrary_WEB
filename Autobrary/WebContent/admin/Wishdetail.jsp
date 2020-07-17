@@ -77,7 +77,7 @@ table.type03 td {
         <td>
         
         	<select name="status" id="status">
-        		<option value="신청중" selected="selected">신청중</option>
+        		<option value="신청중">신청중</option>
         		<option value="접수평가">접수평가</option>
         		<option value="구입">구입</option>
         		<option value="등록완료">등록완료</option>
@@ -85,7 +85,7 @@ table.type03 td {
         	</select>
         	<script>
         	
-        	$("#status").val("<%=wishBean.getStatus()%>").prop("selected", true);
+        	$('#status').val('<%=wishBean.getStatus()%>').prop("selected", true);
         	</script>
         </td>
     </tr>
