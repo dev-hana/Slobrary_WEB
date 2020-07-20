@@ -37,7 +37,7 @@
 					</div>
 				</div>
 				
-				<div class="mt-2 pr-2 pl-2" style="display: inline-block;">
+				<div class="mt=-2 pr-2 pl-2" style="display: inline-block;">
 					<table>
 						<tr>
 							<td rowspan="6" class="p-2 pl-3 pr-3 pb-2 mr-2"><img width="130" height="170" alt="이미지가 없습니다." src="/img/book2.jpg"></td>
@@ -109,8 +109,8 @@
 						<h6>이 책과 저자가 같은(동명인) 도서</h6>
 					</span>
 				</div>
-				<div class="pl-2 pr-2"">
-					<table class="table table-borderless pl-2 pr-2 bt ">
+				<div class="pl-2 pr-2">
+					<table class="table table-borderless pl-2 pr-2 bt">
 						<tr>
 							<td class="pt-4">
 								<img width="115" height="160" alt="이미지가 없습니다." src="/img/ex1.jpg">

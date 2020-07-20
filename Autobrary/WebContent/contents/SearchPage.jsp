@@ -6,50 +6,41 @@
 <head>
 <meta charset="UTF-8">
 <title>SLO-도서검색</title>
- 
-<!-- 셀렉트 박스 화살표 -->
-<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
-<!-- css -->
-<link rel="stylesheet" href="../css/SearchPage.css"> 
-<link href="/css/index.css" rel="stylesheet">
+<%
+	String category = "자료검색";
+	String pageNames = "도서검색, 신간도서, 베스트셀러";
+	String pageUrls = "SearchPage.jsp?contentPage=BookSearch.jsp, SearchPage.jsp?contetPage=Booklist.jsp?new, SearchPage.jsp?contentPage=Booklist.jsp?best";
+	String currentPage = "자료검색";
+	request.setCharacterEncoding("UTF-8");
+	
+	String contentPage=request.getParameter("contentPage");
+	if(contentPage==null){
+		contentPage="BookSearch.jsp";
+	}
+%>
 </head>
 
-<body class="bg-light">
-	<jsp:include page="../Top.jsp" flush="false"/>
-
-	<div class="container-fluid">
-		<div class="row mt-3 pt-4 justify-content-md-center">
-			<div class="col-xl-7 p-5">
-			<form action="SearchList.jsp" method="post" target="list">
-			<div style="text-align:center">
-			  <div style="display: inline-block" class="sel sel--black-panther">
- 				 <select name="keyoption" id="select-profession">
-  					<option value="all">전체</option>
-  					<option value="all">전체</option>
-    				<option value="title">도서명</option>
-    				<option value="author">저자</option>
-    				<option value="publisher">출판사</option>
-  				</select>
-				</div>
-				<div style="display: inline-block" class="col-xl-6 p-2 bg-white rounded rounded-pill shadow-sm mb-4">
-     				<div class="input-group">
-         				<input name="keyword" type="search" placeholder="도서 검색 (책 이름, 작가명, 출판사명)" aria-describedby="button-addon" class="form-control border-0 bg-white">
-             			<div class="input-group-append">
-               				<button id="button-addon" onclick="iframeshow()" type="submit" class="btn btn-link"><i class="fa fa-search"></i></button>
-             			</div>
-         			</div>
-  				</div>
+<body>
+	<header>
+		<jsp:include page="/Top.jsp" flush="false" />
+	</header>
+	<div class="container-fluid mb-5">
+		<div class="row mt-4 pt-4 justify-content-md-center">
+			<div class="col-xl-3 overflow-auto">
+				<jsp:include page="/SideMenuBar.jsp" flush="false">
+				<jsp:param name="category" value="<%=category%>"/>
+				<jsp:param name="pageNames" value="<%=pageNames%>"/>
+				<jsp:param name="pageUrls" value="<%=pageUrls%>"/>
+				<jsp:param name="currentPage" value="<%=currentPage%>"/>
+				</jsp:include>
 			</div>
-			</form>
+			<div class="col-xl-8 mt-3 p-3" style="margin-left: -4rem;">
+				<jsp:include page="<%=contentPage %>" flush="false" />
 			</div>
 		</div>
-	<div>
-		<iframe id="the_iframe" onload="calcHeight();" name="list" title="도서검색결과" frameborder="0" scrolling="no" style="display:none; overflow-x:hidden; overflow:auto; width:100%;"></iframe>
 	</div>
-</div>
-
- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
- <script src="/js/SearchPage.js"></script>
-
+	<jsp:include page="/Footer.jsp" flush="false" />
 </body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
 </html>

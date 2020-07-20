@@ -6,7 +6,7 @@
 <html>
 <head>
 <title>Footer</title>
-<link href="css/footer.css" rel="stylesheet">
+<link href="/css/footer.css" rel="stylesheet">
 </head>
 <body>
 	<footer class="site-footer">

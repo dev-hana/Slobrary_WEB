@@ -62,8 +62,8 @@ function calcHeight(){
 }
 
 function iframeshow(){
-    if($('#the_iframe').css('display') == 'none'){
-    $('#the_iframe').show();
+if($('#the_iframe').css('display') == 'none'){
+    	$('#the_iframe').show();
 }else{
     $('#the_iframe').show();
 }
