@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link href="../css/allNeed.css" rel="stylesheet">
+	<!-- 웹폰트 -->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
+	<!-- 아이콘 라이브러리-->
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<style>
+		p {
+			line-height: 30px;
+		}
+
+		/*	header 	*/
+		header {
+			background: #f9d9eb;
+			padding-top: 60px;
+			padding-left: 50px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		header img {
+			width: 500px;
+			padding-top: 60px;
+		}
+
+		header p {
+			width: 400px;
+			padding-top: 35px;
+			text-align: left;
+			word-break: keep-all;
+		}
+
+		/*	nav 	*/
+		nav {
+			background-color: #f9d9eb;
+			border-bottom: 1.5px solid #cf1f80;
+			z-index: 10;
+		}
+
+		nav a {
+			padding: 10px;
+			color: #cf1f80;
+			opacity: 0.6;
+			margin: 0px auto;
+		}
+
+		nav a:hover {
+			color: #cf1f80;
+			text-decoration: none;
+			opacity: 1;
+		}
+
+		nav .active {
+			opacity: 1;
+		}
+
+		.sticky {
+			position: fixed;
+			top: 0;
+			width: 100%;
+		}
+
+		.sticky+.content {
+			padding-top: 60px;
+		}
+
+		/*	main 	*/
+		main {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-content: center;
+		}
+
+		main h2 {
+			width: 80%;
+			min-width: 350px;
+			font-size: 2em;
+			border-left: 2px solid #cf1f80;
+			padding-left: 20px;
+			margin: 10px 0px;
+		}
+
+		/*	HowToUse 	*/
+		.howToUse {
+			padding: 30px 50px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.tab-HowToUse {
+			margin: 20px 40px;
+			padding: 30px 50px;
+			width: 70%;
+			min-width: 500px;
+			height: 530px;
+			background-color: #f9d9eb;
+			border-radius: 10px;
+			-webkit-box-shadow: 10px 3px 38px -21px rgba(0, 0, 0, 0.52);
+			-moz-box-shadow: 10px 3px 38px -21px rgba(0, 0, 0, 0.52);
+			box-shadow: 10px 3px 38px -21px rgba(0, 0, 0, 0.52);
+		}
+
+		.tab-HowToUse .nav-link {
+			border-radius: 0px;
+			color: #fff;
+			background-color: #cf1f80;
+			opacity: 0.6;
+		}
+
+		.tab-HowToUse .nav-link:hover {
+			opacity: 0.8;
+		}
+
+
+		.tab-HowToUse .nav-link.active {
+			background: #cf1f80;
+			opacity: 1;
+		}
+
+		.tab-HowToUse .tab-img {
+			padding-top: 20px;
+			width: 420px;
+			display: block;
+			margin: 0px auto;
+		}
+
+		#step4 img {
+			padding: 50px 30px;
+		}
+
+		.tab-content p {
+			width: 420px;
+			display: block;
+			margin: 0px auto;
+			text-align: center;
+			word-break: keep-all;
+		}
+
+		/*	becomeMember 	*/
+		.becomeMember {
+			padding: 30px 0px;
+			text-align: center;
+		}
+
+		.becomeMember b {
+			font-size: 1.6em;
+		}
+
+		.becomeMember .card {
+			margin-top: 50px;
+			margin-bottom: 20px;
+			padding: 0px 10px;
+			border: none;
+		}
+
+		.becomeMember .card:nth-child(2) {
+			border-right: 1px solid lightgray;
+			border-left: 1px solid lightgray;
+		}
+
+		.becomeMember .card-icon {
+			width: 80px;
+			height: 80px;
+			margin: 0px auto;
+			line-height: 75px;
+			color: #fff;
+			font-size: 2.5em;
+			border-radius: 75px;
+			background-color: #cf1f80;
+		}
+
+		.becomeMember .card-icon:after {
+			content: "";
+			display: block;
+			width: 45px;
+			border-bottom: 1.8px solid #cf1f80;
+			padding-top: 30px;
+			margin: 0px auto;
+		}
+
+		.becomeMember .card-body {
+			margin: 20px;
+		}
+
+		.becomeMember .card-text {
+			max-width: 250px;
+			margin-top: 20px;
+			font-size: 0.9em;
+			text-align: left;
+		}
+
+		.becomeMember .btn {
+			float: right;
+			font-size: 1.2em;
+			border-color: #cf1f80;
+			color: #cf1f80;
+		}
+
+		.becomeMember .btn:hover {
+			color: #fff;
+			background-color: #cf1f80;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<div class="welcome-text">
+			<h1>SLOBRARY에 어서오세요!</h1>
+			<p>
+				음식도 점원 없이 사먹는 자동화 시대, 사서 없는 도서관을 상상해보신적이 있으신가요?<br>
+				Team SLO는 변화하는 시대에 맞추어 도서관도 변해야한다고 생각했습니다.<br>
+				SLOBRARY는 사람과의 거리 유지가 필요한 지금,
+				편리함과 빠른 속도로 <b>비대면 도서 대출/반납 서비스</b>를 제공합니다.
+			</p>
+		</div>
+		<img class="img-deco" src="infoPage-welcome.png" alt="">
+	</header>
+
+	<nav class="navbar">
+		<a class="active" href="#howToUse">이용 안내</a>
+		<a href="#bookCommunity">도서 커뮤니티</a>
+		<a href="#becomeMember">회원가입</a>
+		<a href="#downloadAPP">앱 설치</a>
+		<a href="/Index.jsp">웹사이트</a>
+	</nav>
+	<main>
+		<div class="howToUse">
+			<div id="howToUse" class="p-5 w-100"></div>
+			<h2>도서관 이용 안내</h2>
+			<div class="tab-HowToUse">
+				<ol class="nav nav-pills nav-justified" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" data-toggle="tab" href="#step1">
+							회원카드
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#step2">
+							대출
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#step3">
+							반납
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#step4">
+							보안
+						</a>
+					</li>
+				</ol>
+
+				<div class="tab-content">
+					<div class="tab-pane fade show active" id="step1">
+						<img class="tab-img" src="infoPage-getCard.png" alt="">
+						<p>
+							먼저 도서관에 들려, 회원카드를 발급해주세요.<br>
+							신분증을 지참하셔야 회원카드 발급이 가능합니다.<br>
+							SLOBRARY를 이용하려면 회원카드가 꼭 필요해요!
+						</p>
+					</div>
+					<div class="tab-pane fade" id="step2">
+						<img class="tab-img" src="infoPage-loan.png" alt="">
+						<p>
+							도서관에서 읽고싶은 책을 고르고 가방에 담아 바로 출구로 나가면 대출이 가능합니다.
+						</p>
+					</div>
+					<div class="tab-pane fade" id="step3">
+						<img class="tab-img" src="infoPage-return.png" alt="">
+						<p>
+							도서관 재방문 시 대출했던 책과 회원카드를 가지고 도서관 입구로 들어오세요!<br>
+							회원카드의 대출 기록을 확인한 후 자동으로 반납 처리 됩니다.<br>
+							반납된 책은 입구 옆에 위치한 북카트에 넣어주세요.
+						</p>
+					</div>
+					<div class="tab-pane fade" id="step4">
+						<img class="tab-img" src="infoPage-security.png" alt="">
+						<p>
+							도서관 출입 혹은 퇴실 시,
+							경보가 울리며 문이 닫힌다면 당황하지 마시고
+							회원카드가 있는지 확인해주세요.<br>
+							이후 직원의 안내에 따라주시면 됩니다.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="becomeMember">
+			<div id="becomeMember" class="p-5"></div>
+			<b>회원가입 후, 도서관을 더 편리하게 이용하세요!</b>
+			<div class="card-group">
+				<div class="card">
+					<i class="fas fa-book-reader card-icon"></i>
+					<div class="card-body">
+						<b class="card-title">
+							나의 책장
+						</b>
+						<p class="card-text">
+							내가 현재 대출한 도서와 연체까지 남은 날짜를 확인할 수 있습니다.<br>
+							나의 도서관 이용 기록과 내가 읽었던 책의 정보를 확인할 수 있습니다.<br>
+							읽고 싶은 책을 찜해두는 위시리스트 기능을 사용할 수 있습니다.
+						</p>
+					</div>
+				</div>
+				<div class="card">
+					<i class="fas fa-book card-icon"></i>
+					<div class="card-body">
+						<b class="card-title">
+							도서 검색 및 신청
+						</b>
+						<p class="card-text">
+							읽고 싶은 책이 도서관에 있는지 확인할 수 있고, 대출 가능 여부를 확인할 수 있습니다.<br>
+							없는 책이라면, 희망도서로 신청할 수 있습니다.
+						</p>
+					</div>
+				</div>
+				<div class="card">
+					<i class="fas fa-star card-icon"></i>
+					<div class="card-body">
+						<b class="card-title">
+							추천 도서
+						</b>
+						<p class="card-text">
+							읽고 싶은 책이 없다면, SLOBRARY가 추천하는 책들을 둘러보세요!<br>
+							매주 관리자가 엄선하여 책을 골라드립니다.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<a class="btn btn-outline-dark" href="">회원가입</a>
+		</div>
+
+
+		<h2>도서 커뮤니티</h2>
+		<p>
+			읽은 책이 재미있었거나 마음에 들지 않았다면, 여러분의 독서 경험을 다른 도서관 이용자에게 공유해주세요 <br>
+			SLOBrary 웹 사이트나 어플리케이션에서 간단한 회원 가입 후 이용 가능합니다.
+			<!-- card layout -->
+			4. 독서일기
+			5. 도서 별점 남기기
+			6. 독후감 쓰기
+		</p>
+	</main>
+	<footer>
+		<h1>도서 대출의 새로운 패러다임, SLOBRARY를 지금 시작 해보세요!</h1>
+		<a href="#">회원가입하기</a>
+		<a href="#" onclick="_blank">어플깔기(playstore link)</a>
+		All Illustration by <a href="undefined">Natasha Remarchuk</a> from <a href="https://icons8.com/">Icons8</a>
+	</footer>
+
+	<script>
+		const mainNav = document.querySelector("nav");
+		const sticky = mainNav.offsetTop;
+
+		window.onscroll = function() {
+			stickNavbar()
+		};
+
+		function stickNavbar() {
+			if (window.pageYOffset + 10 >= sticky) {
+				mainNav.classList.add("sticky")
+			} else {
+				mainNav.classList.remove("sticky");
+			}
+		}
+	</script>
+</body></html>
