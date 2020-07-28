@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, database.*"%>
+<jsp:useBean id="bookMgr" class="database.BookMgr" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +12,8 @@
 <link href="/css/wishBookPage.css" rel="stylesheet">
 </head>
 <body>
-<header>
+ </form>
+	<header>
 		<jsp:include page="/Top.jsp" flush="false" />
 	</header>
 	<div class="applyForWishBook">
@@ -21,8 +25,8 @@
 				현재 SLOBRARY에서는 <b>0</b>권의 책을 읽을 수 있어요!
 			</small>
 			<br>
-			내가 읽고 싶은 책, 다른 사람들에게 추천하고 싶은 책이<br>
-			SLOBRARY에 없다면
+			내가 읽고 싶은 책, 다른 사람들에게 추천하고 싶은 책,<br>
+			SLOBRARY에 없다면?
 			<span class="sr-only">
 				희망도서를 신청하세요!
 			</span>
@@ -32,7 +36,44 @@
 	
 	<div class="myApplyList">
 		<h1>나의 신청 내역</h1>
-		<!-- 구상중 -->
+	<%
+		String mem_id = (String)session.getAttribute("loginKey");
+		if(mem_id==null) {
+	%>
+		<div class="contents ">
+			<p>로그인 후 이용해주세요</p> 
+			<a href="/Login.jsp">로그인</a>
+		</div>
+	<%} else{
+		Vector List = bookMgr.getWishList(mem_id); %>
+		<table class="table contents">
+			<thead>
+				<tr>
+					<th scope="col">번호</th>
+      				<th scope="col">도서명</th>
+      				<th scope="col">저자명</th>
+      				<th scope="col">출판사</th>
+      				<th scope="col">상태</th>
+      				<th scope="col">신청날짜</th>
+      			</tr>
+			</thead>
+			<tbody>
+		<%
+			for(int i = 0; i<List.size(); i++) {
+				WishBean wishBean = (WishBean)List.get(i);
+		%>      
+				<tr>
+      				<th scope="row"><%=i + 1 %></th>
+      				<td><%=wishBean.getName() %></td>
+      				<td><%=wishBean.getAuthor() %></td>
+      				<td><%=wishBean.getPublisher() %></td>
+      				<td><%=wishBean.getStatus() %></td>
+      				<td><%=wishBean.getWish_date() %></td>
+   				</tr>
+   		<%}%>
+   			</tbody>
+		</table>
+	<% } %>
 	</div>
 	
 	<div class="howToApply">
