@@ -67,12 +67,21 @@ String mem_id = (String)session.getAttribute("loginKey");
                                             <a class="dropdown-item" href="#">시설 이용</a>
                                         </div>
                                     </li>
+                                    
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">이용안내</a>
+                                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdown03">
+                                            <a class="dropdown-item" href="#">도서 별점</a>
+                                            <a class="dropdown-item" href="#">독서 일기</a>
+                                            <a class="dropdown-item" href="#">독후감</a>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">이용안내</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdown04">
                               
-                                       		<a class="dropdown-item" href="#">도서관 소개</a>                                       	                                
-                                            <a class="dropdown-item" href="#">대출 및 반납</a>
+                                       		<a class="dropdown-item" href="/html/infoPage.html">도서관 소개</a>
                                             <a class="dropdown-item" href="/contents/QnAPage.jsp">자주 물어보는 질문</a>
                                         </div>
                                     </li>
