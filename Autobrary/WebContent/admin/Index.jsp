@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Autobrary Admin Main</title>
+<title>관리자페이지</title>
  <link rel="shortcut icon" href="/img/favicon.ico">
 </head>
 <body>
