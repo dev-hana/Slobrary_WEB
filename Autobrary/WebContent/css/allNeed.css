@@ -1,10 +1,17 @@
 @charset "UTF-8";
 
+:root {
+	--main-color: #A593E0;
+	--main-color-light: #cbc1ee;
+	--main-color-dark: #6f53ce;
+
+}
+
 * {
-    font-family: 'Noto Sans KR', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .container {
-  width: 1200px;
-  max-width: none !important;
+	width: 1200px;
+	max-width: none !important;
 }

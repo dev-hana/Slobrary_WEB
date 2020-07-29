@@ -3,9 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-
-	<link href="../css/allNeed.css" rel="stylesheet">
+	<title>Slobrary - 이용안내</title>
 	<!-- 웹폰트 -->
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
 	<!-- 아이콘 라이브러리-->
@@ -14,206 +12,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<style>
-		p {
-			line-height: 30px;
-		}
-
-		/*	header 	*/
-		header {
-			background: #f9d9eb;
-			padding-top: 60px;
-			padding-left: 50px;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-		}
-
-		header img {
-			width: 500px;
-			padding-top: 60px;
-		}
-
-		header p {
-			width: 400px;
-			padding-top: 35px;
-			text-align: left;
-			word-break: keep-all;
-		}
-
-		/*	nav 	*/
-		nav {
-			background-color: #f9d9eb;
-			border-bottom: 1.5px solid #cf1f80;
-			z-index: 10;
-		}
-
-		nav a {
-			padding: 10px;
-			color: #cf1f80;
-			opacity: 0.6;
-			margin: 0px auto;
-		}
-
-		nav a:hover {
-			color: #cf1f80;
-			text-decoration: none;
-			opacity: 1;
-		}
-
-		nav .active {
-			opacity: 1;
-		}
-
-		.sticky {
-			position: fixed;
-			top: 0;
-			width: 100%;
-		}
-
-		.sticky+.content {
-			padding-top: 60px;
-		}
-
-		/*	main 	*/
-		main {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-content: center;
-		}
-
-		main h2 {
-			width: 80%;
-			min-width: 350px;
-			font-size: 2em;
-			border-left: 2px solid #cf1f80;
-			padding-left: 20px;
-			margin: 10px 0px;
-		}
-
-		/*	HowToUse 	*/
-		.howToUse {
-			padding: 30px 50px;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-		}
-
-		.tab-HowToUse {
-			margin: 20px 40px;
-			padding: 30px 50px;
-			width: 70%;
-			min-width: 500px;
-			height: 530px;
-			background-color: #f9d9eb;
-			border-radius: 10px;
-			-webkit-box-shadow: 10px 3px 38px -21px rgba(0, 0, 0, 0.52);
-			-moz-box-shadow: 10px 3px 38px -21px rgba(0, 0, 0, 0.52);
-			box-shadow: 10px 3px 38px -21px rgba(0, 0, 0, 0.52);
-		}
-
-		.tab-HowToUse .nav-link {
-			border-radius: 0px;
-			color: #fff;
-			background-color: #cf1f80;
-			opacity: 0.6;
-		}
-
-		.tab-HowToUse .nav-link:hover {
-			opacity: 0.8;
-		}
-
-
-		.tab-HowToUse .nav-link.active {
-			background: #cf1f80;
-			opacity: 1;
-		}
-
-		.tab-HowToUse .tab-img {
-			padding-top: 20px;
-			width: 420px;
-			display: block;
-			margin: 0px auto;
-		}
-
-		#step4 img {
-			padding: 50px 30px;
-		}
-
-		.tab-content p {
-			width: 420px;
-			display: block;
-			margin: 0px auto;
-			text-align: center;
-			word-break: keep-all;
-		}
-
-		/*	becomeMember 	*/
-		.becomeMember {
-			padding: 30px 0px;
-			text-align: center;
-		}
-
-		.becomeMember b {
-			font-size: 1.6em;
-		}
-
-		.becomeMember .card {
-			margin-top: 50px;
-			margin-bottom: 20px;
-			padding: 0px 10px;
-			border: none;
-		}
-
-		.becomeMember .card:nth-child(2) {
-			border-right: 1px solid lightgray;
-			border-left: 1px solid lightgray;
-		}
-
-		.becomeMember .card-icon {
-			width: 80px;
-			height: 80px;
-			margin: 0px auto;
-			line-height: 75px;
-			color: #fff;
-			font-size: 2.5em;
-			border-radius: 75px;
-			background-color: #cf1f80;
-		}
-
-		.becomeMember .card-icon:after {
-			content: "";
-			display: block;
-			width: 45px;
-			border-bottom: 1.8px solid #cf1f80;
-			padding-top: 30px;
-			margin: 0px auto;
-		}
-
-		.becomeMember .card-body {
-			margin: 20px;
-		}
-
-		.becomeMember .card-text {
-			max-width: 250px;
-			margin-top: 20px;
-			font-size: 0.9em;
-			text-align: left;
-		}
-
-		.becomeMember .btn {
-			float: right;
-			font-size: 1.2em;
-			border-color: #cf1f80;
-			color: #cf1f80;
-		}
-
-		.becomeMember .btn:hover {
-			color: #fff;
-			background-color: #cf1f80;
-		}
-	</style>
+	<!-- 사용자 정의 css -->
+	<link href="/css/allNeed.css" rel="stylesheet">
+	<link href="/css/infoPage.css" rel="stylesheet">
 </head>
 
 <body>
@@ -227,7 +28,7 @@
 				편리함과 빠른 속도로 <b>비대면 도서 대출/반납 서비스</b>를 제공합니다.
 			</p>
 		</div>
-		<img class="img-deco" src="infoPage-welcome.png" alt="">
+		<img class="img-deco" src="/img/infoPage/infoPage-welcome.png" alt="">
 	</header>
 
 	<nav class="navbar">
@@ -235,7 +36,7 @@
 		<a href="#bookCommunity">도서 커뮤니티</a>
 		<a href="#becomeMember">회원가입</a>
 		<a href="#downloadAPP">앱 설치</a>
-		<a href="/Index.jsp">웹사이트</a>
+		<a href="/">웹사이트</a>
 	</nav>
 	<main>
 		<div class="howToUse">
@@ -267,7 +68,7 @@
 
 				<div class="tab-content">
 					<div class="tab-pane fade show active" id="step1">
-						<img class="tab-img" src="infoPage-getCard.png" alt="">
+						<img class="tab-img" src="/img/infoPage/infoPage-getCard.png" alt="">
 						<p>
 							먼저 도서관에 들려, 회원카드를 발급해주세요.<br>
 							신분증을 지참하셔야 회원카드 발급이 가능합니다.<br>
@@ -275,13 +76,13 @@
 						</p>
 					</div>
 					<div class="tab-pane fade" id="step2">
-						<img class="tab-img" src="infoPage-loan.png" alt="">
+						<img class="tab-img" src="/img/infoPage/infoPage-loan.png" alt="">
 						<p>
 							도서관에서 읽고싶은 책을 고르고 가방에 담아 바로 출구로 나가면 대출이 가능합니다.
 						</p>
 					</div>
 					<div class="tab-pane fade" id="step3">
-						<img class="tab-img" src="infoPage-return.png" alt="">
+						<img class="tab-img" src="/img/infoPage/infoPage-return.png" alt="">
 						<p>
 							도서관 재방문 시 대출했던 책과 회원카드를 가지고 도서관 입구로 들어오세요!<br>
 							회원카드의 대출 기록을 확인한 후 자동으로 반납 처리 됩니다.<br>
@@ -289,7 +90,7 @@
 						</p>
 					</div>
 					<div class="tab-pane fade" id="step4">
-						<img class="tab-img" src="infoPage-security.png" alt="">
+						<img class="tab-img" src="/img/infoPage/infoPage-security.png" alt="">
 						<p>
 							도서관 출입 혹은 퇴실 시,
 							경보가 울리며 문이 닫힌다면 당황하지 마시고
@@ -299,6 +100,40 @@
 					</div>
 				</div>
 			</div>
+		</div>
+
+		<div class="bookCommunity">
+			<div id="bookCommunity" class="p-5 w-100"></div>
+			<h2>도서 커뮤니티</h2>
+			<p>
+				읽은 책이 재미있었거나 마음에 들지 않았다면, 여러분의 독서 경험을 다른 도서관 이용자에게 공유해주세요 <br>
+				<small>SLOBRARY 웹 사이트나 어플리케이션에서 간단한 회원 가입 후 이용 가능합니다.</small>
+			</p>
+
+			<div class="community-kinds">
+				<b class="title">도서 별점 &amp; 한줄 리뷰</b>
+				<p class="contents">
+					<!-- img -->
+					간단 소개
+				</p>
+			</div>
+
+			<div class="community-kinds">
+				<b class="title">독서 일기</b>
+				<p class="contents">
+					<!-- img -->
+					간단 소개
+				</p>
+			</div>
+
+			<div class="community-kinds">
+				<b class="title">독후감</b>
+				<p class="contents">
+					<!-- img -->
+					간단 소개
+				</p>
+			</div>
+
 		</div>
 
 
@@ -326,7 +161,7 @@
 							도서 검색 및 신청
 						</b>
 						<p class="card-text">
-							읽고 싶은 책이 도서관에 있는지 확인할 수 있고, 대출 가능 여부를 확인할 수 있습니다.<br>
+							읽고 싶은 책이 도서관에 있는지와 함께, 해당 책의 대출 가능 여부를 확인할 수 있습니다.<br>
 							없는 책이라면, 희망도서로 신청할 수 있습니다.
 						</p>
 					</div>
@@ -345,24 +180,30 @@
 				</div>
 			</div>
 
-			<a class="btn btn-outline-dark" href="">회원가입</a>
+			<a class="btn btn-outline-dark" href="/Signup.jsp">회원가입</a>
 		</div>
 
+		<div class="downloadAPP">
+			<div id="downloadAPP" class="p-5 w-100"></div>
+			<h1 class="title">
+				도서 대출의<br> 새로운 패러다임,<br>
+				<b>SLOBRARY를<br> 지금 시작 해보세요!</b>
+			</h1>
+			<img class="tab-img" src="/img/infoPage/infoPage-phone.png" alt="">
+			<div class="links">
+				<a href="/">웹 페이지 이동</a>
+				<a href="#" onclick="_blank">playstore link</a>
+			</div>
 
-		<h2>도서 커뮤니티</h2>
-		<p>
-			읽은 책이 재미있었거나 마음에 들지 않았다면, 여러분의 독서 경험을 다른 도서관 이용자에게 공유해주세요 <br>
-			SLOBrary 웹 사이트나 어플리케이션에서 간단한 회원 가입 후 이용 가능합니다.
-			<!-- card layout -->
-			4. 독서일기
-			5. 도서 별점 남기기
-			6. 독후감 쓰기
-		</p>
+		</div>
 	</main>
+
+	<a href="#" class="btn-floatingTop">
+		<i class="fa fa-arrow-up"></i>
+		<p>TOP</p>
+	</a>
+
 	<footer>
-		<h1>도서 대출의 새로운 패러다임, SLOBRARY를 지금 시작 해보세요!</h1>
-		<a href="#">회원가입하기</a>
-		<a href="#" onclick="_blank">어플깔기(playstore link)</a>
 		All Illustration by <a href="undefined">Natasha Remarchuk</a> from <a href="https://icons8.com/">Icons8</a>
 	</footer>
 
@@ -381,5 +222,8 @@
 				mainNav.classList.remove("sticky");
 			}
 		}
+
 	</script>
-</body></html>
+</body>
+
+</html>

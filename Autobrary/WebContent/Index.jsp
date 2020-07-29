@@ -20,7 +20,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 </head>
 <body class="bg-light">
 	<header>
-		<jsp:include page="Top.jsp" flush="false" />
+		<jsp:include page="/Top.jsp" flush="false" />
 	</header>
 
 	<div id="carousel" class="carousel slide carousel-fade"

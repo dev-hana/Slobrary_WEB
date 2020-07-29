@@ -1,0 +1,312 @@
+p {
+	line-height: 30px;
+}
+
+/*	header 	*/
+header {
+	background: var(--main-color-light);
+	padding-top: 60px;
+	padding-left: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+header img {
+	width: 500px;
+	padding-top: 60px;
+}
+
+header p {
+	width: 400px;
+	padding-top: 35px;
+	text-align: left;
+	word-break: keep-all;
+}
+
+/*	nav 	*/
+nav {
+	background-color: var(--main-color-light);
+	border-bottom: 1.5px solid var(--main-color-dark);
+	z-index: 10;
+}
+
+nav a {
+	padding: 10px;
+	color: var(--main-color-dark);
+
+	opacity: 0.6;
+	margin: 0px auto;
+	-webkit-transition: opacity 0.3s;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+	transition: opacity 0.3s;
+}
+
+nav a:hover {
+	color: var(--main-color-dark);
+	text-decoration: none;
+	font-weight: 600;
+	opacity: 1;
+}
+
+nav .active {
+	opacity: 1;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.sticky + .content {
+	padding-top: 60px;
+}
+
+/*	main 	*/
+main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+}
+
+main h2 {
+	width: 80%;
+	min-width: 350px;
+	font-size: 2em;
+	border-left: 2px solid var(--main-color-dark);
+	padding-left: 20px;
+	margin: 10px 0px;
+}
+
+/*	HowToUse 	*/
+.howToUse {
+	padding: 30px 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.tab-HowToUse {
+	margin: 20px 40px;
+	padding: 30px 50px;
+	width: 70%;
+	min-width: 500px;
+	height: 530px;
+	background-color: var(--main-color-light);
+	border-radius: 10px;
+	-webkit-box-shadow: 10px 3px 38px -21px rgba(0, 0, 0, 0.52);
+	-moz-box-shadow: 10px 3px 38px -21px rgba(0, 0, 0, 0.52);
+	box-shadow: 10px 3px 38px -21px rgba(0, 0, 0, 0.52);
+}
+
+.tab-HowToUse .nav-link {
+	border-radius: 0px;
+	color: #fff;
+	background-color: var(--main-color-dark);
+	opacity: 0.6;
+	transition: opacity 0.3s;
+	-webkit-transition: opacity 0.3s;
+}
+
+.tab-HowToUse .nav-link:hover {
+	opacity: 0.8;
+}
+
+
+.tab-HowToUse .nav-link.active {
+	background: var(--main-color-dark);
+	opacity: 1;
+}
+
+.tab-HowToUse .tab-img {
+	padding-top: 20px;
+	width: 420px;
+	display: block;
+	margin: 0px auto;
+}
+
+#step4 img {
+	padding: 50px 30px;
+}
+
+.tab-content p {
+	width: 420px;
+	display: block;
+	margin: 0px auto;
+	text-align: center;
+	word-break: keep-all;
+}
+
+/*	becomeMember 	*/
+.becomeMember {
+	padding: 30px 0px;
+	text-align: center;
+}
+
+.becomeMember b {
+	font-size: 1.6em;
+}
+
+.becomeMember .card {
+	margin-top: 50px;
+	margin-bottom: 20px;
+	padding: 0px 10px;
+	border: none;
+}
+
+.becomeMember .card:nth-child(2) {
+	border-right: 1px solid lightgray;
+	border-left: 1px solid lightgray;
+}
+
+.becomeMember .card-icon {
+	width: 80px;
+	height: 80px;
+	margin: 0px auto;
+	line-height: 75px;
+	color: #fff;
+	font-size: 2.5em;
+	border-radius: 75px;
+	background-color: var(--main-color-dark);
+}
+
+.becomeMember .card-icon:after {
+	content: "";
+	display: block;
+	width: 45px;
+	border-bottom: 1.8px solid var(--main-color-dark);
+	padding-top: 30px;
+	margin: 0px auto;
+}
+
+.becomeMember .card-body {
+	margin: 20px;
+}
+
+.becomeMember .card-text {
+	max-width: 250px;
+	margin-top: 20px;
+	font-size: 0.9em;
+	text-align: left;
+}
+
+.becomeMember .btn {
+	float: right;
+	font-size: 1.2em;
+	border-color: var(--main-color-dark);
+	color: var(--main-color-dark);
+}
+
+.becomeMember .btn:hover {
+	color: #fff;
+	background-color: var(--main-color-dark);
+}
+
+/*	downloadAPP 	*/
+.downloadAPP {
+	background: var(--main-color-light);
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 2fr;
+}
+
+.downloadAPP #downloadApp {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.downloadAPP .title {
+	font-size: 2.4em;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row: 2;
+	align-self: flex-end;
+	justify-self: flex-end;
+}
+
+.downloadAPP img {
+	width: 400px;
+	grid-column: 3;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	align-self: flex-start;
+}
+
+.downloadAPP .links {
+	padding-top: 35px;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row: 3;
+	padding-right: 20px;
+	align-self: flex-start;
+	justify-self: flex-end;
+}
+
+.downloadAPP .links a {
+	color: #fff;
+	border-radius: 15px;
+	background-color: var(--main-color-dark);
+	padding: 5px 20px;
+	margin-left: 10px;
+	-webkit-transition: background-color 0.3s;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+	transition: background-color 0.3s;
+}
+
+.downloadAPP .links a:hover {
+	background-color: #fff;
+	color: var(--main-color-dark);
+	text-decoration: none;
+}
+
+/* btn-floatingTop */
+.btn-floatingTop {
+	position: fixed;
+	width: 60px;
+	height: 60px;
+	bottom: 40px;
+	right: 40px;
+	z-index: 100;
+	background-color: #fff;
+	color: dimgray;
+	border-radius: 50px;
+	text-align: center;
+	line-height: 40px;
+	box-shadow: 2px 2px 3px #999;
+	font-size: 13px;
+	opacity: 0.85;
+}
+
+.btn-floatingTop:hover {
+	text-decoration: none;
+	color: dimgray;
+	opacity: 1;
+}
+
+.btn-floatingTop p {
+	line-height: 0px;
+	margin-top: -3px;
+}
+
+/* footer */
+footer {
+	background-color: black;
+	color: dimgrey;
+	font-size: 0.8em;
+	text-align: right;
+	padding: 3px;
+}
+
+footer a {
+	color: dimgray;
+}
+
+footer a:hover {
+	text-decoration: none;
+	color: dimgray;
+	opacity: 0.8;
+}
