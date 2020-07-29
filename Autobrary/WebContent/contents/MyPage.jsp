@@ -28,6 +28,7 @@
 <title>마이페이지</title>
 <!-- css -->
 <link href="/css/MyPage.css?v=2" rel="stylesheet" />
+
 </head>
 <body class="bg-light mb-3">
 	<jsp:include page="../Top.jsp" flush="false"/>
@@ -62,13 +63,28 @@
         </div>
         
         <!-- 서재 컨텐츠 -->
-        <div class="col-md-7">
+        <%
+        	//나의 기록 선택시
+        	if(contentPage.equals("LogList.jsp?type=review")||contentPage.equals("LogList.jsp?type=diary")){
+        		%>
+        			<div class="col-xl-7">
+        				<div class="bg-white shadow-sm rounded p-4">
+	        				<jsp:include page="LogMenu.jsp" flush="false"/>
+	        				<div class="mt-2">
+	        				<jsp:include page="<%=contentPage %>" flush="false"/>
+	        				</div>
+        				</div>
+        			</div>
+        		<%
+        	}else{
+        %>
+        <div class="col-xl-7">
         	<div class="bg-white shadow-sm rounded p-2">
         		<jsp:include page="<%=contentPage %>" flush="false"/>
         	</div>
         </div>
     </div>
-	
+	<%} %>
 	<%
 		if(contentPage.equals("MyPageList.jsp?type=loanbook")){
 			String record = "MyPageList.jsp?type=allrecord";
@@ -86,7 +102,7 @@
 			<%
 		}
 	%>
-	
+
 </body>
 </html>
 <%}%>

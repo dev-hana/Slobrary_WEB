@@ -14,6 +14,18 @@
 <title>Insert title here</title>
 <!-- css -->
 <link href="/css/MyPageList.css?v=2" rel="stylesheet" />
+<!--  <style>
+.modal-backdrop.in { background: rgba(0, 0, 0, 0.5); } 
+.modal-backdrop { background-color:transparent; transition: all .3s}
+.modal-backdrop.fade {
+opacity: 0;
+filter: alpha(opacity=0);
+}
+.modal-backdrop.fade.in {
+opacity: 0.5;
+filter: alpha(opacity=50);
+}
+</style>-->
 </head>
 <body>
 
@@ -79,10 +91,8 @@
 			<br><span class="return">반납일&nbsp;</span><span>:&nbsp;<%=return_date %></span>
 			<br>
 			<div class="mt-3 mb-2 pr-2" style="float:right;">
-				<form>
-					<input type="hidden" name="id_num" value="1">
-					<button class="btn btn-outline-secondary mb-1">리뷰하기</button>
-				</form>
+			
+					<button type="button" onclick="modal_view('<%=name %>','<%=loan_id %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">리뷰하기</button>
 			</div>
 			<div class="bg-light p-3 mt-2" id="<%=loan_text %>">반납일까지&nbsp;<span class="loan" id="<%=loan_id %>" ><%=resultT %>일</span>&nbsp;남았습니다!
 			<% if(resultT < 0){
@@ -330,5 +340,13 @@
 	<%
 		} 
 	%>
+	<!-- Modal -->
+	<jsp:include page="/contents/ReviewModal.jsp" flush="false"/>
+	<script>
+	  function modal_view(title,loan_id){
+			  $("#modalTitle").text(title+"-리뷰");
+			  $("#l_id").val(loan_id);
+	  }
+	</script>
 </body>
 </html>
