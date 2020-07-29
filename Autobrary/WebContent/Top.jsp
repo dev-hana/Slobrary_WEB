@@ -60,7 +60,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                                         <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">도서관서비스</a>
                                         <div class="dropdown-menu" aria-labelledby="dropdown02">
 
-                                      	<form method="post" action="/contents/WishBookPage.jsp">
+                                      	<!--form method="post" action="/contents/WishBookPage.jsp">
                                         	<input type="submit" class="dropdown-item" value="희망 도서">
                                         	<input type="hidden" name="mem_id" value=<%=mem_id %>/>
                                          </form-->
