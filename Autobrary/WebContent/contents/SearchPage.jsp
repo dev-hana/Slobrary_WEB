@@ -6,6 +6,12 @@
 <head>
 <meta charset="UTF-8">
 
+<!-- dataTable pagination -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
 <title>SLO-도서검색</title>
 <%
@@ -42,7 +48,36 @@
 		</div>
 	</div>
 	<jsp:include page="/Footer.jsp" flush="false" />
+		<!-- 페이지 include 시 dataTable jquery 적용 안되는 문제로 추가-->
+		<script type='text/javascript'>  
+		 var $jq = jQuery.noConflict(true);  
+		</script>
+		<script>
+		$jq(document).ready( function () {
+			$jq('#review').DataTable({
+		    	// 표시 건수기능 숨기기 select로 몇개씩 표출할지
+		    	lengthChange: false,
+		    	
+		    	// 검색 기능 숨기기
+		    	searching: false,
+		    	
+		    	// 정렬 기능 숨기기
+		    	ordering: false,
+		    	
+		    	// 정보 표시 숨기기
+		    	info: false,
+		    	
+		    	//몇개씩 보여줄지
+		    	displayLength: 5,
+		    	language: {
+		            paginate: {
+		                previous: '‹',
+		                next:     '›'
+		            }
+		        }
+		    });
+		  });
+		    </script>
+		
 </body>
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
 </html>

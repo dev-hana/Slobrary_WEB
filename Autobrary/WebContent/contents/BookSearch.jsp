@@ -54,7 +54,8 @@ $(document).ready(function(){
 				<jsp:include page="/contents/Booklist.jsp" flush="false"/>
 			</div>
 			<div>
-				<iframe id="the_iframe" onload="calcHeight();" name="list" title="도서검색결과" frameborder="0" scrolling="no" style="display:none; overflow-x:hidden; overflow:auto; width:100%;"></iframe>
+				<!-- onload="calcHeight();" iframe 높이조정 함수 페이징 여백오류로 height를 따로 지정 5개씩 보여준다고 가정 -->
+				<iframe id="the_iframe" height="1100"  name="list" title="도서검색결과" frameborder="0" scrolling="no" style="display:none; overflow-x:hidden; overflow:auto; width:100%;"></iframe>
 			</div>
  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
  <script src="/js/bookSearch.js"></script>

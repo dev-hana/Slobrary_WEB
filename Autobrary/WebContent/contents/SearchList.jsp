@@ -81,13 +81,14 @@
 %>
 </head>
 <body>
+	
 	<%
 		//검색결과가 있는 경우
 		if(result){
 	%>
 	<!-- 검색결과 타이틀 및 검색 옵션과 키워드 검색결과 개수 -->
-  	<div class="mb-3 pl-3">
-			<h4><span style="color:#A593E0;"><i class="fas fa-search"></i></i></i></span>&nbsp;&nbsp;검색결과</h4>
+  	<div class="mt-2 mb-3 pl-3">
+			<h4><span style="color:#A593E0;"><i class="fas fa-search"></i></span>&nbsp;&nbsp;검색결과</h4>
 			<div class="mt-3">
 			    <!-- 맨 오른쪽 검색결과 개수 n권 표시 -->
 				<span class="border m-2 mt-1 p-1 pr-2 pl-2 "><%=keyKor%></span><span class="keyword"><strong>"<%=keyword %>"</strong></span><span class="oth">(의)로 검색한 결과 </span><span class="count">총 122권</span>
@@ -114,7 +115,7 @@
 			</td>
 			<td>
 			<!--오른쪽 끝 도서명 표시 -->																						<!-- 도서명 클릭시 상세보기 페이지이동 파라메타로 책구분할 id -->													
-			<span class="title mr-2"><strong>[&nbsp;도서&nbsp;]</strong></span><span class="alink"><a href="/contents/BookDetail.jsp?bookid=1" target="_parent">내가 원하는 것을 나도 모를 때<%=i %></a></span><br>
+			<span class="title mr-2"><strong>[&nbsp;도서&nbsp;]</strong></span><span class="alink"><a href="/contents/SearchPage.jsp?contentPage=BookDetail.jsp?bookid=1" target="_parent">내가 원하는 것을 나도 모를 때<%=i %></a></span><br>
 			<!-- 별점 -->
 			<div style="font-size: 17px;">
 						<%
@@ -149,7 +150,7 @@
 							}
 						%>
 						<!-- 별점 숫자 표기 -->
-						<span class="point ml-2">4점</span>
+						<span class="point ml-2"><%=star %></span>
 					</div>
 			<!-- 저자 -->
 			<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">저자 : 이도우</span><br>
@@ -159,7 +160,7 @@
 			<div class="mt-2 pr-2">
 			<div class="pt-2 float-right">
 					<!-- 상세보기버튼 onclick 주소에 도서id -->
-					<button class="btn btn-outline-secondary" onclick="window.parent.location.href='BookDetail.jsp?book_id=1'" type="button">상세보기</button>
+					<button class="btn btn-outline-secondary" onclick="window.parent.location.href='/contents/SearchPage.jsp?contentPage=BookDetail.jsp?bookid=1'" type="button">상세보기</button>
 			</div>
 			<div class="pt-2 pr-2 float-right">
 			<!-- 관심도서 등록 form -->
@@ -204,9 +205,12 @@
 	%>
 	
 <!-- paging js -->
+<script type='text/javascript'>  
+	var $jq = jQuery.noConflict(true);  
+</script>
 <script>
-    $(document).ready( function () {
-    $('#myTable').DataTable({
+$jq(document).ready( function () {
+	$jq('#myTable').DataTable({
     	// 표시 건수기능 숨기기 select로 몇개씩 표출할지
     	lengthChange: false,
     	
@@ -220,7 +224,7 @@
     	info: false,
     	
     	//몇개씩 보여줄지
-    	displayLength: 6,
+    	displayLength: 5,
     	language: {
             paginate: {
                 previous: '‹',
