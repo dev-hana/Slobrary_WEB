@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, database.*"%>
+<%@page import="bucketConnector.BucketManager"%>
+<jsp:useBean id="bookMgr" class="database.BookMgr" />
 <%@ include file="/CND.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -76,15 +79,15 @@
 	}else{
 		keyKor="출판사";
 	}
+	Vector vResult = bookMgr.searchBook(keytype, keyword);
 	
-	boolean result=true;
 %>
 </head>
 <body>
 	
 	<%
 		//검색결과가 있는 경우
-		if(result){
+		if(vResult.size() != 0){
 	%>
 	<!-- 검색결과 타이틀 및 검색 옵션과 키워드 검색결과 개수 -->
   	<div class="mt-2 mb-3 pl-3">
@@ -105,17 +108,19 @@
 		<tbody>
 		<%
 			//검색결과 개수 만큼 반복
-			for(int i=0; i<16;i++){
-				
+			for(int i = 0; i<vResult.size(); i++){
+				BookBean bookBean = (BookBean)vResult.get(i);
 		%>
 		<tr>
 			<td class="img pt-3">
 				<!-- 도서 이미지 -->
-				<img class="shadow-sm" width="110" height="140" alt="이미지가 없습니다." src="/img/ex2.jpg">
+				<img class="shadow-sm" width="110" height="140" alt="<%=bookBean.getName() %>" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>">
 			</td>
 			<td>
-			<!--오른쪽 끝 도서명 표시 -->																						<!-- 도서명 클릭시 상세보기 페이지이동 파라메타로 책구분할 id -->													
-			<span class="title mr-2"><strong>[&nbsp;도서&nbsp;]</strong></span><span class="alink"><a href="/contents/SearchPage.jsp?contentPage=BookDetail.jsp?bookid=1" target="_parent">내가 원하는 것을 나도 모를 때<%=i %></a></span><br>
+			<!--오른쪽 끝 도서명 표시 -->					<!-- 도서명 클릭시 상세보기 페이지이동 파라메타로 책구분할 id -->													
+			<span class="title mr-2"><strong>[&nbsp;도서&nbsp;]</strong></span><span class="alink">
+			<a href="/contents/SearchPage.jsp?contentPage=BookDetail.jsp?bookid=<%=bookBean.getId_num()%>" target="_parent">
+			<%=bookBean.getName() %></a></span><br>
 			<!-- 별점 -->
 			<div style="font-size: 17px;">
 						<%
@@ -153,14 +158,14 @@
 						<span class="point ml-2"><%=star %></span>
 					</div>
 			<!-- 저자 -->
-			<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">저자 : 이도우</span><br>
+			<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">저자 : <%=bookBean.getAuthor() %></span><br>
 			<!-- 출판사 -->
-			<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">출판사 : 동양출판사</span>
+			<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">출판사 : <%=bookBean.getPublisher() %></span>
 			
 			<div class="mt-2 pr-2">
 			<div class="pt-2 float-right">
 					<!-- 상세보기버튼 onclick 주소에 도서id -->
-					<button class="btn btn-outline-secondary" onclick="window.parent.location.href='/contents/SearchPage.jsp?contentPage=BookDetail.jsp?bookid=1'" type="button">상세보기</button>
+					<button class="btn btn-outline-secondary" onclick="window.parent.location.href='/contents/SearchPage.jsp?contentPage=BookDetail.jsp?bookid=<%=bookBean.getId_num() %>'" type="button">상세보기</button>
 			</div>
 			<div class="pt-2 pr-2 float-right">
 			<!-- 관심도서 등록 form -->
@@ -173,7 +178,7 @@
 			</div>
 			</div>
 			<!-- 도서상태 -->
-			<div class="bg-light p-3">상태 : <span>&nbsp;&nbsp;대출가능</span></div>
+			<div class="bg-light p-3">상태 : <span>&nbsp;&nbsp;<%=bookBean.getStatus() %></span></div>
 			</td>
 		</tr>
 		

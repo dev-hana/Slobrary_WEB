@@ -780,5 +780,65 @@ public class BookMgr {
 
         return vecList;
     }
+    
+    public Vector searchBook(String keytype, String keyword) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String strQuery = "";       
+        String item = "%" + keyword + "%";
+        Vector vecList = new Vector();
+        
+        try {
+            con = pool.getConnection();
+            if(keytype.equals("all")) {
+            	strQuery="select * from book_info where name like ? or author like ? or publisher like ? ";
+            	pstmt = con.prepareStatement(strQuery);
+                pstmt.setString(1, item);
+                pstmt.setString(2, item);
+                pstmt.setString(3, item);
+            }else if(keytype.equals("title")) {
+            	strQuery="select * from book_info where name like ? ";
+            	pstmt = con.prepareStatement(strQuery);
+                pstmt.setString(1, item);
+            }else if(keytype.equals("author")) {
+            	strQuery="select * from book_info where author like ? ";
+            	pstmt = con.prepareStatement(strQuery);
+                pstmt.setString(1, item);
+            }else { //출판사
+            	strQuery="select * from book_info where publisher like ? ";
+            	pstmt = con.prepareStatement(strQuery);
+                pstmt.setString(1, item);
+            }
+            
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+            	 BookBean bookBean = new BookBean();
+            	 bookBean.setId_num(rs.getString("id_num"));
+                 bookBean.setType(rs.getString("type"));
+                 bookBean.setName(rs.getString("name"));
+                 bookBean.setAuthor(rs.getString("author"));
+                 bookBean.setPublisher(rs.getString("publisher"));
+                 bookBean.setIssue(rs.getString("issue"));
+                 bookBean.setForm(rs.getString("form"));
+                 bookBean.setIsbn(rs.getString("isbn"));
+                 bookBean.setClass_id(rs.getString("class_id"));
+                 bookBean.setLanguage(rs.getString("language"));
+                 bookBean.setCollector(rs.getString("collector"));
+                 bookBean.setSign(rs.getString("sign"));
+                 bookBean.setStatus(rs.getString("status"));
+                 bookBean.setDate(rs.getString("add_date"));
+                 bookBean.setImage(rs.getString("image"));
+                 vecList.add(bookBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return vecList;
+    }
 
 }
