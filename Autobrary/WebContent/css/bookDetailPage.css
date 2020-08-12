@@ -1,0 +1,310 @@
+body {
+	
+	
+}
+
+.bookDetail {
+	width: 75%;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: column;
+	padding: 30px 100px;
+}
+
+/* 공통 속성 정의 */
+.subTitle {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid lightgray;
+}
+
+.imageBox {
+	width: 200px;
+	height: 300px;
+	position: relative;
+	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.imageBox::before {
+	content: "";
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0px, transparent 5%, transparent 95%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+
+.buttons .btn {
+	font-size: 0.85em;
+	margin: 0px 5px;
+	border: 1px solid var(--main-color-dark);
+	color: var(--main-color-dark);
+	transition: background 0.3s;
+	-webkit-transition: background 0.3s;
+}
+
+.buttons .btn:hover {
+	background: var(--main-color-dark);
+	color: #fff;
+}
+
+.buttons .btn:active {
+	background: #fff;
+	color: var(--main-color-dark);
+}
+
+.btn-more {
+	position: relative;
+	float: right;
+	top: -65px;
+	border: none;
+	color: #000;
+	font-weight: 500;
+	transition: color 0.3s;
+	-webkit-transition: color 0.3s;
+}
+
+.btn-more:hover {
+	background: none;
+	color: var(--main-color-dark);
+}
+
+.rating {
+	color: var(--main-color);
+}
+.user-img {
+	max-width: 100%;
+	border-radius: 100px;
+	width: 48px;
+	margin-right: 15px;
+	padding: 5px;
+	background: #000;
+	float: left;
+}
+
+/* 책 정보 .bookInfo */
+.bookInfo {
+	display: flex;
+	flex-flow: row wrap;
+	align-content: center;
+	justify-content: space-around;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.bookInfo .textBox {
+	padding-top: 15px;
+	margin-left: 20px;
+}
+
+.bookInfo .title {
+	font-size: 1.8em;
+	font-weight: 600;
+}
+
+.bookInfo dl {
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.bookInfo dl dt {
+	float: left;
+	width: 25%;
+}
+
+.bookInfo dl dd {
+	float: left;
+	width: 75%;
+}
+
+.bookInfo .rating dt {
+	display: none;
+}
+
+.bookInfo .rating dd {
+	width: 100%;
+	font-size: 1.6em;
+	padding: 5px 0px;
+}
+
+.rating dd .disabled {
+	color: #B8B8B8;
+}
+
+.rating dd .fa-flip-horizontal {
+	margin-left: -35px;
+}
+
+
+/* 소장정보 .collectionInfo */
+.collectionInfo table {
+	margin: 0px auto;
+	border-collapse: separate !important;
+	border-spacing: 0;
+}
+
+.collectionInfo th {
+	background: var(--main-color-light);
+}
+
+.collectionInfo th:nth-child(1) {
+	border-radius: 20px 0px 0px 20px;
+}
+
+.collectionInfo th:nth-child(4) {
+	border-radius: 0px 20px 20px 0px;
+}
+
+.collectionInfo table th,
+td {
+	border: none;
+	padding: 5px 30px;
+	text-align: center;
+}
+
+/* 도서 리뷰 .bookReviews */
+.bookReviews {}
+
+.bookReview {
+	margin: 0px 10px;
+	padding: 25px;
+	border-bottom: 1px solid lightgray;
+	border-radius: 5px;
+}
+
+.bookReview .rating {
+	display: block;
+}
+
+.bookReview .user {
+	color: #000;
+	text-decoration: none;
+}
+
+.bookReview .date,
+.bookReport .date {
+	font-size: 0.8em;
+	color: darkgray;
+}
+
+.bookReview .contents {
+	margin-top: 10px;
+	margin-left: 60px;
+	font-size: 0.9em;
+	max-height: 100px;
+	overflow: hidden;
+
+}
+
+.bookReview .btn {
+	float: right;
+	top: 0;
+	margin: -30px;
+	padding: 5px;
+	padding-right: 35px;
+	color: var(--main-color);
+}
+
+/* 독후감 정보 .bookReports */
+.bookReports {}
+
+.bookReport {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	height: 80px;
+	padding: 0px 20px;
+	border-bottom: 1px solid lightgray;
+}
+
+.bookReport .user b {
+	margin-right: 5px;
+	text-decoration: none;
+	float: left;
+	font-size: 0.8em;
+	color: #000;
+	line-height: 50px;
+}
+
+.bookReport .contents .title {
+	font-size: 1.3em;
+	font-weight:500;
+	display: inline-block;
+	width: 80%;
+	overflow: hidden;
+	margin-bottom: -5px;
+}
+
+.bookReport .contents .detail {
+	width: 400px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.bookReports .sort,
+.bookReviews .sort {
+	border: none;
+}
+
+/* 동명도서 정보 .sameAuthorBooks */
+.sameAuthorBooks {}
+
+.bookList {
+	display: grid;
+	grid-template-columns: repeat(4, minMax(max-content, 1fr));
+	grid-template-rows: repeat(auto-fill, 250px);
+	justify-content: space-around;
+}
+
+.book {
+	display: flex;
+	flex-flow: column;
+	text-align: center;
+	color: #000;
+}
+
+.book:hover {
+	text-decoration: none;
+	color: #000;
+	opacity: 0.8;
+}
+
+.book .imageBox {
+	width: 120px;
+	height: 180px;
+	margin: 0px auto;
+}
+
+.book .title {
+	width: 80%;
+	margin: 0px auto;
+	padding-top: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.book .author {
+	width: 80%;
+	margin: 0px auto;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.bookReport {}
