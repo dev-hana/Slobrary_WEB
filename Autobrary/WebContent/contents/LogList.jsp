@@ -41,7 +41,7 @@
 <body>
 <div class="mt-1">
 <%
-	String type =request.getParameter("type");
+	String type=request.getParameter("type");
 
 	//리뷰리스트
 	if(type.equals("review")){

@@ -14,6 +14,25 @@
 <title>Insert title here</title>
 <!-- css -->
 <link href="/css/MyPageList.css?v=2" rel="stylesheet" />
+<style>
+.alink a:hover{
+	color: #424242;
+	text-decoration: underline;
+}
+.alink a:link { color: #424242;}
+.alink a:visited { color: #424242; text-decoration: none;}
+
+.ap{
+	color:6C6C6C;
+	font-size:14px;
+}
+.sm-date{
+	font-size:15px;
+}
+.title{
+	color:#A593E0;
+}
+</style>
 <!--  <style>
 .modal-backdrop.in { background: rgba(0, 0, 0, 0.5); } 
 .modal-backdrop { background-color:transparent; transition: all .3s}
@@ -83,13 +102,16 @@ filter: alpha(opacity=50);
 	
 		%>
 		<tr>
-			<td class="img pt-3">
+			<td class="img pt-4">
 				<img width="110" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
 			</td>
-			<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 :<%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 :<%=publisher %></span>
-			<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loanBean.getLoan_date().substring(0, 10) %></sapn>
-			<br><span class="return">반납일&nbsp;</span><span>:&nbsp;<%=return_date %></span>
-			<br>
+			<td><span class="title mr-2"><strong>[&nbsp;도서&nbsp;]</strong></span><span class="alink"><a href="# "><%=name %></a></span><br>
+			<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">저자 : <%=author %></span><br>
+			<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">출판사 : <%=publisher %></span><br>
+			<div class="sm-date">
+				<span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loanBean.getLoan_date().substring(0, 10) %></sapn><br>
+				<span class="return">반납일&nbsp;</span><span>:&nbsp;<%=return_date %></span>
+			</div>
 			<div class="mt-3 mb-2 pr-2" style="float:right;">
 			
 					<button type="button" onclick="modal_view('<%=name %>','<%=loan_id %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">리뷰하기</button>
@@ -169,7 +191,7 @@ filter: alpha(opacity=50);
 			<div class="mt-3 mb-2 pr-2" style="float:right;">
 				<form>
 					<input type="hidden" name="id_num" value="1">
-					<button class="btn btn-outline-secondary mb-1">리뷰하기</button>
+					<button type="button" onclick="modal_view('<%=name %>','<%=i %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">리뷰하기</button>
 				</form>
 			</div>
 			<div class="bg-light p-3 mt-2"><span id="<%=return_id%>">정상</span>반납을 완료하였습니다!</div>
