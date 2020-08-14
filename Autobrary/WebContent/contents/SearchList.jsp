@@ -171,7 +171,7 @@
 			<!-- 관심도서 등록 form -->
 				<form method="post" action="WatchBookProc.jsp">
 					<!-- 도서id -->
-					<input type="hidden" name="book_id" value="1">
+					<input type="hidden" name="book_id" value="<%=bookBean.getId_num()%>">
 					<input type="hidden" name="type" value="register">
 					<button class="btn btn-outline-secondary" type="submit">관심도서등록</button>
 				</form>

@@ -10,7 +10,7 @@
 	if(loginCheck) {
 		session.setAttribute("loginKey", mem_id);
 		%><script>
- 	 	location.href="/";
+		location.href="/";
   		 </script>
    <%}else{%>
 

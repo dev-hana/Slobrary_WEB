@@ -108,5 +108,28 @@ public class WatchMgr {
         }
         return vecList;
     }
+    
+    public boolean insertWatch(String mem_id, String book_id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        boolean flag = false;
+        String sql = "INSERT INTO watch_list(mem_id, book_id) "
+        		+ "VALUES (?, ?) ";
+        try {
+        	con = pool.getConnection();
+        	pstmt = con.prepareStatement(sql);
+        	pstmt.setString(1, mem_id);
+        	pstmt.setString(2, book_id);
+            int count = pstmt.executeUpdate();
+            if (count == 1) {
+                flag = true;
+            }
+        }catch (Exception ex) {//
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt);
+        }
+        return flag;
+    }
 
 }
