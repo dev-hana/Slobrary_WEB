@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.faq h2::before {
+	content: "| ";
+	color: var(--main-color);
+}
+.navbar-category {
+  width: 100%;
+  background-color: #A593E0;
+  overflow: auto;
+}
+
+.navbar-category a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 25%; /* Four links of equal widths */
+  text-align: center;
+}
+
+.navbar-category a:hover {
+  background-color:var(--main-color-light);
+  color: white;
+  text-decoration: none;
+}
+.faq{
+	margin-bottom: 50px;
+}
+.list{
+	padding-top: 20px;
+}

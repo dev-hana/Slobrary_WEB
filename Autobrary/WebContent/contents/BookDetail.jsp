@@ -39,6 +39,10 @@
 	text-align: left;
 	font-size: 15px;
 }
+.none_rv{
+	text-align: center;
+	color: #8C8C8C;
+}
 </style>
 <!-- dataTable pagination -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
@@ -169,12 +173,18 @@
 				
 				<div class="mt-4">
 				<div class="mt-5 mb-2 pl-3">
+							<!-- 리뷰개수 -->
 					<span>도서리뷰 (13)</span>
 					<div class="float-right">
 						<button class="btn btn-sm border">리뷰작성</button>
 					</div>
 				</div>
 				<div>
+					<%
+						boolean rs = false;
+					 	//리뷰가 있는 경우
+						if(rs){
+					%>				
 					<table class="table" id="review">
 					<thead style="display: none;">
 						<th>리뷰</th>
@@ -185,6 +195,7 @@
 						%>
 						<tr>
 							<td>
+								<!-- 별점 -->
 								<div class="float-left">
 									<%
 										int star=4;
@@ -200,9 +211,11 @@
 											}
 										}
 									%>
+									<!-- 사용자 아이디 -->									<!-- 리뷰등록일 -->
 									<span class="mem_id ml-2 mr-2">yangz</span><span class="date">2020-05-11</span><%=k %>
 									</div>
 									<br>
+									<!-- 리뷰내용 -->
 									<div class="p-1 reviews">
 										드라마틱한 갈등없이 무던히 이어져오는 이야기에 시간 가는 줄 모르고 읽었습니다.
 										겨울의 분위기와 아늑한 책방의 분위기를 읽음과 동시에 꿈을 꾸는 것 같앗습니다.
@@ -212,56 +225,23 @@
 						<%} %>
 						</tbody>
 					</table>
+					<%
+						}else{
+						%>
+							<div class="none_rv bg-light pt-5 pb-5 border mt-3">
+								<div class="mb-2">
+									<span style="color:#BDBDBD;"><i class="far fa-sticky-note fa-3x"></i></span>
+								</div>
+									<span>등록된 리뷰가 없습니다</span>
+							</div>
+						<%
+						}
+					%>
 					</div>
 				</div>
-				
-				<!-- 임시
-				<div class="mt-2">
-				<div class="mt-5 mb-3 pl-3">
-					<span>
-						<h6>이 책과 저자가 같은(동명인) 도서</h6>
-					</span>
-				</div>
-				<div class="pl-2 pr-2">
-					<table class="table table-borderless pl-2 pr-2 bt">
-						<tr>
-							<td class="pt-4">
-								<img width="115" height="160" alt="이미지가 없습니다." src="/img/ex1.jpg">
-							</td>
-							<td class="pt-4">
-								<img width="115" height="160" alt="이미지가 없습니다." src="/img/ex2.jpg">
-							</td>
-							<td class="pt-4">
-								<img width="115" height="160" alt="이미지가 없습니다." src="/img/ex3.jpg">
-							</td>
-							<td class="pt-4">
-								<img width="115" height="160" alt="이미지가 없습니다." src="/img/ex4.png">
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<span class="book">내가 원하는 것을...</span><br><span class="author">이도우</span>
-							</td>
-							<td>
-								<span class="book">내가 원하는 것을...</span><br><span class="author">이도우</span>
-							</td>
-							<td>
-								<span class="book">내가 원하는 것을...</span><br><span class="author">이도우</span>
-							</td>
-							<td>
-								<span class="book">내가 원하는 것을...</span><br><span class="author">이도우</span>
-							</td>
-						</tr>
-					</table>
-					<hr>
-					</div>
-				</div> -->
-				
-			
-			
-			
 			</div>
-	<!-- paging js -->
+
+<!-- paging js -->
 <script>
     $(document).ready( function () {
     $('#review').DataTable({

@@ -5,14 +5,16 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Slobrary - 희망도서</title>
-<%@ include file="/CND.jsp"%>
-<link href="/css/wishBookPage.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Slobrary - 희망도서</title>
+	<%@ include file="/CND.jsp"%>
+	<link href="/css/wishBookPage.css" rel="stylesheet">
 </head>
+
 <body>
- </form>
+	</form>
 	<header>
 		<jsp:include page="/Top.jsp" flush="false" />
 	</header>
@@ -33,49 +35,49 @@
 		</p>
 		<img src="/img/wishBookPage/main-welcome.png" alt="">
 	</div>
-	
+
 	<div class="myApplyList">
 		<h1>나의 신청 내역</h1>
-	<%
+		<%
 		String mem_id = (String)session.getAttribute("loginKey");
 		if(mem_id==null) {
 	%>
 		<div class="contents ">
-			<p>로그인 후 이용해주세요</p> 
+			<p>로그인 후 이용해주세요</p>
 			<a href="/Login.jsp">로그인</a>
 		</div>
-	<%} else{
+		<%} else{
 		Vector List = bookMgr.getWishList(mem_id); %>
 		<table class="table contents">
 			<thead>
 				<tr>
 					<th scope="col">번호</th>
-      				<th scope="col">도서명</th>
-      				<th scope="col">저자명</th>
-      				<th scope="col">출판사</th>
-      				<th scope="col">상태</th>
-      				<th scope="col">신청날짜</th>
-      			</tr>
+					<th scope="col">도서명</th>
+					<th scope="col">저자명</th>
+					<th scope="col">출판사</th>
+					<th scope="col">상태</th>
+					<th scope="col">신청날짜</th>
+				</tr>
 			</thead>
 			<tbody>
-		<%
+				<%
 			for(int i = 0; i<List.size(); i++) {
 				WishBean wishBean = (WishBean)List.get(i);
-		%>      
+		%>
 				<tr>
-      				<th scope="row"><%=i + 1 %></th>
-      				<td><%=wishBean.getName() %></td>
-      				<td><%=wishBean.getAuthor() %></td>
-      				<td><%=wishBean.getPublisher() %></td>
-      				<td><%=wishBean.getStatus() %></td>
-      				<td><%=wishBean.getWish_date() %></td>
-   				</tr>
-   		<%}%>
+					<th scope="row"><%=i + 1 %></th>
+					<td><%=wishBean.getName() %></td>
+					<td><%=wishBean.getAuthor() %></td>
+					<td><%=wishBean.getPublisher() %></td>
+					<td><%=wishBean.getStatus() %></td>
+					<td><%=wishBean.getWish_date() %></td>
+				</tr>
+				<%}%>
    			</tbody>
 		</table>
 	<% } %>
 	</div>
-	
+
 	<div class="howToApply">
 		<h1>희망도서 신청 안내 사항</h1>
 		<div class="contents">
@@ -135,4 +137,5 @@
 		</div>
 	</div>
 </body>
+
 </html>
