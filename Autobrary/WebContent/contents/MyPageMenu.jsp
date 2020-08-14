@@ -24,7 +24,7 @@
 		<div class="subMenu">
 		<ul class="list-group mypage">
 			<li class="list-group-item list-group-item-action"><a href="MyPage.jsp?CONTENTPAGE=MyPageList.jsp?type=loanbook">내 서재</a></li>
-			<li class="list-group-item list-group-item-action"><a href="MyPage.jsp?CONTENTPAGE=MyPageList.jsp?type=overdue">연체도서</a></li>
+			<li class="list-group-item list-group-item-action"><a onclick="page()" href="MyPage.jsp?CONTENTPAGE=MyPageList.jsp?type=overdue">연체도서</a></li>
 			<li class="list-group-item list-group-item-action"><a href="MyPage.jsp?CONTENTPAGE=WishList.jsp">희망도서</a></li>
 			<li class="list-group-item list-group-item-action"><a href="MyPage.jsp?CONTENTPAGE=MyPageList.jsp?type=interest">관심도서</a></li>
 			<li class="list-group-item list-group-item-action"><a href="MyPage.jsp?CONTENTPAGE=LogList.jsp?type=review">나의 기록</a></li>
