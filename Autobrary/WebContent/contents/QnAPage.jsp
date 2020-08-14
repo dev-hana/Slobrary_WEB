@@ -1,41 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/CND.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-*{
- 	font-family: 'Noto Sans KR', sans-serif;
- }
- .stxt{
- 	color:#585858;
- }
-</style>
+<title>Slobrary - 자주묻는질문</title>
+<%@ include file="/CND.jsp"%>
+<!-- css -->
+<link href="/css/QnAPage.css" rel="stylesheet">
+<%
+	String type = request.getParameter("type");
+ 	String contentPage = "/contents/QnAList.jsp?type";
+	if(type==null){
+		contentPage = contentPage+"all";
+	}else{
+		contentPage = contentPage+type;
+	}
+%>
 </head>
-<body class="bg-light">
-	<jsp:include page="../Top.jsp" flush="false"/>
-	<div class="container-fluid mt-5">
-		<div class="row justify-content-md-center" >
-			<div class="col-xl-8 bg-white shadow-sm rounded p-5">
-				<div class="pl-3">
-					<div>
-						<h3>자주 묻는 질문 FAQ</h3>
-					</div>
-					<div class="stxt">
-						가장 자주 묻는 질문에 대한 내용을 쉽고 빠르게 확인하실 수 있습니다.
-					</div>
-				</div><hr>
-				<div class="m-1 mt-3 mb-3">
-					<jsp:include page="/contents/QnAMenu.jsp" flush="false"/>
-				</div>
-				<div>
-					<jsp:include page="/contents/QnAList.jsp" flush="false"/>
-				</div>
+<body>
+	<jsp:include page="/Top.jsp" flush="false"/>
+	<div class="row justify-content-md-center mt-5">
+		<div class="col-xl-9">	
+			<div class="faq">
+				<h2>자주묻는질문</h2>
+			</div>
+			<div class="pr-4 pl-4 mt-4 mb-4">
+			<!-- 카테고리 -->
+			<div class="navbar-category">
+				<nav>
+					<a class="active" href="/contents/QnAPage.jsp?type=all">전체</a>
+					<a href="/contents/QnAPage.jsp?type=member">회원문의</a>
+					<a href="/contents/QnAPage.jsp?type=book">자료이용</a>
+					<a href="/contents/QnAPage.jsp?type=etc">기타</a>
+				</nav>
+			</div>
+			<div>
+			</div>
+			</div>
+			<div class="list pr-4 pl-4 mt-4">
+				<jsp:include page="<%=contentPage %>" flush="false"/>
 			</div>
 		</div>
 	</div>
+	<br><br><br>
 </body>
 </html>

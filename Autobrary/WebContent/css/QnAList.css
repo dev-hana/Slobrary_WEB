@@ -1,0 +1,23 @@
+@charset "UTF-8";
+.textQ{
+ 	font-family: 'Fredoka One', cursive;
+ 	font-size: 30px;
+ 	color:#A593E0;
+ 	
+ }
+ .textA{
+ 	font-family: 'Fredoka One', cursive;
+ 	font-size: 30px;
+ 	color:#84B1ED;
+ 	
+ }	
+ *{
+ 	font-family: 'Noto Sans KR', sans-serif;
+ }
+ .A{
+ 	font-size: 18px;
+ 	color:#585858;
+ }
+.qTitle{
+font-size: 17px;
+}
