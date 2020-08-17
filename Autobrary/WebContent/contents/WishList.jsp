@@ -25,15 +25,23 @@
 <!-- 자바 스크립트 -->
 <script type="text/javascript" src="/js/formneeds.js"></script>
 
-<!-- 웹폰트 -->
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
-    
-<!-- 부트스트랩 -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<%@ include file="/CND.jsp"%>
+<style>
+.myApplyList thead {
+	background-color: var(--main-color);
+}
 
+.myApplyList tr {
+	transition: background-color 0.3s;
+	-webkit-transition: background-color 0.3s;
+	transition-timing-function: ease-in-out;
+	-webkit-transition-timing-function: ease-in-out;
+}
+
+.myApplyList tr:hover {
+	background-color: var(--main-color-light);
+}
+</style>
 </head>
 <body class="bg-light">
 
@@ -45,15 +53,17 @@
         	</div><br><hr>
 			
 			<%Vector List = bookMgr.getWishList(mem_id); %>
-			<div class="p-3 mt-2">
-			<table class="table table-hover">
-				<thead class="thead-light">
+			<div class="myApplyList p-3 mt-2">
+			<table class="table contents" id="wishTable">
+				<thead>
+					<tr>
 						<th scope="col">번호</th>
       					<th scope="col">도서명</th>
       					<th scope="col">저자명</th>
       					<th scope="col">출판사</th>
       					<th scope="col">상태</th>
       					<th scope="col">신청날짜</th>
+      				</tr>
 				</thead>
 					<%
 					for(int i = 0; i<List.size(); i++) {
@@ -70,7 +80,38 @@
    				<%}%>
 			</table>
 			</div>
-
 </body>
+<!-- dataTable js -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+$(document).ready( function () {
+	$('#wishTable').DataTable({
+    	// 표시 건수기능 숨기기 select로 몇개씩 표출할지
+    	lengthChange: false,
+    	
+    	// 검색 기능 숨기기
+    	searching: false,
+    	
+    	// 정렬 기능 숨기기
+    	ordering: false,
+    	
+    	// 정보 표시 숨기기
+    	info: false,
+    	
+    	//몇개씩 보여줄지
+    	displayLength: 10,
+    	language: {
+            paginate: {
+                previous: '‹',
+                next:     '›'
+            }
+        }
+    });
+  });
+
+</script>
 </html>
 <%}%>

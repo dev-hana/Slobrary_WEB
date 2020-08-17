@@ -48,7 +48,7 @@
 		</div>
 		<%} else{
 		Vector List = bookMgr.getWishList(mem_id); %>
-		<table class="table contents">
+		<table class="table contents mb-4" id="wishTable">
 			<thead>
 				<tr>
 					<th scope="col">번호</th>
@@ -137,5 +137,46 @@
 		</div>
 	</div>
 </body>
+<!-- dataTable js -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
+<script>
+$(document).ready( function () {
+	$('#wishTable').DataTable({
+    	// 표시 건수기능 숨기기 select로 몇개씩 표출할지
+    	lengthChange: false,
+    	
+    	// 검색 기능 숨기기
+    	searching: false,
+    	
+    	// 정렬 기능 숨기기
+    	ordering: false,
+    	
+    	// 정보 표시 숨기기
+    	info: false,
+    	responsive: {
+            details: {
+                type: 'column',
+                target: 'tr'
+            }
+        },
+        columnDefs: [ {
+            className: 'control',
+            orderable: false,
+            targets:   0
+        } ],
+    	//몇개씩 보여줄지
+    	displayLength: 10,
+    	language: {
+            paginate: {
+                previous: '‹',
+                next:     '›'
+            }
+        }
+    });
+  });
+
+</script>
 </html>

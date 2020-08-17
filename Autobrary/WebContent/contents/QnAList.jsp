@@ -103,10 +103,10 @@ function divHide(item){
 	var a = "."+item;
 	
 	if($(a).css("display") != "none"){
-		$(a).hide();
+		$(a).fadeOut('slow');
 		
 	}else{
-		$(a).show();
+		$(a).fadeIn('slow');
 	}
 }
 

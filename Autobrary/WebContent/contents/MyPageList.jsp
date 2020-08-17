@@ -13,26 +13,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css -->
-<link href="/css/MyPageList.css?v=2" rel="stylesheet" />
-<style>
-.alink a:hover{
-	color: #424242;
-	text-decoration: underline;
-}
-.alink a:link { color: #424242;}
-.alink a:visited { color: #424242; text-decoration: none;}
+<link href="/css/MyPageList.css" rel="stylesheet" />
 
-.ap{
-	color:6C6C6C;
-	font-size:14px;
-}
-.sm-date{
-	font-size:15px;
-}
-.title{
-	color:#A593E0;
-}
-</style>
 <!--  <style>
 .modal-backdrop.in { background: rgba(0, 0, 0, 0.5); } 
 .modal-backdrop { background-color:transparent; transition: all .3s}
@@ -150,7 +132,13 @@ filter: alpha(opacity=50);
 		<div class="pl-3 pb-2 pt-3">
 			<h4>이전 대출 기록</h4>
 		</div>
-				<table class="table">
+				<table class="table" id="allTable">
+				<thead class="hiddenTh">
+					<tr>
+						<th>이미지</th>
+						<th>도서 정보</th>
+					</tr>
+				</thead>
 				<%
 				Vector vReturn = bookMgr.getReturn(mem_id);
 				for(int i=0; i<vReturn.size();i++){
@@ -180,14 +168,17 @@ filter: alpha(opacity=50);
 					String return_date = loanBean.getReturn_date().substring(0, 10);
 				
 				%>
-					<tr>
-			<td class="img pt-3">
+			<tr>
+			<td class="img pt-4">
 				<img width="110" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
 			</td>
-			<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : <%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : <%=publisher %></span>
-			<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loan_date %></sapn>
-			<br><span class="loan">반납완료일&nbsp;</span><span>:&nbsp;<%=return_date %></span>
-			<br>
+			<td><span class="title mr-2"><strong>[&nbsp;도서&nbsp;]</strong></span><span class="alink"><a href="# "><%=name %></a></span><br>	
+			<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">저자 : <%=author %></span><br>
+			<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">출판사 : <%=publisher %></span>
+			<div class="sm-date">
+				<span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loan_date %></sapn><br>
+				<span class="loan">반납완료일&nbsp;</span><span>:&nbsp;<%=return_date %></span>
+			</div>
 			<div class="mt-3 mb-2 pr-2" style="float:right;">
 				<form>
 					<input type="hidden" name="id_num" value="1">
@@ -253,7 +244,7 @@ filter: alpha(opacity=50);
 				String status = bookBean.getStatus();
 		%>
 		<tr>
-			<td class="img pt-3">
+			<td class="img pt-4">
 				<img width="110" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
 			</td>
 			<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : <%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : <%=publisher %></span>
@@ -296,7 +287,14 @@ filter: alpha(opacity=50);
 		<div class="pl-3 pb-2 pt-3">
 			<h4>연체 도서</h4>
 		</div>
-				<table class="table">
+				<table class="table" id="overdueTable" onload="page()">
+				<thead class="hiddenTh">
+					<tr>
+						<th>이미지</th>
+						<th>도서 정보</th>
+					</tr>
+				</thead>
+				<tbody>
 				<%
 		
 			Vector vLoan = bookMgr.getLoan(mem_id);
@@ -341,23 +339,32 @@ filter: alpha(opacity=50);
 	
 		%>
 					<tr>
-						<td class="img pt-3">
+						<td class="img pt-4">
 							<img width="110" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
 						</td>
 						<td>
-							<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : <%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : <%=publisher %></span>
-							<br><span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loan_date %></sapn>
-							<br><span class="return">반납일&nbsp;</span><span>:&nbsp;<%=return_date %></span>
-							<br>
+							<td><span class="title mr-2"><strong>[&nbsp;도서&nbsp;]</strong></span><span class="alink"><a href="# "><%=name %></a></span><br>
+								<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">저자 : <%=author %></span><br>
+								<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">출판사 : <%=publisher %></span>
+							<div class="sm-date">
+								<span class="loan">대출일&nbsp;</span><span>:&nbsp;<%=loan_date %></sapn><br>
+								<span class="return">반납일&nbsp;</span><span>:&nbsp;<%=return_date %></span>
+							</div>
 							<div class="bg-light p-3 mt-2">반납일로부터&nbsp;&nbsp;<span class="overdate"><%=Math.abs(resultT) %></span>일&nbsp;&nbsp;연체되었습니다.</div>
 						</td>
 					</tr>
 			<%
 				}else{
-					%><tr><tr><%
+					%>
+					<tr>
+						<td>a</td>
+						<td>연체된 도서가 없습니다</td>
+					</tr>
+					<%
 				}
 			}
 			%>
+				</tbody>
 				</table>
 	<%
 		} 
@@ -370,5 +377,39 @@ filter: alpha(opacity=50);
 			  $("#l_id").val(loan_id);
 	  }
 	</script>
+	<!-- dataTable js -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script>
+$(document).ready( function () {
+	//이전 대출 목록 페이지네이션
+	$('#allTable').DataTable({
+    	// 표시 건수기능 숨기기 select로 몇개씩 표출할지
+    	lengthChange: false,
+    	
+    	// 검색 기능 숨기기
+    	searching: false,
+    	
+    	// 정렬 기능 숨기기
+    	ordering: false,
+    	
+    	// 정보 표시 숨기기
+    	info: false,
+    	
+    	//dataTable 초기화 에러시 추가
+    	bDestroy: true,
+    	
+    	//몇개씩 보여줄지
+    	displayLength: 5,
+    	language: {
+            paginate: {
+                previous: '‹',
+                next:     '›'
+            }
+        }
+    });
+  });
+</script>
 </body>
 </html>
