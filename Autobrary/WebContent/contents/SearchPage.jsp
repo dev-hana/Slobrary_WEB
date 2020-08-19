@@ -5,25 +5,21 @@
 <html >
 <head>
 <meta charset="UTF-8">
-
-<!-- dataTable pagination -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<link href="/css/index.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/selectBox.css"> 
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <title>SLO-도서검색</title>
 <%
 	String category = "자료검색";
 	String pageNames = "도서검색, 신간도서, 베스트셀러";
-	String pageUrls = "SearchPage.jsp?contentPage=BookSearch.jsp, SearchPage.jsp?contetPage=Booklist.jsp?new, SearchPage.jsp?contentPage=Booklist.jsp?best";
+	String pageUrls = "SearchPage.jsp, SearchPage.jsp?contentPage=Booklist.jsp?type=new, SearchPage.jsp?contentPage=Booklist.jsp?type=best";
 	String currentPage = "자료검색";
 	request.setCharacterEncoding("UTF-8");
 	
 	String contentPage=request.getParameter("contentPage");
 	if(contentPage==null){
-		contentPage="BookSearch.jsp";
+		contentPage="SearchList.jsp?keytype=all&keyword=";
 	}
 %>
 </head>
@@ -34,6 +30,7 @@
 	</header>
 	<div class="container-fluid mb-5">
 		<div class="row mt-4 pt-4 justify-content-md-center">
+		
 			<div class="col-xl-3 overflow-auto">
 				<jsp:include page="/SideMenuBar.jsp" flush="false">
 				<jsp:param name="category" value="<%=category%>"/>
@@ -43,41 +40,62 @@
 				</jsp:include>
 			</div>
 			<div class="col-xl-8 mt-3 p-3" style="margin-left: -4rem;">
-				<jsp:include page="<%=contentPage %>" flush="false" />
+			<%if(contentPage.contains("SearchList")){%>
+				<div class="mb-4">
+				<h3 class="pl-2 pb-1"><span style="color:#A593E0;"><i class="far fa-square"></i></span>&nbsp;&nbsp;도서검색</h3>
+				</div>
+			
+			<div style="text-align:center; border: 1px solid #EAEAEA;" class="mt-2 mb-5 pt-3">
+			<div id="search-form">
+			
+			  <div style="display: inline-block;" class="sel sel--black-panther">
+ 				 <select name="keytype" id="select-profession">
+  					<option value="all">전체</option>
+  					<option value="all">전체</option>
+    				<option value="title">도서명</option>
+    				<option value="author">저자</option>
+    				<option value="publisher">출판사</option>
+  					</select>
+				</div>
+				
+				<div style="display: inline-block; border: 1px solid #EAEAEA;" class="col-xl-7 p-2 bg-white rounded rounded-pill shadow-sm mb-4">
+     				<div class="input-group">
+         				<input id="keyword" name="keyword" onkeypress="enter_search()" type="search" placeholder="도서 검색 (책 이름, 작가명, 출판사명)" aria-describedby="button-addon" class="form-control border-0 bg-white">
+             			<div class="input-group-append">
+               				<button id="button-addon" class="btn btn-link"><i class="fa fa-search"></i></button>
+             			</div>
+         			</div>
+  				</div>
+			</div>
+			</div>
+			<%}%>
+				<div>
+					<jsp:include page="<%=contentPage %>" flush="false" />
+				</div>			
 			</div>
 		</div>
 	</div>
 	<jsp:include page="/Footer.jsp" flush="false" />
-		<!-- 페이지 include 시 dataTable jquery 적용 안되는 문제로 추가-->
-		<script type='text/javascript'>  
-		 var $jq = jQuery.noConflict(true);  
-		</script>
-		<script>
-		$jq(document).ready( function () {
-			$jq('#review').DataTable({
-		    	// 표시 건수기능 숨기기 select로 몇개씩 표출할지
-		    	lengthChange: false,
-		    	
-		    	// 검색 기능 숨기기
-		    	searching: false,
-		    	
-		    	// 정렬 기능 숨기기
-		    	ordering: false,
-		    	
-		    	// 정보 표시 숨기기
-		    	info: false,
-		    	
-		    	//몇개씩 보여줄지
-		    	displayLength: 5,
-		    	language: {
-		            paginate: {
-		                previous: '‹',
-		                next:     '›'
-		            }
-		        }
-		    });
-		  });
-		    </script>
+	<script>
+	$(document).ready(function() {
+		$('#button-addon').click(function() {
+			var keytype =$("#select-profession option:selected").val();
+			var keyword =$("#keyword").val();
+			var link = "/contents/SearchPage.jsp?contentPage=SearchList.jsp?keytype="+keytype+"&keyword="+keyword;
+			$(location).attr('href',link);
+
+		});
 		
+	});
+	 function enter_search() {
+	        if ( window.event.keyCode == 13 ) {
+	        	var keytype =$("#select-profession option:selected").val();
+				var keyword =$("#keyword").val();
+				var link = "/contents/SearchPage.jsp?contentPage=SearchList.jsp?keytype="+keytype+"&keyword="+keyword;
+				$(location).attr('href',link);
+	        }
+	    }
+	</script>
+ <script src="/js/bookSearch.js"></script>
 </body>
 </html>

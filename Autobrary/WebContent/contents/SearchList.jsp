@@ -12,13 +12,6 @@
 <!-- 아이콘 -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
  
- <!-- dataTable pagination -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-
  <style>
 .img{
 	text-align: center;
@@ -56,9 +49,12 @@
 	font-size:14px;
  	color:9D9D9D;
 }
-.dataTables_wrapper {
-      _height: 102px;
-      min-height: 102px;
+.keytype{
+	border: 1px solid #EAEAEA;
+}
+.n_border{
+	border-bottom: 1px solid #EAEAEA;
+	border-top: 1px solid #EAEAEA;
 }
 </style>
 
@@ -94,13 +90,13 @@
 			<h4><span style="color:#A593E0;"><i class="fas fa-search"></i></span>&nbsp;&nbsp;검색결과</h4>
 			<div class="mt-3">
 			    <!-- 맨 오른쪽 검색결과 개수 n권 표시 -->
-				<span class="border m-2 mt-1 p-1 pr-2 pl-2 "><%=keyKor%></span><span class="keyword"><strong>"<%=keyword %>"</strong></span><span class="oth">(의)로 검색한 결과 </span><span class="count">총 122권</span>
+				<span class="keytype m-2 mt-1 p-1 pr-2 pl-2 "><%=keyKor%></span><span class="keyword"><strong>"<%=keyword %>"</strong></span><span class="oth">(의)로 검색한 결과 </span><span class="count">총 <%=vResult.size() %>권</span>
 			</div>
 	</div>
 	<!-- 검색결과 리스트 디자인 -->
-  	<div class="pr-2 pl-2 justify-content-md-center dataTables_wrapper">
+  	<div class="pr-2 pl-2 justify-content-md-center">
   	
-	<table class="table"  id="myTable" style="width:100%">
+	<table class="table"  id="myTable">
 		<!-- dataTable 생성하려면 thead 필수 -->
 		<thead style="display: none;">
 			 <tr><th>이미지</th><th>정보</th></tr>
@@ -119,7 +115,7 @@
 			<td>
 			<!--오른쪽 끝 도서명 표시 -->					<!-- 도서명 클릭시 상세보기 페이지이동 파라메타로 책구분할 id -->													
 			<span class="title mr-2"><strong>[&nbsp;도서&nbsp;]</strong></span><span class="alink">
-			<a href="/contents/SearchPage.jsp?contentPage=BookDetail.jsp?bookid=<%=bookBean.getId_num()%>" target="_parent">
+			<a href="/contents/BookDetailPage.jsp?bookid=<%=bookBean.getId_num()%>">
 			<%=bookBean.getName() %></a></span><br>
 			<!-- 별점 -->
 			<div style="font-size: 17px;">
@@ -136,11 +132,11 @@
 							for(int s=1;s<=5;s++){
 								if(s<=fullStar){
 								%>
-									<span style="color:#fcd703;"><i class="fas fa-star"></i></span>
+									<span style="color:var(--main-color);"><i class="fas fa-star"></i></span>
 								<%
 								}else if(s>fullStar && halfStar==true){
 									%>
-									<span style="color:#fcd703;"><i class="fas fa-star-half"></i></span>
+									<span style="color:var(--main-color);"><i class="fas fa-star-half"></i></span>
 									<span style="color:#B8B8B8; margin-left: -1.5rem;"><i class="fas fa-star-half fa-flip-horizontal"></i></span>
 									<%
 									if(s==5){
@@ -165,7 +161,7 @@
 			<div class="mt-2 pr-2">
 			<div class="pt-2 float-right">
 					<!-- 상세보기버튼 onclick 주소에 도서id -->
-					<button class="btn btn-outline-secondary" onclick="window.parent.location.href='/contents/SearchPage.jsp?contentPage=BookDetail.jsp?bookid=<%=bookBean.getId_num() %>'" type="button">상세보기</button>
+					<button class="btn btn-outline-secondary" onclick="location.href='/contents/BookDetailPage.jsp?bookid=<%=bookBean.getId_num() %>'" type="button">상세보기</button>
 			</div>
 			<div class="pt-2 pr-2 float-right">
 			<!-- 관심도서 등록 form -->
@@ -194,10 +190,10 @@
 			<div class="mb-3 pl-3">
 			<h4><span style="color:#A593E0;"><i class="fas fa-search"></i></i></i></span>&nbsp;&nbsp;검색결과</h4>
 			<div class="mt-3">
-				<span class="border m-2 mt-1 p-1 pr-2 pl-2 "><%=keyKor%></span><span class="keyword"><strong><%=keyword %></strong></span><span class="oth">(의)로 검색한 결과 </span><span class="count">총 122권</span>
+				<span class="keytype m-2 mt-1 p-1 pr-2 pl-2 "><%=keyKor%></span><span class="keyword"><strong><%=keyword %></strong></span><span class="oth">(의)로 검색한 결과 </span><span class="count">총 0권</span>
 			</div>
 			</div>
-			<div class="row border justify-content-md-center" style="text-align: center;">
+			<div class="row n_border justify-content-md-center" style="text-align: center;">
 			<div class="p-5">
 				<p><span style='font-size:60px;'>&#128531;</span></p>
 				<div>
@@ -209,6 +205,10 @@
 		}
 	%>
 	
+<!-- dataTable js -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 <!-- paging js -->
 <script type='text/javascript'>  
 	var $jq = jQuery.noConflict(true);  

@@ -37,7 +37,7 @@
 									<td onclick="divHide('a<%=i %>')" data-toggle="collapse" href="#a<%=i %>" aria-expanded="false">
 																							<!-- 제목 -->
 					  					<span class="textQ mr-3">Q</span><span class="qTitle">도서관 이용시간과 휴관일은 어떻게 되나요?</span>
-					  					<div class="collapse a<%=i %> mt-1 pt-2 pb-2 A" id="a<%=i %>">
+					  					<div class="collapse a<%=i %> mt-1 A" id="a<%=i %>">
 											<span class="textA mr-3">A</span>
 											<!-- 내용 -->
 											<span>
@@ -83,11 +83,6 @@ $(document).ready( function () {
                 target: 'tr'
             }
         },
-        columnDefs: [ {
-            className: 'control',
-            orderable: false,
-            targets:   0
-        } ],
     	//몇개씩 보여줄지
     	displayLength: 10,
     	language: {
