@@ -467,7 +467,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                         <button class="btn btn-sm btn-outline-secondary float-right" type="button" onclick="">더보기</button>
                     </div>
                     <div class="tab-pane fade p-5" id="wish" role="tabpanel" aria-labelledby="wishList-tab">
-                        <p>위시리스트 : <%=watch %></p>
+                        <p>관심도서 : <%=watch %></p>
                         <hr>
                         <div class="container">
                             <div class="row mt-5 ml-5 mr-5">
