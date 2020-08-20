@@ -82,26 +82,20 @@
         	<div class="bg-white shadow-sm rounded p-2">
         		<jsp:include page="<%=contentPage %>" flush="false"/>
         	</div>
+        	<%
+				if(contentPage.equals("MyPageList.jsp?type=loanbook")){
+					String record = "MyPageList.jsp?type=allrecord";
+			%>
+				
+					<div class="mt-4 bg-white shadow-sm rounded p-2">
+						<jsp:include page="<%=record %>" flush="false"/>
+					</div>
+				
+			<%
+				}%>
         </div>
     </div>
 	<%} %>
-	<%
-		if(contentPage.equals("MyPageList.jsp?type=loanbook")){
-			String record = "MyPageList.jsp?type=allrecord";
-	%>
-		<div class="row mt-5 p-3 justify-content-md-center">
-			<div class="col-xl-10 bg-white shadow-sm rounded p-4">
-				<jsp:include page="<%=record %>" flush="false"/>
-			</div>
-		</div>
-	<%
-		}else{
-			
-			%>
-			<div><br></div>
-			<%
-		}
-	%>
 	<br><br><br>
 	<jsp:include page="/Footer.jsp" flush="false"/>
 </body>

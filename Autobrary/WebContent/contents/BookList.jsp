@@ -5,7 +5,7 @@
 <html>
 <head>
 <%
-		String type = request.getParameter("type");
+		String type =request.getParameter("type");
 		String korType;
 		if(type.equals("best")){
 			korType = "베스트셀러";
@@ -15,6 +15,38 @@
 %>
 <meta charset="UTF-8">
 <title>SLO-<%=korType %></title> 
+<style type="text/css">
+.newInfo{
+ display: flex;
+ justify-content: center;
+ align-item: center;
+ border: 2px solid #EAEAEA;
+}
+.bookIcon img{
+	width:190px;
+	height: 160px;
+}
+.info hr{
+	border-top: 1px dashed #bbb;
+}
+.info{
+	align-self: center;
+	width:70%;
+}
+.info h5{
+	color:var(--main-color-dark);
+	font-weight: bold;
+}
+.info p{
+	color:#848484;
+}
+.bookCount{
+	color:#DE4F4F;
+}
+.count h6{
+color:#747474;
+}
+</style>
 <link href="/css/bookList.css" rel="stylesheet">
 <!-- 아이콘 -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -25,6 +57,25 @@
 		<h3><span style="color:#A593E0;"><i class="fas fa-bookmark"></i></span>&nbsp;&nbsp;<%=korType %></h3>
 	</div>
 	<div>
+	<%
+		if(type.equals("new")){
+	%>
+	<div class="newInfo p-4 mt-5 mb-5">
+		<div class="bookIcon">
+			<img src="/img/books.jpg"/> <!-- <a href="https://www.freevector.com/stack-of-books-clipart-vector-30222#">FreeVector.com</a> -->
+		</div>
+		<div class="info ml-4">
+			<h5>신간도서</h5>
+			<p>Slobrary의 입고된 신간도서로 새롭게 출간되는 도서리스트 입니다.<br>
+			새로나온 책을 확인하실 수 있는 서비스 입니다.</p>
+			<hr>
+		</div>
+	</div>
+	<div class="count mb-2 pl-2">
+		<h6>총<span class="bookCount"> 24권</span>의 신간도서가 등록되어 있습니다.</h6>
+	</div>
+	<%} %>
+	
 		<table class="table" id="bookTable">
 			<thead style="display: none;">
 				 <tr><th>이미지</th><th>정보</th></tr>

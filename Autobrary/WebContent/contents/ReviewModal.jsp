@@ -8,6 +8,13 @@
 <title>Insert title here</title>
 <script src="/js/rating.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+<script type="text/javascript" src="/js/formneeds.js"></script>
+
+<style type="text/css">
+textarea{
+	overflow: hidden;
+}
+</style>
 </head>
 <body>
 
@@ -32,11 +39,12 @@
       
       <hr>
       <!-- form -->
-      <form>
+      <form id="reviweform" name="reviewform" class="needs-validation" action="ReviewProc.jsp" method="post" novalidate>
       	<div class="form-group mt-4">
-      		<input type="hidden" value="0" id="halfstarsInput" class="form-control form-control-sm">
-      		<input type="hidden" id="l_id">
-    		<textarea class="form-control" placeholder="이 책을 평가해주세요!" id="textarea" rows="4"></textarea>
+      		<input name="rating" type="hidden" value="0" id="halfstarsInput" class="form-control form-control-sm">
+      		<input name="bookid" type="hidden" id="l_id">
+    		<textarea name="review" class="form-control" placeholder="이 책을 평가해주세요!" id="textarea" rows="4" required></textarea>
+    		<div class="invalid-feedback">리뷰를 작성해 주세요.</div>
   		</div>
       	
       </form>
@@ -44,13 +52,15 @@
       
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-        <button type="button" class="btn btn-primary">완료</button>
+        <button type="submit" form="reviweform" class="btn btn-primary" >완료</button>
       </div>
     </div>
   </div>
 </div>
 <script>
   $("#halfstarsReview").rating({
+	  "half": true,
+	  "color": "var(--main-color)",
       "click": function (e) {
       console.log(e);
       $("#halfstarsInput").val(e.stars);
@@ -61,6 +71,14 @@
 	  $(this).find('form')[0].reset();
 	  location.reload();
 	});
+  $('.modal').on('show.bs.modal', function (e) {
+	  $(this).find('form')[0].reset();
+});
+  function submit(){
+	  var form = document.getElementById("reviweform");
+	  form.action = "ReviewProc.jsp";
+	  form.submit();
+	}
 </script>
 </body>
 </html>

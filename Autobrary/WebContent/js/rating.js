@@ -5,7 +5,7 @@ const defaults = {
     "emptyStar": "far fa-star",
     "halfStar": "fas fa-star-half-alt",
     "filledStar": "fas fa-star",
-    "color": "#fcd703",
+    "color": "#A593E0",
     "readonly": false,
     "click": function (e) {
         console.error("No click callback provided!");

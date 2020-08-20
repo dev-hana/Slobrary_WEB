@@ -13,7 +13,7 @@
 <%
 	String category = "자료검색";
 	String pageNames = "도서검색, 신간도서, 베스트셀러";
-	String pageUrls = "SearchPage.jsp, SearchPage.jsp?contentPage=Booklist.jsp?type=new, SearchPage.jsp?contentPage=Booklist.jsp?type=best";
+	String pageUrls = "SearchPage.jsp, SearchPage.jsp?contentPage=BookList.jsp?type=new, SearchPage.jsp?contentPage=BookList.jsp?type=best";
 	String currentPage = "자료검색";
 	request.setCharacterEncoding("UTF-8");
 	
@@ -31,7 +31,7 @@
 	<div class="container-fluid mb-5">
 		<div class="row mt-4 pt-4 justify-content-md-center">
 		
-			<div class="col-xl-3 overflow-auto">
+			<div class="col-xl-3 mr-n4 overflow-auto">
 				<jsp:include page="/SideMenuBar.jsp" flush="false">
 				<jsp:param name="category" value="<%=category%>"/>
 				<jsp:param name="pageNames" value="<%=pageNames%>"/>
@@ -39,7 +39,7 @@
 				<jsp:param name="currentPage" value="<%=currentPage%>"/>
 				</jsp:include>
 			</div>
-			<div class="col-xl-8 mt-3 p-3" style="margin-left: -4rem;">
+			<div class="col-xl-8 mt-3 p-2">
 			<%if(contentPage.contains("SearchList")){%>
 				<div class="mb-4">
 				<h3 class="pl-2 pb-1"><span style="color:#A593E0;"><i class="far fa-square"></i></span>&nbsp;&nbsp;도서검색</h3>

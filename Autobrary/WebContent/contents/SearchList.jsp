@@ -15,6 +15,7 @@
  <style>
 .img{
 	text-align: center;
+	align-self: center;
 }
 .keyword{
 	color:#353535;
@@ -108,7 +109,7 @@
 				BookBean bookBean = (BookBean)vResult.get(i);
 		%>
 		<tr>
-			<td class="img pt-3">
+			<td class="img">
 				<!-- 도서 이미지 -->
 				<img class="shadow-sm" width="110" height="140" alt="<%=bookBean.getName() %>" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>">
 			</td>

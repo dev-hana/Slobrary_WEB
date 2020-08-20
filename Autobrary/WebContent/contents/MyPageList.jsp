@@ -14,19 +14,6 @@
 <title>Insert title here</title>
 <!-- css -->
 <link href="/css/MyPageList.css" rel="stylesheet" />
-
-<!--  <style>
-.modal-backdrop.in { background: rgba(0, 0, 0, 0.5); } 
-.modal-backdrop { background-color:transparent; transition: all .3s}
-.modal-backdrop.fade {
-opacity: 0;
-filter: alpha(opacity=0);
-}
-.modal-backdrop.fade.in {
-opacity: 0.5;
-filter: alpha(opacity=50);
-}
-</style>-->
 </head>
 <body>
 
@@ -96,7 +83,7 @@ filter: alpha(opacity=50);
 			</div>
 			<div class="mt-3 mb-2 pr-2" style="float:right;">
 			
-					<button type="button" onclick="modal_view('<%=name %>','<%=loan_id %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">리뷰하기</button>
+					<button type="button" onclick="modal_view('<%=name %>','<%=loanBean.getLoan_id() %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">리뷰하기</button>
 			</div>
 			<div class="bg-light p-3 mt-2" id="<%=loan_text %>">반납일까지&nbsp;<span class="loan" id="<%=loan_id %>" ><%=resultT %>일</span>&nbsp;남았습니다!
 			<% if(resultT < 0){
@@ -182,7 +169,7 @@ filter: alpha(opacity=50);
 			<div class="mt-3 mb-2 pr-2" style="float:right;">
 				<form>
 					<input type="hidden" name="id_num" value="1">
-					<button type="button" onclick="modal_view('<%=name %>','<%=i %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">리뷰하기</button>
+					<button type="button" onclick="modal_view('<%=name %>','<%=loanBean.getLoan_id() %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">리뷰하기</button>
 				</form>
 			</div>
 			<div class="bg-light p-3 mt-2"><span id="<%=return_id%>">정상</span>반납을 완료하였습니다!</div>
