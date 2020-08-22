@@ -808,6 +808,37 @@ public class BookMgr {
         return vecList;
     }
     
+
+    public RatingBean getBookrating(String id_num) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        RatingBean ratingBean= null;
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select * " + 
+            		"from rating_info " + 
+            		"where book_id = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, id_num);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+            	ratingBean = new RatingBean();
+            	ratingBean.setBook_id(rs.getString("book_id"));
+            	ratingBean.setAll_score(rs.getString("all_score"));
+            	ratingBean.setCount(rs.getString("count"));
+            	ratingBean.setRating(rs.getString("rating"));
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+
+        return ratingBean;
+    }
+    
     public Vector searchBook(String keytype, String keyword) {
     	Connection con = null;
         PreparedStatement pstmt = null;
