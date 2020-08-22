@@ -45,26 +45,3 @@ $('.sel__box__options').click(function() {
   $currentSel.children('select').prop('selectedIndex', index + 1);
 });
 
-//
-function calcHeight(){
-	 //find the height of the internal page
-
-	 var the_height=
-	 document.getElementById('the_iframe').contentWindow.
-	 document.body.scrollHeight;
-
-	 //change the height of the iframe
-	 document.getElementById('the_iframe').height=
-	 the_height;
-
-	 //document.getElementById('the_iframe').scrolling = "no";
-	 document.getElementById('the_iframe').style.overflow = "hidden";
-}
-
-function iframeshow(){
-if($('#the_iframe').css('display') == 'none'){
-    	$('#the_iframe').show();
-}else{
-    $('#the_iframe').show();
-}
-}

@@ -15,7 +15,7 @@
 <head>
 <title>Slobrary - <%=currentPage%></title>
 <%@ include file="/CND.jsp"%>
-<link rel="stylesheet" href="/css/noticeBoard.css">
+<link rel="stylesheet" href="/css/noticeBoard.css?v=1">
 </head>
 <body>
 	<header>
@@ -32,8 +32,8 @@
 			</jsp:include>
 			
 			<div id="content">
-				<h1 class="mb-4"><%=currentPage%></h1>
-				<table class="table table-striped table-hover table-notice-board">
+				<h1 class="mb-1"><%=currentPage%></h1>
+				<table class="table table-striped table-hover table-notice-board" id="noticeTable">
 					<thead>
 						<tr>
 							<th>번호</th>
@@ -43,46 +43,25 @@
 						</tr>
 					</thead>
 					<tbody>
+						<%
+							for(int i=0;i<25;i++){
+						%>
 						<tr>
-							<td>1</td>
+							<td><%=i+1 %></td>
 							<td>오늘의 공지사항</td>
 							<td>2020.04.17</td>
 							<td>0</td>
 						</tr>
-						<tr onClick="">
-							<td>2</td>
-							<td>오늘의 공지사항</td>
-							<td>2020.04.17</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>오늘의 공지사항</td>
-							<td>2020.04.17</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>오늘의 공지사항</td>
-							<td>2020.04.17</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>오늘의 공지사항</td>
-							<td>2020.04.17</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>오늘의 공지사항</td>
-							<td>2020.04.17</td>
-							<td>0</td>
-						</tr>
+						
+						<%
+							}
+						%>
 					</tbody>
 				</table>
 			</div>
 		</div>
+		
+		<!-- 
 		<div class="mt-5" style="margin-left: 250px;">
 			<nav aria-label="Page navigation">
 				<ul class="pagination justify-content-center">
@@ -100,9 +79,40 @@
 				</select> <input type="text" class="form-control">
 				<button type="submit" class="btn btn-outline-secondary">검색</button>
 			</form>
-		</div>
+		</div> -->
 	</div>
-
 	<jsp:include page="/Footer.jsp" flush="false" />
+	<!-- dataTable js -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+	<script>
+	$(document).ready( function () {
+	$("#noticeTable").DataTable({
+    	// 표시 건수기능 숨기기 select로 몇개씩 표출할지
+    	lengthChange: false,
+    	
+    	// 검색 기능 숨기기
+    	searching: true,
+    	
+    	// 정렬 기능 숨기기
+    	ordering: false,
+    	
+    	// 정보 표시 숨기기
+    	info: false,
+    	oLanguage: {
+    	      sZeroRecords: "일치하는 공지사항이 없습니다."
+    	    },
+    	//몇개씩 보여줄지
+    	displayLength: 5,
+    	language: {
+            paginate: {
+                previous: '‹',
+                next:     '›'
+            }
+        }
+    });
+  });
+    </script>
 </body>
 </html>
