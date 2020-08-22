@@ -207,7 +207,7 @@ color:#747474;
 		</div>
 		<div class="best ml-4">
 			<h5>베스트셀러</h5>
-			<p>Slobrary의 종합 베스트셀러 TOP100<br>
+			<p>Slobrary의 종합 베스트셀러<br>
 			대출하고 있는 도서중 대출건수가 많은 도서를 보여 드립니다.</p>
 			<hr>
 		</div>
