@@ -6,7 +6,7 @@
 	background: #866ec7;
 	color: #fff;
 	transition: all .3s;
-	position: relative;
+	align-self: flex-start;
 }
 
 .sidebar-header {

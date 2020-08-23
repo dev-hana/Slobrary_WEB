@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link >
 <link rel="stylesheet" href="/css/sideMenuBar.css">
 </head>
 <%
