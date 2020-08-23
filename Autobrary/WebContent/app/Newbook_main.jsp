@@ -6,7 +6,7 @@
 <%@ page import = "org.json.simple.JSONObject" %>
 
 <%
-Vector vResult = bookMgr.getNewList3();
+Vector vResult = bookMgr.getNewList(3);
 JSONObject head = new JSONObject();
 
 for(int i = 0; i<vResult.size(); i++) {

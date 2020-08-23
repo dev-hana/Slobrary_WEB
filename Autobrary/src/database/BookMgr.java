@@ -124,50 +124,44 @@ public class BookMgr {
         return vecList;
     }
     
-    public Vector getNewList6() {
+ 
+    public Vector getNewList(int limit) {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
         Vector vecList = new Vector();
-
-        try {
-            con = pool.getConnection();
-            String strQuery = "select distinct image, id_num, add_date from book_info order by add_date LIMIT 6 ";
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(strQuery);
-
-            while (rs.next()) {
-                BookBean bookBean = new BookBean();
-                bookBean.setImage(rs.getString("image"));
-                bookBean.setId_num(rs.getString("id_num"));
-               
-                vecList.add(bookBean);
-            }
-        } catch (Exception ex) {
-            System.out.println("Exception" + ex);
-        } finally {
-            pool.freeConnection(con, stmt, rs);
+        String strQuery = "";
+        if(limit == 3) {
+        	strQuery = "select distinct * from book_info order by add_date LIMIT 3 ";
+        }else if(limit == 6) {
+        	strQuery = "select distinct * from book_info order by add_date LIMIT 6 ";
+        }else if(limit == 10) {
+        	strQuery = "select distinct * from book_info order by add_date LIMIT 10 ";
         }
-        return vecList;
-    }
-    
-    public Vector getNewList3() {
-        Connection con = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        Vector vecList = new Vector();
+        
 
         try {
             con = pool.getConnection();
-            String strQuery = "select distinct image, id_num, add_date from book_info order by add_date LIMIT 3 ";
             stmt = con.createStatement();
             rs = stmt.executeQuery(strQuery);
 
             while (rs.next()) {
                 BookBean bookBean = new BookBean();
-                bookBean.setImage(rs.getString("image"));
                 bookBean.setId_num(rs.getString("id_num"));
-               
+                bookBean.setType(rs.getString("type"));
+                bookBean.setName(rs.getString("name"));
+                bookBean.setAuthor(rs.getString("author"));
+                bookBean.setPublisher(rs.getString("publisher"));
+                bookBean.setIssue(rs.getString("issue"));
+                bookBean.setForm(rs.getString("form"));
+                bookBean.setIsbn(rs.getString("isbn"));
+                bookBean.setClass_id(rs.getString("class_id"));
+                bookBean.setLanguage(rs.getString("language"));
+                bookBean.setCollector(rs.getString("collector"));
+                bookBean.setSign(rs.getString("sign"));
+                bookBean.setStatus(rs.getString("status"));
+                bookBean.setDate(rs.getString("add_date"));
+                bookBean.setImage(rs.getString("image"));
                 vecList.add(bookBean);
             }
         } catch (Exception ex) {

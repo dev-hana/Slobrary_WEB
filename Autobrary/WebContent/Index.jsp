@@ -47,7 +47,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 							<div class="bookshelf container">
 							<%
 							//신간 도서 6개
-							Vector vNew = bookMgr.getNewList6();
+							Vector vNew = bookMgr.getNewList(6);
 							String newImage[] = new String [6];
 							String newId[] = new String [6];
 							for(int i = 0; i<vNew.size(); i++){

@@ -120,23 +120,25 @@ color:#747474;
 			<tbody>
 				<%
 					//검색결과 개수 만큼 반복
-					for(int i = 0; i<24; i++){
+					Vector vNew = bookMgr.getNewList(10);
+					for(int i = 0; i<vNew.size(); i++){
+						BookBean bookBean = (BookBean)vNew.get(i);
 				%>
 				<tr>
 					<td class="img pt-3">
 						<!-- 도서 이미지 -->
-						<img class="shadow-sm" width="110" height="140" alt="이미지가 없습니다." src="/img/ex1.jpg">
+						<img class="shadow-sm" width="110" height="140" alt="<%=bookBean.getId_num() %>" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>">
 					</td>
-					<td>
-																							
+					<td>																	
 					<span class="title mr-2"><strong>[&nbsp;도서&nbsp;]</strong></span><span class="alink">
 					<!-- 도서명 클릭시 상세보기 페이지이동 파라메타로 책구분할 id -->    <!--도서명 표시 -->
-					<a href="/contents/BookDetailPage.jsp?bookid=1234">날씨가 좋으면 찾아가곘어요</a></span><br>
+					<a href="/contents/BookDetailPage.jsp?bookid=<%=bookBean.getId_num()%>"><%=bookBean.getName() %></a></span><br>
 					<!-- 별점 -->
 					<div style="font-size: 17px;">
 								<%
-									//별점
-									double star=3.5;
+									RatingBean ratingBean = bookMgr.getBookrating(bookBean.getId_num());
+								
+									double star=Double.parseDouble(ratingBean.getRating());
 									int fullStar = (int)Math.floor(star/1.0); //꽉찬별 개수
 									boolean halfStar=false;
 									
@@ -170,27 +172,27 @@ color:#747474;
 								<span class="point ml-2"><%=star %></span>
 							</div>
 					<!-- 저자 -->
-					<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">저자 : 이도우</span><br>
+					<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">저자 : <%=bookBean.getAuthor() %></span><br>
 					<!-- 출판사 -->
-					<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">출판사 : 김동양</span>
+					<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">출판사 : <%=bookBean.getPublisher() %></span>
 					
 					<div class="mt-2 pr-2">
 					<div class="pt-2 float-right">
 							<!-- 상세보기버튼 onclick 주소에 도서id -->
-							<button class="btn btn-outline-secondary" onclick="location.href='/contents/BookDetailPage.jsp?bookid=1234'" type="button">상세보기</button>
+							<button class="btn btn-outline-secondary" onclick="location.href='/contents/BookDetailPage.jsp?bookid=<%=bookBean.getId_num() %>'" type="button">상세보기</button>
 					</div>
 					<div class="pt-2 pr-2 float-right">
 					<!-- 관심도서 등록 form -->
 						<form method="post" action="WatchBookProc.jsp">
 							<!-- 도서id -->
-							<input type="hidden" name="book_id" value="1234">
+							<input type="hidden" name="book_id" value="<%=bookBean.getId_num()%>">
 							<input type="hidden" name="type" value="register">
 							<button class="btn btn-outline-secondary" type="submit">관심도서등록</button>
 						</form>
 					</div>
 					</div>
 					<!-- 도서상태 -->
-					<div class="bg-light p-3">상태 : <span>&nbsp;&nbsp;대출가능</span></div>
+					<div class="bg-light p-3">상태 : <span>&nbsp;&nbsp;<%=bookBean.getStatus() %></span></div>
 					</td>
 				</tr>
 				
