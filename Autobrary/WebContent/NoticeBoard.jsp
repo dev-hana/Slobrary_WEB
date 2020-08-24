@@ -1,7 +1,9 @@
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+<%@ page import="java.util.*, database.*" %>
+<jsp:useBean id="noticeMgr" class="database.NoticeMgr" />
+<jsp:useBean id="admin" class="database.AdminSet" />	
 <%
 	String category = "안내사항";
 	String pageNames = "공지사항, 도서관 일정";
@@ -44,13 +46,16 @@
 					</thead>
 					<tbody>
 						<%
-							for(int i=0;i<25;i++){
+							Vector vNotice = noticeMgr.getNoticeList();
+							for(int i=0;i<vNotice.size();i++){
+								NoticeBean noticeBean = (NoticeBean)vNotice.get(i);
+								AdminBean adminBean = admin.getName(noticeBean.getAdmin_id());
 						%>
 						<tr>
 							<td><%=i+1 %></td>
-							<td>오늘의 공지사항</td>
-							<td>2020.04.17</td>
-							<td>0</td>
+							<td><%=noticeBean.getName() %></td>
+							<td><%=noticeBean.getDate() %></td>
+							<td><%=adminBean.getName()%></td>
 						</tr>
 						
 						<%
