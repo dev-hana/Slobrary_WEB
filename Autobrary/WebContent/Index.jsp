@@ -524,7 +524,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                         <hr class="shadow-sm">
                         <div class="forum">
                             <h1 class="menu-title">공지사항</h1>
-                            <a class="fas fa-plus float-right" href="#"></a>
+                            <a class="fas fa-plus float-right" href="NoticeBoard.jsp"></a>
                             <%
                             	Vector vNotice = noticeMgr.getNoticeList5();
                             

@@ -16,12 +16,9 @@
 	font-size: 2em;
 }
 
-.table-notice-board {
-	
-}
 
 .table-notice-board th:nth-child(2) {
-	width: 70%;
+	width: 65%;
 }
 /* pagination css */
 .dataTables_paginate{
@@ -41,5 +38,8 @@
   user-select: none;
 }
 th{
+	white-space: nowrap;
+}
+.date{
 	white-space: nowrap;
 }

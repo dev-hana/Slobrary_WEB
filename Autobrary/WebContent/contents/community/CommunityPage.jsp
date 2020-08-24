@@ -6,7 +6,7 @@
 	String category = "커뮤니티";
 	String pageNames = "도서 별점, 독서일기, 독후감, 자유게시판";
 	String pageUrls = "ReviewPage.jsp, BookDiaryPage.jsp, " + "BookReportPage.jsp, CommunityPage.jsp";
-	String currentPage = "독후감";
+	String currentPage = "자유게시판";
 	request.setCharacterEncoding("UTF-8");
 %>
 
@@ -36,9 +36,9 @@
 			</div>
 			<%
 				String type = request.getParameter("type");
-				
-			//모든 게시글
+			
 				if(type==null){
+				//모든 자유게시글
 			%>
 			<section class="main-content col-xl-8 mt-3">
 				<!-- title -->
@@ -47,11 +47,10 @@
 					&nbsp;<%=currentPage%>
 				</h1>
 				<div class="table_div">
-				<table class="table contents mb-4" id="bookDiaryTable">
+				<table class="table contents mb-4" id="freeTable">
 					<thead>
 						<tr>
 							<th scope="col">번호</th>
-							<th scope="col">도서명</th>
 							<th scope="col">제목</th>
 							<th scope="col">작성자</th>
 						</tr>
@@ -61,9 +60,8 @@
 							for(int i=0;i<17;i++){
 						%>
 						<tr>
-							<td>1</td>
-							<td>날씨가 좋으면 찾아가겠어요</td>
-							<td class="alink"><a href="BookReportDetail.jsp">이도우 작가의 도서를 읽어봤어요!</a></td>
+							<td><%=i+1 %></td>
+							<td class="alink"><a href="BookReportDetail.jsp">오늘 도서관 이벤트하는날 맞죠?</a></td>
 							<td>yangz</td>	
 						</tr>
 						<%
@@ -73,26 +71,25 @@
 				</table>
 				</div>
 				<div class="btn_div pr-3">
-					<button type="button" onclick="location.href='DrawUp.jsp?type=report'" class="btn btn-outline-secondary">독후감 쓰기</button>
-					<button type="button" onclick="location.href='BookReportPage.jsp?type=myReport'" class="btn btn-outline-secondary mr-2">나의 독후감</button>
+					<button type="button" onclick="location.href='DrawUp.jsp?type=free'" class="btn btn-outline-secondary pr-4 pl-4">글쓰기</button>
+					<button type="button" onclick="location.href='CommunityPage.jsp?type=myFree'" class="btn btn-outline-secondary mr-2">나의 게시글</button>
 				</div>
 			</section>
 			<%
-				}else{
-					//나의 독후감
+				}else{	
+				// 나의 자유 게시글
 			%>
 				<section class="main-content col-xl-8 mt-3">
 				<!-- title -->
-				<h1 class="main-title mb-4">
+				<h1 class="main-title mb-2">
 					<i class="far fa-square"></i>
-					&nbsp;나의 독후감
+					&nbsp;나의 게시글
 				</h1>
 				<div class="table_div">
-				<table class="table contents mb-4" id="bookDiaryTable">
+				<table class="table contents mb-4" id="freeTable">
 					<thead>
 						<tr>
 							<th scope="col">번호</th>
-							<th scope="col">도서명</th>
 							<th scope="col">제목</th>
 							<th scope="col">작성자</th>
 						</tr>
@@ -102,9 +99,8 @@
 							for(int i=0;i<17;i++){
 						%>
 						<tr>
-							<td>1</td>
-							<td>날씨가 좋으면 찾아가겠어요</td>
-							<td class="alink"><a href="BookReportDetail.jsp">이도우 작가의 도서를 읽어봤어요!</a></td>
+							<td><%=i+1 %></td>
+							<td class="alink"><a href="BookReportDetail.jsp">오늘 도서관 이벤트하는날 맞죠?</a></td>
 							<td>yangz</td>	
 						</tr>
 						<%
@@ -114,8 +110,8 @@
 				</table>
 				</div>
 				<div class="btn_div pr-3">
-					<button type="button" onclick="location.href='DrawUp.jsp?type=report'" class="btn btn-outline-secondary">독후감 쓰기</button>
-					<button type="button" onclick="location.href='BookReportPage.jsp'" class="btn btn-outline-secondary mr-2">모두의 독후감</button>
+					<button type="button" onclick="location.href='DrawUp.jsp?type=free'" class="btn btn-outline-secondary pr-4 pl-4">글쓰기</button>
+					<button type="button" onclick="location.href='CommunityPage.jsp'" class="btn btn-outline-secondary mr-2">자유게시판</button>
 				</div>
 			</section>
 			<%
@@ -133,7 +129,7 @@
 </script>
 <script>
 $jq(document).ready( function () {
-	$jq('#bookDiaryTable').DataTable({
+	$jq('#freeTable').DataTable({
     	// 표시 건수기능 숨기기 select로 몇개씩 표출할지
     	lengthChange: false,
     	

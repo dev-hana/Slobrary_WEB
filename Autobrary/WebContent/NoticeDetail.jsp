@@ -34,6 +34,7 @@
 }
 .notice_content{
 	border-bottom: 1px solid #D5D5D5;
+	min-height: 300px;
 }
 .menu1{
 	margin-right: -5em;
@@ -59,7 +60,7 @@
 </head>
 <body>
 	<jsp:include page="Top.jsp" flush="false" />
-	<div class="row mt-5 justify-content-md-center pb-4">
+	<div class="row mt-5 justify-content-md-center pb-5 mb-3">
 	<div class="col-xl-3 menu1">
 				<jsp:include page="/SideMenuBar.jsp" flush="false">
 				<jsp:param name="category" value="<%=category%>"/>
@@ -73,9 +74,9 @@
 			<h2 class="mb-1">공지사항</h2>
 		</div>
 		
-		<div class="title bg-light p-3">
+		<div class="title bg-light pl-3 pt-3 pb-2">
 			<!-- 제목 -->
-			<h4><%=noticeBean.getName() %></h4>
+			<h5><%=noticeBean.getName() %></h5>
 		</div>
 		<div class="notice_info pl-3 pt-2 pb-2">
 			<!-- 작성자-->

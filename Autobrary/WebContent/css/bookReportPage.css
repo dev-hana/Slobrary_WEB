@@ -12,7 +12,7 @@
 	padding-top : 30px;
 }
 thead {
-	background-color: var(- -main-color);
+	background-color: var(--main-color);
 }
 
 tr {
@@ -23,5 +23,56 @@ tr {
 }
 
 tr:hover {
-	background-color: var(- -main-color-light);
+	background-color: var(--main-color-light);
+}
+
+/* link css */
+.alink a:hover{
+	color: black;
+	text-decoration: underline;
+}
+.alink a:link { color: black;}
+.alink a:visited { color: black; text-decoration: none;}
+
+/* pagination css */
+.dataTables_paginate{
+		margin-top: 7px;
+		position: relative;
+		right:45px;
+}
+.dataTables_filter{
+	color:white;
+	float:right;
+	margin-bottom:5px;
+	 
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.table_div{
+	position: relative;
+	top:-40px;
+}
+.btn-outline-secondary{
+	float:right;
+	border-radius: 0 !important;
+	border-color: var(--main-color) !important;
+	color : var(--main-color) !important;
+}
+.btn-outline-secondary:hover{
+	background-color: var(--main-color) !important;
+	color : white !important;
+}
+.btn-outline-secondary:active{
+	border-color: var(--main-color-light) !important;
+}
+.btn-outline-secondary:focus {
+  box-shadow: none !important;
+  outline: none !important; 
+}
+.btn_div{
+	position: relative;
+	top:-95px;
 }

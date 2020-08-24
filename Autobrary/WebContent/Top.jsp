@@ -78,7 +78,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 										<div class="dropdown-menu" aria-labelledby="dropdown03">
 											<a class="dropdown-item" href="#">도서 별점</a>
 											<a class="dropdown-item" href="#">독서 일기</a>
-											<a class="dropdown-item" href="#">독후감</a>
+											<a class="dropdown-item" href="/contents/community/BookReportPage.jsp">독후감</a>
 										</div>
 									</li>
 

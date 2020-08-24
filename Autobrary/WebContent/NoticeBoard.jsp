@@ -17,7 +17,7 @@
 <head>
 <title>Slobrary - <%=currentPage%></title>
 <%@ include file="/CND.jsp"%>
-<link rel="stylesheet" href="/css/noticeBoard.css?v=1">
+<link rel="stylesheet" href="/css/noticeBoard.css?v=2">
 <style>
 .alink a:hover{
 	color: #424242;
@@ -25,6 +25,7 @@
 }
 .alink a:link { color: #424242;}
 .alink a:visited { color: #424242; text-decoration: none;}
+
 </style>
 </head>
 <body>
@@ -62,7 +63,7 @@
 						<tr>
 							<td><%=i+1 %></td>
 							<td class="alink"><a href="NoticeDetail.jsp?notice_id=<%=noticeBean.getNum()%>"><%=noticeBean.getName() %></a></td>
-							<td><%=noticeBean.getDate().substring(0, 10) %></td>
+							<td class="date"><%=noticeBean.getDate().substring(0, 10) %></td>
 							<td><%=adminBean.getName()%></td>
 						</tr>
 						
@@ -73,26 +74,6 @@
 				</table>
 			</div>
 		</div>
-		
-		<!-- 
-		<div class="mt-5" style="margin-left: 250px;">
-			<nav aria-label="Page navigation">
-				<ul class="pagination justify-content-center">
-					<li class="page-item disabled"><a class="page-link" href="#">이전</a></li>
-					<li class="page-item active"><a class="page-link" href="#">1<span
-							class="sr-only">(current)</span></a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item"><a class="page-link" href="#">다음</a></li>
-				</ul>
-			</nav>
-			<form class="form-inline justify-content-center">
-				<select class="custom-select">
-					<option value="all" selected>전체</option>
-				</select> <input type="text" class="form-control">
-				<button type="submit" class="btn btn-outline-secondary">검색</button>
-			</form>
-		</div> -->
 	</div>
 	<jsp:include page="/Footer.jsp" flush="false" />
 	<!-- dataTable js -->
