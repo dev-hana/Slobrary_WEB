@@ -61,8 +61,8 @@
 						%>
 						<tr>
 							<td><%=i+1 %></td>
-							<td class="alink"><a href="NoticeDetail.jsp?notice_id=1"><%=noticeBean.getName() %></a></td>
-							<td><%=noticeBean.getDate() %></td>
+							<td class="alink"><a href="NoticeDetail.jsp?notice_id=<%=noticeBean.getNum()%>"><%=noticeBean.getName() %></a></td>
+							<td><%=noticeBean.getDate().substring(0, 10) %></td>
 							<td><%=adminBean.getName()%></td>
 						</tr>
 						

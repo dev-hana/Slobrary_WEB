@@ -1,13 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/CND.jsp" %>
+<%@ page import="java.util.*, database.*" %>
+<jsp:useBean id="noticeMgr" class="database.NoticeMgr" />
+<jsp:useBean id="admin" class="database.AdminSet" />
 <%
 	String category = "안내사항";
 	String pageNames = "공지사항, 도서관 일정";
 	String pageUrls = "NoticeBoard.jsp, CalendarPage.jsp";
 	String currentPage = "공지사항";
 	request.setCharacterEncoding("UTF-8");
-	
+	String id = request.getParameter("notice_id");
+	NoticeBean noticeBean = noticeMgr.getNotice(id);
+	AdminBean adminBean = admin.getName(noticeBean.getAdmin_id());
 %>
 <!DOCTYPE html>
 <html>
@@ -70,20 +75,17 @@
 		
 		<div class="title bg-light p-3">
 			<!-- 제목 -->
-			<h4>안드로이드봇과 함께하는 슬기로운 코딩생활</h4>
+			<h4><%=noticeBean.getName() %></h4>
 		</div>
 		<div class="notice_info pl-3 pt-2 pb-2">
 			<!-- 작성자-->
-			<span><strong class="mr-3">작성자</strong>양지현</span>
+			<span><strong class="mr-3">작성자</strong><%=adminBean.getName()%></span>
 			<!-- 작성일 -->
-			<span><strong class="mr-3">작성일</strong>2020.08.24</span>
+			<span><strong class="mr-3">작성일</strong><%=noticeBean.getDate().substring(0, 10) %></span>
 		</div>
 		<!-- 내용 -->
 		<div class="notice_content p-3">
-			코로나19 확산 방지를 위한 여수시립도서관 임시휴관으로,<br>
-			8.29.(토)부터 운영 예정이었던 드론체험 프로그램을 중단하게 되었습니다.<br>
-			불편을 드려 죄송합니다.<br><br><br>
-			
+			<%=noticeBean.getContent() %>
 		</div>
 		<div class="p-2">
 			<button type="button" onclick="history.back();" class="btn btn-outline-secondary mt-2 pr-4 pl-4">목록</button>
