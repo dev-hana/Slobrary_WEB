@@ -40,7 +40,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 								<h1>NEW</h1>
 								<p>Slobrary에 새로 들어온 신간이에요!</p>
 								<button class="btn btn-sm btn-outline-secondary" type="button"
-									onclick="">더보기</button>
+									onclick="location.href='/contents/SearchPage.jsp?contentPage=BookList.jsp?type=new'">더보기</button>
 							</div>
 						</div>
 						<div class="col-xs-6">
@@ -118,7 +118,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 								<h1>Best</h1>
 								<p>이번달 베스트셀러를 보여드려요.</p>
 								<button class="btn btn-sm btn-outline-secondary" type="button"
-									onclick="">더보기</button>
+									onclick="location.href='/contents/SearchPage.jsp?contentPage=BookList.jsp?type=best'">더보기</button>
 							</div>
 						</div>
 						<div class="col-xs-6">
