@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, database.*" %>
-<jsp:useBean id="reportMgr" class="database.ReportMgr" />
 <%@ include file="/CND.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -11,9 +9,7 @@
 <link href="/css/boardDetail.css" rel="stylesheet">
 </head>
 <body>
-<%
-	ReportBean reportBean = reportMgr.getReport("2");
-%>
+
 	<jsp:include page="/Top.jsp" flush="false" />
 	<div class="row mt-5 justify-content-md-center pb-5 mb-3">
 	<div class="mWidth col-xl-9">
@@ -44,7 +40,7 @@
 		<!-- 댓글 작성 -->
 		<form>
 		<div class="comment-write bg-light border shadow-sm p-5 mt-5 mb-4">
-				<input type="hidden" name="report_id" value="<%=reportBean.getReport_id() %>" >
+				<input type="hidden" name="freeboard_id" value="1" >
 				<input type="hidden" name="mem_id" value="yangz">
 				<textarea rows="5" class="form-control"></textarea>
 				<button type="submit" class="btn btn-secondary">댓글입력</button>

@@ -61,7 +61,9 @@
 						%>
 						<tr>
 							<td><%=i+1 %></td>
-							<td class="alink"><a href="BookReportDetail.jsp">오늘 도서관 이벤트하는날 맞죠?</a></td>
+							<!-- 제목 및 링크 -->
+							<td class="alink"><a href="CommunityDetail.jsp">오늘 도서관 이벤트하는날 맞죠?</a></td>
+							<!-- 작성자 -->
 							<td>yangz</td>	
 						</tr>
 						<%
@@ -100,7 +102,9 @@
 						%>
 						<tr>
 							<td><%=i+1 %></td>
+							<!-- 제목 및 링크 -->
 							<td class="alink"><a href="BookReportDetail.jsp">오늘 도서관 이벤트하는날 맞죠?</a></td>
+							<!-- 작성자 -->
 							<td>yangz</td>	
 						</tr>
 						<%

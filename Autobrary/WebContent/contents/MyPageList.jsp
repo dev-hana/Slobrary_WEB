@@ -14,6 +14,15 @@
 <title>Insert title here</title>
 <!-- css -->
 <link href="/css/MyPageList.css" rel="stylesheet" />
+<style type="text/css">
+.remove_watch{
+	position: relative;
+	top:50px;
+}
+.remove_thead{
+	display: none;
+}
+</style>
 </head>
 <body>
 
@@ -205,7 +214,14 @@
 		<div class="pl-3 pb-2 pt-3">
 			<h4>관심 도서</h4>
 		</div>
-		<table class="table table">
+		<table class="table table" id="allTable">
+		<thead class="remove_thead">
+			<tr>
+				<th>이미지</th>
+				<th>정보</th>
+			</tr>
+		</thead>
+		<tbody>
 		<%
 			Vector vWatch = watchMgr.getWatch(mem_id);
 			for(int i=0; i<vWatch.size();i++){
@@ -234,12 +250,14 @@
 			<td class="img pt-4">
 				<img width="110" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>">
 			</td>
-			<td><span class="title">도서명 : <a class="linkA" href="# "><%=name %></a>	&nbsp;&nbsp;&#124;&nbsp;&nbsp;저자 : <%=author %>&nbsp;&nbsp;&#124;&nbsp;&nbsp;출판사 : <%=publisher %></span>
+			<td><span class="title mr-2"><strong>[&nbsp;도서&nbsp;]</strong></span><span class="alink"><a href="# "><%=name %></a></span><br>	
+			<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">저자 : <%=author %></span><br>
+			<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">출판사 : <%=publisher %></span>
 			<div class="mt-3 mb-2 pr-1" style="float:right;">
 				<form>
 					<!-- 관심도서 아이디 자리 -->
 					<input type="hidden" name="watch_id" value="1">
-					<button class="btn btn-outline-dark mb-5">관심도서삭제</button>
+					<button class="btn btn-outline-dark mb-5 remove_watch">관심도서삭제</button>
 				</form>
 			</div>
 			<div class="bg-light p-3 mt-5">상태: <span id="<%=watch_id%>">&nbsp;&nbsp;<%=status %></span></div>
@@ -266,6 +284,7 @@
 		<%
 			}
 		%>
+		</tbody>
 	</table>
 	<%
 		}else if(type.equals("overdue")){

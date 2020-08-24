@@ -63,7 +63,7 @@
 						<tr>
 							<td>1</td>
 							<td>날씨가 좋으면 찾아가겠어요</td>
-							<td class="alink"><a href="BookReportDetail.jsp">이도우 작가의 도서를 읽어봤어요!</a></td>
+							<td class="alink"><a href="BookReportDetail.jsp?report_id=1">이도우 작가의 도서를 읽어봤어요!</a></td>
 							<td>yangz</td>	
 						</tr>
 						<%

@@ -76,3 +76,9 @@
 .content_content{
 	min-height: 300px;
 }
+.alink a:hover{
+	color: #424242;
+	text-decoration: underline;
+}
+.alink a:link { color: #424242;}
+.alink a:visited { color: #424242; text-decoration: none;}

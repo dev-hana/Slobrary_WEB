@@ -25,7 +25,7 @@
 			<h5><%=reportBean.getName() %></h5>
 		</div>
 		<div class="content_info pl-3 pr-3 pt-2 pb-2">
-			<span><strong class="mr-3">도서</strong>날씨가 좋으면 찾아가겠어요</span>
+			<span class="alink"><strong class="mr-3">도서</strong><a href="/contents/BookDetailPage.jsp?book_id=<%=reportBean.getBook_id() %>">날씨가 좋으면 찾아가겠어요</a></span>
 			<!-- 작성자-->
 			<span><strong class="mr-3">작성자</strong><%=reportBean.getMem_id()%></span>
 			<!-- 작성일 -->
