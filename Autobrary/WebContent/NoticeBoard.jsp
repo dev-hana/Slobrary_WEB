@@ -18,6 +18,14 @@
 <title>Slobrary - <%=currentPage%></title>
 <%@ include file="/CND.jsp"%>
 <link rel="stylesheet" href="/css/noticeBoard.css?v=1">
+<style>
+.alink a:hover{
+	color: #424242;
+	text-decoration: underline;
+}
+.alink a:link { color: #424242;}
+.alink a:visited { color: #424242; text-decoration: none;}
+</style>
 </head>
 <body>
 	<header>
@@ -53,7 +61,7 @@
 						%>
 						<tr>
 							<td><%=i+1 %></td>
-							<td><%=noticeBean.getName() %></td>
+							<td class="alink"><a href="NoticeDetail.jsp?notice_id=1"><%=noticeBean.getName() %></a></td>
 							<td><%=noticeBean.getDate() %></td>
 							<td><%=adminBean.getName()%></td>
 						</tr>
