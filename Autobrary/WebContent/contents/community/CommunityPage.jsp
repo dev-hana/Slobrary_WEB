@@ -38,7 +38,7 @@
 				String type = request.getParameter("type");
 			
 				if(type==null){
-				//모든 자유게시글
+				//모든 자유게시글..
 			%>
 			<section class="main-content col-xl-8 mt-3">
 				<!-- title -->
