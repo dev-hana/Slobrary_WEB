@@ -25,40 +25,39 @@ public class DiaryMgr {
         }
     }
     
-    public ReportBean getReport(String report_id) {
+    //회원별 다이어리
+    public Vector getDiary(String mem_id) {
     	Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        ReportBean reportBean = null;
+        Vector vecList = new Vector();
 
         try {
             con = pool.getConnection();
             String strQuery = "select * " + 
-            		"from book_report " + 
-            		"where report_id = ? ";
+            		"from diary " + 
+            		"where mem_id = ? ";
 
             pstmt = con.prepareStatement(strQuery);
-            pstmt.setString(1, report_id);
+            pstmt.setString(1, mem_id);
             rs = pstmt.executeQuery();
             while (rs.next()) {     	 
-            	reportBean = new ReportBean();
-            	reportBean.setBook_id(rs.getString("book_id"));
-            	reportBean.setMem_id(rs.getString("mem_id"));
-            	reportBean.setReport_id(rs.getString("report_id"));
-            	reportBean.setName(rs.getString("name"));
-            	reportBean.setContent(rs.getString("content"));
-            	reportBean.setReport_date(rs.getString("report_date"));
-            	reportBean.setLocked(rs.getString("locked"));
-            	          
-
-                 
+            	DiaryBean diaryBean = new DiaryBean();
+            	diaryBean.setDiary_id(rs.getString("diary_id"));
+            	diaryBean.setMem_id(rs.getString("mem_id"));
+            	diaryBean.setBook_id(rs.getString("book_id"));
+            	diaryBean.setPage(rs.getString("page"));
+            	diaryBean.setSentence(rs.getString("sentence"));
+            	diaryBean.setContent(rs.getString("content"));
+            	diaryBean.setDiary_date(rs.getString("diary_date"));
+            	vecList.add(diaryBean);
             }
         } catch (Exception ex) {
             System.out.println("Exception" + ex);
         } finally {
             pool.freeConnection(con, pstmt, rs);
         }
-        return reportBean;
+        return vecList;
     }
     
     
