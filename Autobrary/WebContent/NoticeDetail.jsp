@@ -28,7 +28,7 @@
 	width:35%;
 }
 .notice_content{
-	border-bottom: 1px solid #8C8C8C;
+	border-bottom: 1px solid #D5D5D5;
 }
 .menu1{
 	margin-right: -5em;
