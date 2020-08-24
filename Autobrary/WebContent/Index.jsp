@@ -538,7 +538,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                                 %>
                                     <tr>
                                         <td style="width: 10%"><%=i+1 %></td>
-                                        <td style="width: 70%"><%=notBean.getName() %></td>
+                                        <td style="width: 70%"><a href="NoticeDetail.jsp?notice_id=<%=notBean.getNum()%>"><%=notBean.getName() %></a></td>
                                         <td style="width: 20%"><%=notice_date.substring(0, 10) %></td>
                                     </tr>
                                 <%}%>
