@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, database.*"%>
+<%@page import="bucketConnector.BucketManager"%>
+<jsp:useBean id="bookMgr" class="database.BookMgr" />
+<%
+//String mem_id = (String)session.getAttribute("loginKey");
+String mem_id = request.getParameter("mem_id");
+if(mem_id == null){
+	%>
+	<script>
+	alert("로그인이 필요한 작업입니다.");
+	//페이지 연결 후 활성화
+	//location.href="../Login.jsp";
+	</script>
+<%}
+String id_num = request.getParameter("id_num");
+BookBean bookBean = bookMgr.getBook(id_num);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,19 +40,21 @@
 	</h1>
 	<div class="form">
 		<div class="imageBox">
-			<img src="/img/ex2.jpg" alt="" class="thumbnail">
+			<img src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>" class="thumbnail">
 		</div>
 
 		<div class="diaryInfo">
-			<form action="" method="post">
-				<input type="text" name="book-title" value="도서제목" disabled>
-				<input type="text" name="book-title" value="저자" disabled> <input
-					type="number" name="page" placeholder="읽은 쪽">
+			<form action="BookDiaryFormProc.jsp" method="post">
+				<input type="text" name="name" value="도서제목" disabled>
+				<input type="text" name="author" value="저자" disabled> 
+				<input type="number" name="page" placeholder="읽은 쪽">
 				<div class="sentence">
 					<input type="text" name="sentence" placeholder="인상깊었던 구절">
 				</div>
 				<label for="experience">느낀점 및 나의 생각</label>
-				<textarea id="experience" name="experience"></textarea>
+				<textarea id="experience" name="content"></textarea>
+				<input type="hidden" name="mem_id" value=<%=mem_id %> />
+				<input type="hidden" name="id_num" value=<%=bookBean.getId_num() %> />
 				<button type="submit">등록</button>
 			</form>
 		</div>
