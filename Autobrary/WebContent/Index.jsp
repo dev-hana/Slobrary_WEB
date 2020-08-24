@@ -40,14 +40,14 @@ String mem_id = (String)session.getAttribute("loginKey");
 								<h1>NEW</h1>
 								<p>Slobrary에 새로 들어온 신간이에요!</p>
 								<button class="btn btn-sm btn-outline-secondary" type="button"
-									onclick="">더보기</button>
+									onclick="location.href='/contents/SearchPage.jsp?contentPage=BookList.jsp?type=new'">더보기</button>
 							</div>
 						</div>
 						<div class="col-xs-6">
 							<div class="bookshelf container">
 							<%
 							//신간 도서 6개
-							Vector vNew = bookMgr.getNewList6();
+							Vector vNew = bookMgr.getNewList(6);
 							String newImage[] = new String [6];
 							String newId[] = new String [6];
 							for(int i = 0; i<vNew.size(); i++){
@@ -118,7 +118,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 								<h1>Best</h1>
 								<p>이번달 베스트셀러를 보여드려요.</p>
 								<button class="btn btn-sm btn-outline-secondary" type="button"
-									onclick="">더보기</button>
+									onclick="location.href='/contents/SearchPage.jsp?contentPage=BookList.jsp?type=best'">더보기</button>
 							</div>
 						</div>
 						<div class="col-xs-6">

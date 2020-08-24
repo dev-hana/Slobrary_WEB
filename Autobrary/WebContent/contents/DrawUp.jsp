@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/CND.jsp" %>
+<%
+String mem_id = (String)session.getAttribute("loginKey");
+if(mem_id == null) {
+%>
+ 				<script>
+    			alert("로그인이 필요한 작업입니다.");
+    			</script>
+<%}%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,11 +36,13 @@
 	<div class="row justify-content-center pt-5 pb-5">
 		<div class="col-xl-8 mt-4">
 		
-		<form method="post" class="needs-validation" novalidate>
+		<form method="post" action="DrawupProc.jsp">
+			<input type="hidden" name="mem_id" value="<%=mem_id %>"/>
 			<div class="title mb-2">
 				<div class="input-group-prepend">
 				<span class="input-group-text">제목</span>
-				<input name="title" type="text" class="form-control" required>
+
+				<input type="text" class="form-control" name="title" required>
 				</div>
 			</div>
 			<div>
@@ -41,7 +52,8 @@
 			 <div class="option pl-2 pb-3 mt-2 mb-4 bg-white">
 			 	<div class="mt-2">
 				  <span>머리말</span>
-				  <select name="header" class="form-control" id="sel1">
+				  <select class="form-control" id="sel1" name="section">
+
 				    <option>도서 추천</option>
 				    <option>독후감</option>
 				    <option>도서관 활동</option>
@@ -54,7 +66,9 @@
 			 	</div>
 			 </div>
 			 <div class="float-right">
-			 	<button type="submit" class="btn btn-secondary">등록하기</button>
+
+			 	<input type="submit" class="btn btn-secondary" value="등록하기"></input>
+
 			 </div>
 		</form>
 		
