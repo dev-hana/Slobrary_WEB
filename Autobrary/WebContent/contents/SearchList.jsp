@@ -107,6 +107,7 @@
 			//검색결과 개수 만큼 반복
 			for(int i = 0; i<vResult.size(); i++){
 				BookBean bookBean = (BookBean)vResult.get(i);
+				RatingBean rateBean = bookMgr.getBookrating(bookBean.getId_num());
 		%>
 		<tr>
 			<td class="img">
@@ -121,7 +122,7 @@
 			<!-- 별점 -->
 			<div style="font-size: 17px;">
 						<%
-							double star=3.5;
+							double star=Double.parseDouble(rateBean.getRating());
 							int fullStar = (int)Math.floor(star/1.0); //꽉찬별 개수
 							boolean halfStar=false;
 							
