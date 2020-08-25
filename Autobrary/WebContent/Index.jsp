@@ -59,19 +59,19 @@ String mem_id = (String)session.getAttribute("loginKey");
 							%>
 								<div class="row ml-5 mr-5">
 									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=newId[0]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[0])%>"
 											alt="<%=newId[0] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=newId[1]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[1])%>"
 											alt="<%=newId[1] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=newId[2]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[2])%>"
 											alt="<%=newId[2] %>"> <span class="border"></span>
 										</a>
@@ -83,19 +83,19 @@ String mem_id = (String)session.getAttribute("loginKey");
 
 								<div class="row ml-5 mr-5">
 									<div class="book col-4">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=newId[3]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[3])%>"
 											alt="<%=newId[3] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=newId[4]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[4])%>"
 											alt="<%=newId[4] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=newId[5]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(newImage[5])%>"
 											alt="<%=newId[5] %>"> <span class="border"></span>
 										</a>
@@ -137,19 +137,19 @@ String mem_id = (String)session.getAttribute("loginKey");
 							%>
 								<div class="row ml-5 mr-5">
 									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=bestId[0]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[0])%>"
 											alt="<%=bestId[0] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=bestId[1]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[1])%>"
 											alt="<%=bestId[1] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=bestId[2]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[2])%>"
 											alt="<%=bestId[2] %>"> <span class="border"></span>
 										</a>
@@ -161,19 +161,19 @@ String mem_id = (String)session.getAttribute("loginKey");
 
 								<div class="row ml-5 mr-5">
 									<div class="book col-4">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=bestId[3]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[3])%>"
 											alt="<%=bestId[3] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=bestId[4]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[4])%>"
 											alt="<%=bestId[4] %>"> <span class="border"></span>
 										</a>
 									</div>
 									<div class="col-4 book">
-										<a class="thumbnail_image shadow" href="#"> <img
+										<a class="thumbnail_image shadow" href="/contents/BookDetailPage.jsp?bookid=<%=bestId[5]%>"> <img
 											class="thumbnail" src="<%=new BucketManager().base64DownLoader(bestImage[5])%>"
 											alt="<%=bestId[5] %>"> <span class="border"></span>
 										</a>
