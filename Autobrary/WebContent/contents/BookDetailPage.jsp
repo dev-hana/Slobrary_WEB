@@ -47,7 +47,7 @@
 						<dt>평균평점</dt>
 						<dd>
 							<%
-								double astar = Double.parseDouble(rateBean.getRating());;
+								double astar = Double.parseDouble(rateBean.getRating());
 								int fullStar = (int) Math.floor(astar / 1.0); //꽉찬별 개수
 								boolean halfStar = false;
 
