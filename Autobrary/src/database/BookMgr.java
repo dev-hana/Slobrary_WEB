@@ -892,5 +892,127 @@ public class BookMgr {
         
         return vecList;
     }
+    
+    //도서 대분류
+    public String getClass(String class_id) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String c_name = "";
+        
+        try {
+            con = pool.getConnection();
+            String strQuery = "select s_name from sub_class where s_id = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, class_id);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+           	 c_name = rs.getString("s_name");
+           }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+        
+        return c_name;
+    }
+    
+    //같은 도서 목록
+    public Vector getEqualbook(String isbn) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select * " + 
+            		"from book_info " + 
+            		"where isbn = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, isbn);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {     	 
+            	 BookBean bookBean = new BookBean();
+            	 bookBean.setId_num(rs.getString("id_num"));
+                 bookBean.setType(rs.getString("type"));
+                 bookBean.setName(rs.getString("name"));
+                 bookBean.setAuthor(rs.getString("author"));
+                 bookBean.setPublisher(rs.getString("publisher"));
+                 bookBean.setIssue(rs.getString("issue"));
+                 bookBean.setForm(rs.getString("form"));
+                 bookBean.setIsbn(rs.getString("isbn"));
+                 bookBean.setClass_id(rs.getString("class_id"));
+                 bookBean.setLanguage(rs.getString("language"));
+                 bookBean.setCollector(rs.getString("collector"));
+                 bookBean.setSign(rs.getString("sign"));
+                 bookBean.setStatus(rs.getString("status"));
+                 bookBean.setDate(rs.getString("add_date"));
+                 bookBean.setImage(rs.getString("image"));       
+                 vecList.add(bookBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+
+        return vecList;
+    }
+    
+    //같은 작가 도서 목록
+    public Vector getEqualauthor(String author) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        PreparedStatement pstmt_ = null;
+        ResultSet rs_ = null;
+        String isbn = "";
+        Vector vecList = new Vector();
+
+        try {
+            con = pool.getConnection();
+            String strQuery = "select distinct isbn " + 
+            		"from book_info " + 
+            		"where author = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, author);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+            	BookBean bookBean = new BookBean();
+            	isbn = rs.getString("isbn");
+            	String query = "select * from book_info where isbn = ? ";
+            	pstmt_ = con.prepareStatement(query);
+                pstmt_.setString(1, isbn);
+                rs_ = pstmt_.executeQuery();
+                if(rs_.next()) {
+                	bookBean.setId_num(rs_.getString("id_num"));
+                    bookBean.setType(rs_.getString("type"));
+                    bookBean.setName(rs_.getString("name"));
+                    bookBean.setAuthor(rs_.getString("author"));
+                    bookBean.setPublisher(rs_.getString("publisher"));
+                    bookBean.setIssue(rs_.getString("issue"));
+                    bookBean.setForm(rs_.getString("form"));
+                    bookBean.setIsbn(rs_.getString("isbn"));
+                    bookBean.setClass_id(rs_.getString("class_id"));
+                    bookBean.setLanguage(rs_.getString("language"));
+                    bookBean.setCollector(rs_.getString("collector"));
+                    bookBean.setSign(rs_.getString("sign"));
+                    bookBean.setStatus(rs_.getString("status"));
+                    bookBean.setDate(rs_.getString("add_date"));
+                    bookBean.setImage(rs_.getString("image"));
+                }    
+                 vecList.add(bookBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+
+        return vecList;
+    }
 
 }

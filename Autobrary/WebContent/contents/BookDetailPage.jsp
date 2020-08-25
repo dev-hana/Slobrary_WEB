@@ -1,11 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/CND.jsp"%>
+<%@ page import="java.util.*, database.*"%>
+<%@page import="bucketConnector.BucketManager"%>
+<jsp:useBean id="bookMgr" class="database.BookMgr" />
+<%@ include file="/CND.jsp" %>
+<%
+	String id_num = request.getParameter("bookid");
+	BookBean bookBean = bookMgr.getBook(id_num);
+	RatingBean rateBean = bookMgr.getBookrating(id_num);
+	String subname = bookMgr.getClass(bookBean.getClass_id());
+	char mainclass = bookBean.getClass_id().charAt(0);
+	String mainclass_ = mainclass + "00";
+	String classname = bookMgr.getClass(mainclass_);
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Slobrary - 책이름</title>
+<title>Slobrary - <%=bookBean.getName() %></title>
 <!-- dataTable pagination -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
@@ -25,17 +37,17 @@
 	<section class="bookDetail">
 		<div class="bookInfo">
 			<div class="imageBox">
-				<img class="thumbnail" src="/img/ex1.jpg" alt="">
+				<img class="thumbnail" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num()%>">
 			</div>
 
 			<div class="textBox">
-				<h1 class="title">내가 원하는 것을 나도 모를 때</h1>
+				<h1 class="title"><%=bookBean.getName() %></h1>
 				<dl>
 					<div class="rating">
 						<dt>평균평점</dt>
 						<dd>
 							<%
-								double astar = 3.5;
+								double astar = Double.parseDouble(rateBean.getRating());;
 								int fullStar = (int) Math.floor(astar / 1.0); //꽉찬별 개수
 								boolean halfStar = false;
 
@@ -70,27 +82,27 @@
 					</div>
 					<div>
 						<dt>저자명</dt>
-						<dd>이도우</dd>
+						<dd><%=bookBean.getAuthor() %></dd>
 					</div>
 					<div>
 						<dt>출판사</dt>
-						<dd>동양출판사</dd>
+						<dd><%=bookBean.getPublisher() %></dd>
 					</div>
 					<div>
 						<dt>대분류</dt>
-						<dd>문학</dd>
+						<dd><%=classname %></dd>
 					</div>
 					<div>
 						<dt>소분류</dt>
-						<dd>문학2</dd>
-					</div>
-					<div>
-						<dt>분류기호</dt>
-						<dd>813.6</dd>
+						<dd><%=subname %></dd>
 					</div>
 					<div>
 						<dt>ISBN</dt>
-						<dd>1235468654165</dd>
+						<dd><%=bookBean.getIsbn() %></dd>
+					</div>
+					<div>
+						<dt>언어</dt>
+						<dd><%=bookBean.getLanguage() %></dd>
 					</div>
 				</dl>
 
@@ -118,13 +130,21 @@
 				</thead>
 				<tbody>
 					<%
-					for (int i = 0; i < 4; i++) {
+					Vector vequalBook = bookMgr.getEqualbook(bookBean.getIsbn());
+					for (int i = 0; i < vequalBook.size(); i++) {
+						BookBean equalBean = (BookBean)vequalBook.get(i);
+						String status = "";
+						if(equalBean.getStatus().equals("대출가능")){
+							status = "대출가능";
+						}else{
+							status="대출불가["+equalBean.getStatus()+"]";
+						}
 				%>
 					<tr>
-						<td>대출불가[대출중]</td>
-						<td>813.7-이25ㄴ</td>
-						<td>SA0121445163</td>
-						<td>2020-06-17</td>
+						<td><%=status %></td>
+						<td><%=equalBean.getSign() %></td>
+						<td><%=equalBean.getId_num() %></td>
+						<td><%=equalBean.getDate().substring(0, 10) %></td>
 					</tr>
 					<%
 					}
@@ -187,27 +207,27 @@
 		<div class="sameAuthorBooks">
 			<h2 class="subTitle">이 책과 저자가 같은 도서</h2>
 			<div class="bookList">
-				<a href="#" class="book">
+			<%
+			Vector vEqualA = bookMgr.getEqualauthor(bookBean.getAuthor());
+			for(int j=0; j<vEqualA.size(); j++) {
+				BookBean equalaBean = (BookBean)vEqualA.get(j);
+				RatingBean ratingBean = bookMgr.getBookrating(equalaBean.getId_num());
+				String book_name ="";
+				if(equalaBean.getName().length() < 9){
+					book_name = equalaBean.getName();
+				}else{
+					book_name = equalaBean.getName().substring(0, 9) + "...";
+				}
+			
+			%>
+				<a href="/contents/BookDetailPage.jsp?bookid=<%=equalaBean.getId_num()%>" class="book">
 					<div class="imageBox">
-						<img class="thumbnail" alt="" src="/img/ex1.jpg">
-					</div> <b class="title">내가 원하는 것을...</b> <small class="author">이도우</small>
-				</a> <a href="#" class="book">
-					<div class="imageBox">
-						<img class="thumbnail" alt="" src="/img/ex1.jpg">
-					</div> <b class="title">내가 원하는 것을...</b> <small class="author">이도우</small>
-				</a> <a href="#" class="book">
-					<div class="imageBox">
-						<img class="thumbnail" alt="" src="/img/ex1.jpg">
-					</div> <b class="title">내가 원하는 것을...</b> <small class="author">이도우</small>
-				</a> <a href="#" class="book">
-					<div class="imageBox">
-						<img class="thumbnail" alt="" src="/img/ex1.jpg">
-					</div> <b class="title">내가 원하는 것을...</b> <small class="author">이도우</small>
-				</a> <a href="#" class="book">
-					<div class="imageBox">
-						<img class="thumbnail" alt="" src="/img/ex1.jpg">
-					</div> <b class="title">내가 원하는 것을...</b> <small class="author">이도우</small>
-				</a>
+						<img class="thumbnail" alt="" src="<%=new BucketManager().base64DownLoader(equalaBean.getImage())%>">
+					</div> <b class="title"><%=book_name %></b> <small class="author"><%=equalaBean.getAuthor() %></small>
+				</a> 
+					<%
+				}
+				%>
 			</div>
 		</div>
 
