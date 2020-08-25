@@ -52,14 +52,14 @@ String mem_id = (String)session.getAttribute("loginKey");
 									<li class="nav-item">
 										<a class="nav-link" href="/contents/SearchPage.jsp">도서검색</a>
 									</li>
-									<li class="nav-item dropdown">
+									<li class="nav-item dropdown dropdown-top">
 										<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">안내사항</a>
 										<div class="dropdown-menu" aria-labelledby="dropdown01">
 											<a class="dropdown-item" href="/NoticeBoard.jsp">공지사항</a>
 											<a class="dropdown-item" href="/CalendarPage.jsp">도서관 일정</a>
 										</div>
 									</li>
-									<li class="nav-item dropdown">
+									<li class="nav-item dropdown dropdown-top">
 										<a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">도서관서비스</a>
 										<div class="dropdown-menu" aria-labelledby="dropdown02">
 
@@ -73,7 +73,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 										</div>
 									</li>
 
-									<li class="nav-item dropdown">
+									<li class="nav-item dropdown dropdown-top">
 										<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
 										<div class="dropdown-menu" aria-labelledby="dropdown03">
 											<a class="dropdown-item" href="/contents/community/ReviewPage.jsp">도서 별점</a>
@@ -83,7 +83,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 										</div>
 									</li>
 
-									<li class="nav-item dropdown">
+									<li class="nav-item dropdown dropdown-top">
 										<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">이용안내</a>
 										<div class="dropdown-menu" aria-labelledby="dropdown04">
 
@@ -123,8 +123,7 @@ String mem_id = (String)session.getAttribute("loginKey");
             }
         }); //scroll
         
-        $('.dropdown-toggle').dropdown();	// dropdown 오류가 있어서 추가
-        $('.dropdown').hover(function () {
+        $('.dropdown-top').hover(function () {
             $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
         }, function () {
             $(this).find('.dropdown-menu').first().stop(true, true).slideUp(105)

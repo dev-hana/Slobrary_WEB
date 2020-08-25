@@ -1,4 +1,4 @@
-const defaults = {
+var defaults = {
     "value": 0,
     "stars": 5,
     "half": false,
