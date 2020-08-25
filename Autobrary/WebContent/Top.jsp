@@ -50,7 +50,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 									<!-- AutoBrArY -->sloBrArY</a>
 								<ul id="nav-main" class="navbar-nav mr-auto">
 									<li class="nav-item">
-										<a class="nav-link" href="/contents/SearchPage.jsp">도서검색<span class="sr-only">(current)</span></a>
+										<a class="nav-link" href="/contents/SearchPage.jsp">도서검색</a>
 									</li>
 									<li class="nav-item dropdown">
 										<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">안내사항</a>
@@ -76,9 +76,10 @@ String mem_id = (String)session.getAttribute("loginKey");
 									<li class="nav-item dropdown">
 										<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
 										<div class="dropdown-menu" aria-labelledby="dropdown03">
-											<a class="dropdown-item" href="#">도서 별점</a>
-											<a class="dropdown-item" href="#">독서 일기</a>
+											<a class="dropdown-item" href="/contents/community/ReviewPage.jsp">도서 별점</a>
+											<a class="dropdown-item" href="/contents/community/BookDiaryPage.jsp">독서 일기</a>
 											<a class="dropdown-item" href="/contents/community/BookReportPage.jsp">독후감</a>
+											<a class="dropdown-item" href="/contents/community/CommunityPage.jsp">자유게시판</a>
 										</div>
 									</li>
 

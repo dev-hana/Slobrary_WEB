@@ -11,7 +11,7 @@ String mem_id = request.getParameter("mem_id");
 if(mem_id == null){
 	%>
 	<script>
-	alert("로그인이 필요한 작업입니다.");
+	//alert("로그인이 필요한 작업입니다.");
 	//페이지 연결 후 활성화
 	//location.href="../Login.jsp";
 	</script>
@@ -32,6 +32,7 @@ if(mem_id == null){
 		MemBean memBean = memMgr.getMember(diaryBean.getMem_id());
 	
 %>
+
 	<article class="diary">
 		<a href="#" class="imageBox"> <img class="thumbnail"
 			src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num() %>" alt="<%=diaryBean.getBook_id()%>">

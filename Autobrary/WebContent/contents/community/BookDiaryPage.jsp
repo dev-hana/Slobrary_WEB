@@ -46,7 +46,7 @@
 				<div class="goWriteBookDiary">
 					<div class="text">
 						<h1>
-							<a href="">독서일기 작성하기</a>
+							<a href="/contents/SearchPage.jsp">도서 찾기</a>
 						</h1>
 						<p>
 							오늘의 독서는 즐거우셨나요?<br> 독서 일기를 잊지말고 작성하여<br> 나의 독서 경험을 다른
