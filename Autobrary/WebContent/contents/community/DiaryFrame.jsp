@@ -5,19 +5,6 @@
 <jsp:useBean id="bookMgr" class="database.BookMgr" />
 <jsp:useBean id="diaryMgr" class="database.DiaryMgr" />
 <jsp:useBean id="memMgr" class="database.MemMgr" />
-<%
-	//String mem_id = (String)session.getAttribute("loginKey");
-	String mem_id = request.getParameter("mem_id");
-	if (mem_id == null) {
-%>
-<script>
-	//alert("로그인이 필요한 작업입니다.");
-	//페이지 연결 후 활성화
-	//location.href="../Login.jsp";
-</script>
-<%
-	}
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +13,7 @@
 </head>
 <body>
 	<%
-	Vector vDiary = diaryMgr.getDiaryList(mem_id, "mem");
+	Vector vDiary = diaryMgr.getDiaryList(null, "all");
 	for(int i = 0; i < vDiary.size(); i++){
 		DiaryBean diaryBean = (DiaryBean)vDiary.get(i);
 		BookBean bookBean = bookMgr.getBook(diaryBean.getBook_id());
