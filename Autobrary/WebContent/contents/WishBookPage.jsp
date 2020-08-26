@@ -11,6 +11,7 @@
 	<title>Slobrary - 희망도서</title>
 	<%@ include file="/CND.jsp"%>
 	<link href="/css/wishBookPage.css" rel="stylesheet">
+	<link href="/css/pagination.css" rel="stylesheet">
 </head>
 
 <body>
@@ -37,7 +38,7 @@
 
 	<div class="myApplyList">
 		<h1>나의 신청 내역</h1>
-		<%
+	<%
 		String mem_id = (String)session.getAttribute("loginKey");
 		if(mem_id==null) {
 	%>
@@ -45,36 +46,41 @@
 			<p>로그인 후 이용해주세요</p>
 			<a href="/Login.jsp">로그인</a>
 		</div>
-		<%} else{
-		Vector List = bookMgr.getWishList(mem_id, "mem"); %>
-		<table class="table contents mb-4" id="wishTable">
-			<thead>
-				<tr>
-					<th scope="col">번호</th>
-					<th scope="col">도서명</th>
-					<th scope="col">저자명</th>
-					<th scope="col">출판사</th>
-					<th scope="col">상태</th>
-					<th scope="col">신청날짜</th>
-				</tr>
-			</thead>
-			<tbody>
-				<%
-			for(int i = 0; i<List.size(); i++) {
-				WishBean wishBean = (WishBean)List.get(i);
+	<%
+		} else{
+			Vector List = bookMgr.getWishList(mem_id, "mem"); %>
+			<table class="table contents mb-4" id="wishTable">
+				<thead>
+					<tr>
+						<th scope="col">번호</th>
+						<th scope="col">도서명</th>
+						<th scope="col">저자명</th>
+						<th scope="col">출판사</th>
+						<th scope="col">상태</th>
+						<th scope="col">신청날짜</th>
+					</tr>	
+				</thead>
+				<tbody>
+			<%
+				for(int i = 0; i<List.size(); i++) {
+					WishBean wishBean = (WishBean)List.get(i);
+			%>
+					<tr>
+						<th scope="row"><%=i + 1 %></th>
+						<td><%=wishBean.getName() %></td>
+						<td><%=wishBean.getAuthor() %></td>
+						<td><%=wishBean.getPublisher() %></td>
+						<td><%=wishBean.getStatus() %></td>
+						<td><%=wishBean.getWish_date() %></td>
+					</tr>
+			<%
+				}
+			%>
+   				</tbody>
+			</table>
+		<% 
+			} 
 		%>
-				<tr>
-					<th scope="row"><%=i + 1 %></th>
-					<td><%=wishBean.getName() %></td>
-					<td><%=wishBean.getAuthor() %></td>
-					<td><%=wishBean.getPublisher() %></td>
-					<td><%=wishBean.getStatus() %></td>
-					<td><%=wishBean.getWish_date() %></td>
-				</tr>
-				<%}%>
-   			</tbody>
-		</table>
-	<% } %>
 	</div>
 
 	<div class="howToApply">
@@ -140,7 +146,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-
 <script>
 $(document).ready( function () {
 	$('#wishTable').DataTable({

@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 <!-- 아이콘 -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- 
+ <link href="/css/pagination.css" rel="stylesheet">
  <style>
 .img{
 	text-align: center;

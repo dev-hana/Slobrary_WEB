@@ -18,6 +18,7 @@
 <title>Slobrary - <%=currentPage%></title>
 <%@ include file="/CND.jsp"%>
 <link rel="stylesheet" href="/css/noticeBoard.css?v=2">
+<link href="/css/pagination.css" rel="stylesheet">
 <style>
 .alink a:hover{
 	color: #424242;
@@ -80,7 +81,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-	<script>
+<script>
 	$(document).ready( function () {
 	$("#noticeTable").DataTable({
     	// 표시 건수기능 숨기기 select로 몇개씩 표출할지
