@@ -3,12 +3,33 @@ body {
 	
 }
 
+.top-bar {
+	padding: 10px;
+	height: 60px;
+	background: var(--main-color);
+}
+
+.top-bar  a{
+	color: #fff;
+	float:left;
+	padding-left: 5%;
+}
+
+.top-bar  h1{
+	padding: 0;
+	margin-top: 10px;
+	color: #fff;
+	font-size: 1em;
+	margin-right: 10%;
+	text-align: center;
+}
+
 .bookDetail {
 	width: 75%;
 	margin: 0 auto;
 	display: flex;
 	flex-flow: column;
-	padding: 30px 100px;
+	padding: 30px 10%;;
 }
 
 /* 공통 속성 정의 */
@@ -41,7 +62,7 @@ body {
 }
 
 .thumbnail {
-	max-width: 100%;
+	width: 100%;
 	height: auto;
 }
 
@@ -109,6 +130,8 @@ body {
 }
 
 .bookInfo .title {
+	max-width: 450px;
+	word-break: keep-all;
 	font-size: 1.8em;
 	font-weight: 600;
 }

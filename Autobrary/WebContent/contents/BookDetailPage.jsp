@@ -34,6 +34,13 @@
 	<header>
 		<jsp:include page="/Top.jsp" flush="false" />
 	</header>
+	<div class="top-bar">
+		<a href="/contents/SearchPage.jsp" class="btn btn-back">
+			<i class="fas fa-angle-left"></i>&nbsp;뒤로
+		</a>
+		<h1>도서 상세 보기</h1>	
+	</div>
+	
 	<section class="bookDetail">
 		<div class="bookInfo">
 			<div class="imageBox">
