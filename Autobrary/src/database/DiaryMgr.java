@@ -26,20 +26,27 @@ public class DiaryMgr {
     }
     
     //회원별 다이어리
-    public Vector getDiary(String mem_id) {
+    public Vector getDiary(String mem_id, String type) {
     	Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
+        String strQuery;
         Vector vecList = new Vector();
-
+   
+        
         try {
             con = pool.getConnection();
-            String strQuery = "select * " + 
-            		"from diary " + 
-            		"where mem_id = ? ";
+            if(type.equals("allmem")) {
+            	strQuery = "select * from diary";
+            	pstmt = con.prepareStatement(strQuery);
+            }else {
+            	strQuery = "select * " + 
+                		"from diary " + 
+                		"where mem_id = ? ";
 
-            pstmt = con.prepareStatement(strQuery);
-            pstmt.setString(1, mem_id);
+            	pstmt = con.prepareStatement(strQuery);
+            	pstmt.setString(1, mem_id);
+            }
             rs = pstmt.executeQuery();
             while (rs.next()) {     	 
             	DiaryBean diaryBean = new DiaryBean();
@@ -59,38 +66,6 @@ public class DiaryMgr {
         }
         return vecList;
     }
-    // 모든 다이어리 보기
-    public Vector getDiaryList() {
-        Connection con = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        Vector vecList = new Vector();
-
-        try {
-            con = pool.getConnection();
-            String strQuery = "select * from diary";
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(strQuery);
-
-            while (rs.next()) {
-            	DiaryBean diaryBean = new DiaryBean();
-            	diaryBean.setDiary_id(rs.getString("diary_id"));
-            	diaryBean.setMem_id(rs.getString("mem_id"));
-            	diaryBean.setBook_id(rs.getString("book_id"));
-            	diaryBean.setPage(rs.getString("page"));
-            	diaryBean.setSentence(rs.getString("sentence"));
-            	diaryBean.setContent(rs.getString("content"));
-            	diaryBean.setDiary_date(rs.getString("diary_date"));
-            	vecList.add(diaryBean);
-            }
-        } catch (Exception ex) {
-            System.out.println("Exception" + ex);
-        } finally {
-            pool.freeConnection(con, stmt, rs);
-        }
-        return vecList;
-    }
-    
     
     public boolean insertDiary(String mem_id, String book_id, String page, String content, String sentence) {
     	Connection con = null;

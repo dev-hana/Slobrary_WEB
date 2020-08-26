@@ -25,24 +25,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%--
-	Vector vDiary = diaryMgr.getDiary(mem_id);
-	for(int i=0; i<vDiary.size(); i++){
+	<%
+	Vector vDiary = diaryMgr.getDiary(mem_id, "mem");
+	for(int i = 0; i < vDiary.size(); i++){
 		DiaryBean diaryBean = (DiaryBean)vDiary.get(i);
 		BookBean bookBean = bookMgr.getBook(diaryBean.getBook_id());
 		MemBean memBean = memMgr.getMember(diaryBean.getMem_id());
 	
-	--%>
-	<%
-		Vector vDiary = diaryMgr.getDiary(mem_id);
-		for (int i = 0; i < vDiary.size(); i++) {
-			DiaryBean diaryBean = (DiaryBean)vDiary.get(i);
-			BookBean bookBean = bookMgr.getBook(diaryBean.getBook_id());
-			MemBean memBean = memMgr.getMember(diaryBean.getMem_id());
 	%>
-
 	<article class="diary">
-		<a href="#" class="imageBox"> <img class="thumbnail"
+		<a href="/contents/BookDetailPage.jsp?bookid=<%=diaryBean.getBook_id()%>" class="imageBox"> <img class="thumbnail"
 			src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"
 			alt="<%=bookBean.getId_num()%>" alt="<%=diaryBean.getBook_id()%>">
 		</a>
