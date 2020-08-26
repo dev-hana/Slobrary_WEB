@@ -29,6 +29,7 @@
 <script
 	src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 <link href="/css/bookDetailPage.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 	<header>
@@ -171,7 +172,7 @@
 			</select>
 			<%
 			for (int k = 0; k < 3; k++) {
-		%>
+			%>
 			<div class="bookReview">
 				<a href="#" class="user"> <img
 					src="/img/default/userImg/boy1.png" alt="" class="user-img">
@@ -183,6 +184,42 @@
 					재밌는데 지루하고 어쩌구이다. 이 책은 어쩌구 저쩌구 재밌는데 지루하고 어쩌구이다. 이 책은 어쩌구 저쩌구 재밌는데
 					지루하고 어쩌구이다. 이 책은 어쩌구 저쩌구 재밌는데 지루하고 어쩌구이다. 이 책은 어쩌구 저쩌구 재밌는데 지루하고
 					어쩌구이다.</p>
+				<button type="button" class="btn btn-more">더보기</button>
+			</div>
+			<%
+			}
+		%>
+		</div>
+		
+		<div class="bookDiaries">
+			<h2 class="subTitle">독서 일기</h2>
+			<button type="button" class="btn btn-more">모두 보기</button>
+
+			<select name="keytype" class="sort">
+				<option value="all">최근 등록 순</option>
+				<option value="title">오래된 순</option>
+			</select>
+			
+			<%
+			for (int k = 0; k < 3; k++) {
+			%>
+			<div class="bookDiary">
+				<a href="#" class="user"> 
+					<img src="/img/default/userImg/boy1.png" alt="" class="user-img">
+					<b>닉네임</b>
+				</a> 
+				<span class="date">작성일<%=k%></span> 
+				<span class="read-page"> 
+					<strong class="read-page-num">12</strong>쪽까지 읽음
+				</span>
+				<q class="impressive-sentence" cite="책이름">
+					책을 다 읽었을 때 이 문장이 가장 기억에 남을 거야.
+				</q>
+				<p class="experience">
+					여기까지 읽은 후 책을 덮었을 때 이러이러한 생각이 들었다.<br>
+					앞으로 이렇게 살고싶고 어쩌구 저쩌구 재밌는 책이다.<br>
+					꾸준히 읽어서 모든 시리즈를 다 읽어야겠다.
+				</p>
 				<button type="button" class="btn btn-more">더보기</button>
 			</div>
 			<%

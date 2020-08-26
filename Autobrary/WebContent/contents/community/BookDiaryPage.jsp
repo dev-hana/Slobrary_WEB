@@ -14,9 +14,6 @@
 <meta charset="UTF-8">
 <title>Slobrary - <%=currentPage%></title>
 <%@ include file="/CND.jsp"%>
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap"
-	rel="stylesheet">
 <link href="/css/allNeed.css" rel="stylesheet">
 <link href="/css/bookDiaryPage.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/selectBox.css">

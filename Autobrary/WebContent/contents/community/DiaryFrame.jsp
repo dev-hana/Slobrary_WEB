@@ -10,6 +10,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap"
+	rel="stylesheet">
+<link href="/css/diaryFrame.css" rel="stylesheet">
 </head>
 <body>
 	<%
@@ -21,9 +25,10 @@
 	
 	%>
 	<article class="diary">
-		<a href="/contents/BookDetailPage.jsp?bookid=<%=diaryBean.getBook_id()%>" class="imageBox"> <img class="thumbnail"
-			src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"
-			alt="<%=bookBean.getId_num()%>" alt="<%=diaryBean.getBook_id()%>">
+		<a href="/contents/BookDetailPage.jsp?bookid=<%=diaryBean.getBook_id()%>" class="imageBox"> 
+			<img class="thumbnail"
+				src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"
+				alt="<%=bookBean.getId_num()%>" alt="<%=diaryBean.getBook_id()%>">
 		</a>
 
 		<button type="button" class="textBox">
@@ -32,7 +37,7 @@
 			<span> <strong class="date"><%=diaryBean.getDiary_date().substring(0, 10)%></strong>
 				&nbsp;|&nbsp; <strong class="read-page"><%=diaryBean.getPage()%></strong>쪽까지
 				읽음
-			</span> <q class="impressive-sentence" cite="책이름"> <%=diaryBean.getSentence()%>
+			</span> <q class="impressive-sentence" cite="<%=bookBean.getName()%>"> <%=diaryBean.getSentence()%>
 			</q>
 
 			<p class="experience">
