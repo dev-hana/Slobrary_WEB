@@ -119,6 +119,10 @@ button:active {
 	margin: 0;
 }
 
+.textBox {
+	min-width: 70%;
+}
+
 .textBox span {
 	font-size: .9em;
 }

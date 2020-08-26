@@ -14,7 +14,6 @@
 </head>
 
 <body>
-	</form>
 	<header>
 		<jsp:include page="/Top.jsp" flush="false" />
 	</header>

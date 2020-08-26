@@ -91,7 +91,7 @@
 		bookCover.addEventListener("mouseleave", function(event) {
 			bookButton.classList.remove("show");
 		})
-
+/*
 		const dropdownMenu = document.querySelector(".dropdown-menu")
 		const dropdownButton = document.querySelector(".dropdown-button")
 
@@ -106,6 +106,7 @@
 		})
 
 		dropdownButton.active = false
+		*/
 	</script>
 </body>
 </html>
