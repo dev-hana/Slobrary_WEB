@@ -38,7 +38,7 @@
 	</div>
 	<table class="table">
 		<%
-			Vector vLoan = bookMgr.getLoan(mem_id);
+			Vector vLoan = bookMgr.getLoan(mem_id, 0);
 			for(int i=0; i<vLoan.size();i++){
 				LoanBean loanBean = (LoanBean)vLoan.get(i);
 				String loan_id = "loan" + Integer.toString(i); //반납 남은 일수 css바꾸기 위한 태그 아이디값
@@ -170,7 +170,7 @@
 			</tr>
 		</thead>
 		<%
-			Vector vReturn = bookMgr.getReturn(mem_id);
+			Vector vReturn = bookMgr.getReturn(mem_id, 0);
 				for (int i = 0; i < vReturn.size(); i++) {
 					LoanBean loanBean = (LoanBean) vReturn.get(i);
 
@@ -387,7 +387,7 @@
 		</thead>
 		<tbody>
 			<%
-				Vector vLoan = bookMgr.getLoan(mem_id);
+				Vector vLoan = bookMgr.getLoan(mem_id, 0);
 					for (int i = 0; i < vLoan.size(); i++) {
 						LoanBean loanBean = (LoanBean) vLoan.get(i);
 						String loan_id = "loan" + Integer.toString(i); //반납 남은 일수 css바꾸기 위한 태그 아이디값

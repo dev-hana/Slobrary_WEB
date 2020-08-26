@@ -47,7 +47,7 @@
 			<a href="/Login.jsp">로그인</a>
 		</div>
 		<%} else{
-		Vector List = bookMgr.getWishList(mem_id); %>
+		Vector List = bookMgr.getWishList(mem_id, "mem"); %>
 		<table class="table contents mb-4" id="wishTable">
 			<thead>
 				<tr>
