@@ -26,7 +26,7 @@
 </head>
 <body>
 	<%
-	Vector vDiary = diaryMgr.getDiary(mem_id, "mem");
+	Vector vDiary = diaryMgr.getDiaryList(mem_id, "mem");
 	for(int i = 0; i < vDiary.size(); i++){
 		DiaryBean diaryBean = (DiaryBean)vDiary.get(i);
 		BookBean bookBean = bookMgr.getBook(diaryBean.getBook_id());

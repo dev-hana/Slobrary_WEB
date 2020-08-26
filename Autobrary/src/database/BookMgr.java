@@ -68,15 +68,20 @@ public class BookMgr {
         return vecList;
     }
     
-    public Vector getBestList() {
+    public Vector getBestList(int limit) {
         Connection con = null;
         Statement stmt = null;
         ResultSet rs = null;
         Vector vecList = new Vector();
+        String strQuery = "";
+        if(limit == 0) { //0이면 전체
+        	strQuery = "select * from bestseller";
+        }else if(limit == 6) {
+        	strQuery = "select * from bestseller order by best_date desc LIMIT 6 ";
+        }
 
         try {
             con = pool.getConnection();
-            String strQuery = "select * from bestseller";
             stmt = con.createStatement();
             rs = stmt.executeQuery(strQuery);
 
@@ -96,35 +101,6 @@ public class BookMgr {
         return vecList;
     }
     
-    public Vector getBestList6() {
-        Connection con = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        Vector vecList = new Vector();
-
-        try {
-            con = pool.getConnection();
-            String strQuery = "select * from bestseller order by best_date desc LIMIT 6 ";
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(strQuery);
-
-            while (rs.next()) {
-                BestBean bestBean = new BestBean();
-                bestBean.setBest_id(rs.getString("best_id"));
-                bestBean.setAdmin_id(rs.getString("admin_id"));
-                bestBean.setId_num(rs.getString("book_id"));
-                bestBean.setAdd_date(rs.getString("best_date"));
-                vecList.add(bestBean);
-            }
-        } catch (Exception ex) {
-            System.out.println("Exception" + ex);
-        } finally {
-            pool.freeConnection(con, stmt, rs);
-        }
-        return vecList;
-    }
-    
- 
     public Vector getNewList(int limit) {
         Connection con = null;
         Statement stmt = null;
@@ -174,49 +150,24 @@ public class BookMgr {
     
     
     
-    public Vector getWishList(String mem_id) {
+    public Vector getWishList(String mem_id, String type) {
     	Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         Vector vecList = new Vector();
+        String strQuery = "";
+        
         
         try {
             con = pool.getConnection();
-            String strQuery = "select * from wish_list where mem_id = ? ";
-            pstmt = con.prepareStatement(strQuery);
-            pstmt.setString(1, mem_id);
-            rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-            	 WishBean wishBean = new WishBean();
-                 wishBean.setWish_id(rs.getString("wish_id"));
-                 wishBean.setMem_id(rs.getString("mem_id"));
-                 wishBean.setName(rs.getString("book_name"));
-                 wishBean.setAuthor(rs.getString("book_author"));
-                 wishBean.setPublisher(rs.getString("publish"));
-                 wishBean.setWish_date(rs.getString("wish_date"));
-                 wishBean.setStatus(rs.getString("status"));
-                 vecList.add(wishBean);
+            if(type.equals("all")) {
+            	strQuery = "select * from wish_list ";
+            	pstmt = con.prepareStatement(strQuery);
+            } else if(type.equals("mem")) {
+            	strQuery = "select * from wish_list where mem_id = ? ";
+            	 pstmt = con.prepareStatement(strQuery);
+                 pstmt.setString(1, mem_id);
             }
-        } catch (Exception ex) {
-            System.out.println("Exception" + ex);
-        } finally {
-            pool.freeConnection(con, pstmt, rs);
-        }
-        
-        return vecList;
-    }
-    
-    public Vector getWishListall() {
-    	Connection con = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        Vector vecList = new Vector();
-        
-        try {
-            con = pool.getConnection();
-            String strQuery = "select * from wish_list ";
-            pstmt = con.prepareStatement(strQuery);
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
@@ -436,10 +387,8 @@ public class BookMgr {
         
         return flag;
     }
-    
-    
-    
-    public boolean BookUpdate(HttpServletRequest req) {
+
+	public boolean BookUpdate(HttpServletRequest req) {
     	 Connection con = null;
          PreparedStatement pstmt = null;
          boolean result = false;
@@ -610,50 +559,25 @@ public class BookMgr {
         return flag;
     }
     
-    public Vector getLoan3(String mem_id) {
+    public Vector getLoan(String mem_id, int limit) {
     	Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         Vector vecList = new Vector();
         String status = "대출";
-
-        try {
-            con = pool.getConnection();
-            String strQuery = "select id_num, loan_date " + 
-            		"from book_loan " + 
-            		"where mem_id = ? and status = ? order by loan_date desc LIMIT 3 ";
-            pstmt = con.prepareStatement(strQuery);
-            pstmt.setString(1, mem_id);
-            pstmt.setString(2, status);
-            rs = pstmt.executeQuery();
-            while (rs.next()) {     	 
-            	 LoanBean loanBean = new LoanBean();
-            	 loanBean.setId_num(rs.getString("id_num"));
-                 loanBean.setLoan_date(rs.getString("loan_date"));           
-
-                 vecList.add(loanBean);
-            }
-        } catch (Exception ex) {
-            System.out.println("Exception" + ex);
-        } finally {
-            pool.freeConnection(con, pstmt, rs);
-        }
-
-        return vecList;
-    }
-    
-    public Vector getLoan(String mem_id) {
-    	Connection con = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        Vector vecList = new Vector();
-        String status = "대출";
-
-        try {
-            con = pool.getConnection();
-            String strQuery = "select id_num, loan_date " + 
+        String strQuery = "";
+        if(limit == 0) { //0은 전체
+        	strQuery = "select id_num, loan_date " + 
             		"from book_loan " + 
             		"where mem_id = ? and status = ? order by loan_date desc ";
+        }else if(limit == 3) {
+        	strQuery = "select id_num, loan_date " + 
+            		"from book_loan " + 
+            		"where mem_id = ? and status = ? order by loan_date desc LIMIT 3 ";
+        }
+
+        try {
+            con = pool.getConnection(); 
             pstmt = con.prepareStatement(strQuery);
             pstmt.setString(1, mem_id);
             pstmt.setString(2, status);
@@ -737,18 +661,25 @@ public class BookMgr {
    
    
     
-    public Vector getReturn(String mem_id) {
+    public Vector getReturn(String mem_id, int limit) {
     	Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         Vector vecList = new Vector();
         String status = "반납";
+        String strQuery = "";
+        if(limit == 0) { //0은 전체
+        	strQuery = "select id_num, loan_date, return_type, return_date " + 
+            		"from book_loan " + 
+            		"where mem_id = ? and status = ? order by return_date desc ";
+        }else if(limit == 3) {
+        	strQuery = "select id_num, loan_date, return_type, return_date  " + 
+            		"from book_loan " + 
+            		"where mem_id = ? and status = ? order by return_date desc LIMIT 3 ";
+        }
 
         try {
             con = pool.getConnection();
-            String strQuery = "select id_num, loan_date, return_type, return_date " + 
-            		"from book_loan " + 
-            		"where mem_id = ? and status = ? order by return_date desc ";
             pstmt = con.prepareStatement(strQuery);
             pstmt.setString(1, mem_id);
             pstmt.setString(2, status);
@@ -769,39 +700,6 @@ public class BookMgr {
 
         return vecList;
     }
-    
-    public Vector getReturn3(String mem_id) {
-    	Connection con = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        Vector vecList = new Vector();
-        String status = "반납";
-
-        try {
-            con = pool.getConnection();
-            String strQuery = "select id_num, loan_date, return_type " + 
-            		"from book_loan " + 
-            		"where mem_id = ? and status = ? order by return_date desc LIMIT 3 ";
-            pstmt = con.prepareStatement(strQuery);
-            pstmt.setString(1, mem_id);
-            pstmt.setString(2, status);
-            rs = pstmt.executeQuery();
-            while (rs.next()) {     	 
-            	 LoanBean loanBean = new LoanBean();
-            	 loanBean.setId_num(rs.getString("id_num"));
-                 loanBean.setLoan_date(rs.getString("loan_date"));           
-                 
-                 vecList.add(loanBean);
-            }
-        } catch (Exception ex) {
-            System.out.println("Exception" + ex);
-        } finally {
-            pool.freeConnection(con, pstmt, rs);
-        }
-
-        return vecList;
-    }
-    
 
     public RatingBean getBookrating(String id_num) {
     	Connection con = null;

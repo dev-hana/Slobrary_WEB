@@ -201,7 +201,7 @@ color:#747474;
 				%>
 				</tbody>
 		</table>
-	<%}else{Vector vResult = bookMgr.getBestList();
+	<%}else{Vector vResult = bookMgr.getBestList(0);
 	%>
 		<div class="newInfo p-4 mt-5 mb-4">
 		<div class="bestIcon pr-3">

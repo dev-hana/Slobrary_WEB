@@ -25,8 +25,8 @@ public class DiaryMgr {
         }
     }
     
-    //회원별 다이어리
-    public Vector getDiary(String mem_id, String type) {
+    public Vector getDiaryList(String mem_id, String type) {
+    	//type: mem=회원 아이디 별, all=전체
     	Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -36,7 +36,7 @@ public class DiaryMgr {
         
         try {
             con = pool.getConnection();
-            if(type.equals("allmem")) {
+            if(type.equals("all")) {
             	strQuery = "select * from diary";
             	pstmt = con.prepareStatement(strQuery);
             }else {

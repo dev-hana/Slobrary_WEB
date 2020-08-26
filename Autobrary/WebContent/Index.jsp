@@ -124,7 +124,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 						<div class="col-xs-6">
 							<div class="bookshelf container">
 							<%
-							Vector vResult = bookMgr.getBestList6();
+							Vector vResult = bookMgr.getBestList(6);
 							String bestImage[] = new String [6];
 							String bestId[] = new String [6];
 							for(int i = 0; i<vResult.size(); i++){
@@ -281,7 +281,7 @@ String mem_id = (String)session.getAttribute("loginKey");
  					
  					//대출중인 도서 이미지 상위 3개(날짜기준)
 
- 					Vector vLoaninfo = bookMgr.getLoan3(mem_id);
+ 					Vector vLoaninfo = bookMgr.getLoan(mem_id, 3);
  					String loanImage[] = new String [3];
  					String loanId[] = new String [3];
  					if(vLoaninfo.size() == 0){
@@ -309,7 +309,7 @@ String mem_id = (String)session.getAttribute("loginKey");
  					}
  					
  					//읽은 도서의 이미지 상위 3개
- 					Vector vReturninfo = bookMgr.getReturn3(mem_id);
+ 					Vector vReturninfo = bookMgr.getReturn(mem_id, 3);
  					String returnImage[] = new String [3];
  					String returnId[] = new String[3];
  					if(vReturninfo.size() == 0){

@@ -52,7 +52,7 @@
         		<button onClick="location.href='WishBook.jsp'" class="btn btn-outline-secondary float-right">희망도서신청</button></div>
         	</div><br><hr>
 			
-			<%Vector List = bookMgr.getWishList(mem_id); %>
+			<%Vector List = bookMgr.getWishList(mem_id, "all"); %>
 			<div class="myApplyList p-3 mt-2">
 			<table class="table contents" id="wishTable">
 				<thead>
