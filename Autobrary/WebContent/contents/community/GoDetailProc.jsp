@@ -53,7 +53,7 @@
 			}else if(mem_id.equals(boardBean.getMem_id())){
 				%>
 				<script>
-				location.href="CommunityDetail.jsp?report_id=<%=board_id%>";
+				location.href="CommunityDetail.jsp?board_id=<%=board_id%>";
 				</script>
 				<%
 			}else{
@@ -67,7 +67,7 @@
 		}else{
 			%>
 			<script>
-			location.href="CommunityDetail.jsp?report_id=<%=board_id%>";
+			location.href="CommunityDetail.jsp?board_id=<%=board_id%>";
 			</script>
 			<%
 		}

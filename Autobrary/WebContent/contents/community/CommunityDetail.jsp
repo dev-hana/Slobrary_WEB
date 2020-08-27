@@ -1,11 +1,18 @@
+<%@page import="database.BoardBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/CND.jsp"%>
+<jsp:useBean id="boardMgr" class="database.BoardMgr" />
+<%
+	String mem_id = (String)session.getAttribute("loginKey");
+	String board_id = request.getParameter("board_id");
+	BoardBean boardBean = boardMgr.getBoard(board_id);
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title><%=boardBean.getMem_id() %>님의 게시글</title>
 <link href="/css/boardDetail.css" rel="stylesheet">
 </head>
 <body>
@@ -18,18 +25,17 @@
 		</div>
 		<div class="title bg-light pl-3 pr-3 pt-3 pb-2">
 			<!-- 제목 -->
-			<h5>오늘 도서관 행사 다녀왔습니다!</h5>
+			<h5><%=boardBean.getTitle() %></h5>
 		</div>
 		<div class="content_info pl-3 pr-3 pt-2 pb-2">
 			<!-- 작성자-->
-			<span><strong class="mr-3">작성자</strong>yangz</span>
+			<span><strong class="mr-3">작성자</strong><%=boardBean.getMem_id() %></span>
 			<!-- 작성일 -->
-			<span><strong class="mr-3">작성일</strong>2020.08.24</span>
+			<span><strong class="mr-3">작성일</strong><%=boardBean.getBoard_date() %></span>
 		</div>
 		<!-- 내용 -->
 		<div class="content_content p-3">
-			오늘 도서관 문화행사를 참여하러 다녀왔습니다.<br>
-			생각보다 행사 준비를 잘 해두셨더라구여 어쩌구저쩌구
+			<%=boardBean.getContent() %>
 		</div>
 		<div class="p-2">
 			<button type="button" onclick="history.back();" class="btn btn-outline-secondary mt-2 pr-4 pl-4">목록</button>
