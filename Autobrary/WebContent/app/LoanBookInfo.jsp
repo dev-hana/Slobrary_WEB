@@ -7,7 +7,7 @@
 
 <%
 String mem_id = request.getParameter("mem_id");
-Vector vResult = bookMgr.getLoan(mem_id);
+Vector vResult = bookMgr.getLoan(mem_id, 0);
 JSONObject head = new JSONObject();
 
 for(int i = 0; i<vResult.size(); i++) {

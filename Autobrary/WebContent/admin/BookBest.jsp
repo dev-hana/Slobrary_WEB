@@ -24,7 +24,7 @@ $(function(){
 <%@ include file="Bookside.jsp" %>
 <br><br>
 
-<%Vector vResult = bookMgr.getBestList(); %>
+<%Vector vResult = bookMgr.getBestList(0); %>
 <div style="width:94%;text-align:center;">
  <table align="center" id="tablesort">
  	<thead>

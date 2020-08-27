@@ -26,7 +26,7 @@
 <br><br>
 
 
-<%Vector vResult = bookMgr.getWishListall(); %>
+<%Vector vResult = bookMgr.getWishList(null, "all"); %>
  <div style="width:94%;text-align:center;">
  <table align="center" id="tablesort">
  	<thead>
