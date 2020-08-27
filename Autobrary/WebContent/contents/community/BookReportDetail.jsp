@@ -2,18 +2,23 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, database.*" %>
 <jsp:useBean id="reportMgr" class="database.ReportMgr" />
+<jsp:useBean id="bookMgr" class="database.BookMgr" />
 <%@ include file="/CND.jsp"%>
+<%
+	String mem_id = (String)session.getAttribute("loginKey");
+	String report_id = request.getParameter("report_id");
+	ReportBean reportBean = reportMgr.getReport(report_id);
+	BookBean bookBean = bookMgr.getBook(reportBean.getBook_id());
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title><%=reportBean.getName() %></title>
 <link href="/css/boardDetail.css" rel="stylesheet">
 </head>
 <body>
-<%
-	ReportBean reportBean = reportMgr.getReport("2");
-%>
+
 	<jsp:include page="/Top.jsp" flush="false" />
 	<div class="row mt-5 justify-content-md-center pb-5 mb-3">
 	<div class="mWidth col-xl-9">
@@ -25,7 +30,7 @@
 			<h5><%=reportBean.getName() %></h5>
 		</div>
 		<div class="content_info pl-3 pr-3 pt-2 pb-2">
-			<span class="alink"><strong class="mr-3">도서</strong><a href="/contents/BookDetailPage.jsp?book_id=<%=reportBean.getBook_id() %>">날씨가 좋으면 찾아가겠어요</a></span>
+			<span class="alink"><strong class="mr-3">도서</strong><a href="/contents/BookDetailPage.jsp?book_id=<%=reportBean.getBook_id() %>"><%=bookBean.getName() %></a></span>
 			<!-- 작성자-->
 			<span><strong class="mr-3">작성자</strong><%=reportBean.getMem_id()%></span>
 			<!-- 작성일 -->

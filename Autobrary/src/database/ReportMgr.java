@@ -25,6 +25,46 @@ public class ReportMgr {
         }
     }
     
+    public Vector getReportList(String mem_id, String type) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Vector vecList = new Vector();
+        String strQuery = "";
+     
+        try {
+            con = pool.getConnection(); 
+            if(type.equals("all")) {
+            	strQuery = "select * from book_report ";
+            	pstmt = con.prepareStatement(strQuery);
+            }else if(type.equals("mem")) {
+            	strQuery = "select * from book_report where mem_id = ? ";
+            	pstmt = con.prepareStatement(strQuery);
+            	pstmt.setString(1, mem_id);
+            }
+            
+            rs = pstmt.executeQuery();
+            while (rs.next()) {     	 
+            	 ReportBean reportBean = new ReportBean();
+            	 reportBean.setBook_id(rs.getString("book_id"));
+            	 reportBean.setMem_id(rs.getString("mem_id"));
+            	 reportBean.setReport_id(rs.getString("report_id"));
+            	 reportBean.setName(rs.getString("name"));
+            	 reportBean.setContent(rs.getString("content"));
+            	 reportBean.setReport_date(rs.getString("report_date"));
+            	 reportBean.setLocked(rs.getString("locked"));
+
+                 vecList.add(reportBean);
+            }
+        } catch (Exception ex) {
+            System.out.println("Exception" + ex);
+        } finally {
+            pool.freeConnection(con, pstmt, rs);
+        }
+
+        return vecList;
+    }
+    
     public ReportBean getReport(String report_id) {
     	Connection con = null;
         PreparedStatement pstmt = null;
