@@ -118,12 +118,12 @@
 						<a href="/contents/community/BookDiaryForm.jsp" class="dropdown-item">
 							독서일기쓰기
 						</a>
-						<a href="/contents/community/DrawUp.jsp?type=report" class="dropdown-item">
+						<a href="/contents/community/DrawUp.jsp?type=report&book_id=<%=loanBean.getLoan_id() %>&book_name=<%=name %>" class="dropdown-item">
 							독후감 쓰기
 						</a>
 					</div>
 				</div>
-	</div>
+				</div>
 				
 				<div class="bg-light p-3 mt-2" id="<%=loan_text %>">
 					반납일까지&nbsp;
@@ -237,12 +237,12 @@
 						<a href="/contents/community/BookDiaryForm.jsp" class="dropdown-item">
 							독서일기쓰기
 						</a>
-						<a href="/contents/community/DrawUp.jsp?type=report" class="dropdown-item">
+						<a href="/contents/community/DrawUp.jsp?type=report&book_id=<%=loanBean.getLoan_id() %>&book_name=<%=name %>" class="dropdown-item">
 							독후감 쓰기
 						</a>
 					</div>
 				</div>
-				
+				</div>
 				<div class="bg-light p-3 mt-2">
 					<span id="<%=return_id%>">정상</span>반납을 완료하였습니다!
 				</div> 

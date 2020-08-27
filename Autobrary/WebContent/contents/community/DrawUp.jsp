@@ -54,6 +54,13 @@ if(mem_id == null) {
 				<div class="input-group">
 				
 				<!-- 읽은 도서 목록 -->
+				
+				<%
+					String bookid = request.getParameter("book_id");
+					String bookname = request.getParameter("book_name");
+					if(bookid==null || bookname==null){
+				%>
+				
 				<select class="form-control mr-3" name="book_id">
 						<option value="0" selected disabled>독후감을 작성할 도서를 선택해주세요</option>
 						<% 
@@ -73,7 +80,10 @@ if(mem_id == null) {
 					    <option value="<%=bookBean.getId_num()%>"><%=bookBean.getName() %></option>
 					   <%} %>
 				</select>
-				
+				<%}else{ %>
+				<input type="hidden" name="book_id" value="<%=bookid %>"/>
+				<input type="text" class="form-control mr-3 rounded" name="book_name" value="<%=bookname %>" readonly>
+				<%} %>
 				<span class="input-group-text">제목</span>
 				<input type="text" class="form-control input-title" name="title" required>
 				</div>

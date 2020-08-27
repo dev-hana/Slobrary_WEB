@@ -30,7 +30,7 @@
 <link href="/css/MyPage.css?v=2" rel="stylesheet" />
 
 </head>
-<body class="bg-light mb-3">
+<body class="bg-light">
 	<jsp:include page="../Top.jsp" flush="false"/>
 
 	<div class="row mt-5 justify-content-md-center">
@@ -95,9 +95,14 @@
 				}%>
         </div>
     </div>
+    </div>
 	<%} %>
-	<br><br><br>
+	
+	<div class="mt-5">
 	<jsp:include page="/Footer.jsp" flush="false"/>
+	</div>
+	
+	
 </body>
 <!-- dataTable js -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

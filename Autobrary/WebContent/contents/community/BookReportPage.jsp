@@ -18,6 +18,19 @@
 <link href="/css/allNeed.css" rel="stylesheet">
 <link href="/css/bookReportPage.css?v=1" rel="stylesheet">
 <link href="/css/pagination.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.lock-icon{
+	width:25px;
+	color:#CFCFCF;
+}
+.lock{
+	text-align: center;
+}
+.hide-text{
+	visibility: hidden;
+}
+</style>
 </head>
 <body>
 	<header>
@@ -55,6 +68,7 @@
 							<th scope="col">도서명</th>
 							<th scope="col">제목</th>
 							<th scope="col">작성자</th>
+							<th scope="col" class="lock"><span class="hide-text">공개</span></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -65,7 +79,17 @@
 							<td>1</td>
 							<td>날씨가 좋으면 찾아가겠어요</td>
 							<td class="alink"><a href="BookReportDetail.jsp?report_id=1">이도우 작가의 도서를 읽어봤어요!</a></td>
-							<td>yangz</td>	
+							<td>yangz</td>
+							<%
+								boolean lock = false;
+								if(lock==true){
+							%>
+							<!-- 비공개 -->
+							<td class="lock"><span class="lock-icon"><i class="fas fa-lock"></span></i></td>
+							<%}else{ %>
+							<!-- 공개 -->
+							<td class="lock"><span class="lock-icon"></span></td>
+							<%}%>
 						</tr>
 						<%
 							}
@@ -96,6 +120,7 @@
 							<th scope="col">도서명</th>
 							<th scope="col">제목</th>
 							<th scope="col">작성자</th>
+							<th scope="col" class="lock"><span class="hide-text">공개</span></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -106,7 +131,17 @@
 							<td>1</td>
 							<td>날씨가 좋으면 찾아가겠어요</td>
 							<td class="alink"><a href="BookReportDetail.jsp">이도우 작가의 도서를 읽어봤어요!</a></td>
-							<td>yangz</td>	
+							<td>yangz</td>
+							<%
+								boolean lock = false;
+								if(lock==true){
+							%>
+							<!-- 비공개 -->
+							<td class="lock"><span class="lock-icon"><i class="fas fa-lock"></span></i></td>
+							<%}else{ %>
+							<!-- 공개 -->
+							<td class="lock"></td>
+							<%}%>
 						</tr>
 						<%
 							}
