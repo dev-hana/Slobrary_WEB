@@ -117,7 +117,6 @@ if(mem_id == null) {
 		
 			<!-- proc에서 type 확인 독후감(report)/자유게시판 나눔(free) -->
 			<input type="hidden" name="type" value="free"/>
-			<input type="hidden" name="mem_id" value="<%=mem_id %>"/>
 			<div class="title mb-2">
 				<div class="input-group-prepend">
 				<span class="input-group-text">제목</span>
@@ -126,7 +125,7 @@ if(mem_id == null) {
 				</div>
 			</div>
 			<div>
-				 <textarea name="content" id="summernote" name="editordata" required></textarea>
+				 <textarea id="summernote" name="editordata" required></textarea>
 				 <div class="invalid-feedback">내용을 입력해주세요!</div>
 			 </div>
 			 <div class="option pl-2 pb-3 mt-2 mb-4">

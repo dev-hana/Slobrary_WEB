@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
  <%@ page import="java.util.*, database.*" %>
 <jsp:useBean id="reportMgr" class="database.ReportMgr" />
+<jsp:useBean id="boardMgr" class="database.BoardMgr" />
 <%
 //제대로 utf-8환경이 아니라 한글 깨짐 그래서 임의로 추가                                                   
 request.setCharacterEncoding("utf-8");
 
-String id = "comghana";
+String mem_id = (String)session.getAttribute("loginKey");
 String book_id = request.getParameter("book_id");
 String title = request.getParameter("title");
 String content = request.getParameter("editordata");
@@ -20,7 +21,7 @@ if(type.equals("report")){
 		history.back();
 		</script>
   <%}
-	boolean flag = reportMgr.insertReport(id, book_id, title, content, scope);
+	boolean flag = reportMgr.insertReport(mem_id, book_id, title, content, scope);
     if(flag){
     	%>
     			<script>
@@ -36,9 +37,21 @@ if(type.equals("report")){
     			</script>
 
     	<%}
-}else{%>
-				<script>
-    			alert("아직 데이터를 저장할 수 없습니다.");
+}else{
+	boolean flag = boardMgr.insertBoard(mem_id, title, content, scope);
+	if(flag){
+	%>
+    			<script>
+    			alert("성공적으로 등록하였습니다");
+    			location.href="../../Index.jsp";
+    			</script>
+    	<%
+    	}else{
+    	%>
+    			<script>
+    			alert("등록도중 에러가 발생하였습니다.");
     			history.back();
     			</script>
-<%} %>
+<%
+    	}
+	}%>

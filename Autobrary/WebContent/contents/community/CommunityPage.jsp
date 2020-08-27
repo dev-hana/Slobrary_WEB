@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/CND.jsp"%>
+<%@ page import="java.util.*, database.*"%>
+<jsp:useBean id="boardMgr" class="database.BoardMgr" />
 
 <%
+	String mem_id = (String)session.getAttribute("loginKey");
 	String category = "커뮤니티";
 	String pageNames = "도서 별점, 독서일기, 독후감, 자유게시판";
 	String pageUrls = "ReviewPage.jsp, BookDiaryPage.jsp, " + "BookReportPage.jsp, CommunityPage.jsp";
@@ -54,18 +57,30 @@
 							<th scope="col">번호</th>
 							<th scope="col">제목</th>
 							<th scope="col">작성자</th>
+							<th scope="col" class="lock"><span class="hide-text">공개</span></th>
 						</tr>
 					</thead>
 					<tbody>
 						<%
-							for(int i=0;i<17;i++){
+							Vector Vboard = boardMgr.getBoardList(null, "all");
+							for(int i=0;i<Vboard.size();i++){
+								BoardBean boardBean = (BoardBean)Vboard.get(i);
 						%>
 						<tr>
 							<td><%=i+1 %></td>
 							<!-- 제목 및 링크 -->
-							<td class="alink"><a href="CommunityDetail.jsp">오늘 도서관 이벤트하는날 맞죠?</a></td>
+							<td class="alink"><a href="GoDetailProc.jsp?board_id=<%=boardBean.getBoard_id()%>"><%=boardBean.getTitle() %></a></td>
 							<!-- 작성자 -->
-							<td>yangz</td>	
+							<td><%=boardBean.getMem_id() %></td>
+							<%
+								if(boardBean.getScope().equals("private")){	
+							%>
+							<!-- 비공개 -->
+							<td class="lock"><span class="lock-icon"><i class="fas fa-lock"></span></i></td>
+							<%}else{ %>
+							<!-- 공개 -->
+							<td class="lock"><span class="lock-icon"></span></td>
+							<%}%>	
 						</tr>
 						<%
 							}
@@ -81,6 +96,16 @@
 			<%
 				}else{	
 				// 나의 자유 게시글
+				//로그인 유효성 검사
+				if(mem_id == null){
+						
+					%><script>
+					alert("로그인 후 사용가능합니다.");
+					history.back();
+					</script>
+					<%
+				}
+				Vector myBoard = boardMgr.getBoardList(mem_id, "mem");
 			%>
 				<section class="main-content col-xl-8 mt-3">
 				<!-- title -->
@@ -95,18 +120,31 @@
 							<th scope="col">번호</th>
 							<th scope="col">제목</th>
 							<th scope="col">작성자</th>
+							<th scope="col" class="lock"><span class="hide-text">공개</span></th>
 						</tr>
 					</thead>
 					<tbody>
 						<%
-							for(int i=0;i<17;i++){
+							for(int i=0;i<myBoard.size();i++){
+								BoardBean boardBean = (BoardBean)myBoard.get(i);
 						%>
 						<tr>
 							<td><%=i+1 %></td>
 							<!-- 제목 및 링크 -->
-							<td class="alink"><a href="BookReportDetail.jsp">오늘 도서관 이벤트하는날 맞죠?</a></td>
+							<td class="alink"><a href="BookReportDetail.jsp?board_id=<%=boardBean.getBoard_id()%>"><%=boardBean.getTitle() %></a></td>
 							<!-- 작성자 -->
-							<td>yangz</td>	
+							<td><%=boardBean.getMem_id() %></td>	
+							<%
+
+								if(boardBean.getScope().equals("private")){
+									
+							%>
+							<!-- 비공개 -->
+							<td class="lock"><span class="lock-icon"><i class="fas fa-lock"></span></i></td>
+							<%}else{ %>
+							<!-- 공개 -->
+							<td class="lock"><span class="lock-icon"></span></td>
+							<%}%>
 						</tr>
 						<%
 							}
