@@ -117,6 +117,16 @@
 			<%
 				}else{
 					//나의 독후감
+					//로그인 유효성 검사
+					if(mem_id == null){
+						%>
+						<script>
+						alert("로그인 후 사용가능합니다.");
+						history.back();
+						</script>
+						<%
+					}
+					Vector Myreport = reportMgr.getReportList(mem_id, "mem");
 			%>
 				<section class="main-content col-xl-8 mt-3">
 				<!-- title -->
@@ -137,16 +147,21 @@
 					</thead>
 					<tbody>
 						<%
-							for(int i=0;i<17;i++){
+							
+							for(int i=0;i<Myreport.size();i++){
+								ReportBean reportBean = (ReportBean)Myreport.get(i);
+								String bname = "";
+								BookBean bookBean = bookMgr.getBook(reportBean.getBook_id());
+								if(bookBean.getName().length() > 20) bname = bookBean.getName().substring(0, 17) + "...";
+								else bname = bookBean.getName();
 						%>
 						<tr>
-							<td>1</td>
-							<td>날씨가 좋으면 찾아가겠어요</td>
-							<td class="alink"><a href="BookReportDetail.jsp">이도우 작가의 도서를 읽어봤어요!</a></td>
-							<td>yangz</td>
+							<td><%=i+1 %></td>
+							<td><%=bname %></td>
+							<td class="alink"><a href="BookReportDetail.jsp?report_id=<%=reportBean.getReport_id()%>"><%=reportBean.getName() %></a></td>
+							<td><%=reportBean.getMem_id() %></td>
 							<%
-								boolean lock = false;
-								if(lock==true){
+							if(reportBean.getLocked().equals("private")){
 							%>
 							<!-- 비공개 -->
 							<td class="lock"><span class="lock-icon"><i class="fas fa-lock"></span></i></td>
