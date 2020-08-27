@@ -7,9 +7,6 @@
 <%
 	String mem_id = (String)session.getAttribute("loginKey");
 
-%>
-
-<%
 	String category = "커뮤니티";
 	String pageNames = "도서 별점, 독서일기, 독후감, 자유게시판";
 	String pageUrls = "ReviewPage.jsp, BookDiaryPage.jsp, " + "BookReportPage.jsp, CommunityPage.jsp";
@@ -92,7 +89,7 @@
 						<tr>
 							<td><%=i+1 %></td>
 							<td><%=bname %></td>
-							<td class="alink"><a href="BookReportDetail.jsp?report_id=1"><%=reportBean.getName() %></a></td>
+							<td class="alink"><a href="GoReportDetailProc.jsp?report_id=<%=reportBean.getReport_id()%>"><%=reportBean.getName() %></a></td>
 							<td><%=reportBean.getMem_id() %></td>
 							<%
 
