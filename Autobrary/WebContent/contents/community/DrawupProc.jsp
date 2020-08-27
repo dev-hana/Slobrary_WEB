@@ -7,18 +7,25 @@
 request.setCharacterEncoding("utf-8");
 
 String id = "comghana";
-String book_id = "EM212594";
+String book_id = request.getParameter("book_id");
 String title = request.getParameter("title");
 String content = request.getParameter("editordata");
-String section = request.getParameter("section");
+String type = request.getParameter("type");
 String scope = request.getParameter("scope");
-if(section.equals("독후감")){
+if(type.equals("report")){
+	if(book_id.equals("0")){
+		%>
+		<script>
+		alert("도서를 선택하여 주십시오.");
+		history.back();
+		</script>
+  <%}
 	boolean flag = reportMgr.insertReport(id, book_id, title, content, scope);
     if(flag){
     	%>
     			<script>
     			alert("성공적으로 등록하였습니다");
-    			location.href="../index.jsp";
+    			location.href="../../Index.jsp";
     			</script>
     	<%
     		}else{

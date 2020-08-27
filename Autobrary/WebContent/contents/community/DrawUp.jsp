@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/CND.jsp" %>
+<%@ page import="java.util.*, database.*"%>
+<jsp:useBean id="bookMgr" class="database.BookMgr" />
 <%
 String mem_id = (String)session.getAttribute("loginKey");
 if(mem_id == null) {
@@ -53,9 +55,22 @@ if(mem_id == null) {
 				
 				<!-- 읽은 도서 목록 -->
 				<select class="form-control mr-3" name="book_id">
-						<option value="" selected disabled>독후감을 작성할 도서를 선택해주세요</option>
-						<% for(int i=0;i<7;i++) {%>
-					    <option value="읽은도서<%=i%>">읽은도서명<%=i%></option>
+						<option value="0" selected disabled>독후감을 작성할 도서를 선택해주세요</option>
+						<% 
+						Vector vLoan = bookMgr.getLoan(mem_id, 0);
+						for(int i=0;i<vLoan.size();i++) {
+							LoanBean loanBean = (LoanBean)vLoan.get(i);
+							BookBean bookBean = bookMgr.getBook(loanBean.getId_num());
+						%>
+					    <option value="<%=bookBean.getId_num()%>"><%=bookBean.getName() %></option>
+					   <%} %>
+					   <% 
+						Vector vReturn = bookMgr.getReturn(mem_id, 0);
+						for(int i=0;i<vLoan.size();i++) {
+							LoanBean returnBean = (LoanBean)vReturn.get(i);
+							BookBean bookBean = bookMgr.getBook(returnBean.getId_num());
+						%>
+					    <option value="<%=bookBean.getId_num()%>"><%=bookBean.getName() %></option>
 					   <%} %>
 				</select>
 				
@@ -64,7 +79,7 @@ if(mem_id == null) {
 				</div>
 			</div>
 			<div>
-				 <textarea name="content" id="summernote" name="editordata" required></textarea>
+				 <textarea id="summernote" name="editordata" required></textarea>
 				 <div class="invalid-feedback">내용을 입력해주세요!</div>
 			 </div>
 			 <div class="option pl-2 pb-3 mt-2 mb-4">
