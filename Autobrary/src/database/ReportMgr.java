@@ -25,20 +25,26 @@ public class ReportMgr {
         }
     }
     
-    public ReportBean getReport(String report_id) {
+    public ReportBean getReport(String report_id, String type) {
     	Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         ReportBean reportBean = null;
+        String strQuery="";
 
         try {
             con = pool.getConnection();
-            String strQuery = "select * " + 
-            		"from book_report " + 
-            		"where report_id = ? ";
-
-            pstmt = con.prepareStatement(strQuery);
-            pstmt.setString(1, report_id);
+            if(type.equals("id")) {
+            	strQuery = "select * " + 
+            			"from book_report " + 
+            			"where report_id = ? ";
+            	pstmt = con.prepareStatement(strQuery);
+                pstmt.setString(1, report_id);
+            }else if(type.equals("all")) {
+            	strQuery = "select * from book_report ";
+            	pstmt = con.prepareStatement(strQuery);
+               
+            }
             rs = pstmt.executeQuery();
             while (rs.next()) {     	 
             	reportBean = new ReportBean();

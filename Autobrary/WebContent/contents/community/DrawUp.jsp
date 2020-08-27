@@ -57,8 +57,8 @@ if(mem_id == null) {
 				
 				<%
 					String bookid = request.getParameter("book_id");
-					String bookname = request.getParameter("book_name");
-					if(bookid==null || bookname==null){
+					
+					if(bookid==null){
 				%>
 				
 				<select class="form-control mr-3" name="book_id">
@@ -80,9 +80,11 @@ if(mem_id == null) {
 					    <option value="<%=bookBean.getId_num()%>"><%=bookBean.getName() %></option>
 					   <%} %>
 				</select>
-				<%}else{ %>
+				<%}else{ 
+					BookBean bookBean = bookMgr.getBook(bookid);
+				%>
 				<input type="hidden" name="book_id" value="<%=bookid %>"/>
-				<input type="text" class="form-control mr-3 rounded" name="book_name" value="<%=bookname %>" readonly>
+				<input type="text" class="form-control mr-3 rounded" name="book_name" value="<%=bookBean.getName() %>" readonly>
 				<%} %>
 				<span class="input-group-text">제목</span>
 				<input type="text" class="form-control input-title" name="title" required>

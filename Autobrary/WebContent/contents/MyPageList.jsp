@@ -118,7 +118,7 @@
 						<a href="/contents/community/BookDiaryForm.jsp" class="dropdown-item">
 							독서일기쓰기
 						</a>
-						<a href="/contents/community/DrawUp.jsp?type=report&book_id=<%=loanBean.getLoan_id() %>&book_name=<%=name %>" class="dropdown-item">
+						<a href="/contents/community/DrawUp.jsp?type=report&book_id=<%=bookBean.getId_num() %>" class="dropdown-item">
 							독후감 쓰기
 						</a>
 					</div>
@@ -237,7 +237,7 @@
 						<a href="/contents/community/BookDiaryForm.jsp" class="dropdown-item">
 							독서일기쓰기
 						</a>
-						<a href="/contents/community/DrawUp.jsp?type=report&book_id=<%=loanBean.getLoan_id() %>&book_name=<%=name %>" class="dropdown-item">
+						<a href="/contents/community/DrawUp.jsp?type=report&book_id=<%=bookBean.getId_num()%>" class="dropdown-item">
 							독후감 쓰기
 						</a>
 					</div>
