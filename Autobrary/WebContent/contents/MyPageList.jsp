@@ -15,11 +15,6 @@
 <!-- css -->
 <link href="/css/MyPageList.css" rel="stylesheet" />
 <style type="text/css">
-.remove_watch {
-	position: relative;
-	top: 50px;
-}
-
 .remove_thead {
 	display: none;
 }
@@ -79,7 +74,7 @@
 	
 		%>
 		<tr>
-			<td class="img pt-4"><img width="110" height="140" 
+			<td class="img"><img width="110" height="140" 
 				src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"
 				alt="<%=bookBean.getId_num() %>">
 			</td>
@@ -198,7 +193,7 @@
 					String return_date = loanBean.getReturn_date().substring(0, 10);
 		%>
 		<tr>
-			<td class="img pt-4"><img width="110" height="140"
+			<td class="img"><img width="110" height="140"
 				src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"
 				alt="<%=bookBean.getId_num()%>">
 			</td>
@@ -312,7 +307,7 @@
 						String status = bookBean.getStatus();
 			%>
 			<tr>
-				<td class="img pt-4"><img width="110" height="140"
+				<td class="img"><img width="110" height="140"
 					src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"
 					alt="<%=bookBean.getId_num()%>">
 				</td>
@@ -335,14 +330,14 @@
 					<span class="ap">
 						출판사 : <%=publisher%>
 					</span>
-					<div class="mt-3 mb-2 pr-1" style="float: right;">
+					<div class="mt-5 pt-1 pr-1" style="float: right;">
 						<form>
 							<!-- 관심도서 아이디 자리 -->
 							<input type="hidden" name="watch_id" value="1">
-							<button class="btn btn-outline-dark mb-5 remove_watch">관심도서삭제</button>
+							<button class="btn btn-outline-secondary">관심도서삭제</button>
 						</form>
 					</div>
-					<div class="bg-light p-3 mt-5">
+					<div class="bg-light p-3 mt-4">
 						상태: <span id="<%=watch_id%>">&nbsp;&nbsp;<%=status%></span>
 					</div> 
 					
@@ -428,7 +423,7 @@
 						if (resultT < 0) {
 			%>
 			<tr>
-				<td class="img pt-4">
+				<td class="img">
 					<img width="110" height="140"
 						src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>"
 						alt="<%=bookBean.getId_num()%>">

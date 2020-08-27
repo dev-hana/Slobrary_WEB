@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+input[data-readonly] {
+  pointer-events: none;
+}
+</style>
 	<script type="text/javascript">
     function calcHeight(){
    	 //find the height of the internal page
@@ -56,7 +61,7 @@
                 <div id="wrapper">
                 <h4>회원가입</h4>
                 <hr>
-                <form action="SignupProc.jsp" name="info" target="list" method="post" id="signup-form" class="needs-validation" novalidate>
+                <form action="SignupProc.jsp" name="info" target="list" method="post" id="num-form" class="needs-validation" novalidate>
                 <input type="hidden" name="form_type" value="인증번호 발송">
                     <div id="img-tab">
                         <div class="img-wrapper">
@@ -114,8 +119,9 @@
 						
 						<label for="addr">주소</label>
 						<div class="input-group">
-                        <input type="text" class="form-control" id="addr" placeholder="" name="addr" required="true" readonly="true" />
+                        <input type="text" class="form-control" id="addr" placeholder="" name="addr" data-readonly required>
                         <button id="address" class="btn btn-light" onclick="goPopup()">주소검색</button>
+                        <div class="invalid-feedback">계속하려면 체크하십시오.</div>
 						</div>
 						
                         <label for="email">이메일</label>
@@ -254,7 +260,7 @@
 		window.name = "parentForm";
 		window.open(url,"cildForm","width=300,height=150");
 		}
-		});
+	});
 </script>
 <script type="text/javascript" src="js/signup.js"></script>
 </html>

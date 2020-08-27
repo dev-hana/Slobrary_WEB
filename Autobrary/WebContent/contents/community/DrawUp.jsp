@@ -9,6 +9,7 @@ if(mem_id == null) {
 %>
  				<script>
     			alert("로그인이 필요한 작업입니다.");
+    			location.href="/Login.jsp";
     			</script>
 <%}%>
 
@@ -54,10 +55,8 @@ if(mem_id == null) {
 				<div class="input-group">
 				
 				<!-- 읽은 도서 목록 -->
-				
 				<%
 					String bookid = request.getParameter("book_id");
-					
 					if(bookid==null){
 				%>
 				

@@ -20,7 +20,8 @@
 }
 
 .img {
-	text-align: center;
+	justify-content: center;
+	align-item: center;
 }
 
 .overdate {
@@ -97,4 +98,7 @@
 
 .btn-community .show {
 	display: block;
+}
+.remove_thead {
+	display: none;
 }
