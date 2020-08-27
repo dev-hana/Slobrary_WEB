@@ -32,9 +32,10 @@
 </head>
 <body class="bg-light">
 	<jsp:include page="../Top.jsp" flush="false"/>
-
+	
+	<!-- 마이페이지 개인정보 및 메뉴   -->
 	<div class="row mt-5 pb-5 justify-content-md-center">
-		<!-- 마이페이지 개인정보 및 메뉴 -->
+		<!-- 마이페이지 개인정보 및 메뉴   -->
         <div class="col-xl-3 mr-2">
         <div class="bg-white shadow-sm rounded p-2">
         	<!-- 타이틀 및 수정버튼 -->

@@ -9,6 +9,7 @@ if(mem_id == null) {
 %>
  				<script>
     			alert("로그인이 필요한 작업입니다.");
+    			location.href="/Login.jsp";
     			</script>
 <%}%>
 
