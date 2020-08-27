@@ -70,6 +70,7 @@ function togglePwdCheck() {
 btnPwd.addEventListener('click', togglePwd, false);
 btnPwdCheck.addEventListener('click', togglePwdCheck, false);
 
+
 //비밀번호 일치 체크
 $(function(){
 	$("#pwd").keyup(function(){ 
@@ -84,8 +85,9 @@ $(function(){
 			$("#alert-success").hide(); 
 			$("#alert-danger").show(); 
 			$("#submit-btn").attr("disabled", "disabled"); 
-		} } }
-); });
+		}}
+	}); 
+});
 $(function(){
 	$("#pwdCheck").keyup(function(){ 
 		var pwd1=$("#pwd").val();

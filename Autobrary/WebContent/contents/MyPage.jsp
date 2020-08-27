@@ -33,7 +33,7 @@
 <body class="bg-light">
 	<jsp:include page="../Top.jsp" flush="false"/>
 
-	<div class="row mt-5 justify-content-md-center">
+	<div class="row mt-5 pb-5 justify-content-md-center">
 		<!-- 마이페이지 개인정보 및 메뉴 -->
         <div class="col-xl-3 mr-2">
         <div class="bg-white shadow-sm rounded p-2">
@@ -67,7 +67,7 @@
         	//나의 기록 선택시
         	if(contentPage.equals("LogList.jsp?type=review")||contentPage.equals("LogList.jsp?type=diary")){
         		%>
-        			<div class="col-xl-7">
+        			<div class="col-xl-7 p-2">
         				<div class="bg-white shadow-sm rounded p-4">
 	        				<jsp:include page="LogMenu.jsp" flush="false"/>
 	        				<div class="mt-2">
@@ -94,9 +94,9 @@
 			<%
 				}%>
         </div>
+        <%} %>
     </div>
-    </div>
-	<%} %>
+	
 	
 	<div class="mt-5">
 	<jsp:include page="/Footer.jsp" flush="false"/>
