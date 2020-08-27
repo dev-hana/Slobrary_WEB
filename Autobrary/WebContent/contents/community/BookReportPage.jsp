@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/CND.jsp"%>
+<%@ page import="java.util.*, database.*"%>
+<jsp:useBean id="reportMgr" class="database.ReportMgr" />
+<jsp:useBean id="bookMgr" class="database.BookMgr" />
+<%
+	String mem_id = (String)session.getAttribute("loginKey");
+
+%>
 
 <%
 	String category = "커뮤니티";
@@ -73,16 +80,24 @@
 					</thead>
 					<tbody>
 						<%
-							for(int i=0;i<17;i++){
+							Vector Vreport = reportMgr.getReportList(null, "all");
+							for(int i=0;i<Vreport.size();i++){
+								ReportBean reportBean = (ReportBean)Vreport.get(i);
+								String bname = "";
+								BookBean bookBean = bookMgr.getBook(reportBean.getBook_id());
+								if(bookBean.getName().length() > 20) bname = bookBean.getName().substring(0, 17) + "...";
+								else bname = bookBean.getName();
+								
 						%>
 						<tr>
-							<td>1</td>
-							<td>날씨가 좋으면 찾아가겠어요</td>
-							<td class="alink"><a href="BookReportDetail.jsp?report_id=1">이도우 작가의 도서를 읽어봤어요!</a></td>
-							<td>yangz</td>
+							<td><%=i+1 %></td>
+							<td><%=bname %></td>
+							<td class="alink"><a href="BookReportDetail.jsp?report_id=1"><%=reportBean.getName() %></a></td>
+							<td><%=reportBean.getMem_id() %></td>
 							<%
-								boolean lock = false;
-								if(lock==true){
+
+								if(reportBean.getLocked().equals("private")){
+									
 							%>
 							<!-- 비공개 -->
 							<td class="lock"><span class="lock-icon"><i class="fas fa-lock"></span></i></td>
