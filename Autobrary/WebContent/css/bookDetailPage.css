@@ -66,24 +66,6 @@ body {
 	height: auto;
 }
 
-.buttons .btn {
-	font-size: 0.85em;
-	margin: 0px 5px;
-	border: 1px solid var(--main-color-dark);
-	color: var(--main-color-dark);
-	transition: background 0.3s;
-	-webkit-transition: background 0.3s;
-}
-
-.buttons .btn:hover {
-	background: var(--main-color-dark);
-	color: #fff;
-}
-
-.buttons .btn:active {
-	background: #fff;
-	color: var(--main-color-dark);
-}
 
 .btn-more {
 	position: relative;
@@ -169,6 +151,99 @@ body {
 
 .rating dd .fa-flip-horizontal {
 	margin-left: -35px;
+}
+
+.buttons {
+	margin-top: 30px;
+	display:flex;
+	width: 100%;
+	justify-content: space-evenly;
+}
+
+.buttons .btn-addLike {
+	width: 50%;
+}
+
+.buttons .btn-community {
+	width: 50%;
+	justify-self: stretch;
+}
+
+.btn-community .dropdown {
+	display: inline-block;
+}
+
+.btn-community .dropdown-toggle {
+	height:38px;
+	border-left: 0px;
+	border-radius: 0px 3px 3px 0px;
+}
+
+.btn-community .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #fff;
+	border-radius: 2px;
+	border: 1px solid #ddd;
+	min-width: 160px;
+	overflow: auto;
+	z-index: 1;
+}
+
+.btn-community .dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	transition: all 200ms ease-in;
+}
+
+.btn-community .dropdown a:hover {
+	background-color: var(--main-color);
+}
+
+.btn-community .show {
+	display: block;
+}
+
+.buttons .btn {
+	font-size: 0.85em;
+	height: 38px;
+	border: 1px solid var(--main-color-dark);
+	color: var(--main-color-dark);
+	transition: background 0.3s;
+	-webkit-transition: background 0.3s;
+}
+
+.buttons .btn:hover {
+	background: var(--main-color-dark);
+	color: #fff;
+}
+
+.buttons .btn:active {
+	background: #fff;
+	color: var(--main-color-dark);
+}
+
+.buttons .btn:disabled:hover,
+.buttons .btn[disabled]:hover {
+	background: none;
+	color: var(--main-color-dark);
+}
+
+.buttons .btn:disabled:active,
+.buttons .btn[disabled]:active {
+	background: none;
+	color: var(--main-color-dark);
+}
+
+.notice-disabled-button {
+	margin-top: 10px;
+	padding: 10px 15px;
+	background: var(--main-color);
+	color: #fff;
+	font-size: 0.9em;
+	#display: none;
 }
 
 

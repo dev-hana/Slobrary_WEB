@@ -120,9 +120,27 @@
 						<input type="hidden" name="watch_id" value="1">
 						<button type="submit">관심도서등록</button>
 					</form-->
-					<button type="submit" class="btn">관심도서등록</button>
-					<button type="button" class="btn">리뷰 작성</button>
-					<button type="button" class="btn">독후감 작성</button>
+					<button type="submit" class="btn btn-addLike">관심도서등록</button>
+					
+					<div class="btn-community btn-group">
+						<button type="button" onclick="modal_view('<%=bookBean.getName() %>','<%=bookBean.getId_num() %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-goReview">
+							리뷰 작성
+						</button>
+						<div class="dropdown">
+							<button onclick="buttonDrop()" class="btn dropdown-toggle"></button>
+							<div class="dropdown-content communityDropdown dropdown-menu-right">
+								<a href="/contents/community/BookDiaryForm.jsp" class="dropdown-item btn-goDiary">
+									독서 일기 작성
+								</a>
+								<a href="/contents/community/DrawUp.jsp?type=report&book_id=<%=bookBean.getId_num()%>" class="dropdown-item btn-goReport">
+									독후감 작성
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="notice-disabled-button">
+					대출기록이 있는 도서만 리뷰/독후감/독서일기를 작성하실 수 있습니다.
 				</div>
 			</div>
 		</div>
@@ -303,5 +321,47 @@
 				});
 			});
 		</script>
+<!-- Modal -->
+<jsp:include page="/contents/ReviewModal.jsp" flush="false" />
+<script>
+		function modal_view(title, loan_id) {
+			$("#modalTitle").text(title + "-리뷰");
+			$("#l_id").val(loan_id);
+		}
+		
+		// community dropdown button 관련 스크립트
+		// 버튼 토글 
+		function buttonDrop() {
+			var dropdownItem = $(document.activeElement).parent().find('.communityDropdown');
+			if (dropdownItem.hasClass("show")) {
+				dropdownItem.removeClass("show");
+			} else {
+				dropdownItem.addClass("show");
+			}
+
+		}
+		// 화면 바깥 클릭 시 모든 토글 사라지게
+		window.onclick = function(event) {
+			if (!event.target.matches('.dropdown-toggle')) {
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+				}
+			}
+		}
+	</script>
+<!-- 도서 미대출 시 커뮤니티 관련 버튼 disabled 되도록 -->
+<script>
+	var buttons = document.querySelector(".btn-community");
+	var btnReview = buttons.querySelector(".btn-goReview");
+	var btnToggle = buttons.querySelector(".dropdown-toggle");
+	<%-- 책 대출 여부 확인 : false --%>
+	//btnReview.disabled=true;
+	//btnToggle.disabled=true;
+</script>
 </body>
 </html>
