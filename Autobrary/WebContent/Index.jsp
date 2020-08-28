@@ -551,7 +551,18 @@ String mem_id = (String)session.getAttribute("loginKey");
             </div>
         </div>
     </div>
-
 	<jsp:include page="/Footer.jsp" flush="false" />
+	<%
+	if(mem_id!=null){
+	%>	
+		<div class="remove-modal">
+			<jsp:include page="/contents/noticeModal.jsp" flush="false" />
+		</div>
+		<script>
+		$("#myModal").modal();
+		</script>
+	<%
+	}
+	%>
 </body>
 </html>

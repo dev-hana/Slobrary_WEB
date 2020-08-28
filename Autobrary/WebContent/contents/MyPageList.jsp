@@ -104,7 +104,7 @@
 				</div>
 				
 				<div class="btn-community btn-group mt-3 mb-2 pr-2">
-					<button type="button" onclick="modal_view('<%=name %>','<%=loanBean.getLoan_id() %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">
+					<button type="button" onclick="modal_view('<%=name %>','<%=bookBean.getId_num() %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">
 						리뷰하기
 					</button>
 					<div class="dropdown">
@@ -223,7 +223,7 @@
 				</div>
 				
 				<div class="btn-community btn-group mt-3 mb-2 pr-2">
-					<button type="button" onclick="modal_view('<%=name %>','<%=loanBean.getLoan_id() %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">
+					<button type="button" onclick="modal_view('<%=name %>','<%=bookBean.getId_num() %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">
 						리뷰하기
 					</button>
 					<div class="dropdown">
