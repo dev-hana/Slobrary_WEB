@@ -15,11 +15,12 @@ String mem_id = (String)session.getAttribute("loginKey");
 	<!-- 웹폰트 -->
 	<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
 	<jsp:include page="/CND.jsp" flush="false" />
+			
 </head>
 
 <body>
 	<div id="header" class="container-fluid pt-4 shadow-sm bg-white">
-		<div class="row ml-5 mr-5">
+		<div class="row ml-3 mr-3">
 			<div id="logo-main" class="col-sm-3 m-auto d-none d-lg-block">
 				<a class="navbar-brand float-d-flex mr-auto logo mt-n3" href="/">
 					<!--AutoBrArY-->
@@ -39,9 +40,9 @@ String mem_id = (String)session.getAttribute("loginKey");
 
 				<nav id="nav-header" class="navbar navbar-expand-md navbar-light">
 					<div id="nav-size" class="container-fuil">
-						<div class="row">
+						<div class="row" id="row-menu">
 
-							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+							<button class="navbar-toggler" id="nav-togbtn" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
 							</button>
 
@@ -49,7 +50,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 								<a id="logo-nav" class="logo" href="/">
 									<!-- AutoBrArY -->sloBrArY</a>
 								<ul id="nav-main" class="navbar-nav mr-auto">
-									<li class="nav-item">
+									<li class="nav-item" id="nav-item1">
 										<a class="nav-link" href="/contents/SearchPage.jsp">도서검색</a>
 									</li>
 									<li class="nav-item dropdown dropdown-top">
@@ -94,11 +95,11 @@ String mem_id = (String)session.getAttribute("loginKey");
 								</ul>
 								<%
  								if(mem_id == null) {%>
-								<ul class="navbar-nav navbar-right">
+								<ul class="navbar-nav navbar-right" id="nav-log">
 									<li class="nav-item"> <a href="/Login.jsp" class="nav-link">로그인</a></li>
 									<li class="nav-item"> <a href="/Signup.jsp" class="nav-link ">회원가입</a></li>
 								</ul><%} else {%>
-								<ul class="navbar-nav navbar-right">
+								<ul class="navbar-nav navbar-right" id="nav-log">
 									<li class="nav-item"> <a href="/contents/MyPage.jsp" class="nav-link">마이페이지</a></li>
 									<li class="nav-item"> <a href="/LogoutProc.jsp" class="nav-link ">로그아웃</a></li>
 								</ul><%}%>
