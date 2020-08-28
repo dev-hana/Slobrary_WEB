@@ -522,7 +522,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                 <div class="row">
                     <div class="col">
                         <hr class="shadow-sm">
-                        <div class="forum" id="forumid">
+                        <div class="forum">
                             <h1 class="menu-title">공지사항</h1>
                             <a class="fas fa-plus float-right" href="NoticeBoard.jsp"></a>
                             <%
