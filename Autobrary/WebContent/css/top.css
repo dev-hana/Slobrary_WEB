@@ -2,24 +2,15 @@
 /* 검색바와 메뉴버튼 모바일 조정 (가로 844) */
 
 @media screen and (max-width: 800px) {
+
+	.container#nav-size {
+		width: 500% !important;
+		background-color: #A593E0 !important;
+	}
 	
 	#nav-header {
 		width: 20% !important;
 		float: left !important;
-	}
-	
-	#row-menu {
-		background-color: transparent !important;
-	}
-	
-	/*#navbarsExampleDefault {
-		width: 200% !important;
-		background-color: #A593E0 !important;
-	}*/
-	
-	#logo-nav {
-		/*background-color: #A593E0 !important;*/
-		/*width: auto !important;*/
 	}
 	
 	#search-header {
@@ -31,8 +22,6 @@
 		text-align: left !important;
 		width: auto !important;
 	}
-	
-	
 }
 
 /* 검색바와 메뉴버튼 모바일 조정 끝 */
