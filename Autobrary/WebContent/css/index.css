@@ -1,3 +1,33 @@
+
+@media screen and (max-width: 800px) {
+	
+	#quick-menu {
+		height: 150px !important;
+	}
+	
+	#qitem1 {
+		font-size: 15px !important;
+		position: absolute !important;
+		left: -3% !important;
+	}
+	#qitem2 {
+		font-size: 15px !important;
+		position: absolute !important;
+		left: 22% !important;
+	}
+	#qitem3 {
+		font-size: 15px !important;
+		position: absolute !important;
+		right: 22% !important;
+	}
+	#qitem4 {
+		font-size: 15px !important;
+		position: absolute !important;
+		right: -3% !important;
+	}
+	
+}
+
 #carousel-item-new {
     background: #3A1C71;
     /* fallback for old browsers */

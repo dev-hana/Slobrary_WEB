@@ -66,15 +66,10 @@ if(mem_id == null) {
 			 	</div>
 			 </div>
 			 <div class="float-right">
-
 			 	<input type="submit" class="btn btn-secondary" value="등록하기"></input>
-
 			 </div>
 		</form>
-		
-		</div>
-		
-		
+		</div>	
 	</div>
 
 
