@@ -48,7 +48,7 @@
 			<div style="text-align:center; border: 1px solid #EAEAEA;" class="mt-2 mb-5 pt-3">
 			<div id="search-form">
 			
-			  <div style="display: inline-block;" class="sel sel--black-panther">
+			  <div style="display: inline-block;" class="sel sel--black-panther" id="selbox">
  				 <select name="keytype" id="select-profession">
   					<option value="all">전체</option>
   					<option value="all">전체</option>
