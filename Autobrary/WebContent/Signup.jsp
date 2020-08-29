@@ -56,8 +56,8 @@ input[data-readonly] {
     <jsp:include page="Top.jsp" flush="false"/>
     </header>
     <div id="document">
-        <div class="row p-5 ml-5 mr-5">
-            <div class="col bg-white shadow-sm p-5 ml-5 mr-5">
+        <div class="row p-5 ml-5 mr-5" id="div1">
+            <div class="col bg-white shadow-sm p-5 ml-5 mr-5" id="div2">
                 <div id="wrapper">
                 <h4>회원가입</h4>
                 <hr>
