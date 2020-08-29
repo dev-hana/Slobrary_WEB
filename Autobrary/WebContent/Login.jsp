@@ -31,10 +31,10 @@
     <jsp:include page="Top.jsp" flush="false"/>
     </header>
     <div id="document">
-        <div class="row p-5 ml-5 mr-5">
-            <div class="col bg-white shadow-sm p-5 ml-5 mr-5">
+        <div class="row p-5 ml-5 mr-5" id="div1"> <!-- 5에서 3으로 수정 -->
+            <div class="col bg-white shadow-sm p-5 ml-5 mr-5" id="div2">
                 <div id="wrapper">
-                <h4>로그인</h4>
+                <h4 id="h4log">로그인</h4>
                 <hr>
                 <form action="LoginCookie.jsp" method="post" id="login-form">
                     <div class="form-group">
@@ -62,6 +62,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>
