@@ -1,31 +1,18 @@
 @charset "UTF-8";
-
-.wrapper {
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-#content {
-	width: 100%;
-	padding-top: 50px;
-	padding-left: 50px;
-}
-
 #content h1 {
 	font-size: 2em;
 }
-
+.alink a:hover{
+	color: #424242;
+	text-decoration: underline;
+}
+.alink a:link { color: #424242;}
+.alink a:visited { color: #424242; text-decoration: none;}
 
 .table-notice-board th:nth-child(2) {
 	width: 65%;
 }
 /* pagination css */
-.dataTables_paginate{
-		margin-top: 7px;
-		position: relative;
-		right:45px;
-}
 .dataTables_filter{
 	color:white;
 	float:right;
@@ -42,4 +29,9 @@ th{
 }
 .date{
 	white-space: nowrap;
+}
+
+.table_div{
+	position: relative;
+	top:-15px;
 }

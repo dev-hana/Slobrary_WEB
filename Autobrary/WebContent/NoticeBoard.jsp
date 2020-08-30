@@ -17,34 +17,26 @@
 <head>
 <title>Slobrary - <%=currentPage%></title>
 <%@ include file="/CND.jsp"%>
-<link rel="stylesheet" href="/css/noticeBoard.css?v=2">
 <link href="/css/pagination.css" rel="stylesheet">
-<style>
-.alink a:hover{
-	color: #424242;
-	text-decoration: underline;
-}
-.alink a:link { color: #424242;}
-.alink a:visited { color: #424242; text-decoration: none;}
-
-</style>
+<link rel="stylesheet" href="/css/noticeBoard.css?v=1">
 </head>
 <body>
 	<header>
 		<jsp:include page="Top.jsp" flush="false" />
 	</header>
-	<div style="margin: 50px 150px;">
-		<div class="wrapper mt-5">
-		
-			<jsp:include page="/SideMenuBar.jsp" flush="false">
-				<jsp:param name="category" value="<%=category%>"/>
-				<jsp:param name="pageNames" value="<%=pageNames%>"/>
-				<jsp:param name="pageUrls" value="<%=pageUrls%>"/>
-				<jsp:param name="currentPage" value="<%=currentPage%>"/>
-			</jsp:include>
-			
-			<div id="content">
+	<div class="container-fluid mb-5">
+		<div class="row mt-4 pt-4 justify-content-md-center">
+			<div class="col-xl-3 mr-n5">
+				<jsp:include page="/SideMenuBar.jsp" flush="false">
+					<jsp:param name="category" value="<%=category%>" />
+					<jsp:param name="pageNames" value="<%=pageNames%>" />
+					<jsp:param name="pageUrls" value="<%=pageUrls%>" />
+					<jsp:param name="currentPage" value="<%=currentPage%>" />
+				</jsp:include>
+			</div>
+			<section class="main-content col-xl-8 mt-3" id="content">
 				<h1 class="mb-1"><%=currentPage%></h1>
+				<div class="table_div">
 				<table class="table table-striped table-hover table-notice-board" id="noticeTable">
 					<thead>
 						<tr>
@@ -74,6 +66,7 @@
 					</tbody>
 				</table>
 			</div>
+			</section>
 		</div>
 	</div>
 	<jsp:include page="/Footer.jsp" flush="false" />

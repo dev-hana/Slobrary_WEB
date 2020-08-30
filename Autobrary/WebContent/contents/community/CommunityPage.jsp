@@ -18,6 +18,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Slobrary - <%=currentPage%></title>
+<style>
+.lock-icon{
+	width:25px;
+	color:#CFCFCF;
+}
+.lock{
+	text-align: center;
+}
+.hide-text{
+	visibility: hidden;
+}
+</style>
 <link href="/css/allNeed.css" rel="stylesheet">
 <link href="/css/bookReportPage.css?v=1" rel="stylesheet">
 <link href="/css/pagination.css" rel="stylesheet">

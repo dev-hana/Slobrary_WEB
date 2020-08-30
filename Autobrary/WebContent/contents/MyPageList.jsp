@@ -14,6 +14,7 @@
 <title>Insert title here</title>
 <!-- css -->
 <link href="/css/MyPageList.css" rel="stylesheet" />
+<link href="/css/pagination.css" rel="stylesheet">
 <style type="text/css">
 .remove_thead {
 	display: none;

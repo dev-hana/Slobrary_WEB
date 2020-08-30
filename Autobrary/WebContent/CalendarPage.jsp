@@ -14,24 +14,25 @@
 <head>
 <title>Slobrary - <%=currentPage%></title>
 <%@ include file="/CND.jsp"%>
-<link rel="stylesheet" href="/css/noticeBoard.css">
+<link rel="stylesheet" href="/css/noticeBoard.css?v=1">
 </head>
 
 <body>
 	<header>
 		<jsp:include page="Top.jsp" flush="false" />
 	</header>
-	<div style="margin: 50px 150px;">
-		<div class="wrapper mt-5">
-		
-			<jsp:include page="/SideMenuBar.jsp" flush="false">
-				<jsp:param name="category" value="<%=category%>"/>
-				<jsp:param name="pageNames" value="<%=pageNames%>"/>
-				<jsp:param name="pageUrls" value="<%=pageUrls%>"/>
-				<jsp:param name="currentPage" value="<%=currentPage%>"/>
-			</jsp:include>
+	<div class="container-fluid mb-5">
+		<div class="row mt-4 pt-4 justify-content-md-center">
+			<div class="col-xl-3 mr-n5">
+				<jsp:include page="/SideMenuBar.jsp" flush="false">
+					<jsp:param name="category" value="<%=category%>" />
+					<jsp:param name="pageNames" value="<%=pageNames%>" />
+					<jsp:param name="pageUrls" value="<%=pageUrls%>" />
+					<jsp:param name="currentPage" value="<%=currentPage%>" />
+				</jsp:include>
+			</div>
 			
-			<div id="content">
+			<div class="col-xl-7 mt-5 mb-5" id="content">
 				<h1><%=currentPage%></h1><hr class="mb-4">
 				<div id="calendar-view">
                 	<jsp:include page="/Calendar.jsp" flush="false">
