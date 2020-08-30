@@ -1,3 +1,25 @@
+
+@media screen and (max-width: 800px) {
+	#login-form {
+		width: 130% !important;
+	}
+	
+	#wrapper {
+		margin-left: 1% !important;
+	}
+	
+	#div1 {
+		padding: 1% !important;
+		margin-right: -1% !important;
+	}
+	
+	#div2 {
+		margin: -5% !important;
+		/*margin-right: -50% !important;*/
+		margin-top: 10% !important;
+	}
+}
+
 #wrapper {
 	margin:50px 20%;
 }

@@ -6,55 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-.modal-header {
-    border-bottom: 0 none;
-}
-.modal-footer {
-    border-top: 0 none;
-}
-.btn-outline-secondary{
-	float:right;
-	border-radius: 40px !important;
-	border-color: var(--main-color-dark) !important;
-	color : var(--main-color-dark);
-}
-.btn-outline-secondary:hover{
-	background-color: var(--main-color-dark) !important;
-	color : white !important;
-}
-.btn-outline-secondary:active{
-	background-color: var(--main-color-dark) !important;
-	color : white !important;
-}
-.btn-outline-secondary:focus {
-  box-shadow: none !important;
-  outline: none !important; 
-}
-.close:focus {
-  box-shadow: none !important;
-  outline: none !important; 
-}
-.modal-body img{
-	width: 350px;
-}
-.text-box p{
-	text-align: center;
-	font-size: 20px;
-	color:var(--main-color-dark);
-	font-weight: bold;
-}
-.text-box{
-	justify-content: center;
-	align-item: center;
-}
-
-
-</style>
+<link href="/css/noticeModal.css" rel="stylesheet">
 </head>
 <body>
   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="noticeModal modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->

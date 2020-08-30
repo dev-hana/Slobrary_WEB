@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+@media screen and (max-width: 800px) {
+	
+	#btnbstatus {
+		display: inline-block !important;
+		width: 100% !important;
+	}
+	
+	#btnboxs {
+		display: inline-block !important;
+		width: 100% !important;
+	}
+	
+}
+
 .pagination .page-link {
 	padding: 7px 12px;
 	font-size: 13px;

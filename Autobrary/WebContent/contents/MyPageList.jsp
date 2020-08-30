@@ -41,21 +41,6 @@
 				String loan_text = "loantext" + Integer.toString(i); //연체 도서 text 바꾸기 위한 태그 아이디값
 				
 				BookBean bookBean = bookMgr.getBook(loanBean.getId_num());
-				String name = bookBean.getName();
-				if(name.length() > 17){
-					name = name.substring(0, 15);
-					name = name + "..";
-				}
-				String author = bookBean.getAuthor();
-				if(author.length() > 4){
-					author = author.substring(0, 4);
-					author = author + "..";
-				}
-				String publisher = bookBean.getPublisher();
-				if(publisher.length() > 4) {
-					publisher = publisher.substring(0, 4);
-					publisher = publisher + "..";
-				}
 				
 				String loan_date = loanBean.getLoan_date().substring(0, 10);
 			
@@ -84,19 +69,19 @@
 					<strong>[&nbsp;도서&nbsp;]</strong>
 				</span>
 				<span class="alink">
-					<a href="# "><%=name %></a>
+					<a href="# "><%=bookBean.getName() %></a>
 				</span> <br>
 				<span class="mr-2" style="color: BDBDBD; font-size: 0.7px;">
 					<i class="fas fa-square-full"></i>
 				</span>
 				<span class="ap">
-					저자 : <%=author %>
+					저자 : <%=bookBean.getAuthor() %>
 				</span> <br>
 				<span class="mr-2" style="color: BDBDBD; font-size: 0.7px;">
 					<i class="fas fa-square-full"></i>
 				</span>
 				<span class="ap">
-					출판사 : <%=publisher %>
+					출판사 : <%=bookBean.getPublisher() %>
 				</span> <br>
 				
 				<div class="sm-date">
@@ -105,7 +90,7 @@
 				</div>
 				
 				<div class="btn-community btn-group mt-3 mb-2 pr-2">
-					<button type="button" onclick="modal_view('<%=name %>','<%=bookBean.getId_num() %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">
+					<button type="button" onclick="modal_view('<%=bookBean.getName() %>','<%=bookBean.getId_num() %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">
 						리뷰하기
 					</button>
 					<div class="dropdown">
@@ -174,24 +159,16 @@
 					String return_type = loanBean.getReturn_type();
 
 					BookBean bookBean = bookMgr.getBook(loanBean.getId_num());
-					String name = bookBean.getName();
-					if (name.length() > 17) {
-						name = name.substring(0, 15);
-						name = name + "..";
-					}
-					String author = bookBean.getAuthor();
-					if (author.length() > 4) {
-						author = author.substring(0, 4);
-						author = author + "..";
-					}
-					String publisher = bookBean.getPublisher();
-					if (publisher.length() > 4) {
-						publisher = publisher.substring(0, 4);
-						publisher = publisher + "..";
-					}
 
 					String loan_date = loanBean.getLoan_date().substring(0, 10);
 					String return_date = loanBean.getReturn_date().substring(0, 10);
+					SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+					Date firstDate = format.parse(loan_date);
+					Date lastDate = format.parse(return_date);
+					long calDate = firstDate.getTime() - lastDate.getTime();
+					long calDate_ = calDate / (24*60*60*1000);
+					calDate_ = Math.abs(calDate_);
+
 		%>
 		<tr>
 			<td class="img"><img width="110" height="140"
@@ -203,19 +180,19 @@
 					<strong>[&nbsp;도서&nbsp;]</strong>
 				</span>
 				<span class="alink">
-					<a href="# "><%=name%></a>
+					<a href="# "><%=bookBean.getName()%></a>
 				</span><br> 
 				<span class="mr-2" style="color: BDBDBD; font-size: 0.7px;">
 					<i class="fas fa-square-full"></i>
 				</span>
 				<span class="ap">
-					저자 : <%=author%>
+					저자 : <%=bookBean.getAuthor()%>
 				</span><br>
 				<span class="mr-2" style="color: BDBDBD; font-size: 0.7px;">
 					<i class="fas fa-square-full"></i>
 				</span>
 				<span class="ap">
-					출판사 : <%=publisher%>
+					출판사 : <%=bookBean.getPublisher()%>
 				</span>
 				
 				<div class="sm-date">
@@ -224,7 +201,7 @@
 				</div>
 				
 				<div class="btn-community btn-group mt-3 mb-2 pr-2">
-					<button type="button" onclick="modal_view('<%=name %>','<%=bookBean.getId_num() %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">
+					<button type="button" onclick="modal_view('<%=bookBean.getName() %>','<%=bookBean.getId_num() %>')" data-toggle="modal" data-target="#reviewModal" class="btn btn-outline-secondary mb-1">
 						리뷰하기
 					</button>
 					<div class="dropdown">
@@ -244,7 +221,7 @@
 				</div> 
 				
 				<%
- 					if (return_type.equals("연체반납")) {
+ 				if (calDate_ > 14) {
  				%> 
  				<script>
 					$("#<%=return_id%>").text("연체");

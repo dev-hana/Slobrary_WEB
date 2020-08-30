@@ -509,14 +509,14 @@ String mem_id = (String)session.getAttribute("loginKey");
             </div>
 
             <div class="col-xs-9 pl-5" style="width: 850px;">
-                <div class="row justify-content-md-center">
+                <div class="row justify-content-md-center" id="qmenu">
                     <ul id="quick-menu" class="pt-5">
-                        <li><a href="#"><i class="fas fa-comment quick-menu-icon shadow-sm"></i><br>자주
+                        <li id="qitem1"><a href="#"><i class="fas fa-comment quick-menu-icon shadow-sm"></i><br>자주
                                 묻는 질문</a></li>
-                        <li><a href="#"><i class="fas fa-info quick-menu-icon shadow-sm"></i><br>도서관
+                        <li id="qitem2"><a href="#"><i class="fas fa-info quick-menu-icon shadow-sm"></i><br>도서관
                                 안내</a></li>
-                        <li><a href="#"><i class="fas fa-door-open quick-menu-icon shadow-sm"></i><br>시설대여</a></li>
-                        <li><a href="contents/WishBook.jsp"><i class="fas fa-book-open quick-menu-icon shadow-sm"></i><br>희망도서신청</a></li>
+                        <li id="qitem3"><a href="#"><i class="fas fa-door-open quick-menu-icon shadow-sm"></i><br>시설대여</a></li>
+                        <li id="qitem4"><a href="contents/WishBook.jsp"><i class="fas fa-book-open quick-menu-icon shadow-sm"></i><br>희망도서신청</a></li>
                     </ul>
                 </div>
                 <div class="row">

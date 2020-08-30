@@ -113,7 +113,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 </body>
 <script>
     $(document).ready(function() {
-        var $nav_header = $("#nav-header");
+    	var $nav_header = $("#nav-header");
         $(window).scroll(function() {
             if ($(this).scrollTop() > 100 && $nav_header.hasClass("navbar-light")) {
                 $nav_header.removeClass("navbar-light").addClass("navbar-dark bg-reverse fixed-top");
@@ -122,7 +122,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                 $nav_header.removeClass("navbar-dark bg-reverse fixed-top").addClass("navbar-light");
                 $("#logo-nav").hide();
             }
-        }); //scroll
+        }); //scroll //
         
         $('.dropdown-top').hover(function () {
             $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);

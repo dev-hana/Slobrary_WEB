@@ -1,5 +1,5 @@
 
-/* 검색바와 메뉴버튼 모바일 조정 (가로 844) */
+/* 검색바와 메뉴버튼 모바일 조정 */
 
 @media screen and (max-width: 800px) {
 
@@ -24,7 +24,7 @@
 	}
 }
 
-/* 검색바와 메뉴버튼 모바일 조정 끝 */
+/* 검색바와 메뉴버튼 모바일 조정 */
 
 #search-searchbar div span {
     background-color: #fff;
