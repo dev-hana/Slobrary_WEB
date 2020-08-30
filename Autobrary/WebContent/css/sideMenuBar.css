@@ -1,5 +1,33 @@
 @charset "UTF-8";
 
+@media screen and (max-width: 800px) {
+	
+	#sidebar {
+		/*min-width: auto !important;*/
+		padding-top: 2rem !important;
+		/*margin-right: 15rem !important;*/
+	}
+	
+	#titleh1 {
+		margin-bottom: 10% !important;
+	}
+	
+	#titleh2 {
+		font-size: 1.5em !important;
+	}
+	
+	#ulid {
+		width: 70% !important;
+		margin-bottom: 0.5rem !important;
+	}
+	
+	.sidebar-menu li {
+		padding: 5px 0px !important;
+		font-size: 1em !important;
+	}
+	
+}
+
 #sidebar {
 	min-width: 250px;
 	max-width: 250px;

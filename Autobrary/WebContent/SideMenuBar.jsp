@@ -22,10 +22,10 @@
 %>
 <body>
 	<nav id="sidebar" class="p-4 pt-5 mr-4">
-		<div class="sidebar-header mb-5">
-			<h1><%=category%></h1>
+		<div class="sidebar-header mb-5" id="titleh1">
+			<h1 id="titleh2"><%=category%></h1>
 		</div>
-		<ul class="sidebar-menu list-unstyled components mb-5">
+		<ul class="sidebar-menu list-unstyled components mb-5" id="ulid">
 			<%
 					for (String name : pages.keySet()) {
 						if
