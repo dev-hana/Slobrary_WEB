@@ -1,13 +1,5 @@
 @charset "utf-8";
 
-@media screen and (max-width: 800px) {
-	
-	#selbox { /* 종류 고르는 박스 왼쪽 정렬. 지우면 가운데로 이동 */
-		float: left !important;
-	}
-	
-}
-
 /* ===== Select Box ===== */
 .sel {
   font-size: 8px;

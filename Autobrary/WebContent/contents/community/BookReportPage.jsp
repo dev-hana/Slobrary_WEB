@@ -44,7 +44,7 @@
 	<div class="container-fluid mb-5">
 		<div class="row mt-4 pt-4 justify-content-md-center">
 			<!-- sub nav -->
-			<div class="col-xl-3 mr-n4">
+			<div class="col-xl-3 mr-n4" id="menuid">
 				<jsp:include page="/SideMenuBar.jsp" flush="false">
 					<jsp:param name="category" value="<%=category%>" />
 					<jsp:param name="pageNames" value="<%=pageNames%>" />

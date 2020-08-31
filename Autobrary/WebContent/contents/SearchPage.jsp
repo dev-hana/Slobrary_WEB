@@ -31,7 +31,7 @@
 	<div class="container-fluid mb-5">
 		<div class="row mt-4 pt-4 justify-content-md-center">
 		
-			<div class="col-xl-3 mr-n4 overflow-auto">
+			<div class="col-xl-3 mr-n4 overflow-auto" id="menuid">
 				<jsp:include page="/SideMenuBar.jsp" flush="false">
 				<jsp:param name="category" value="<%=category%>"/>
 				<jsp:param name="pageNames" value="<%=pageNames%>"/>

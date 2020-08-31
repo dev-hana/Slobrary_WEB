@@ -2,6 +2,10 @@
 
 @media screen and (max-width: 800px) {
 	
+	#menuid {
+		display: none !important;
+	}
+	
 	#sidebar {
 		/*min-width: auto !important;*/
 		padding-top: 2rem !important;

@@ -9,13 +9,14 @@
 	}
 	
 	#nav-header {
-		width: 20% !important;
+		width: 100% !important;
 		float: left !important;
 	}
 	
 	#search-header {
 		width: 80% !important;
 		float: right !important;
+		display: none !important;
 	}
 
 	#nav-main a {
@@ -25,6 +26,10 @@
 }
 
 /* 검색바와 메뉴버튼 모바일 조정 */
+
+.dropdown-item {
+	width: auto !important;
+}
 
 #search-searchbar div span {
     background-color: #fff;
