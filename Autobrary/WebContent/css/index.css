@@ -1,5 +1,30 @@
-
 @media screen and (max-width: 800px) {
+	
+	#body-sub {
+		padding: 10% !important;
+	}
+	
+	#userinfo {
+		text-align: center;
+		margin: auto;
+		justify-content: center;
+	}
+	
+	/*#reading {
+		padding-right: 15% !imortant;
+	}*/
+	
+	#forum {
+		margin: 0 !important;
+	}
+	
+	.btom {
+		height: 5px !important;
+	}
+	
+	#calendar-view {
+		margin:0 !important;
+	}
 	
 	#quick-menu {
 		height: 150px !important;
@@ -24,6 +49,10 @@
 		font-size: 15px !important;
 		position: absolute !important;
 		right: -3% !important;
+	}
+	
+	#texth1 {
+		font-size: 1.5em !important;
 	}
 	
 }
@@ -246,7 +275,6 @@
 .forum a:hover {
     text-decoration: none;
 }
-
 
 @media (min-width: 768px) {
     .navbar-brand.abs {

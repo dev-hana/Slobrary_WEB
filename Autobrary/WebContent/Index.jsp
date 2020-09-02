@@ -8,6 +8,7 @@
 <jsp:useBean id="bookMgr" class="database.BookMgr" />
 
 <jsp:useBean id="noticeMgr" class="database.NoticeMgr" />
+
 <%
 String mem_id = (String)session.getAttribute("loginKey");
 %>
@@ -17,6 +18,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 <title>Slobrary</title>
 <link href="css/index.css?v=5" rel="stylesheet">
 <%@ include file="/CND.jsp"%>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="bg-light">
 	<header>
@@ -37,7 +39,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 					<div class="row justify-content-md-center m-5">
 						<div class="col-xs-6 mb-5 carousel-text">
 							<div>
-								<h1>NEW</h1>
+								<h1 id="texth1">NEW</h1>
 								<p>Slobrary에 새로 들어온 신간이에요!</p>
 								<button class="btn btn-sm btn-outline-secondary" type="button"
 									onclick="location.href='/contents/SearchPage.jsp?contentPage=BookList.jsp?type=new'">더보기</button>
@@ -78,7 +80,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 									</div>
 								</div>
 								<div class="row mb-4 ml-4 mr-4">
-									<div class="rounded shelf shadow"></div>
+									<div class="rounded shelf shadow btom"></div>
 								</div>
 
 								<div class="row ml-5 mr-5">
@@ -102,7 +104,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 									</div>
 								</div>
 								<div class="row mb-4 ml-4 mr-4">
-									<div class="rounded shelf shadow"></div>
+									<div class="rounded shelf shadow btom"></div>
 								</div>
 							</div>
 						</div>
@@ -115,7 +117,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 					<div class="row justify-content-md-center m-5">
 						<div class="col-xs-6 mb-5 carousel-text">
 							<div>
-								<h1>Best</h1>
+								<h1 id="texth1">Best</h1>
 								<p>이번달 베스트셀러를 보여드려요.</p>
 								<button class="btn btn-sm btn-outline-secondary" type="button"
 									onclick="location.href='/contents/SearchPage.jsp?contentPage=BookList.jsp?type=best'">더보기</button>
@@ -156,7 +158,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 									</div>
 								</div>
 								<div class="row mb-4 ml-4 mr-4">
-									<div class="rounded shelf shadow"></div>
+									<div class="rounded shelf shadow btom"></div>
 								</div>
 
 								<div class="row ml-5 mr-5">
@@ -180,7 +182,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 									</div>
 								</div>
 								<div class="row mb-4 ml-4 mr-4">
-									<div class="rounded shelf shadow"></div>
+									<div class="rounded shelf shadow btom"></div>
 								</div>
 							</div>
 						</div>
@@ -193,7 +195,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 					<div class="row justify-content-md-center m-5">
 						<div class="col-xs-6 mb-5 carousel-text">
 							<div>
-								<h1>Today's Pick</h1>
+								<h1 id="texth1">Today's Pick</h1>
 								<p>오늘의 추천도서입니다.</p>
 								<button class="btn btn-sm btn-outline-secondary" type="button"
 									onclick="">더보기</button>
@@ -222,7 +224,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 									</div>
 								</div>
 								<div class="row mb-4 ml-4 mr-4">
-									<div class="rounded shelf shadow"></div>
+									<div class="rounded shelf shadow btom"></div>
 								</div>
 
 								<div class="row ml-5 mr-5">
@@ -246,7 +248,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 									</div>
 								</div>
 								<div class="row mb-4 ml-4 mr-4">
-									<div class="rounded shelf shadow"></div>
+									<div class="rounded shelf shadow btom"></div>
 								</div>
 							</div>
 						</div>
@@ -431,7 +433,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                                 </div>
                             </div>
                             <div class="row mb-4 ml-4 mr-4">
-                                <div class="rounded shelf shadow"></div>
+                                <div class="rounded shelf shadow btom"></div>
                             </div>
                         </div>
                         <button class="btn btn-sm btn-outline-secondary float-right" type="button" onclick="">더보기</button>
@@ -461,7 +463,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                                 </div>
                             </div>
                             <div class="row mb-4 ml-4 mr-4">
-                                <div class="rounded shelf shadow"></div>
+                                <div class="rounded shelf shadow btom"></div>
                             </div>
                         </div>
                         <button class="btn btn-sm btn-outline-secondary float-right" type="button" onclick="">더보기</button>
@@ -491,7 +493,7 @@ String mem_id = (String)session.getAttribute("loginKey");
                                 </div>
                             </div>
                             <div class="row mb-4 ml-4 mr-4">
-                                <div class="rounded shelf shadow"></div>
+                                <div class="rounded shelf shadow btom"></div>
                             </div>
                         </div>
                         <button class="btn btn-sm btn-outline-secondary float-right" type="button" onclick="">더보기</button>
@@ -501,14 +503,14 @@ String mem_id = (String)session.getAttribute("loginKey");
         </div>
         <%}
 		%>
-        <div class="row justify-content-md-center">
-            <div id="calendar-view" class="col-xs-3 pt-5"" style="width: 350px;">
+        <div class="row justify-content-md-center cv">
+            <div id="calendar-view" class="col-xs-4 pt-5 mr-5" style="width: 450px"> <!--  style="width: 350px;" -->
                 <jsp:include page="/Calendar.jsp" flush="false">
                 	<jsp:param value="widget" name="view"/>
                 </jsp:include>
             </div>
 
-            <div class="col-xs-9 pl-5" style="width: 850px;">
+            <div class="col-xs-9" style="width: 800px;">
                 <div class="row justify-content-md-center" id="qmenu">
                     <ul id="quick-menu" class="pt-5">
                         <li id="qitem1"><a href="#"><i class="fas fa-comment quick-menu-icon shadow-sm"></i><br>자주
@@ -520,9 +522,9 @@ String mem_id = (String)session.getAttribute("loginKey");
                     </ul>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col" id="forumup"> <!-- col-xl-7 -->
                         <hr class="shadow-sm">
-                        <div class="forum">
+                        <div class="forum" id="forum">
                             <h1 class="menu-title">공지사항</h1>
                             <a class="fas fa-plus float-right" href="NoticeBoard.jsp"></a>
                             <%

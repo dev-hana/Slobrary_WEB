@@ -2,6 +2,13 @@
 
 @media screen and (max-width: 800px) {
 	
+	.pagination {
+		text-align: center;
+		margin: auto;
+		justify-content: center;
+	}
+	
+	
 	#btnbstatus {
 		display: inline-block !important;
 		width: 100% !important;
