@@ -13,11 +13,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css -->
-<link href="/css/MyPageList.css" rel="stylesheet" />
+<link href="/css/MyPageList.css?v=2" rel="stylesheet" />
 <link href="/css/pagination.css" rel="stylesheet">
 <style type="text/css">
 .remove_thead {
 	display: none;
+}
+.img{
+	display:flex;
+	align-item: center;
 }
 </style>
 </head>
@@ -29,12 +33,16 @@
 		if(type.equals("loanbook")){
 	%>
 	<!-- 현재 대출중인 도서 -->
-	<div class="pl-3 pb-2 pt-3">
+	<div class="pl-3 pt-3 pb-1">
 		<h4>대출 도서</h4>
 	</div>
-	<table class="table">
+	<%
+		Vector vLoan = bookMgr.getLoan(mem_id, 0);
+		if(vLoan.size() != 0){
+	%>
+	<table class="table mt-2">
 		<%
-			Vector vLoan = bookMgr.getLoan(mem_id, 0);
+			
 			for(int i=0; i<vLoan.size();i++){
 				LoanBean loanBean = (LoanBean)vLoan.get(i);
 				String loan_id = "loan" + Integer.toString(i); //반납 남은 일수 css바꾸기 위한 태그 아이디값
@@ -136,14 +144,26 @@
 		%>
 	</table>
 	
-	<%
+	<%		}else{
+		%>
+			<!-- <a href='https://www.freepik.com/vectors/data'>Data vector created by stories - www.freepik.com</a> -->
+			<div class="p-4 m-2 text-center border now-loan">
+				<img alt="이미지가 없습니다." width="210" src="/img/no_data.jpg"><br>
+				<span>현재 대출중인 도서가 없습니다</span>
+			</div>
+		<%
+	}
 		} else if (type.equals("allrecord")) {
 	%>
+		<div class="pl-3 pt-3 pb-1">
+			<h4>이전 대출 기록</h4>
+		</div>
+	<%
+			Vector vReturn = bookMgr.getReturn(mem_id, 0);
+			if(vReturn.size()!=0){
+	%>
 	<!-- 모든 대출 기록 -->
-	<div class="pl-3 pb-2 pt-3">
-		<h4>이전 대출 기록</h4>
-	</div>
-	<table class="table" id="allTable">
+	<table class="table mt-2" id="allTable">
 		<thead class="hiddenTh">
 			<tr>
 				<th>이미지</th>
@@ -151,7 +171,7 @@
 			</tr>
 		</thead>
 		<%
-			Vector vReturn = bookMgr.getReturn(mem_id, 0);
+			
 				for (int i = 0; i < vReturn.size(); i++) {
 					LoanBean loanBean = (LoanBean) vReturn.get(i);
 
@@ -241,11 +261,21 @@
  			</td>
 		</tr>
 		<%
-			}
+				}
 		%>
 	</table>
 	
 	<%
+			}else{
+				%>
+					<div class="p-5 m-2 text-center border non-loan">
+						아직 도서를 대출하지 않았습니다<br>
+						<span>Slobrary</span>와 함께 읽고 싶은 도서를 찾아봐요!<br>
+						다른 유저들의 리뷰를 보고 마음에 드는 도서를 담아보세요<br>
+						<button class="btn btn-outline-secondary rounded mt-3">도서리뷰 보러가기</button>
+					</div>
+				<%
+			}
 		} else if (type.equals("interest")) {
 	%>
 	<!-- 관심 도서 -->

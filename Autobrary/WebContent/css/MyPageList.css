@@ -102,3 +102,29 @@
 .remove_thead {
 	display: none;
 }
+.non-loan span{
+	font-size: 20px;
+	color: var(--main-color-dark);
+}
+
+.non-loan .btn-outline-secondary{
+	border-radius: 40px !important;
+	border-color: var(--main-color-dark) !important;
+	color : var(--main-color-dark);
+}
+.non-loan .btn-outline-secondary:hover{
+	background-color: var(--main-color-dark) !important;
+	color : white !important;
+}
+.non-loan .btn-outline-secondary:active{
+	background-color: var(--main-color-dark) !important;
+	color : white !important;
+}
+.non-loan .btn-outline-secondary:focus {
+  box-shadow: none !important;
+  outline: none !important; 
+}
+.now-loan span{
+	font-size: 17px;
+	font-weight:500;
+}
