@@ -3,15 +3,12 @@
 
 <%
 	request.setCharacterEncoding("UTF-8");
+	String mem_id = (String)session.getAttribute("loginKey");
 	String rating = request.getParameter("rating");
 	String bookid = request.getParameter("bookid");
-	String review = request.getParameter("review");
-	
-	System.out.println(rating);
-	System.out.println(bookid);
-	System.out.println(review);
-	
-	if(review == null){
+	String content = request.getParameter("review");
+		
+	if(content == null){
 		%>
 		<script>
 		alert("리뷰를 입력해 주십시오.");
