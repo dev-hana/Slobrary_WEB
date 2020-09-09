@@ -2,7 +2,6 @@ body {
 	
 	
 }
-
 .top-bar {
 	padding: 10px;
 	height: 60px;
@@ -24,12 +23,59 @@ body {
 	text-align: center;
 }
 
+.quick-menu {
+	width: 13%;
+	min-width: 220px; 
+	padding: 20px;
+	background: var(--main-color);
+    z-index: 100;
+    position: absolute;
+    left: 10%;
+  	top: 300px;
+	height: auto;
+}
+
+.quick-menu li{
+	list-style: none;
+	padding: 0px;
+	margin: 10px;
+	
+}
+
+.quick-menu li:nth-child(1) {
+	text-align: center;
+	font-weight: bold;
+	word-break: keep-all;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #fff;
+}
+
+.quick-menu li.menu-on{
+  border-bottom: 3px solid #25ac6c;
+}
+
+.quick-menu li a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.quick-menu li a:hover {
+	opacity: 0.8;
+}
+
+.quick-menu li a:focus {
+	opacity: 0.8;
+	text-decoration:none;
+}
+
 .bookDetail {
 	width: 75%;
 	margin: 0 auto;
 	display: flex;
 	flex-flow: column;
-	padding: 30px 10%;;
+	padding: 30px 7%;
+	padding-left: 15%;
 }
 
 /* 공통 속성 정의 */
@@ -43,11 +89,8 @@ body {
 }
 
 .imageBox {
-	width: 200px;
-	height: 300px;
-	top: 50px;
-    margin-bottom: 50px;
-    left: 50px;
+	width: 180px;
+	height: 270px;
 	position: relative;
 	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
 }
@@ -69,6 +112,11 @@ body {
 	height: auto;
 }
 
+.bookInfo .imageBox {
+	top: 50px;
+    left: 30px;
+    margin-bottom: 50px;
+}
 
 .btn-more {
 	position: relative;

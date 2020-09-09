@@ -41,9 +41,17 @@
 		</a>
 		<h1>도서 상세 보기</h1>	
 	</div>
+	<ul class="quick-menu" id="quick-menu">
+   		<li><a href="#bookInfo"><%=bookBean.getName() %></a></li>
+    	<li><a href="#collectionInfo">소장 정보</a></li>
+    	<li><a href="#bookReviews">도서 리뷰</a></li>
+    	<li><a href="#bookDiaries">독서 일기</a></li>
+    	<li><a href="#bookReports">독후감</a></li>
+    	<li><a href="#sameAuthorBooks">저자가 같은 도서</a></li>
+  	</ul>
 	
 	<section class="bookDetail">
-		<div class="bookInfo">
+		<div class="bookInfo" id="bookInfo">
 			<div class="imageBox">
 				<img class="thumbnail" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="<%=bookBean.getId_num()%>">
 			</div>
@@ -145,7 +153,7 @@
 			</div>
 		</div>
 		
-		<div class="collectionInfo">
+		<div class="collectionInfo" id="collectionInfo">
 			<h2 class="subTitle">소장정보</h2>
 			<table class="table">
 				<thead>
@@ -179,7 +187,7 @@
 			</table>
 		</div>
 
-		<div class="bookReviews">
+		<div class="bookReviews" id="bookReviews">
 			<h2 class="subTitle">도서 리뷰</h2>
 			<button type="button" class="btn btn-more">모두 보기</button>
 
@@ -209,7 +217,7 @@
 		%>
 		</div>
 		
-		<div class="bookDiaries">
+		<div class="bookDiaries" id="bookDiaries">
 			<h2 class="subTitle">독서 일기</h2>
 			<button type="button" class="btn btn-more">모두 보기</button>
 
@@ -245,7 +253,7 @@
 		%>
 		</div>
 
-		<div class="bookReports">
+		<div class="bookReports" id="bookReports">
 			<h2 class="subTitle">독후감</h2>
 			<button type="button" class="btn btn-more">모두 보기</button>
 			<select name="keytype" class="sort">
@@ -266,7 +274,7 @@
 			</div>
 		</div>
 
-		<div class="sameAuthorBooks">
+		<div class="sameAuthorBooks" id="sameAuthorBooks">
 			<h2 class="subTitle">이 책과 저자가 같은 도서</h2>
 			<div class="bookList">
 			<%
@@ -292,8 +300,8 @@
 				%>
 			</div>
 		</div>
-
 	</section>
+	
 	<!-- paging js -->
 		<script>
 			$(document).ready(function() {
@@ -362,6 +370,35 @@
 	<%-- 책 대출 여부 확인 : false --%>
 	//btnReview.disabled=true;
 	//btnToggle.disabled=true;
+</script>
+<script>  
+$("document").ready(function() {  
+   
+	// 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
+	var floatPosition = parseInt($("#quick-menu").css('top'));
+	// 250px 이런식으로 가져오므로 여기서 숫자만 가져온다. parseInt( 값 );
+
+	$(window).scroll(function() {
+		// 현재 스크롤 위치를 가져온다.
+		var scrollTop = $(window).scrollTop();
+		var newPosition = scrollTop + floatPosition + "px";
+
+		$("#quick-menu").stop().animate({
+			"top" : newPosition
+		}, 500);
+
+	}).scroll();
+       
+});  
+
+$(document).ready(function(){
+	 $('.quick-menu li a').click(function(e){
+	    $('.quick-menu li').removeClass('menu-on'); //클릭시 변화가 필요하니, 효과 클래스빼기
+	    $(this).parent('li').addClass('menu-on');//선택된 것에 효과클래스넣기
+	      e.preventDefault(); //a태그이기때문에 버벅거림?빼기
+	     $('html,body').animate({scrollTop:$(this.hash).offset().top - 110}, 500);//부드럽게 스크롤 이동하는부분 - 53부분은 고정 header이기때문에 추가됨, 고정 header가 아닌 경우 삭제
+	   });
+	})
 </script>
 </body>
 </html>
