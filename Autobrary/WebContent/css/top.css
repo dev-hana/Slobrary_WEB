@@ -3,7 +3,20 @@
 
 @media screen and (max-width: 800px) {
 
-	.container#nav-size {
+	.col-md-12.col-lg-9 {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+	
+	#header {
+		padding-left: 0 !important;
+	}
+	
+	#nav-main a {
+		text-align: left !important;
+	}
+
+	/*.container#nav-size {
 		width: 500% !important;
 		background-color: #A593E0 !important;
 	}
@@ -11,18 +24,18 @@
 	#nav-header {
 		width: 100% !important;
 		float: left !important;
-	}
+	}*/
 	
 	#search-header {
-		width: 80% !important;
-		float: right !important;
+		/*width: 80% !important;
+		float: right !important;*/
 		display: none !important;
 	}
 
-	#nav-main a {
+	/*#nav-main a {
 		text-align: left !important;
 		width: auto !important;
-	}
+	}*/
 }
 
 /* 검색바와 메뉴버튼 모바일 조정 */
