@@ -54,22 +54,22 @@
 	#qitem1 {
 		font-size: 15px !important;
 		position: absolute !important;
-		left: -8% !important;
+		left: -5% !important;
 	}
 	#qitem2 {
 		font-size: 15px !important;
 		position: absolute !important;
-		left: 22% !important;
+		left: 20% !important; /*원래 22*/
 	}
 	#qitem3 {
 		font-size: 15px !important;
 		position: absolute !important;
-		right: 22% !important;
+		right: 20% !important;
 	}
 	#qitem4 {
 		font-size: 15px !important;
 		position: absolute !important;
-		right: -8% !important;
+		right: -5% !important;
 	}
 	
 	

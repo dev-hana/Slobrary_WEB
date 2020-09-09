@@ -172,11 +172,13 @@ color:#747474;
 								<span class="point ml-2"><%=star %></span>
 							</div>
 					<!-- 저자 -->
+					<div>
 					<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">저자 : <%=bookBean.getAuthor() %></span><br>
 					<!-- 출판사 -->
 					<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">출판사 : <%=bookBean.getPublisher() %></span>
-					
-					<div class="mt-2 pr-2">
+					</div>
+					<div id="btnbstatus">
+					<div class="mt-2 pr-2" id="btnboxs">
 					<div class="pt-2 float-right">
 							<!-- 상세보기버튼 onclick 주소에 도서id -->
 							<button class="btn btn-outline-secondary" onclick="location.href='/contents/BookDetailPage.jsp?bookid=<%=bookBean.getId_num() %>'" type="button">상세보기</button>
@@ -193,6 +195,7 @@ color:#747474;
 					</div>
 					<!-- 도서상태 -->
 					<div class="bg-light p-3">상태 : <span>&nbsp;&nbsp;<%=bookBean.getStatus() %></span></div>
+					</div>
 					</td>
 				</tr>
 				
@@ -277,14 +280,16 @@ color:#747474;
 								<span class="point ml-2"><%=star %></span>
 							</div>
 					<!-- 저자 -->
+					<div>
 					<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">저자 : <%=bookBean.getAuthor() %></span><br>
 					<!-- 출판사 -->
 					<span class="mr-2" style="color:BDBDBD; font-size:0.7px;"><i class="fas fa-square-full"></i></span><span class="ap">출판사 : <%=bookBean.getPublisher() %></span>
-					
-					<div class="mt-2 pr-2">
+					</div>
+					<div id="btnbstatus">
+					<div class="mt-2 pr-2" id="btnboxs">
 					<div class="pt-2 float-right">
 							<!-- 상세보기버튼 onclick 주소에 도서id -->
-							<button class="btn btn-outline-secondary" onclick="location.href='/contents/BookDetailPage.jsp?bookid=<%=bookBean.getId_num() %>'" type="button">상세보기</button>
+							<button class="btn btn-outline-secondary" onclick="location.href='/contents/BookDetailPage.jsp?bookid=<%=bookBean.getId_num() %>" type="button">상세보기</button>
 					</div>
 					<div class="pt-2 pr-2 float-right">
 					<!-- 관심도서 등록 form -->
@@ -297,7 +302,8 @@ color:#747474;
 					</div>
 					</div>
 					<!-- 도서상태 -->
-					<div class="bg-light p-3">상태 : <span>&nbsp;&nbsp;<%=bookBean.getStatus() %></span></div>
+					<div id="bstatus" class="bg-light p-3">상태 : <span>&nbsp;&nbsp;<%=bookBean.getStatus() %></span></div>
+					</div>
 					</td>
 				</tr>
 				
