@@ -50,8 +50,13 @@ String mem_id = (String)session.getAttribute("loginKey");
 								<a id="logo-nav" class="logo" href="/">
 									<!-- AutoBrArY -->sloBrArY</a>
 								<ul id="nav-main" class="navbar-nav mr-auto">
-									<li class="nav-item" id="nav-item1">
-										<a class="nav-link" href="/contents/SearchPage.jsp">도서검색</a>
+									<li class="nav-item dropdown dropdown-top">
+										<a class="nav-link dropdown-toggle" href="#" id="dropdown00" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">도서검색</a>
+										<div class="dropdown-menu" aria-labelledby="dropdown00">
+											<a class="dropdown-item" href="/contents/SearchPage.jsp">도서검색</a>
+											<a class="dropdown-item" href="/contents/SearchPage.jsp?contentPage=BookList.jsp?type=best">베스트셀러</a>
+											<a class="dropdown-item" href="/contents/SearchPage.jsp?contentPage=BookList.jsp?type=new">신간도서</a>
+										</div>
 									</li>
 									<li class="nav-item dropdown dropdown-top">
 										<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">안내사항</a>
