@@ -7,24 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+<link href="/css/pagination.css" rel="stylesheet">
 <style>
-.author{
-	color: #A6A6A6;
-	font-size: 13px;
-}
-.dropdown-menu {
-  width: 100%; 
-}
-
-.btn{
- width: 100%;
-}
-.dropdown-menu {
-	font-size: 14px;
-    min-width: 75px !important;
-    text-align: cecnter !important;
-}
-
 .carousel-control-prev-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23BDBDBD' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
 }
@@ -34,6 +18,26 @@
 }
 .line{
 	border-bottom: 6px solid rgba(165,147,224,0.3) !important;
+}
+#logTable thead{
+	display: none;
+}
+.review-star{
+	font-size: 22px;
+}
+.review-btn i{
+	font-size: 18px;
+	color: #A6A6A6;
+}
+.review-btn{
+	padding:5px !important;
+}
+.modifybtn{
+	color: #A6A6A6;
+}
+.log-date{
+	color: #A6A6A6;
+	font-size: 13px;
 }
 
 </style>
@@ -45,97 +49,79 @@
 
 	//리뷰리스트
 	if(type.equals("review")){
-		int n=23; //리뷰개수
-		int tab=0; //1탭 5리뷰
-		int star=3;
-		boolean open = true;
 		%>
-		
-		<div class="tab-content mb-1">
-		
-		<%
-		for(int a=1;a<=n;a++){
-			if(a==1 || open==true){
-				if(a==1){
-					System.out.println("a==1--------<div>");
-					open=false;
-		%>		
-				<div class="tab-pane fade show active" id="tab<%=tab %>">
-		<%
-				tab++;
-				}else{
-					System.out.println("open=true--------<div>");
-					open=false;
-		%>
-				<div class="tab-pane fade" id="tab<%=tab %>">
-		<%
-				tab++;
-				}
-			}
-	%>
-		<table class="table">
+		<table class="table table-borderless" id="logTable">
 			<thead>
 				<tr>
-      				<th><div><sapn>아무도 나를 모를 때<%=a %></span><span class="author ml-2">이도우 (2020.05.16)</span>
-      				<div class="dropdown float-right">
-					  <button class="btn pl-2 pr-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    <span style="color:#5D5D5D;"><i class="fas fa-ellipsis-v"></i></span>
-					  </button>
-					  <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
-					    <a class="dropdown-item float-left" href="#">수정</a>
-					    <a class="dropdown-item float-left" href="#">삭제</a>
-					  </div>
-				</div>
-				</div>			
-				</th>
-    			</tr>
+					<th>내용</th>
+				</tr>
 			</thead>
-			<tr>
-				<td>
-					<div class="mb-2" style="font-size: 20px;">
-						<%
-							for(int i=1;i<=5;i++){
-								if(i<=star){
+			<tbody>
+			<%
+				for(int i=0;i<8;i++){
+			%>
+				<tr>
+					<td>
+						<div class="p-3 border shadow-sm">
+							<div class="review-title">
+								<!-- 도서명 -->									<!-- 작성날짜 -->
+								<span>아무도 나를 모를때</span><span class="ml-2 log-date">2020.09.09</span>
+								<div class="modifybtn float-right">
+									<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
+									<span class="ml-1">/</span>
+									<button class="btn review-btn"><i class="fas fa-pencil-alt"></i></button>
+								</div>
+							</div>
+							<hr>
+							<div>
+								<div class="review-star mt-n2">
+									<!-- 별점 -->
+									<%
+									double star=3.5;
+									int fullStar = (int)Math.floor(star/1.0); //꽉찬별 개수
+									boolean halfStar=false;
+									
+									// 0.5 경우 반별
+									if(star-fullStar==0.5){
+										halfStar=true;
+									}
+									
+									for(int s=1;s<=5;s++){
+										if(s<=fullStar){
+										%>
+											<span style="color:var(--main-color);"><i class="fas fa-star"></i></span>
+										<%
+										}else if(s>fullStar && halfStar==true){
+											%>
+											<span style="color:var(--main-color);"><i class="fas fa-star-half"></i></span>
+											<span style="color:#B8B8B8; margin-left: -1.85rem;"><i class="fas fa-star-half fa-flip-horizontal"></i></span>
+											<%
+											if(s==5){
+												break;
+											}
+											halfStar=false;
+										}else{
+										%>
+											<span style="color:#B8B8B8;"><i class="fas fa-star"></i></span>
+										<%
+										}
+									}
 								%>
-									<span style="color:#fcd703;"><i class="fas fa-star"></i></span>
-								<%
-								}else{
-								%>
-									<span style="color:#B8B8B8;"><i class="fas fa-star"></i></span>
-								<%
-								}
-							}
-						%>
-					</div>
-					<div>
-						이 책에는 우리 모두가 고통받는 이유가 나와 있다. 그 이유는 기업이나 조직들이 구성원들을 사람이 아니라 거대한 기계를 구성하며 쉽게 갈아끼울 수 있는 톱니바퀴로 만들고 싶어 하기 때문이다. 톱니바퀴를 더 쉽게 갈아 끼울 수 있다면 돈은 더 적게 줘도 된다. 게다가 지금까지 이렇게 되는 과정에 노동자들은 스스로 동참했다. 우리는 개인의 이익을 위해 우리의 무덤을 팠다.
-					</div>
-				</td>
-			</tr>
+								</div>
+								<div class="mt-2">
+									<!-- 리뷰내용 -->
+									독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
+									독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
+									독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<%} %>
+			</tbody>
 		</table>
-		<%
-			if(a%5==0|| a==n){
-				System.out.println("a%=5ora==n--------</div>");
-					%>
-					</div>
-					<%
-					open=true;
-				}
-			}
-		%>
-			<hr>
-			</div>
-		<div class="mb-2 mt-4">
-			<nav>
-			  <ul class="nav nav-pills justify-content-center">
-			    <%
-			    	for(int k=0;k<tab;k++){
-			    %>
-			    <li class="page-item"><a class="page-link" data-toggle="pill" href="#tab<%=k %>"><%=k+1 %></a></li>
-			    <%} %>
-			  </ul>
-			</nav>
-		</div>
+		
 		<%
 	}else if(type.equals("diary")){
 		%>
@@ -197,7 +183,40 @@
 		<%
 	}
 %>
-
 </div>
+<!-- dataTable js -->
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	//이전 대출 목록 페이지네이션
+	$('#logTable').DataTable({
+		// 표시 건수기능 숨기기 select로 몇개씩 표출할지
+		lengthChange : false,
+
+		// 검색 기능 숨기기
+		searching : false,
+
+		// 정렬 기능 숨기기
+		ordering : false,
+
+		// 정보 표시 숨기기
+		info : false,
+
+		//dataTable 초기화 에러시 추가
+		bDestroy : true,
+
+		//몇개씩 보여줄지
+		displayLength : 5,
+		language : {
+			paginate : {
+				previous : '‹',
+				next : '›'
+			}
+		}
+	});
+});
+</script>
 </body>
 </html>

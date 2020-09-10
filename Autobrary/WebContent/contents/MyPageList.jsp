@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css -->
-<link href="/css/MyPageList.css?v=2" rel="stylesheet" />
+<link href="/css/MyPageList.css?v=1" rel="stylesheet" />
 <link href="/css/pagination.css" rel="stylesheet">
 <style type="text/css">
 .remove_thead {
@@ -279,9 +279,13 @@
 		} else if (type.equals("interest")) {
 	%>
 	<!-- 관심 도서 -->
-	<div class="pl-3 pb-2 pt-3">
+	<div class="pl-3 pb-1 pt-3">
 		<h4>관심 도서</h4>
 	</div>
+	<%
+		Vector vWatch = watchMgr.getWatch(mem_id);
+		if(vWatch.size()!=0){
+	%>
 	<table class="table table" id="allTable">
 		<thead class="remove_thead">
 			<tr>
@@ -291,7 +295,6 @@
 		</thead>
 		<tbody>
 			<%
-				Vector vWatch = watchMgr.getWatch(mem_id);
 					for (int i = 0; i < vWatch.size(); i++) {
 						WatchBean watchBean = (WatchBean) vWatch.get(i);
 						BookBean bookBean = bookMgr.getBook(watchBean.getBook_id());
@@ -373,9 +376,21 @@
 			%>
 		</tbody>
 	</table>
-	
-	<%
-		} else if (type.equals("overdue")) {
+	<%		
+	}else{
+		%>
+			
+			<div class="no-watch pb-3 text-center m-2">
+			<hr>
+				<img alt="이미지가 없습니다" src="/img/watchbook.jpg" width=400"><br>
+				<p>
+					등록된 리뷰가 없습니다<br>
+					새로운 <span>관심도서</span>를 등록해보세요!
+				</p>
+			</div>
+		<%
+		}
+	} else if (type.equals("overdue")) {
 	%>
 	<!-- 연체도서 -->
 	<div class="pl-3 pb-2 pt-3">
@@ -522,10 +537,8 @@
 	</script>
 	<!-- dataTable js -->
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			//이전 대출 목록 페이지네이션
