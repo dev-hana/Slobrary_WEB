@@ -39,7 +39,59 @@
 	color: #A6A6A6;
 	font-size: 13px;
 }
-
+.diary-write{
+	display: flex;
+	justify-content: flex-end;
+}
+.diary-content{
+	display: flex;
+}
+.diary-sentence{
+	text-align: center;
+}
+.diary-book{
+	justify-content: center;
+	align-item: center;
+}
+#ribbon {
+		padding: .34em 1em;
+		margin: 0;
+		margin-top: 5%;
+		position:relative;
+		color: #ffffff;
+		font: 32px 'Patua One', sans-serif;
+		text-align: center;
+		letter-spacing:0.1em;
+		text-shadow: 0px -1px 0px rgba(0,0,0,0.3);
+		box-shadow: inset 0px 1px 0px rgba(255,255,255,.3),
+					inset 0px 0px 20px rgba(0,0,0,0.1),
+					0px 1px 1px rgba(0,0,0,0.4);
+		 background: -webkit-linear-gradient(top,#1eb2df, #17a7d2);
+      display: inline-block;
+	}
+	
+#ribbon:before, #ribbon:after {
+		content: "";
+		width:.2em;
+		bottom:-.5em;
+		position:absolute;
+		display:block;
+		border: .9em solid #1eb2df;
+		box-shadow:0px 1px 0px rgba(0,0,0,0.4);
+		z-index:-2;
+	}
+	
+#ribbon:before {
+		left:-1.35em;
+		border-right-width: .75em;
+		border-left-color:transparent;
+	}
+	
+#ribbon:after {
+		right:-1.35em;
+		border-left-width: .75em;
+		border-right-color:transparent;
+	}
 </style>
 </head>
 <body>
@@ -108,9 +160,8 @@
 									}
 								%>
 								</div>
-								<div class="mt-2">
+								<div class="mt-2 p-2">
 									<!-- 리뷰내용 -->
-									독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
 									독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
 									독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
 								</div>
@@ -125,65 +176,60 @@
 		<%
 	}else if(type.equals("diary")){
 		%>
-		<div class="p-3">
-		<button type="button" class="btn btn-outline-secondary float-right col-xl-2 mb-3 btn-sm">일기쓰기</button>
-		<%
-		for(int i=0;i<5;i++){
-	%>
-		<table class="table table-bordered line mb-5">
-			<tr>
-				<td>
-					<div>
-						<span>나의 첫 독서 일기</span><span class="author ml-3">2020년 6월 23일</span>
-						<div class="dropdown float-right">
-					  		<button class="btn pl-2 pr-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    		<span style="color:#5D5D5D;"><i class="fas fa-ellipsis-v"></i></span>
-					  		</button>
-					  	<div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
-					    	<a class="dropdown-item float-left" href="#">수정</a>
-					    	<a class="dropdown-item float-left" href="#">삭제</a>
-					  	</div>
-					</div>
-					
-				</td>
-			</tr>
-			<tr>
-				<td>
-				<div id="imgCarousel<%=i %>" class="carousel slide" data-interval="false" data-ride="carousel">
-				  <div class="carousel-inner">
-				    <div class="carousel-item active">
-				      <img class="d-block w-100" style="width:100%; height:50%; object-fit:contain;" src="/img/mem1.png" alt="First slide">
-				    </div>
-				    <div class="carousel-item">
-				      <img class="d-block w-100" style="width:100%; height:50%; object-fit:contain;" src="/img/test.jpg" alt="Second slide">
-				    </div>
-				    <div class="carousel-item">
-				      <img class="d-block w-100" style="width:100%; height:50%; object-fit:contain;" src="/img/ex2.jpg" alt="Third slide">
-				    </div>
-				  </div>
-				  <a class="carousel-control-prev" href="#imgCarousel<%=i %>" role="button" data-slide="prev">
-				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				    <span class="sr-only">Previous</span>
-				  </a>
-				  <a class="carousel-control-next" href="#imgCarousel<%=i %>" role="button" data-slide="next">
-				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-				    <span class="sr-only">Next</span>
-				  </a>
-				</div>
-				<div class="p-3 mt-1 mb-1">
-				일기는 날마다 그날그날 겪은 일이나 생각, 느낌 따위를 적는 개인의 기록을 가리킨다. 요즘은 다양한 방법으로 일기를 쓰는데, 그날 겪은 일 중에서 기억에 남는 일을 적기도 하지만, 특정한 테마를 갖고 일기를 작성하기도 한다. 독서일기장은 독서를 테마로 일기를 작성하는 것을 말하는데, 책을 읽고 느낀 점이나 생각한 바를 일기 형식을 빌어 작성하는 것이다. 평소에 쓰는 일기 쓰기 방식을 취하되, 내용이나 주제, 소재 등을 책에서 찾는 것이 다른 점이라 할 수 있다. 즉, 일반적인 일기가 자신의 감정을 표현하는 것이라면, 독서 일기는 책을 읽고 느낀 바나 생각한 바를 토대로 한다는 것이 다르다. 책의 주인공에게 편지를 쓰듯 일기를 쓰기도 하고, 줄거리를 요약한다거나 가장 인상 깊은 장면에 대해 쓰는 것도 독서일기장을 기록하는 방법이다.
-				</div>
-				</td>
-			</tr>
+		<!-- 일기 -->
+		<div class="diary-write pr-3 mt-3">
+		 <button type="button" class="btn btn-outline-secondary col-xl-2 mb-1 btn-sm">일기쓰기</button>
+		</div>
+		<table class="table table-borderless" id="logTable">
+			<thead>
+				<tr>
+					<th>내용</th>
+				</tr>
+			</thead>
+			<tbody>
+			<%
+				for(int i=0;i<8;i++){
+			%>
+				<tr>
+					<td>
+						<div class="p-3 border shadow-sm">
+							<div class="review-title">
+								<!-- 도서명 -->									<!-- 작성날짜 -->
+								<span>아무도 나를 모를때</span><span class="ml-2 log-date">2020.09.09</span>
+								<div class="modifybtn float-right">
+									<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
+									<span class="ml-1">/</span>
+									<button class="btn review-btn"><i class="fas fa-pencil-alt"></i></button>
+								</div>
+							</div>
+							<hr>
+							<div class="diary-content">
+								<div class="diary-book p-2 p-3">
+									<img class="shadow-sm" width="110" height="140" src="/img/ex1.jpg" alt="이미지가 없습니다">
+								</div>
+								<div class="diary-text p-1">
+									<!-- 인상 깊은 구절 -->
+									<div class="diary-sentence">
+										<h5>" ABCDEFG "</h5>
+									</div>
+									<div class="mt-3 p-2">
+										<!-- 리뷰내용 -->
+										독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
+										독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</td>
+				</tr>
+				<%} %>
+			</tbody>
 		</table>
 	<%
 		}
-		%>
-		</div>
-		<%
-	}
-%>
-</div>
+	%>
+</div>		
 <!-- dataTable js -->
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
