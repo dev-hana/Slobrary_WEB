@@ -1,16 +1,17 @@
 <%@page import="bucketConnector.BucketManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, database.*"%>
+<%@ page import="java.util.*, database.*, java.lang.*"%>
 <jsp:useBean id="memMgr" class="database.MemMgr" />
 <jsp:useBean id="loanMgr" class="database.LoanMgr" />
 <jsp:useBean id="watchMgr" class="database.WatchMgr" />
 <jsp:useBean id="bookMgr" class="database.BookMgr" />
-
 <jsp:useBean id="noticeMgr" class="database.NoticeMgr" />
+
 
 <%
 String mem_id = (String)session.getAttribute("loginKey");
+boolean flagmodal = false;
 %>
 <!DOCTYPE html>
 <html>
@@ -367,23 +368,31 @@ String mem_id = (String)session.getAttribute("loginKey");
  					
  					
  					//댜츌중인 책 이름과 갯수
- 					LoanBean loan_bean = bookMgr.getLoannew(mem_id);   //대출한 도서(가장 오래된)의 아이디 가져오기(1개)
- 					BookBean book_bean = bookMgr.getBook(loan_bean.getId_num());
- 					String book_name = book_bean.getName(); 
- 					String count = bookMgr.countLoan(mem_id); //대출 권수
- 					int count_ = Integer.parseInt(count);
- 					count_ = count_ -1;
- 					
- 					
- 					
+ 					Vector loan_bean = bookMgr.getLoan(mem_id, 1);   //대출한 도서(가장 오래된)의 아이디 가져오기(1개)
+ 					String book_name = "";
+ 					int bookcount = 0;
+ 					if(loan_bean.size() == 0){
+ 	 	 				book_name=null;
+ 					}else{
+ 						flagmodal=true;
+ 						LoanBean loanbean = (LoanBean)loan_bean.get(0);
+ 						BookBean book_bean = bookMgr.getBook(loanbean.getId_num());
+ 	 	 				book_name = book_bean.getName(); 
+ 	 	 				String count = bookMgr.countLoan(mem_id); //대출 권수
+ 	 	 				bookcount = Integer.parseInt(count);
+ 	 	 				bookcount = bookcount -1;
+ 					}
  					
  	%>
 		<div class="row justify-content-md-center mb-5">
             <div id="userinfo" class="col-xs-3" style="width: 350px; background: #fff;">
                 <div id="userinfo-status">
                     <p class="p-4">
-                        <span id="status-emoji">🤔</span><br> <span>'<%=book_name %>'</span> 외 <span><%=count_ %></span>권<br>
+                    <%if(book_name != null){ %>
+                        <span id="status-emoji">🤔</span><br> <span>'<%=book_name %>'</span> 외 <span><%=bookcount %></span>권<br>
                         연체까지 <span>0</span>일 남았어요!
+                    <%}else{%><span id="status-emoji">🤔</span><br><span>대출중인 도서가 없습니다</span>
+                    <%} %>
                     </p>
                     <p style="height: 1px; background-color: lightgray; margin: 10px 100px;"></p>
                 </div>
@@ -555,7 +564,7 @@ String mem_id = (String)session.getAttribute("loginKey");
     </div>
 	<jsp:include page="/Footer.jsp" flush="false" />
 	<%
-	if(mem_id!=null){
+	if(flagmodal){
 	%>	
 		<div class="remove-modal">
 			<jsp:include page="/contents/noticeModal.jsp" flush="false" />

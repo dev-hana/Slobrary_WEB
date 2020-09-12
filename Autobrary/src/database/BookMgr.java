@@ -574,6 +574,8 @@ public class BookMgr {
         	strQuery = "select id_num, loan_date " + 
             		"from book_loan " + 
             		"where mem_id = ? and status = ? order by loan_date desc LIMIT 3 ";
+        }else if(limit == 1) {
+        	strQuery = "select id_num, loan_date from book_loan where mem_id = ? and status = ? order by loan_date desc LIMIT 1 ";
         }
 
         try {
@@ -596,39 +598,6 @@ public class BookMgr {
         }
 
         return vecList;
-    }
-    
-    
-    
-    public LoanBean getLoannew(String mem_id) {
-    	Connection con = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        LoanBean loanBean = null;
-        String status = "대출";
-        
-        try {
-            con = pool.getConnection();
-            String strQuery = "select id_num from book_loan where mem_id = ? and status = ? order by loan_date LIMIT 1 ";
-            pstmt = con.prepareStatement(strQuery);
-            pstmt.setString(1, mem_id);
-            pstmt.setString(2, status);
-            rs = pstmt.executeQuery();
-
-            if (rs.next()) {
-            	loanBean = new LoanBean();
-            	
-            	loanBean.setId_num(rs.getString("id_num"));
-            	
-
-            }
-        } catch (Exception ex) {
-            System.out.println("Exception" + ex);
-        } finally {
-            pool.freeConnection(con, pstmt, rs);
-        }
-        
-        return loanBean;
     }
     
     public String countLoan(String mem_id) {
