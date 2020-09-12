@@ -407,6 +407,7 @@
 			<%
 				Vector vLoan = bookMgr.getLoan(mem_id, 0);
 					for (int i = 0; i < vLoan.size(); i++) {
+						int count = 0;
 						LoanBean loanBean = (LoanBean) vLoan.get(i);
 						String loan_id = "loan" + Integer.toString(i); //반납 남은 일수 css바꾸기 위한 태그 아이디값
 						String loan_text = "loantext" + Integer.toString(i); //연체 도서 text 바꾸기 위한 태그 아이디값
@@ -444,6 +445,7 @@
 						long loanT = return_time.getTime() - date.getTime();
 						long resultT = loanT / (24 * 60 * 60 * 1000);
 						if (resultT < 0) {
+							count = count +1 ;
 			%>
 			<tr>
 				<td class="img">
@@ -487,7 +489,8 @@
 				</td>
 			</tr>
 			<%
-				} else {
+				}
+				if(count == 0){
 			%>
 			<tr>
 				<td>a</td>
