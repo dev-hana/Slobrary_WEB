@@ -92,6 +92,42 @@
 		border-left-width: .75em;
 		border-right-color:transparent;
 	}
+
+.fieldset-style {
+	border: 3px solid var(--main-color);
+	border-radius: 15px;
+	width: auto;
+}
+.fieldset-legend{
+	color:var(--main-color);
+	width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.notify-rtext i{
+	font-size: 20px;;
+	color:var(--main-color-light);
+}
+.notify-rtext span{
+	font-weight: bold;
+	color:var(--main-color-dark);
+}
+.diary-null .btn-outline-primary{
+	border-radius: 20px !important;
+	border-color: var(--main-color) !important;
+	color : var(--main-color) !important;
+}
+.diary-null .btn-outline-primary:hover{
+	background-color: var(--main-color) !important;
+	color : white !important;
+}
+.diary-null .btn-outline-primary:active{
+	border-color: var(--main-color) !important;
+}
+.diary-null .btn-outline-primary:focus {
+  box-shadow: none !important;
+  outline: none !important; 
+}
 </style>
 </head>
 <body>
@@ -101,6 +137,9 @@
 
 	//리뷰리스트
 	if(type.equals("review")){
+		boolean review = false;
+		//리뷰가 존재하는 경우 리스트 출력
+		if(review != false){
 		%>
 		<table class="table table-borderless" id="logTable">
 			<thead>
@@ -172,14 +211,32 @@
 				<%} %>
 			</tbody>
 		</table>
-		
 		<%
-	}else if(type.equals("diary")){
+			}else{
 		%>
+			<!-- 리뷰가 없는 경우 -->
+			<div class="review-null p-5 justify-content-center">
+				<fieldset class="fieldset-style p-2 m-2">
+				   <legend  class="fieldset-legend w-auto pl-3 pr-3"><i class="fas fa-quote-left"></i></legend>
+				   <div class="notify-rtext text-center p-4 mb-3">
+				   	 <i class="fas fa-star m-1"></i> 별점 리뷰가 없습니다<br>
+				    <span>Slobrary</span>의 도서를 대출하고 리뷰를 남겨주세요!
+				   </div>
+				</fieldset>
+			</div>
+		<%
+		}
+	}else if(type.equals("diary")){
+		
+		boolean diary = false;
+		//도서 일기가 없는 경우
+		if(diary!=false){
+	%>
 		<!-- 일기 -->
 		<div class="diary-write pr-3 mt-3">
 		 <button type="button" class="btn btn-outline-secondary col-xl-2 mb-1 btn-sm">일기쓰기</button>
 		</div>
+		
 		<table class="table table-borderless" id="logTable">
 			<thead>
 				<tr>
@@ -227,6 +284,22 @@
 			</tbody>
 		</table>
 	<%
+			}else{
+				//도서 일기가 없는 경우
+			%>
+				<div class="diary-null p-5 justify-content-center">
+				<fieldset class="fieldset-style p-2 m-2">
+				   <legend  class="fieldset-legend w-auto pl-3 pr-3"><i class="fas fa-quote-left"></i></legend>
+				   <div class="notify-rtext text-center p-4 mb-2">
+				   	 아직 독서 일기를 작성하지 않으셨습니다<br>
+				   	독서하며 떠올린 생각, 감정들을 일기로 남기고<br>
+				   	모두와 공유해보세요!<br>
+				   	<button class="btn btn-outline-primary mt-3 pl-4 pr-4">일기 쓰기</button>
+				   </div>
+				</fieldset>
+			</div>
+			<%
+			}
 		}
 	%>
 </div>		
