@@ -21,7 +21,7 @@
 <title>희망도서목록</title>
 <!-- 아이콘 -->
 <link rel="shortcut icon" href="../img/favicon.ico">
-
+<link href="/css/pagination.css" rel="stylesheet">
 <!-- 자바 스크립트 -->
 <script type="text/javascript" src="/js/formneeds.js"></script>
 
@@ -41,23 +41,58 @@
 .myApplyList tr:hover {
 	background-color: var(--main-color-light);
 }
+.text-style{
+	font-size: 16px;
+	font-weight: bold;
+	color:#5D5D5D;
+}
+.text-style span{
+	color: var(--main-color-dark);
+}
+.wish-null .btn-outline-secondary{
+	border-radius: 40px !important;
+	border-color: var(--main-color-dark) !important;
+	color : var(--main-color-dark);
+}
+.wish-null .btn-outline-secondary:hover{
+	background-color: var(--main-color-dark) !important;
+	color : white !important;
+}
+.wish-null .btn-outline-secondary:active{
+	background-color: var(--main-color-dark) !important;
+	color : white !important;
+}
+.wish-null .btn-outline-secondary:focus {
+  box-shadow: none !important;
+  outline: none !important; 
+}
 </style>
 </head>
 <body class="bg-light">
 
 <!-- 희망도서 목록 -->
-				
+			<%
+				Vector List = bookMgr.getWishList(mem_id, "mem");
+			%>	
 			<div class="pl-3 pb-2 pt-3 pr-3">
-        		<div style="float:left;"><h4>희망도서 신청 목록</h4></div> <div style="float:right;">
-        		<button onClick="location.href='WishBook.jsp'" class="btn btn-outline-secondary float-right">희망도서신청</button></div>
+        		<div style="float:left;"><h4>희망도서 신청 목록</h4></div> 
+        		<%
+        			if(List.size() != 0){
+        		%>
+        		<div style="float:right;">
+        		<button onClick="location.href='WishBook.jsp'" class="btn btn-outline-secondary float-right">희망 도서 신청</button>
+        		</div>
+        		<%} %>
         	</div><br><hr>
 			
-			<%Vector List = bookMgr.getWishList(mem_id, "mem"); %>
+			<%
+				if(List.size() !=0){
+			%>
 			<div class="myApplyList p-3 mt-2">
 			<table class="table contents" id="wishTable">
 				<thead>
 					<tr>
-						<th scope="col">번호</th>
+						<th scope="col" style="white-space:nowrap;">번호</th>
       					<th scope="col">도서명</th>
       					<th scope="col">저자명</th>
       					<th scope="col">출판사</th>
@@ -70,7 +105,7 @@
 						WishBean wishBean = (WishBean)List.get(i);
 					%>           
 					<tr>
-      					<th scope="row"><%=i + 1 %></th>
+      					<th scope="row" class="text-center"><%=i + 1 %></th>
       					<td><%=wishBean.getName() %></td>
       					<td><%=wishBean.getAuthor() %></td>
       					<td><%=wishBean.getPublisher() %></td>
@@ -80,6 +115,24 @@
    				<%}%>
 			</table>
 			</div>
+			<%
+			}else{
+			%>
+				<div class="p-3">
+					<div class="text-center wish-null text-style pb-4">
+						<div>	
+							<!-- <a href='https://www.freepik.com/vectors/book'>Book vector created by pikisuperstar - www.freepik.com</a> -->
+							<img alt="이미지가 없습니다." width="320" src="/img/wish.jpg">
+						</div>
+						신청하신 희망도서가 없습니다<br>
+						내가 읽고 싶은 책, 다른 사람들에게 추천하고 싶은 책,<br>
+						<span>SLOBRARY</span>에 없다면?<br>
+						<button class="btn btn-outline-secondary rounded mt-3 pr-3 pl-3" onClick="location.href='WishBook.jsp'">희망 도서 신청</button>
+					</div>
+				</div>
+			<%
+			}	
+			%>
 </body>
 <!-- dataTable js -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

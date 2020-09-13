@@ -128,6 +128,11 @@
   box-shadow: none !important;
   outline: none !important; 
 }
+.notify-rtext{
+	font-size: 18px;
+	font-weight: bold;
+	color:#5D5D5D;
+}
 </style>
 </head>
 <body>

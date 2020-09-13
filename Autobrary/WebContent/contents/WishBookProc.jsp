@@ -13,7 +13,7 @@
 		if(flag) {
 			 %><script>
 			alert("성공적으로 신청하였습니다.");
-			location.href="/contents/WishList.jsp";
+			location.href="/contents/WishBookPage.jsp";
 			 </script><%
 
 		}else{

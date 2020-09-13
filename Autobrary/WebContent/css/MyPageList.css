@@ -124,13 +124,7 @@
   box-shadow: none !important;
   outline: none !important; 
 }
-.now-loan span{
-	font-size: 17px;
-	font-weight:500;
-}
-.no-watch p{
-	font-size: 18px;
-}
+
 .no-watch span{
 	font-size: 20px;
 	color : var(--main-color-dark);

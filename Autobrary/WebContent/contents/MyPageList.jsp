@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- css -->
-<link href="/css/MyPageList.css?v=1" rel="stylesheet" />
+<link href="/css/MyPageList.css?v=2" rel="stylesheet" />
 <link href="/css/pagination.css" rel="stylesheet">
 <style type="text/css">
 .remove_thead {
@@ -22,6 +22,20 @@
 .img{
 	display:flex;
 	align-item: center;
+}
+.over-null span{
+	font-size: 80px;
+	color: var(--main-color);	
+}
+.over-null p{
+	font-size: 20px;
+	font-weight: bold;
+	color:#5D5D5D;
+}
+.text-style{
+	font-size: 17px;
+	font-weight: bold;
+	color:#5D5D5D;
 }
 </style>
 </head>
@@ -149,7 +163,7 @@
 			<!-- <a href='https://www.freepik.com/vectors/data'>Data vector created by stories - www.freepik.com</a> -->
 			<div class="p-4 m-2 text-center border now-loan">
 				<img alt="이미지가 없습니다." width="210" src="/img/no_data.jpg"><br>
-				<span>현재 대출중인 도서가 없습니다</span>
+				<span class="text-style">현재 대출중인 도서가 없습니다</span>
 			</div>
 		<%
 	}
@@ -268,7 +282,7 @@
 	<%
 			}else{
 				%>
-					<div class="p-5 m-2 text-center border non-loan">
+					<div class="p-5 m-2 text-center border non-loan text-style">
 						아직 도서를 대출하지 않았습니다<br>
 						<span>Slobrary</span>와 함께 읽고 싶은 도서를 찾아봐요!<br>
 						다른 유저들의 리뷰를 보고 마음에 드는 도서를 담아보세요<br>
@@ -380,10 +394,10 @@
 	}else{
 		%>
 			
-			<div class="no-watch pb-3 text-center m-2">
+			<div class="pb-3 text-center m-2">
 			<hr>
 				<img alt="이미지가 없습니다" src="/img/watchbook.jpg" width=400"><br>
-				<p>
+				<p class="text-style mt-2">
 					등록된 리뷰가 없습니다<br>
 					새로운 <span>관심도서</span>를 등록해보세요!
 				</p>
@@ -396,7 +410,7 @@
 	<div class="pl-3 pb-2 pt-3">
 		<h4>연체 도서</h4>
 	</div>
-	<table class="table" id="overdueTable" onload="page()">
+	<table class="table" id="allTable">
 		<thead class="hiddenTh">
 			<tr>
 				<th>이미지</th>
@@ -454,7 +468,6 @@
 						alt="<%=bookBean.getId_num()%>">
 				</td>
 				<td>
-				<td>
 					<span class="title mr-2">
 						<strong>[&nbsp;도서&nbsp;]</strong>
 					</span>
@@ -492,7 +505,19 @@
 				}
 			}if(count == 0){
 				%>
-				<!-- 연체된 도서가 없습니다. -->
+				<tr>
+					<td>
+						<!-- 연체된 도서가 없습니다. -->
+						<div class="over-null p-5 justify-content-center">
+							<div class="text-center">
+								<span><i class="far fa-check-circle"></i></span><br>
+								<p class="mt-4">
+								연체 도서가 없습니다!<br>
+								앞으로도 대출기간을 잘 지켜주세요 : )</p>
+							</div>
+						</div>
+					</td>
+				</tr>
 				<%
 					}
 			%>
