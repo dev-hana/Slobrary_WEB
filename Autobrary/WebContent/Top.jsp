@@ -25,10 +25,10 @@ String mem_id = (String)session.getAttribute("loginKey");
                 <h1>sloBrArY</h1>
             </a>
 
-            <form method="get" action="" class="search_bar">
+            <div class="search_bar">
                 <i class="fas fa-search" aria-hidden="true"></i>
-                <input type="text">
-            </form>
+                <input type="text" id="keyword" name="keyword" onkeypress="enter_search()">
+            </div>
         </div>
 
         <nav class="main_nav">
@@ -198,8 +198,18 @@ String mem_id = (String)session.getAttribute("loginKey");
                 navbar.classList.add("responsive");
             }
         }
+        
+        function enter_search() {
+	        if ( window.event.keyCode == 13 ) {
+	        	var keytype ="all"
+				var keyword =$("#keyword").val();
+				var link = "/contents/SearchPage.jsp?contentPage=SearchList.jsp?keytype="+keytype+"&keyword="+keyword;
+				$(location).attr('href',link);
+	        }
+	    }
 
         window.addEventListener("scroll", scrollHandler);
+        
     </script>
 </body>
 </html>
