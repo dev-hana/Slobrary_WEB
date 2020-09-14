@@ -19,149 +19,187 @@ String mem_id = (String)session.getAttribute("loginKey");
 </head>
 
 <body>
-	<div id="header" class="container-fluid pt-4 shadow-sm bg-white">
-		<div class="row ml-3 mr-3">
-			<div id="logo-main" class="col-sm-3 m-auto d-none d-lg-block">
-				<a class="navbar-brand float-d-flex mr-auto logo mt-n3" href="/">
-					<!--AutoBrArY-->
-					sloBrArY
-					<p>just take it!</p>
-				</a>
-			</div>
-			<div class="col-md-12 col-lg-9">
-				<nav id="search-header" class="navbar navbar-expand-md navbar-light mb-1">
-					<div id="search-searchbar" class="input-group md-form form-sm pl-0 shadow-sm">
-						<div class="input-group-prepend">
-							<span class="input-group-text ml-3"><i class="fas fa-search" aria-hidden="true"></i></span>
-						</div>
-						<input class="form-control my-0 py-1 mr-1" type="text" aria-label="Search">
-					</div>
-				</nav>
+    <header>
+        <div class="logo_aria">
+            <a href="/" class="logo">
+                <h1>sloBrArY</h1>
+            </a>
 
-				<nav id="nav-header" class="navbar navbar-expand-md navbar-light">
-					<div id="nav-size" class="container-fuil">
-						<div class="row" id="row-menu">
-
-							<button class="navbar-toggler" id="nav-togbtn" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"></span>
-							</button>
-
-							<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-								<a id="logo-nav" class="logo" href="/">
-									<!-- AutoBrArY -->sloBrArY</a>
-								<ul id="nav-main" class="navbar-nav mr-auto">
-									<li class="nav-item dropdown dropdown-top">
-										<a class="nav-link dropdown-toggle" href="#" id="dropdown00" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">도서검색</a>
-										<div class="dropdown-menu" aria-labelledby="dropdown00">
-											<a class="dropdown-item" href="/contents/SearchPage.jsp">도서검색</a>
-											<a class="dropdown-item" href="/contents/SearchPage.jsp?contentPage=BookList.jsp?type=best">베스트셀러</a>
-											<a class="dropdown-item" href="/contents/SearchPage.jsp?contentPage=BookList.jsp?type=new">신간도서</a>
-										</div>
-									</li>
-									<li class="nav-item dropdown dropdown-top">
-										<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">안내사항</a>
-										<div class="dropdown-menu" aria-labelledby="dropdown01">
-											<a class="dropdown-item" href="/NoticeBoard.jsp">공지사항</a>
-											<a class="dropdown-item" href="/CalendarPage.jsp">도서관 일정</a>
-										</div>
-									</li>
-									<li class="nav-item dropdown dropdown-top">
-										<a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">도서관서비스</a>
-										<div class="dropdown-menu" aria-labelledby="dropdown02">
-
-											<!--form method="post" action="/contents/WishBookPage.jsp">
-                                        	<input type="submit" class="dropdown-item" value="희망 도서">
-                                        	<input type="hidden" name="mem_id" value=<%=mem_id %>/>
-                                         </form-->
-											<a class="dropdown-item" href="/contents/WishBookPage.jsp">희망 도서</a>
-											<a class="dropdown-item" href="#">문화 행사</a>
-											<a class="dropdown-item" href="#">시설 이용</a>
-										</div>
-									</li>
-
-									<li class="nav-item dropdown dropdown-top">
-										<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
-										<div class="dropdown-menu" aria-labelledby="dropdown03">
-											<a class="dropdown-item" href="/contents/community/ReviewPage.jsp">도서 별점</a>
-											<a class="dropdown-item" href="/contents/community/BookDiaryPage.jsp">독서 일기</a>
-											<a class="dropdown-item" href="/contents/community/BookReportPage.jsp">독후감</a>
-											<a class="dropdown-item" href="/contents/community/CommunityPage.jsp">자유게시판</a>
-										</div>
-									</li>
-
-									<li class="nav-item dropdown dropdown-top">
-										<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">이용안내</a>
-										<div class="dropdown-menu" aria-labelledby="dropdown04">
-
-											<a class="dropdown-item" href="/html/infoPage.html">도서관 소개</a>
-											<a class="dropdown-item" href="/contents/QnAPage.jsp">자주 물어보는 질문</a>
-										</div>
-									</li>
-								</ul>
-								<%
- 								if(mem_id == null) {%>
-								<ul class="navbar-nav navbar-right" id="nav-log">
-									<li class="nav-item"> <a href="/Login.jsp" class="nav-link">로그인</a></li>
-									<li class="nav-item"> <a href="/Signup.jsp" class="nav-link ">회원가입</a></li>
-								</ul><%} else {%>
-								<ul class="navbar-nav navbar-right" id="nav-log">
-									<li class="nav-item"> <a href="/contents/MyPage.jsp" class="nav-link">마이페이지</a></li>
-									<li class="nav-item"> <a href="/LogoutProc.jsp" class="nav-link ">로그아웃</a></li>
-								</ul><%}%>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+            <form method="get" action="" class="search_bar">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input type="text">
+            </form>
         </div>
-    </div>
+
+        <nav class="main_nav">
+            <a href="/" class="logo_sticky sr-only">
+                sloBrArY
+            </a>
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-btn">
+                      	도서검색
+                        <i class="fas fa-sort-down" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-content">
+                        <li>
+                            <a href="/contents/SearchPage.jsp">
+                                	도서검색
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contents/SearchPage.jsp?contentPage=BookList.jsp?type=best">
+                                	베스트셀러
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contents/SearchPage.jsp?contentPage=BookList.jsp?type=new">
+                                	신간도서
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-btn">
+                        	안내사항
+                        <i class="fas fa-sort-down" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-content">
+                        <li>
+                            <a href="/NoticeBoard.jsp">
+                                	공지사항
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/CalendarPage.jsp">
+                                	도서관 일정
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-btn">
+                        	도서관 서비스
+                        <i class="fas fa-sort-down" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-content">
+                        <li>
+                            <a href="/contents/WishBookPage.jsp">
+                                	희망 도서
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="btn disabled">
+                                	문화 행사
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="btn disabled">
+                                	시설 이용
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-btn">
+                        	커뮤니티
+                        <i class="fas fa-sort-down" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-content">
+                        <li>
+                            <a href="/contents/community/ReviewPage.jsp">
+                                	도서 별점
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contents/community/BookDiaryPage.jsp">
+                                	독서 일기
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contents/community/BookReportPage.jsp">
+                                	독후감
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contents/community/CommunityPage.jsp">
+                                	자유 게시판
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-btn">
+                        	이용안내
+                        <i class="fas fa-sort-down" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-content">
+                        <li>
+                            <a href="/html/infoPage.html">
+                                	도서관 소개
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contents/QnAPage.jsp">
+                                	자주 묻는 질문
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+        <%
+            if(mem_id == null) {
+        %>
+                <li>
+                    <a href="/Login.jsp">로그인</a>
+                </li>
+                <li>
+                    <a href="/Signup.jsp">회원가입</a>
+                </li>
+        <%
+            } else {
+        %>
+                <li>
+                    <a href="/contents/MyPage.jsp">마이페이지</a>
+                </li>
+                <li>
+                    <a href="/LogoutProc.jsp">로그아웃</a>
+                </li>
+        <%
+            }
+        %>
+                <li class="mobile mobile_menu">
+                    <button type="button" onclick="mobileMenuClickHandler()">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        var navbar = document.querySelector(".main_nav");
+        var logo = document.querySelector(".logo_sticky");
+        var sticky = navbar.offsetTop;
+
+        function scrollHandler() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+                logo.classList.remove("sr-only");
+            } else {
+                navbar.classList.remove("sticky");
+                logo.classList.add("sr-only");
+            }
+        }
+
+        function mobileMenuClickHandler() {
+            if ($('.main_nav').hasClass('responsive')) {
+                navbar.classList.remove("responsive");
+            } else {
+                navbar.classList.add("responsive");
+            }
+        }
+
+        window.addEventListener("scroll", scrollHandler);
+    </script>
 </body>
-<script>
-    $(document).ready(function() {
-    	var $nav_header = $("#nav-header");
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100 && $nav_header.hasClass("navbar-light")) {
-                $nav_header.removeClass("navbar-light").addClass("navbar-dark bg-reverse fixed-top");
-                $("#logo-nav").show();
-            } else if ($(this).scrollTop() <= 100 && $nav_header.hasClass("navbar-dark bg-reverse fixed-top")) {
-                $nav_header.removeClass("navbar-dark bg-reverse fixed-top").addClass("navbar-light");
-                $("#logo-nav").hide();
-            }
-        }); //scroll //
-        
-        $('.dropdown-top').hover(function () {
-            $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
-        }, function () {
-            $(this).find('.dropdown-menu').first().stop(true, true).slideUp(105)
-        });
-    });
-
-    $(document).ready(function() {
-        var $default3 = $("#nav-size");
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100 && $default3.hasClass("container-fuil")) {
-                $default3.removeClass("container-fuil").addClass("container");
-            } else if ($(this).scrollTop() <= 100 && $default3.hasClass("container")) {
-                $default3.removeClass("container").addClass("container-fuil");
-            }
-        }); //scroll
-    });
-
-    jQuery(window).scroll(function() {
-        if (jQuery(window).scrollTop() > 100) {
-            jQuery('#logo-small').css('display', 'block');
-        } else {
-            jQuery('#logo-small').css('display', 'none');
-        }
-    });
-    jQuery(window).scroll(function() {
-        if (jQuery(window).scrollTop() > 100) {
-            jQuery('#nav-size').css('display', 'block');
-            jQuery('#nav-size-small').css('display', 'none');
-        } else {
-            jQuery('#nav-size').css('display', 'block');
-            jQuery('#nav-size-small').css('display', 'none');
-        }
-    });
-</script>
 </html>
