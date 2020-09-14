@@ -15,9 +15,8 @@
 </head>
 
 <body>
-	<header>
-		<jsp:include page="/Top.jsp" flush="false" />
-	</header>
+	<jsp:include page="/Top.jsp" flush="false" />
+
 	<div class="applyForWishBook">
 		<h1>
 			<a href="/contents/WishBook.jsp">희망 도서 신청</a>

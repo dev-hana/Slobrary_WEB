@@ -52,7 +52,7 @@
 
 </head>
 <body class="bg-light">
-<jsp:include page="../Top.jsp" flush="false"/>
+<jsp:include page="/Top.jsp" flush="false"/>
 	<div class="container-fluid">
 		<div class="row mt-5 justify-content-md-center">
 			<div class="col-sm-4 shadow-sm p-3 mb-5 bg-white rounded">

@@ -67,7 +67,7 @@ $("input").keyup(function(){
 <title>비밀번호 재설정</title>
 </head>
 <body class="bg-light">
-	<jsp:include page="../Top.jsp" flush="false"/>
+	<jsp:include page="/Top.jsp" flush="false"/>
 	<div class="container-fluid">
 		<div class="row justify-content-md-center mt-3">
 			<div class="col-sm-4 shadow-sm p-3 mb-5 bg-white p-5">

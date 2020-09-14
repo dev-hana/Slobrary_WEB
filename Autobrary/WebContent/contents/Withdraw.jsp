@@ -43,9 +43,7 @@ $("input").keyup(function(){
 <script type="text/javascript" src="/js/formneeds.js"></script>
 </head>
 <body class="bg-light pb-4">
-	<header>
-		<jsp:include page="../Top.jsp" flush="false"/>
-	</header>
+	<jsp:include page="/Top.jsp" flush="false"/>
 	<div class="container-fluid">
 	<div class="row mt-5 justify-content-md-center">
 		<div class="col-xl-8 p-5 m-1 bg-white shadow-sm rounded">

@@ -22,9 +22,7 @@ boolean flagmodal = false;
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="bg-light">
-	<header>
-		<jsp:include page="/Top.jsp" flush="false" />
-	</header>
+	<jsp:include page="/Top.jsp" flush="false" />
 
 	<div id="carousel" class="carousel slide carousel-fade"
 		data-ride="carousel" data-interval="6000">

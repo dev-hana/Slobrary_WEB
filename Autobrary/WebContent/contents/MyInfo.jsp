@@ -44,7 +44,7 @@ function jusoCallBack(roadFullAddr){
 </head>
 
 <body class="bg-light">
-	<jsp:include page="../Top.jsp" flush="false"/>
+	<jsp:include page="/Top.jsp" flush="false"/>
 	<%
 		String mem_id = (String)session.getAttribute("loginKey");
 		MemBean memBean = memMgr.getMember(mem_id);

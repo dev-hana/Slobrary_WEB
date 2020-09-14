@@ -27,9 +27,8 @@
     <link href="css/login.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-    <header>
     <jsp:include page="Top.jsp" flush="false"/>
-    </header>
+
     <div id="document">
         <div class="row p-5 ml-5 mr-5" id="div1"> <!-- 5에서 3으로 수정 -->
             <div class="col bg-white shadow-sm p-5 ml-5 mr-5" id="div2">

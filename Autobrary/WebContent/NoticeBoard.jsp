@@ -21,9 +21,8 @@
 <link rel="stylesheet" href="/css/noticeBoard.css?v=1">
 </head>
 <body>
-	<header>
-		<jsp:include page="Top.jsp" flush="false" />
-	</header>
+	<jsp:include page="Top.jsp" flush="false" />
+
 	<div class="container-fluid mb-5">
 		<div class="row mt-4 pt-4 justify-content-md-center">
 			<div class="col-xl-3 mr-n5" id="menuid">

@@ -31,7 +31,7 @@
 
 </head>
 <body class="bg-light">
-	<jsp:include page="../Top.jsp" flush="false"/>
+	<jsp:include page="/Top.jsp" flush="false"/>
 	
 	<!-- 마이페이지 개인정보 및 메뉴   -->
 	<div class="row mt-5 pb-5 justify-content-md-center">

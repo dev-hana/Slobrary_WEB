@@ -45,7 +45,7 @@ label {
 <title>아이디 찾기</title>
 </head>
 <body class="bg-light">
-	<jsp:include page="../Top.jsp" flush="false"/>
+	<jsp:include page="/Top.jsp" flush="false"/>
 	<div class="container-fluid">
 		<div class="row justify-content-md-center mt-5">
 			<div class="col-xl-4 shadow-sm p-3 mb-5 bg-white p-5">
