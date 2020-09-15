@@ -1,3 +1,44 @@
+
+@media screen and (max-width: 800px) {
+	
+	.conLog p{
+		text-align: center !important;
+	}
+	
+	.conLog a{
+		position: relative !important;
+		left: 33% !important;
+	}
+	
+	#wishTable {
+		margin-left: 0 !important;
+	}
+	
+	#wishTable th {
+		font-size: 13px !important;
+		padding: 6px !important;
+		text-align: center !important;
+	}
+	
+	.myApplyList{
+		padding: 20px !important;
+	}
+	
+	.howToApply{
+		padding: 20px !important;
+	}
+	
+	.tSize {
+		font-size: 30px !important;
+	}
+	
+	.howToApply pre {
+		padding: 0px 10px !important;
+		
+	}
+	
+}
+
 img {
 	width: 500px;
 }

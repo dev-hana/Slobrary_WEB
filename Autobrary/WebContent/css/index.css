@@ -72,6 +72,9 @@
 		right: -5% !important;
 	}
 	
+	#qmenu {
+		display: none !important;
+	}
 	
 	#texth1 {
 		font-size: 1.5em !important;

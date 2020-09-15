@@ -36,12 +36,12 @@
 	</div>
 
 	<div class="myApplyList">
-		<h1>나의 신청 내역</h1>
+		<h1 class="tSize">나의 신청 내역</h1>
 	<%
 		String mem_id = (String)session.getAttribute("loginKey");
 		if(mem_id==null) {
 	%>
-		<div class="contents ">
+		<div class="contents conLog">
 			<p>로그인 후 이용해주세요</p>
 			<a href="/Login.jsp">로그인</a>
 		</div>
@@ -83,7 +83,7 @@
 	</div>
 
 	<div class="howToApply">
-		<h1>희망도서 신청 안내 사항</h1>
+		<h1 class="tSize">희망도서 신청 안내 사항</h1>
 		<div class="contents">
 			<div>
 				<b>신청 자격</b>

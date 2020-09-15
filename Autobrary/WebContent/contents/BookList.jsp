@@ -206,7 +206,7 @@ color:#747474;
 		</table>
 	<%}else{Vector vResult = bookMgr.getBestList(0);
 	%>
-		<div class="newInfo p-4 mt-5 mb-4">
+	<div class="newInfo p-4 mt-5 mb-4">
 		<div class="bestIcon pr-3">
 			<img src="/img/best.jpg"/> <!-- <a href='https://www.freepik.com/vectors/technology'>Technology vector created by pch.vector - www.freepik.com</a> -->
 		</div>
