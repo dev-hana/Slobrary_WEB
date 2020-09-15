@@ -18,10 +18,10 @@
 	<jsp:include page="/Top.jsp" flush="false" />
 
 	<div class="applyForWishBook">
-		<h1>
+		<h1 class="tImgSize">
 			<a href="/contents/WishBook.jsp">희망 도서 신청</a>
 		</h1>
-		<p>
+		<p class="pCon">
 			<small>
 				현재 SLOBRARY에서는 <b>0</b>권의 책을 읽을 수 있어요!
 			</small>
@@ -32,7 +32,7 @@
 				희망도서를 신청하세요!
 			</span>
 		</p>
-		<img src="/img/wishBookPage/main-welcome.png" alt="">
+		<img src="/img/wishBookPage/main-welcome.png" class="mainimg" alt="">
 	</div>
 
 	<div class="myApplyList">
@@ -84,7 +84,7 @@
 
 	<div class="howToApply">
 		<h1 class="tSize">희망도서 신청 안내 사항</h1>
-		<div class="contents">
+		<div class="contents howCon">
 			<div>
 				<b>신청 자격</b>
 				<pre>

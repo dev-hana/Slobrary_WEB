@@ -1,6 +1,33 @@
 
 @media screen and (max-width: 800px) {
 	
+	.mainimg {
+		width: 100% !important;
+	}
+	
+	.pCon {
+		margin-top: 18px !important;
+		font-size: 14px !important;
+	}
+	
+	.pCon small {
+		font-size: 12px !important;
+	}
+	
+	.tImgSize {
+		font-size: 1.5rem !important;
+	}
+	
+	.tImgSize a {
+		padding-top: 6px !important;
+		padding-bottom: 6px !important;
+	}
+	
+	.applyForWishBook {
+		background-size: 1500px !important;
+		height: 200% !important;
+	}
+	
 	.conLog p{
 		text-align: center !important;
 	}
@@ -30,6 +57,10 @@
 	
 	.tSize {
 		font-size: 30px !important;
+	}
+	
+	.howCon {
+		padding: 0 20px !important;
 	}
 	
 	.howToApply pre {
