@@ -143,7 +143,7 @@
 						<tr>
 							<td><%=i+1 %></td>
 							<!-- 제목 및 링크 -->
-							<td class="alink"><a href="BookReportDetail.jsp?board_id=<%=boardBean.getBoard_id()%>"><%=boardBean.getTitle() %></a></td>
+							<td class="alink"><a href="GoDetailProc.jsp?board_id=<%=boardBean.getBoard_id()%>"><%=boardBean.getTitle() %></a></td>
 							<!-- 작성자 -->
 							<td><%=boardBean.getMem_id() %></td>	
 							<%
