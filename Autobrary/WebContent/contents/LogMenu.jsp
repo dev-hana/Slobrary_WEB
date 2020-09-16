@@ -20,7 +20,7 @@ body {
 }
 #tab-button li {
   display: table-cell;
-  width: 20%;
+  width: 149px;
 }
 #tab-button li a {
   display: block;
@@ -46,6 +46,7 @@ body {
 .tab-contents {
   margin-top: 20px;
 }
+
 @media screen and (min-width: 76px) {
   .tab-button-outer {
     position: relative;
@@ -62,7 +63,7 @@ body {
 <body>
 
   <div class="tab-button-outer">
-    <ul class="nav nav-tabs" id="tab-button">
+    <ul class="nav nav-tabs log-menu" id="tab-button">
       <li ><a href="MyPage.jsp?CONTENTPAGE=LogList.jsp?type=review">나의 리뷰</a></li>
       <li><a href="MyPage.jsp?CONTENTPAGE=LogList.jsp?type=diary">독서 일기장</a></li>
       <li><a href="#">게시글</a></li>
