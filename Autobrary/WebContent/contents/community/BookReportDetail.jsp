@@ -30,11 +30,11 @@
 			<h5><%=reportBean.getName() %></h5>
 		</div>
 		<div class="content_info pl-3 pr-3 pt-2 pb-2">
-			<span class="alink"><strong class="mr-3">도서</strong><a href="/contents/BookDetailPage.jsp?book_id=<%=reportBean.getBook_id() %>"><%=bookBean.getName() %></a></span>
+			<div class="info1"><span class="alink"><strong class="mr-3">도서</strong><a href="/contents/BookDetailPage.jsp?book_id=<%=reportBean.getBook_id() %>"><%=bookBean.getName() %></a></span></div>
 			<!-- 작성자-->
-			<span><strong class="mr-3">작성자</strong><%=reportBean.getMem_id()%></span>
+			<div class="info2"><span><strong class="mr-3">작성자</strong><%=reportBean.getMem_id()%></span></div>
 			<!-- 작성일 -->
-			<span><strong class="mr-3">작성일</strong><%=reportBean.getReport_date()%></span>
+			<div class="info3"><span><strong class="mr-3">작성일</strong><%=reportBean.getReport_date()%></span></div>
 		</div>
 		<!-- 내용 -->
 		<div class="content_content p-3">
@@ -73,7 +73,7 @@
 				<tr>
 					<td class="userInfo p-3">
 						<div class="p-4 img-wrap shadow-sm">
-							<img src="/img/default/userImg/boy1.png">
+							<img class="imguser" src="/img/default/userImg/boy1.png">
 						</div>
 					</td>
 					<td>
