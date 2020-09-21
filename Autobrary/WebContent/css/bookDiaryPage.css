@@ -1,3 +1,38 @@
+
+@media screen and (max-width: 800px) {
+	
+	.goWriteBookDiary{
+		padding-bottom: 160px !important;
+	}
+	
+	.diIcon {
+		display: inline-block !important;
+		width:100% !important;
+		text-align: center !important;
+		padding-right: 0 !important;
+	}
+	
+	.diText {
+		display: inline-block !important;
+		position: absolute !important;
+		padding-right : 1.5rem !important;
+		padding-left : 1.5rem !important;
+		margin-left: 0 !important;
+		margin-top: 120px !important;
+	}
+	
+	.diBt {
+		position: relative !important;
+		bottom: -150px !important;
+	}
+	
+	/*.diT {
+		position: relative !important;
+		top: 0 !important;
+	}*/
+	
+}
+
 .main-title {
 	font-size: 1.8em;
 }

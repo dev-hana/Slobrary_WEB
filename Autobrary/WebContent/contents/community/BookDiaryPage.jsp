@@ -41,16 +41,18 @@
 					<%=currentPage%>
 				</h1>
 				<div class="goWriteBookDiary">
-					<div class="text">
-						<h1>
+					<div class="text diText">
+						<div class="diBt"><h1>
 							<a href="/contents/SearchPage.jsp">도서 찾기</a>
-						</h1>
-						<p>
+						</h1></div>
+						<div class="diT"><p>
 							오늘의 독서는 즐거우셨나요?<br> 독서 일기를 잊지말고 작성하여<br> 나의 독서 경험을 다른
 							사람들과 함께 공유해요.
-						</p>
+						</p></div>
 					</div>
-					<img src="/img/img-for-design/laptop_girl.svg" alt="">
+					<div class="diIcon">
+						<img src="/img/img-for-design/laptop_girl.svg" alt="">
+					</div>
 				</div>
 
 				<select name="keytype" class="sort">
