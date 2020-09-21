@@ -27,11 +27,11 @@
 			<!-- 제목 -->
 			<h5><%=boardBean.getTitle() %></h5>
 		</div>
-		<div class="content_info pl-3 pr-3 pt-2 pb-2">
+		<div class="content_info pl-3 pr-3 pt-2 pb-2 com_info">
 			<!-- 작성자-->
-			<span><strong class="mr-3">작성자</strong><%=boardBean.getMem_id() %></span>
+			<div class="info4"><span><strong class="mr-3">작성자</strong><%=boardBean.getMem_id() %></span></div>
 			<!-- 작성일 -->
-			<span><strong class="mr-3">작성일</strong><%=boardBean.getBoard_date() %></span>
+			<div class="info5"><span><strong class="mr-3">작성일</strong><%=boardBean.getBoard_date() %></span></div>
 		</div>
 		<!-- 내용 -->
 		<div class="content_content p-3">
@@ -70,7 +70,7 @@
 				<tr>
 					<td class="userInfo p-3">
 						<div class="p-4 img-wrap shadow-sm">
-							<img src="/img/default/userImg/boy1.png">
+							<img class="imguser" src="/img/default/userImg/boy1.png">
 						</div>
 					</td>
 					<td>

@@ -2,8 +2,9 @@
 
 @media screen and (max-width: 800px) {
 
-	#bookDiaryTable_filter{
-		margin-top: -20px !important;
+	/*검색창 위치 조절*/
+	div#bookDiaryTable_filter{
+		margin-top: 30px !important;
 	}
 	
 	.table.contents.mb-4 th{
@@ -24,12 +25,15 @@
 		padding-left: 50px !important;
 		margin-top: 60px !important;
 	}
-	
-	/*검색창 위치 조절*/	
+		
 	div.btn_div.pr-3{
 		top: -130px !important;
 	}
 	
+	/*자유게시판*/
+	div#freeTable_filter {
+		margin-top: 30px !important;
+	}
 	
 }
 
