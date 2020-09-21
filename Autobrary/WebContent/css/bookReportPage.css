@@ -1,5 +1,38 @@
 @charset "UTF-8";
 
+@media screen and (max-width: 800px) {
+
+	#bookDiaryTable_filter{
+		margin-top: -20px !important;
+	}
+	
+	.table.contents.mb-4 th{
+		font-size: 14px !important;
+		padding: 8px !important;
+		text-align: center !important;
+		vertical-align: middle !important;
+	}
+	
+	.table.contents.mb-4 th{
+		font-size: 14px !important;
+		padding: 8px !important;
+		/*text-align: center !important;
+		vertical-align: middle !important;*/
+	}
+	
+	ul.pagination{
+		padding-left: 50px !important;
+		margin-top: 60px !important;
+	}
+	
+	div.btn_div.pr-3{
+		top: -130px !important;
+	}
+	
+	
+}
+
+
 .main-title {
 	font-size: 1.8em;
 }
