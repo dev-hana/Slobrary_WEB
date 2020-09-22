@@ -58,6 +58,12 @@ body {
   background: #fff;
 }
 }
+
+@media screen and (max-width: 800px) {
+	.nav.log-menu li {
+		font-size: 12px !important;
+	}
+}
 </style>
 </head>
 <body>
