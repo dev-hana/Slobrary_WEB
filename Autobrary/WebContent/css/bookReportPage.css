@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
 @media screen and (max-width: 800px) {
+	
+	/*수정x*/
 
 	/*검색창 위치 조절*/
-	div#bookDiaryTable_filter{
+	div.dataTables_filter{
 		margin-top: 30px !important;
 	}
 	
@@ -28,11 +30,6 @@
 		
 	div.btn_div.pr-3{
 		top: -130px !important;
-	}
-	
-	/*자유게시판*/
-	div#freeTable_filter {
-		margin-top: 30px !important;
 	}
 	
 }

@@ -2,6 +2,8 @@
 
 @media screen and (max-width: 800px) {
 	
+	/*수정x*/
+	
 	.pagination {
 		text-align: center;
 		margin: auto;
@@ -64,10 +66,9 @@
 		float: left !important;*/
 		display:none !important;
 	}
-	/*.dataTables_filter {
-		width: 100% !important;
-		position: static !important;
-		float: left !important;
+	
+	/*div.dataTables_filter{
+		margin-top: 30px !important;
 	}*/
 	
 	/* 버튼 위치 조절*/
