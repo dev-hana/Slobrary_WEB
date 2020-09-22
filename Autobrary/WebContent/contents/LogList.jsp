@@ -28,6 +28,9 @@
   height: 40%;
   margin: 0 auto;
 }
+.community-contents iframe{
+	width: 100% !important;
+}
 .line{
 	border-bottom: 6px solid rgba(165,147,224,0.3) !important;
 }
@@ -436,7 +439,7 @@
 								  </a>
 								</div>
 								<%} %>
-								<div class="community-text p-1 m-2">
+								<div class="community-contents p-1 m-2">
 									<%=content %>
 								</div>
 							</div>
