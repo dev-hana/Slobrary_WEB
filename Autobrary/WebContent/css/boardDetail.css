@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
 @media screen and (max-width: 800px) {
-	
+	/* 독후감 이미지 */
+	.content_content img{
+		width:80% !important;
+	}
+	iframe{
+		width:100% !important;
+	}
 	/*작성 정보*/
 	.content_info {
 		display: inline-block !important;

@@ -15,7 +15,10 @@
 <head>
 <meta charset="UTF-8">
 <title><%=reportBean.getName() %></title>
-<link href="/css/boardDetail.css" rel="stylesheet">
+<link href="/css/boardDetail.css?v=2" rel="stylesheet">
+<style>
+	
+</style>
 </head>
 <body>
 

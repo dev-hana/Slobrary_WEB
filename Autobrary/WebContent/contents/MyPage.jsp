@@ -66,7 +66,8 @@
         <!-- 서재 컨텐츠 -->
         <%
         	//나의 기록 선택시
-        	if(contentPage.equals("LogList.jsp?type=review")||contentPage.equals("LogList.jsp?type=diary")){
+        	if(contentPage.equals("LogList.jsp?type=review")||contentPage.equals("LogList.jsp?type=diary")
+        			||contentPage.equals("LogList.jsp?type=report")||contentPage.equals("LogList.jsp?type=community")){
         		%>
         			<div class="col-xl-7 p-2">
         				<div class="bg-white shadow-sm rounded p-4">

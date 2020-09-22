@@ -20,7 +20,7 @@ body {
 }
 #tab-button li {
   display: table-cell;
-  width: 149px;
+  width: 25%;
 }
 #tab-button li a {
   display: block;
@@ -63,10 +63,11 @@ body {
 <body>
 
   <div class="tab-button-outer">
-    <ul class="nav nav-tabs log-menu" id="tab-button">
+    <ul class="nav log-menu pl-2 pr-2" id="tab-button">
       <li ><a href="MyPage.jsp?CONTENTPAGE=LogList.jsp?type=review">나의 리뷰</a></li>
       <li><a href="MyPage.jsp?CONTENTPAGE=LogList.jsp?type=diary">독서 일기장</a></li>
-      <li><a href="#">게시글</a></li>
+      <li><a href="MyPage.jsp?CONTENTPAGE=LogList.jsp?type=report">독후감</a></li>
+      <li><a href="MyPage.jsp?CONTENTPAGE=LogList.jsp?type=community">게시글</a></li>
     </ul>
   </div>
 

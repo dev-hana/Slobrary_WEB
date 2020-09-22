@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/CND.jsp" %>
+<%@ page import="java.util.*,java.util.regex.*, database.*" %>
+<jsp:useBean id="reportMgr" class="database.ReportMgr" />
+<jsp:useBean id="boardMgr" class="database.BoardMgr" />
+<jsp:useBean id="bookMgr" class="database.BookMgr" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +13,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 <link href="/css/pagination.css" rel="stylesheet">
 <style>
+/* 독후감 ,게시글 캐러셀 css  */
 .carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23BDBDBD' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23A593E0' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
 
 .carousel-control-next-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23BDBDBD' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23A593E0' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+.carousel-item{
+	text-align:center;
+}
+.carousel-inner > .item > img {
+  height: 40%;
+  margin: 0 auto;
 }
 .line{
 	border-bottom: 6px solid rgba(165,147,224,0.3) !important;
@@ -53,46 +65,9 @@
 	justify-content: center;
 	align-item: center;
 }
-#ribbon {
-		padding: .34em 1em;
-		margin: 0;
-		margin-top: 5%;
-		position:relative;
-		color: #ffffff;
-		font: 32px 'Patua One', sans-serif;
-		text-align: center;
-		letter-spacing:0.1em;
-		text-shadow: 0px -1px 0px rgba(0,0,0,0.3);
-		box-shadow: inset 0px 1px 0px rgba(255,255,255,.3),
-					inset 0px 0px 20px rgba(0,0,0,0.1),
-					0px 1px 1px rgba(0,0,0,0.4);
-		 background: -webkit-linear-gradient(top,#1eb2df, #17a7d2);
-      display: inline-block;
-	}
-	
-#ribbon:before, #ribbon:after {
-		content: "";
-		width:.2em;
-		bottom:-.5em;
-		position:absolute;
-		display:block;
-		border: .9em solid #1eb2df;
-		box-shadow:0px 1px 0px rgba(0,0,0,0.4);
-		z-index:-2;
-	}
-	
-#ribbon:before {
-		left:-1.35em;
-		border-right-width: .75em;
-		border-left-color:transparent;
-	}
-	
-#ribbon:after {
-		right:-1.35em;
-		border-left-width: .75em;
-		border-right-color:transparent;
-	}
-
+.quote{
+	color: var(--main-color-dark);
+}
 .fieldset-style {
 	border: 3px solid var(--main-color);
 	border-radius: 15px;
@@ -133,6 +108,9 @@
 	font-weight: bold;
 	color:#5D5D5D;
 }
+.commutity-text{
+	border-top: 
+}
 </style>
 </head>
 <body>
@@ -142,7 +120,7 @@
 
 	//리뷰리스트
 	if(type.equals("review")){
-		boolean review = false;
+		boolean review = true;
 		//리뷰가 존재하는 경우 리스트 출력
 		if(review != false){
 		%>
@@ -170,7 +148,7 @@
 							</div>
 							<hr>
 							<div>
-								<div class="review-star mt-n2">
+								<div class="review-star pl-2 mt-n2">
 									<!-- 별점 -->
 									<%
 									double star=3.5;
@@ -233,7 +211,7 @@
 		}
 	}else if(type.equals("diary")){
 		
-		boolean diary = false;
+		boolean diary = true;
 		//도서 일기가 없는 경우
 		if(diary!=false){
 	%>
@@ -272,7 +250,7 @@
 								<div class="diary-text p-1">
 									<!-- 인상 깊은 구절 -->
 									<div class="diary-sentence">
-										<h5>" ABCDEFG "</h5>
+										<span class="quote"><i class="fas fa-quote-left"></i></span><span class="sentence"> 인상 깊었던 구절 </span><span class="quote"><i class="fas fa-quote-right"></i></span>
 									</div>
 									<div class="mt-3 p-2">
 										<!-- 리뷰내용 -->
@@ -304,6 +282,169 @@
 				</fieldset>
 			</div>
 			<%
+			}
+		}else if(type.equals("report")){
+			boolean report = true;
+			if(report){
+				ReportBean reportBean = reportMgr.getReport("3");
+				String content = new String();
+				%>
+				<table class="table table-borderless" id="logTable">
+				<thead>
+					<tr>
+						<th>독후감</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="report-content p-3 border shadow-sm">
+								<div class="review-title">
+									<!-- 도서명 -->									<!-- 작성날짜 -->
+									<span><%=reportBean.getName() %></span><span class="ml-2 log-date">2020.09.09</span>
+									<div class="modifybtn float-right">
+										<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
+										<span class="ml-1">/</span>
+										<button class="btn review-btn"><i class="fas fa-pencil-alt"></i></button>
+									</div>
+								</div>
+								<hr>
+								<%
+									String text = reportBean.getContent();
+									if(text.contains("<img")){
+										//이미지 태그 src 추출 후 이미지 태그 제거
+								        Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>"); //img 태그 src 추출 정규표현식
+								        Matcher matcher = pattern.matcher(text);
+								        
+								        List<String> img = new ArrayList<>();
+								        while(matcher.find()){
+								            img.add(matcher.group(1));
+								            img.add("/img/test.jpg");
+								            img.add("/img/ex2.jpg");
+								            content = matcher.replaceAll("");
+								        }
+								%>
+								<!-- 이미지가 있는 경우 -->
+								<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+								  <div class="carousel-inner justify-content-center">
+								    <% 
+								    for(int i=0;i<img.size();i++){
+								    	if(i==0){
+								    		%>
+								    		<div class="carousel-item item active">
+										      <img class="img-fluid" src="<%=img.get(i) %>" class="img-responsive" alt="...">
+										    </div>
+								    		<%
+								    	}else{
+								    		%>
+								    		<div class="carousel-item item">
+										      <img class="img-fluid" src="<%=img.get(i) %>" alt="...">
+										    </div>
+								    		<%
+								    	}
+								    }
+								    %>
+								    
+								    
+								  </div>
+								  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+								    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								  </a>
+								  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+								    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+								  </a>
+								</div>
+								<%} %>
+								<div class="community-text p-1 m-2">
+									<%=content %>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<%
+			}
+		}else if(type.equals("community")){
+			boolean community = true;
+			String content = new String();
+			if(community){
+				BoardBean boardBean = boardMgr.getBoard("3");
+				%>
+					<table class="table table-borderless" id="logTable">
+				<thead>
+					<tr>
+						<th>독후감</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="report-content p-3 border shadow-sm">
+								<div class="review-title">
+									<!-- 도서명 -->									<!-- 작성날짜 -->
+									<span><%=boardBean.getTitle() %></span><span class="ml-2 log-date">2020.09.09</span>
+									<div class="modifybtn float-right">
+										<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
+										<span class="ml-1">/</span>
+										<button class="btn review-btn"><i class="fas fa-pencil-alt"></i></button>
+									</div>
+								</div>
+								<hr>
+								<%
+									String text = boardBean.getContent();
+									content = text;
+									if(text.contains("<img")){
+										//이미지 태그 src 추출 후 이미지 태그 제거
+								        Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>"); //img 태그 src 추출 정규표현식
+								        Matcher matcher = pattern.matcher(text);
+								        
+								        List<String> img = new ArrayList<>();
+								        while(matcher.find()){
+								            img.add(matcher.group(1));
+								            content = matcher.replaceAll("");
+								        }
+								%>
+								<!-- 이미지가 있는 경우 -->
+								<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+								  <div class="carousel-inner justify-content-center">
+								    <% 
+								    for(int i=0;i<img.size();i++){
+								    	if(i==0){
+								    		%>
+								    		<div class="carousel-item item active">
+										      <img class="img-fluid" src="<%=img.get(i) %>" class="img-responsive" alt="...">
+										    </div>
+								    		<%
+								    	}else{
+								    		%>
+								    		<div class="carousel-item item">
+										      <img class="img-fluid" src="<%=img.get(i) %>" alt="...">
+										    </div>
+								    		<%
+								    	}
+								    }
+								    %>
+								    
+								    
+								  </div>
+								  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+								    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								  </a>
+								  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+								    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+								  </a>
+								</div>
+								<%} %>
+								<div class="community-text p-1 m-2">
+									<%=content %>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+				<%
 			}
 		}
 	%>
