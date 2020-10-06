@@ -33,11 +33,11 @@
 			<h5><%=reportBean.getName() %></h5>
 		</div>
 		<div class="content_info pl-3 pr-3 pt-2 pb-2">
-			<div class="info1"><span class="alink"><strong class="mr-3">도서</strong><a href="/contents/BookDetailPage.jsp?book_id=<%=reportBean.getBook_id() %>"><%=bookBean.getName() %></a></span></div>
+			<div class="info1"><span class="alink"><strong class="mr-2">도서</strong><a href="/contents/BookDetailPage.jsp?book_id=<%=reportBean.getBook_id() %>"><%=bookBean.getName() %></a></span></div>
 			<!-- 작성자-->
-			<div class="info2"><span><strong class="mr-3">작성자</strong><%=reportBean.getMem_id()%></span></div>
+			<div class="info2 ml-3"><span><strong class="mr-2">작성자</strong><%=reportBean.getMem_id()%></span></div>
 			<!-- 작성일 -->
-			<div class="info3"><span><strong class="mr-3">작성일</strong><%=reportBean.getReport_date()%></span></div>
+			<div class="info3 ml-3"><span><strong class="mr-2">작성일</strong><%=reportBean.getReport_date()%></span></div>
 		</div>
 		<!-- 내용 -->
 		<div class="content_content p-3">

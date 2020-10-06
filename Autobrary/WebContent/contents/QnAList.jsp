@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400&display=swap&subset=korean" rel="stylesheet">
 <!-- css -->
 <link href="/css/QnAList.css" rel="stylesheet">
+<link href="/css/pagination.css" rel="stylesheet">
 <%
 	//all=전체, book=자료이용, member=회원문의, etc=기타
 	String type = request.getParameter("type");

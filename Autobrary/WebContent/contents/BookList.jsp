@@ -75,6 +75,7 @@ color:#747474;
 }
 </style>
 <link href="/css/bookList.css" rel="stylesheet">
+<link href="/css/pagination.css" rel="stylesheet">
 <!-- 아이콘 -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>

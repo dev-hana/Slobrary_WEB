@@ -27,7 +27,7 @@ String mem_id = (String)session.getAttribute("loginKey");
 
             <div class="search_bar">
                 <i class="fas fa-search" aria-hidden="true"></i>
-                <input type="text" id="keyword" name="keyword" onkeypress="enter_search()">
+                <input type="text" id="top_keyword" name="keyword" onkeypress="top_enter_search()">
             </div>
         </div>
 
@@ -199,10 +199,10 @@ String mem_id = (String)session.getAttribute("loginKey");
             }
         }
         
-        function enter_search() {
+        function top_enter_search() {
 	        if ( window.event.keyCode == 13 ) {
 	        	var keytype ="all"
-				var keyword =$("#keyword").val();
+				var keyword =$("#top_keyword").val();
 				var link = "/contents/SearchPage.jsp?contentPage=SearchList.jsp?keytype="+keytype+"&keyword="+keyword;
 				$(location).attr('href',link);
 	        }

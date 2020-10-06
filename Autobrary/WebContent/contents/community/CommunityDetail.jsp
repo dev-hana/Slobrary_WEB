@@ -29,9 +29,9 @@
 		</div>
 		<div class="content_info pl-3 pr-3 pt-2 pb-2 com_info">
 			<!-- 작성자-->
-			<div class="info4"><span><strong class="mr-3">작성자</strong><%=boardBean.getMem_id() %></span></div>
+			<div class="info4"><span><strong class="mr-2">작성자</strong><%=boardBean.getMem_id() %></span></div>
 			<!-- 작성일 -->
-			<div class="info5"><span><strong class="mr-3">작성일</strong><%=boardBean.getBoard_date() %></span></div>
+			<div class="info5 ml-3"><span><strong class="mr-2">작성일</strong><%=boardBean.getBoard_date() %></span></div>
 		</div>
 		<!-- 내용 -->
 		<div class="content_content p-3">
