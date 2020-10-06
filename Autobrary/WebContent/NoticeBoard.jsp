@@ -18,6 +18,7 @@
 <title>Slobrary - <%=currentPage%></title>
 <%@ include file="/CND.jsp"%>
 <link href="/css/pagination.css" rel="stylesheet">
+<link href="/css/dataTable_empty.css" rel="stylesheet">
 <link rel="stylesheet" href="/css/noticeBoard.css?v=1">
 </head>
 <body>

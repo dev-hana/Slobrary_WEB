@@ -9,72 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <title>SLO</title> 
-<style type="text/css">
-.newInfo{
- display: flex;
- justify-content: center;
- align-item: center;
- border: 2px solid #EAEAEA;
-}
-.newIcon img{
-	width:190px;
-	height: 160px;
-}
-.bestIcon img{
-	width:300px;
-	height: 200px;
-}
-.info hr{
-	border-top: 1px dashed #bbb;
-}
-.info{
-	align-self: center;
-	width:70%;
-}
-.info h5{
-	color:var(--main-color-dark);
-	font-weight: bold;
-}
-.info p{
-	color:#848484;
-}
-
-.bookCount{
-	color:#DE4F4F;
-}
-.count h6{
-color:#747474;
-}
-.dataTables_filter{
-	color:white;
-	float:right;
-	 
-  -ms-user-select: none; 
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-.count h6{
-	position: relative;
-	bottom:-58px;
-}
-.best hr{
-	border-top: 1px dashed #bbb;
-}
-.best{
-	align-self: center;
-	width:60%;
-}
-.best h5{
-	color:var(--main-color-dark);
-	font-weight: bold;
-}
-.best p{
-	color:#848484;
-}
-</style>
-<link href="/css/bookList.css" rel="stylesheet">
+<link href="/css/bookList.css?v=1" rel="stylesheet">
+<link href="/css/dataTable_empty.css" rel="stylesheet">
 <link href="/css/pagination.css" rel="stylesheet">
 <!-- 아이콘 -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -337,7 +273,7 @@ color:#747474;
     	// 정보 표시 숨기기
     	info: false,
     	oLanguage: {
-    	      sZeroRecords: "일치하는 도서가 없습니다!"
+    	      sZeroRecords: "일치하는 도서가 없습니다"
     	    },
     	//몇개씩 보여줄지
     	displayLength: 10,

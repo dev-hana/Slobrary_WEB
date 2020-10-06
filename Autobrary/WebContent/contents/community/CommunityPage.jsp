@@ -32,6 +32,7 @@
 </style>
 <link href="/css/allNeed.css" rel="stylesheet">
 <link href="/css/bookReportPage.css?v=1" rel="stylesheet">
+<link href="/css/dataTable_empty.css" rel="stylesheet">
 <link href="/css/pagination.css" rel="stylesheet">
 </head>
 <body>

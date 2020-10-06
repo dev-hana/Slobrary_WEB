@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.dataTables_empty{
+	padding-top:50px !important;
+	padding-bottom:50px !important;
+	text-align: center;
+	font-size:18px;
+}
+.dataTables_empty::before{
+	content: "\f00d";
+	font-family: "Font Awesome 5 Free";
+	font-weight:900;
+	font-size:70px;
+	color:var(--main-color);
+	display: block;
+	margin-bottom: 20px;
+	text-shadow: 1.5px 1.5px 1.5px #ccc;
+}

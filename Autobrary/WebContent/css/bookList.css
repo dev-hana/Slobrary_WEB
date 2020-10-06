@@ -108,3 +108,66 @@
 	font-size:14px;
  	color:9D9D9D;
 }
+.newInfo{
+ display: flex;
+ justify-content: center;
+ align-item: center;
+ border: 2px solid #EAEAEA;
+}
+.newIcon img{
+	width:190px;
+	height: 160px;
+}
+.bestIcon img{
+	width:300px;
+	height: 200px;
+}
+.info hr{
+	border-top: 1px dashed #bbb;
+}
+.info{
+	align-self: center;
+	width:70%;
+}
+.info h5{
+	color:var(--main-color-dark);
+	font-weight: bold;
+}
+.info p{
+	color:#848484;
+}
+
+.bookCount{
+	color:#DE4F4F;
+}
+.count h6{
+color:#747474;
+}
+.dataTables_filter{
+	color:white;
+	float:right;
+	 
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.count h6{
+	position: relative;
+	bottom:-58px;
+}
+.best hr{
+	border-top: 1px dashed #bbb;
+}
+.best{
+	align-self: center;
+	width:60%;
+}
+.best h5{
+	color:var(--main-color-dark);
+	font-weight: bold;
+}
+.best p{
+	color:#848484;
+}
