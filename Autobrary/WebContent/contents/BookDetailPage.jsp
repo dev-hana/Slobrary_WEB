@@ -204,7 +204,7 @@
 					src="/img/default/userImg/boy1.png" alt="" class="user-img">
 					<b>닉네임</b>
 				</a> <span class="date">작성일<%=k%></span> <span class="rating"> <i
-					class="fas fa-star"></i>
+					class="fas fa-star fa1"></i>
 				</span>
 				<p class="contents">이 책은 어쩌구 저쩌구 재밌는데 지루하고 어쩌구이다. 이 책은 어쩌구 저쩌구
 					재밌는데 지루하고 어쩌구이다. 이 책은 어쩌구 저쩌구 재밌는데 지루하고 어쩌구이다. 이 책은 어쩌구 저쩌구 재밌는데

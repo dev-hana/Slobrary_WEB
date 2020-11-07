@@ -19,6 +19,16 @@
 		left: 10px !important;
 	}
 	
+	.collectionInfo table th, td {
+		padding-top: 20px !important;
+		padding-bottom: 20px !important;
+		padding-right: 10px !important;
+		padding-left: 10px !important;
+		vertical-align : middle !important;
+		/*align-items: center !important;*/
+		font-size: 15px !important;
+	}
+	
 	.bookInfo .rating dd {
 		font-size: 1.2em !important;
 	}
@@ -43,7 +53,7 @@
 		padding-top: 25px !important;
 	}
 	
-	.fa-star:before {
+	i.fas.fa-star.fa1::before {
 		margin-left: 60 !important;
 	}
 	
