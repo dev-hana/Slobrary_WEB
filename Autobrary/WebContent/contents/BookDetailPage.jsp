@@ -155,7 +155,7 @@
 		
 		<div class="collectionInfo" id="collectionInfo">
 			<h2 class="subTitle">소장정보</h2>
-			<table class="table">
+			<table class="table t1">
 				<thead>
 					<th>대출상태</th>
 					<th>청구기호</th>

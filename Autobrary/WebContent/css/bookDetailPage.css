@@ -1,3 +1,87 @@
+@media screen and (max-width: 800px) {
+
+	.bookDetail{
+		width:90% !important;
+		padding-left: 0 !important;
+		padding: 0 !important;
+	}
+	
+	
+	h1.title {
+		font-size: 20px !important;
+	}
+	
+	.quick-menu {
+		display: none;
+	}
+	
+	table.table.t1 {
+		left: 10px !important;
+	}
+	
+	.bookInfo .rating dd {
+		font-size: 1.2em !important;
+	}
+	
+	/*책 이미지 중간쪽으로*/
+	.bookInfo {
+		margin-right: 70 !important;
+	}
+	
+	.bookInfo .textBox {
+		margin-right: -50 !important;
+	}
+	
+	/*리뷰*/
+	.bookReview .btn {
+		top: 15 !important;
+	}
+	
+	.bookReview {
+		padding: 15px !important;
+		padding-bottom: 25px !important;
+		padding-top: 25px !important;
+	}
+	
+	.fa-star:before {
+		margin-left: 60 !important;
+	}
+	
+	/*독서일기*/
+	.bookDiary{
+		padding: 15px !important;
+		padding-bottom: 25px !important;
+		padding-top: 25px !important;
+	}
+	
+	.bookDiaries .btn {
+		top: 15 !important;
+	}
+	
+	q.impressive-sentence {
+		margin-left: 0 !important;
+	}
+	
+	.bookDiary .experience {
+		margin-left: 0 !important;
+	}
+	
+	/*독후감*/	
+	div.bookreport {
+		display: inline-block !important;
+		height:auto !important;
+	}
+	
+	a.user{
+		display: inline-block !important;
+		width: 100% !imoprtant;
+	}
+	
+	.bookReport .contents .detail{
+		width: auto !important;
+	}
+}
+
 .top-bar {
 	padding: 10px;
 	height: 60px;
