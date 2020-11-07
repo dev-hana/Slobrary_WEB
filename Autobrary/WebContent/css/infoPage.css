@@ -1,3 +1,86 @@
+@media screen and (max-width: 800px) {
+	
+	nav.navbar.sticky {
+		max-width: none !important;
+	}
+	
+	header{
+		padding-left: 40px !important;
+		padding-right: 40px !important;
+	}
+	
+	h1.welcome {
+		font-size: 25px !important;
+		padding-left: 20px !important;
+	}
+	
+	p.pwelcome {
+		padding-right: 20px !important;
+		padding-left: 20px !important;
+	}
+	
+	img.img-deco {
+		padding-right: 20px !important;
+		padding-left: 20px !important;
+	}
+	
+	div.bookCommunity {
+		padding-right: 20px !important;
+		padding-left: 20px !important;
+	}
+	
+	b.becomeMem {
+		padding-right: 20px !important;
+		padding-left: 20px !important;
+		font-size: 20px !important;
+	}
+	
+	.howToUse {
+		padding: 0 !important;
+		display: inline !important;
+	}
+	
+	h2.htuTitle {
+		left: 0 !important;
+	}
+	
+	div.tab-HowToUse {
+		min-width: 100% !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		height: 400px !important;
+	}
+	
+	p.card-text {
+		max-width: 100% !important;
+		font-size: 16px !important;
+	}
+	
+	a.btn.btn-outline-dark {
+		margin-right: 30px !important;
+	}
+	
+	h1.title {
+		font-size: 25px !important;
+	}
+	
+	img.tab-img {
+		width: 200px !important;
+	}
+	
+	div.links {
+		padding-left: 20px !important;
+	}
+	
+	a.web {
+		margin-bottom: 15px !important;
+		display: inline-block !important;
+	}
+	
+}
+
 p {
 	line-height: 30px;
 }
