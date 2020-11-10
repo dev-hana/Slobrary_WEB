@@ -48,8 +48,8 @@ String mem_id = memMgr.findId(name, birth, email);
 
 <!-- 회원정보가 일치한 경우 보여주는 페이지 -->
 	<div class="container-fluid">
-		<div class="row justify-content-md-center">
-			<div class="col-sm-4 shadow-sm p-3 mb-5 bg-white p-5">
+		<div class="row justify-content-md-center pt-5">
+			<div class="col-xl-5 shadow-sm p-3 mb-5 bg-white p-5 mt-5">
 				<div class="title">
 					<h4>아이디 찾기</h4><hr>
 				</div>

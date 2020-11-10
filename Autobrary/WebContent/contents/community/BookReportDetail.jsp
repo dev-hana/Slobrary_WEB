@@ -50,10 +50,10 @@
 		</div>
 		
 		<!-- 댓글 작성 -->
-		<form>
+		<form action="" method="post">
 		<div class="comment-write bg-light border shadow-sm p-5 mt-5 mb-4">
 				<input type="hidden" name="report_id" value="<%=reportBean.getReport_id() %>" >
-				<input type="hidden" name="mem_id" value="yangz">
+				<input type="hidden" name="mem_id" value="<%= mem_id%>">
 				<textarea rows="5" class="form-control"></textarea>
 				<button type="submit" class="btn btn-secondary">댓글입력</button>
 		</div>

@@ -39,7 +39,7 @@ label {
 <body class="bg-light">
 	<div class="container-fluid mt-4">
 		<div class="row justify-content-md-center">
-			<div class="col-sm-4 shadow-sm p-3 mb-5 bg-white p-5">
+			<div class="col-lg-4 shadow-sm p-3 mb-5 bg-white p-5">
 				<div class="title">
 					<h4>비밀번호 찾기</h4><hr>
 				</div>
@@ -49,7 +49,7 @@ label {
 					
 						<label for="id">아이디</label>
                         <div class="input-group mb-2">
-                           <a style="color:gray;"><%=memBean.getMem_name() %> </a>                     
+                           <a style="color:gray;"><%=memBean.getMem_id() %> </a>                     
                         </div>
 						<label for="name">이름</label>
                         <div class="input-group mb-2">
