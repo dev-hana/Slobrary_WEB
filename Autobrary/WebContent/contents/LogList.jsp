@@ -142,18 +142,18 @@
 			</thead>
 			<tbody>
 			<%
-				for(int i=0;i<8;i++){
+				for(int i=0;i<3;i++){
 			%>
 				<tr>
 					<td>
 						<div class="p-3 border shadow-sm">
 							<div class="review-title">
 								<!-- 도서명 -->									<!-- 작성날짜 -->
-								<span>아무도 나를 모를때</span><span class="ml-2 log-date">2020.09.09</span>
+								<span><%=i %>아무도 나를 모를때</span><span class="ml-2 log-date">2020.09.09</span>
 								<div class="modifybtn float-right">
 									<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
 									<span class="ml-1">/</span>
-									<button class="btn review-btn"><i class="fas fa-pencil-alt"></i></button>
+									<button class="btn review-btn" onclick="modal_view('<%=i+"제목" %>','<%=i+"내용" %>','<%=i %>','<%=i %>')" data-toggle="modal" data-target="#reviewModal"><i class="fas fa-pencil-alt"></i></button>
 								</div>
 							</div>
 							<hr>
@@ -248,8 +248,8 @@
 								<span>아무도 나를 모를때</span><span class="ml-2 log-date">2020.09.09</span>
 								<div class="modifybtn float-right">
 									<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
-									<span class="ml-1">/</span>
-									<button class="btn review-btn"><i class="fas fa-pencil-alt"></i></button>
+									<span class="ml-1">/</span>							<!-- 타이틀 --><!-- 타이틀 -->
+									<button class="btn review-btn" onclick="modal_view('<%=i %>','<%=i %>')" data-toggle="modal" data-target="#reviewModal"><i class="fas fa-pencil-alt"></i></button>
 								</div>
 							</div>
 							<hr>
@@ -341,12 +341,22 @@
 			}
 		}
 	%>
+<jsp:include page="/contents/ReviewModal.jsp" flush="false" />
 </div>		
 <!-- dataTable js -->
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript">
+
+function modal_view(title,content,star, loan_id) {
+	$("#modalTitle").text(title + "-리뷰");
+	$("#review-content").text(content);
+	$("#halfstarsInput").val(star);
+	$("#l_id").val(loan_id);
+	
+}
+
 $(document).ready(function() {
 	//이전 대출 목록 페이지네이션
 	$('#logTable').DataTable({

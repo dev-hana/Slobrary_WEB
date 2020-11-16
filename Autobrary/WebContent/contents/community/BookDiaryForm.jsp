@@ -27,7 +27,7 @@ BookBean bookBean = bookMgr.getBook(id_num);
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap"
 	rel="stylesheet">
-<link href="../css/allNeed.css" rel="stylesheet">
+<link href="/css/allNeed.css" rel="stylesheet">
 <link href="/css/bookDiaryForm.css" rel="stylesheet">
 </head>
 <body>

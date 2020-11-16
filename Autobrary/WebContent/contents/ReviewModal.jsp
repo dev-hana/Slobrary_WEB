@@ -43,7 +43,7 @@ textarea{
       	<div class="form-group mt-4">
       		<input name="rating" type="hidden" value="0" id="halfstarsInput" class="form-control form-control-sm">
       		<input name="bookid" type="hidden" id="l_id">
-    		<textarea name="review" class="form-control" placeholder="이 책을 평가해주세요!" id="textarea" rows="4" required></textarea>
+    		<textarea name="review" class="form-control" placeholder="이 책을 평가해주세요!" id="review-content" rows="4" required></textarea>
     		<div class="invalid-feedback">리뷰를 작성해 주세요.</div>
   		</div>
       	
