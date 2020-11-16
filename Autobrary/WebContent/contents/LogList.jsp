@@ -114,6 +114,13 @@
 .commutity-text{
 	border-top: 
 }
+/* link css */
+.alink a:hover{
+	color: black;
+	text-decoration: underline;
+}
+.alink a:link { color: black;}
+.alink a:visited { color: black; text-decoration: none;}
 </style>
 </head>
 <body>
@@ -289,165 +296,48 @@
 		}else if(type.equals("report")){
 			boolean report = true;
 			if(report){
-				ReportBean reportBean = reportMgr.getReport("3");
-				String content = new String();
-				%>
-				<table class="table table-borderless" id="logTable">
-				<thead>
-					<tr>
-						<th>독후감</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<div class="report-content p-3 border shadow-sm">
-								<div class="review-title">
-									<!-- 도서명 -->									<!-- 작성날짜 -->
-									<span><%=reportBean.getName() %></span><span class="ml-2 log-date">2020.09.09</span>
-									<div class="modifybtn float-right">
-										<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
-										<span class="ml-1">/</span>
-										<button class="btn review-btn"><i class="fas fa-pencil-alt"></i></button>
-									</div>
-								</div>
-								<hr>
-								<%
-									String text = reportBean.getContent();
-									if(text.contains("<img")){
-										//이미지 태그 src 추출 후 이미지 태그 제거
-								        Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>"); //img 태그 src 추출 정규표현식
-								        Matcher matcher = pattern.matcher(text);
-								        
-								        List<String> img = new ArrayList<>();
-								        while(matcher.find()){
-								            img.add(matcher.group(1));
-								            img.add("/img/test.jpg");
-								            img.add("/img/ex2.jpg");
-								            content = matcher.replaceAll("");
-								        }
-								%>
-								<!-- 이미지가 있는 경우 -->
-								<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-								  <div class="carousel-inner justify-content-center">
-								    <% 
-								    for(int i=0;i<img.size();i++){
-								    	if(i==0){
-								    		%>
-								    		<div class="carousel-item item active">
-										      <img class="img-fluid" src="<%=img.get(i) %>" class="img-responsive" alt="...">
-										    </div>
-								    		<%
-								    	}else{
-								    		%>
-								    		<div class="carousel-item item">
-										      <img class="img-fluid" src="<%=img.get(i) %>" alt="...">
-										    </div>
-								    		<%
-								    	}
-								    }
-								    %>
-								    
-								    
-								  </div>
-								  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-								    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								  </a>
-								  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-								    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-								  </a>
-								</div>
-								<%} %>
-								<div class="community-text p-1 m-2">
-									<%=content %>
-								</div>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			%>
+				<div class="p-2 mt-3">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>제목</th>
+							<th>도서명</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td class="alink"><a href="reportDetail">제목제목제목제목</a></td>
+							<td>도서명도서명도서명도서명</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
 			<%
 			}
 		}else if(type.equals("community")){
 			boolean community = true;
-			String content = new String();
 			if(community){
-				BoardBean boardBean = boardMgr.getBoard("3");
 				%>
-					<table class="table table-borderless" id="logTable">
-				<thead>
-					<tr>
-						<th>독후감</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<div class="report-content p-3 border shadow-sm">
-								<div class="review-title">
-									<!-- 도서명 -->									<!-- 작성날짜 -->
-									<span><%=boardBean.getTitle() %></span><span class="ml-2 log-date">2020.09.09</span>
-									<div class="modifybtn float-right">
-										<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
-										<span class="ml-1">/</span>
-										<button class="btn review-btn"><i class="fas fa-pencil-alt"></i></button>
-									</div>
-								</div>
-								<hr>
-								<%
-									String text = boardBean.getContent();
-									content = text;
-									if(text.contains("<img")){
-										//이미지 태그 src 추출 후 이미지 태그 제거
-								        Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>"); //img 태그 src 추출 정규표현식
-								        Matcher matcher = pattern.matcher(text);
-								        
-								        List<String> img = new ArrayList<>();
-								        while(matcher.find()){
-								            img.add(matcher.group(1));
-								            content = matcher.replaceAll("");
-								        }
-								%>
-								<!-- 이미지가 있는 경우 -->
-								<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-								  <div class="carousel-inner justify-content-center">
-								    <% 
-								    for(int i=0;i<img.size();i++){
-								    	if(i==0){
-								    		%>
-								    		<div class="carousel-item item active">
-										      <img class="img-fluid" src="<%=img.get(i) %>" class="img-responsive" alt="...">
-										    </div>
-								    		<%
-								    	}else{
-								    		%>
-								    		<div class="carousel-item item">
-										      <img class="img-fluid" src="<%=img.get(i) %>" alt="...">
-										    </div>
-								    		<%
-								    	}
-								    }
-								    %>
-								    
-								    
-								  </div>
-								  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-								    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								  </a>
-								  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-								    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-								  </a>
-								</div>
-								<%} %>
-								<div class="community-contents p-1 m-2">
-									<%=content %>
-								</div>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-				<%
+				<div class="p-2 mt-3">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>제목</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td class="alink"><a href="reportDetail">제목제목제목제목</a></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			<%
 			}
 		}
 	%>
