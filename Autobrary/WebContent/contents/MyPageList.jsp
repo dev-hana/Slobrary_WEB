@@ -118,7 +118,7 @@
 					<div class="dropdown">
 						<button onclick="buttonDrop()" class="btn btn-outline-secondary mb-1 dropdown-toggle"></button>
 						<div class="dropdown-content communityDropdown dropdown-menu-right">
-						<a href="/contents/community/BookDiaryForm.jsp" class="dropdown-item">
+						<a href="/contents/community/BookDiaryForm.jsp?bookid=<%=bookBean.getId_num()%>"" class="dropdown-item">
 							독서일기쓰기
 						</a>
 						<a href="/contents/community/DrawUp.jsp?type=report&book_id=<%=bookBean.getId_num() %>" class="dropdown-item">
