@@ -5,6 +5,7 @@
 <jsp:useBean id="reportMgr" class="database.ReportMgr" />
 <jsp:useBean id="boardMgr" class="database.BoardMgr" />
 <jsp:useBean id="bookMgr" class="database.BookMgr" />
+<jsp:useBean id="reviewMgr" class="database.ReviewMgr" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -126,6 +127,7 @@
 <body>
 <div class="mt-1">
 <%
+	String mem_id = (String)session.getAttribute("loginKey");
 	String type=request.getParameter("type");
 
 	//리뷰리스트
@@ -142,14 +144,17 @@
 			</thead>
 			<tbody>
 			<%
-				for(int i=0;i<3;i++){
+				Vector Vreview = reviewMgr.getReviewList(mem_id);
+				for(int i=0;i<Vreview.size();i++){
+					ReviewBean reBean = (ReviewBean)Vreview.get(i);
+					BookBean bookBean = bookMgr.getBook(reBean.getBook_id());
 			%>
 				<tr>
 					<td>
 						<div class="p-3 border shadow-sm">
 							<div class="review-title">
 								<!-- 도서명 -->									<!-- 작성날짜 -->
-								<span><%=i %>아무도 나를 모를때</span><span class="ml-2 log-date">2020.09.09</span>
+								<span>[<%=i+1 %>] <%=bookBean.getName() %></span><span class="ml-2 log-date"><%=reBean.getRv_date() %></span>
 								<div class="modifybtn float-right">
 									<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
 									<span class="ml-1">/</span>
@@ -161,7 +166,7 @@
 								<div class="review-star pl-2 mt-n2">
 									<!-- 별점 -->
 									<%
-									double star=3.5;
+									double star=Double.parseDouble(reBean.getRating());
 									int fullStar = (int)Math.floor(star/1.0); //꽉찬별 개수
 									boolean halfStar=false;
 									
@@ -194,8 +199,7 @@
 								</div>
 								<div class="mt-2 p-2">
 									<!-- 리뷰내용 -->
-									독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
-									독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
+									<%=reBean.getContent() %>
 								</div>
 							</div>
 						</div>

@@ -25,7 +25,7 @@ public class ReviewMgr {
         }
     }
     
-    public Vector getReportList(String mem_id, String type) {
+    public Vector getReviewList(String mem_id) {
     	Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -34,27 +34,20 @@ public class ReviewMgr {
      
         try {
             con = pool.getConnection(); 
-            if(type.equals("all")) {
-            	strQuery = "select * from book_report ";
-            	pstmt = con.prepareStatement(strQuery);
-            }else if(type.equals("mem")) {
-            	strQuery = "select * from book_report where mem_id = ? ";
-            	pstmt = con.prepareStatement(strQuery);
-            	pstmt.setString(1, mem_id);
-            }
+            strQuery = "select * from review where mem_id = ? ";
+            pstmt = con.prepareStatement(strQuery);
+            pstmt.setString(1, mem_id);
+
             
             rs = pstmt.executeQuery();
             while (rs.next()) {     	 
-            	 ReportBean reportBean = new ReportBean();
-            	 reportBean.setBook_id(rs.getString("book_id"));
-            	 reportBean.setMem_id(rs.getString("mem_id"));
-            	 reportBean.setReport_id(rs.getString("report_id"));
-            	 reportBean.setName(rs.getString("name"));
-            	 reportBean.setContent(rs.getString("content"));
-            	 reportBean.setReport_date(rs.getString("report_date"));
-            	 reportBean.setLocked(rs.getString("locked"));
-
-                 vecList.add(reportBean);
+            	 ReviewBean reviewBean = new ReviewBean();
+            	 reviewBean.setBook_id(rs.getString("book_id"));
+            	 reviewBean.setMem_id(rs.getString("mem_id"));
+            	 reviewBean.setContent(rs.getString("content"));
+            	 reviewBean.setRv_date(rs.getString("rv_date"));
+            	 reviewBean.setContent(rs.getString("rating"));
+                 vecList.add(reviewBean);
             }
         } catch (Exception ex) {
             System.out.println("Exception" + ex);
