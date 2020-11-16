@@ -96,6 +96,7 @@ public class ReviewMgr {
     }
     
     
+    
     public boolean insertReview(String mem_id, String book_id, String content, String rating) {
     	Connection con = null;
         PreparedStatement pstmt = null;

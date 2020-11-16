@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>독서 일기장</title>
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap"
 	rel="stylesheet">
