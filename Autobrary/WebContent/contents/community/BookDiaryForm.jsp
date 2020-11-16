@@ -5,15 +5,15 @@
 <jsp:useBean id="bookMgr" class="database.BookMgr" />
 <%
 //String mem_id = (String)session.getAttribute("loginKey");
-String mem_id = request.getParameter("mem_id");
+String mem_id = (String)session.getAttribute("loginKey");
 if(mem_id == null){
 	%>
 	<script>
 	alert("로그인이 필요한 작업입니다.");
-	//페이지 연결 후 활성화
-	//location.href="../Login.jsp";
+	location.href="../Login.jsp";
 	</script>
 <%}
+else{
 String id_num = request.getParameter("id_num");
 BookBean bookBean = bookMgr.getBook(id_num);
 %>
@@ -62,3 +62,4 @@ BookBean bookBean = bookMgr.getBook(id_num);
 	</section>
 </body>
 </html>
+<%}%>
