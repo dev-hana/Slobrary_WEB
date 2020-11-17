@@ -200,6 +200,7 @@
 								<div class="mt-2 p-2">
 									<!-- 리뷰내용 -->
 									<%=reBean.getContent()%>
+									<%=reBean.getRating()%>
 								</div>
 							</div>
 						</div>
