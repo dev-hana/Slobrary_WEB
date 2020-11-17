@@ -47,6 +47,7 @@ public class ReviewMgr {
             	 reviewBean.setContent(rs.getString("content"));
             	 reviewBean.setRv_date(rs.getString("rv_date"));
             	 reviewBean.setContent(rs.getString("content"));
+		 reviewBean.setRating(rs.getString("rating"));
                  vecList.add(reviewBean);
             }
         } catch (Exception ex) {
