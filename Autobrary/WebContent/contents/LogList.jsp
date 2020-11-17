@@ -147,7 +147,7 @@
 				Vector Vreview = reviewMgr.getReviewList(mem_id);
 				for(int i=0;i<Vreview.size();i++){
 					ReviewBean reviewBean = (ReviewBean)Vreview.get(i);
-					BookBean bookBean = bookMgr.getBook(reBean.getBook_id());
+					BookBean bookBean = bookMgr.getBook(reviewBean.getBook_id());
 			%>
 				<tr>
 					<td>
