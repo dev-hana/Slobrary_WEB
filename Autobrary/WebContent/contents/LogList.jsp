@@ -248,8 +248,8 @@
 								<span>아무도 나를 모를때</span><span class="ml-2 log-date">2020.09.09</span>
 								<div class="modifybtn float-right">
 									<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
-									<span class="ml-1">/</span>							<!-- 타이틀 --><!-- 타이틀 -->
-									<button class="btn review-btn" onclick="modal_view('<%=i %>','<%=i %>')" data-toggle="modal" data-target="#reviewModal"><i class="fas fa-pencil-alt"></i></button>
+									<span class="ml-1">/</span>						
+									<button class="btn review-btn"><i class="fas fa-pencil-alt"></i></button>
 								</div>
 							</div>
 							<hr>
@@ -332,7 +332,7 @@
 					<tbody>
 						<tr>
 							<td>1</td>
-							<td class="alink"><a href="reportDetail">제목제목제목제목</a></td>
+							<td class="alink"><a href="reportDetail">제목제목제목제목제목</a></td>
 						</tr>
 					</tbody>
 				</table>
