@@ -154,7 +154,7 @@
 						<div class="p-3 border shadow-sm">
 							<div class="review-title">
 								<!-- 도서명 -->									<!-- 작성날짜 -->
-								<span>[<%=i+1 %>] <%=bookBean.getName() %></span><span class="ml-2 log-date">2020-11-17</span>
+								<span>[<%=i+1 %>] <%=bookBean.getName() %></span><span class="ml-2 log-date"><%=reBean.getRv_date()%></span>
 								<div class="modifybtn float-right">
 									<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
 									<span class="ml-1">/</span>
@@ -199,9 +199,7 @@
 								</div>
 								<div class="mt-2 p-2">
 									<!-- 리뷰내용 -->
-									내용
-									내용
-									내용
+									<%=reBean.getContent()%>
 								</div>
 							</div>
 						</div>
