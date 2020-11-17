@@ -324,7 +324,7 @@
 					%>
 						<tr>
 							<td><%=i+1%></td>
-							<td class="alink"><a href="/community/GoDetailProc.jsp?report_id=<%=reportBean.getReport_id()%>"><%=reportBean.getName() %></a></td>
+							<td class="alink"><a href="../community/GoDetailProc.jsp?report_id=<%=reportBean.getReport_id()%>"><%=reportBean.getName() %></a></td>
 							<td><%=bookBean.getName()%></td>
 						</tr>
 					<%}%>
@@ -353,7 +353,7 @@
 					%>
 						<tr>
 							<td><%=i+1%></td>
-							<td class="alink"><a href="/community/GoDetailProc.jsp?board_id=<%=boardBean.getBoard_id()%>"><%=boardBean.getTitle() %></a></td>
+							<td class="alink"><a href="../community/GoDetailProc.jsp?board_id=<%=boardBean.getBoard_id()%>"><%=boardBean.getTitle() %></a></td>
 						</tr>
 					<%}%>
 					</tbody>
