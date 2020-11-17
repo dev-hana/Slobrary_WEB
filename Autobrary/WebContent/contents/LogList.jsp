@@ -316,6 +316,7 @@
 						</tr>
 					</thead>
 					<tbody>
+					<%
 					Vector Vreport = reportMgr.getReportList(null, "all");
 					for(int i=0;i<Vreport.size();i++){
 						ReportBean reportBean = (ReportBean)Vreport.get(i);		
@@ -324,7 +325,7 @@
 						<tr>
 							<td><%=i+1%></td>
 							<td class="alink"><a href="/community/GoDetailProc.jsp?report_id=<%=reportBean.getReport_id()%>"><%=reportBean.getName() %></a></td>
-							<td>bookBean.getName()</td>
+							<td><%=bookBean.getName()%></td>
 						</tr>
 					<%}%>
 					</tbody>
@@ -345,6 +346,7 @@
 						</tr>
 					</thead>
 					<tbody>
+					<%
 					Vector Vboard = boardMgr.getBoardList(null, "all");
 						for(int i=0;i<Vboard.size();i++){
 							BoardBean boardBean = (BoardBean)Vboard.get(i);
