@@ -245,7 +245,7 @@
 			</thead>
 			<tbody>
 			<%
-				Vector vDiary = diaryMgr.getDiaryList(mem_id, "all");
+				Vector vDiary = diaryMgr.getDiaryList(mem_id, "mem");
 				for(int i = 0; i < vDiary.size(); i++){
 					DiaryBean diaryBean = (DiaryBean)vDiary.get(i);
 					BookBean bookBean = bookMgr.getBook(diaryBean.getBook_id());
@@ -317,7 +317,7 @@
 					</thead>
 					<tbody>
 					<%
-					Vector Vreport = reportMgr.getReportList(null, "all");
+					Vector Vreport = reportMgr.getReportList(mem_id, "mem");
 					for(int i=0;i<Vreport.size();i++){
 						ReportBean reportBean = (ReportBean)Vreport.get(i);		
 						BookBean bookBean = bookMgr.getBook(reportBean.getBook_id());
@@ -347,7 +347,7 @@
 					</thead>
 					<tbody>
 					<%
-					Vector Vboard = boardMgr.getBoardList(null, "all");
+					Vector Vboard = boardMgr.getBoardList(mem_id, "mem");
 						for(int i=0;i<Vboard.size();i++){
 							BoardBean boardBean = (BoardBean)Vboard.get(i);
 					%>

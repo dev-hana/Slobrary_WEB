@@ -46,7 +46,7 @@ public class ReviewMgr {
             	 reviewBean.setMem_id(rs.getString("mem_id"));
             	 reviewBean.setContent(rs.getString("content"));
             	 reviewBean.setRv_date(rs.getString("rv_date"));
-		 reviewBean.setRating(rs.getString("rating"));
+            	 reviewBean.setRating(rs.getString("rating"));
                  vecList.add(reviewBean);
             }
         } catch (Exception ex) {
