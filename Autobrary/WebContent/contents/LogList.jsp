@@ -2,9 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/CND.jsp" %>
 <%@ page import="java.util.*,java.util.regex.*, database.*" %>
+<%@page import="bucketConnector.BucketManager"%>
 <jsp:useBean id="reportMgr" class="database.ReportMgr" />
 <jsp:useBean id="boardMgr" class="database.BoardMgr" />
 <jsp:useBean id="bookMgr" class="database.BookMgr" />
+<jsp:useBean id="reviewMgr" class="database.ReviewMgr" />
+<jsp:useBean id="diaryMgr" class="database.DiaryMgr" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -126,6 +129,7 @@
 <body>
 <div class="mt-1">
 <%
+	String mem_id = (String)session.getAttribute("loginKey");
 	String type=request.getParameter("type");
 
 	//리뷰리스트
@@ -142,14 +146,17 @@
 			</thead>
 			<tbody>
 			<%
-				for(int i=0;i<3;i++){
+				Vector Vreview = reviewMgr.getReviewList(mem_id);
+				for(int i=0;i<Vreview.size();i++){
+					ReviewBean reviewBean = (ReviewBean)Vreview.get(i);
+					BookBean bookBean = bookMgr.getBook(reviewBean.getBook_id());
 			%>
 				<tr>
 					<td>
 						<div class="p-3 border shadow-sm">
 							<div class="review-title">
 								<!-- 도서명 -->									<!-- 작성날짜 -->
-								<span><%=i %>아무도 나를 모를때</span><span class="ml-2 log-date">2020.09.09</span>
+								<span>[<%=i+1 %>] <%=bookBean.getName() %></span><span class="ml-2 log-date"><%=reviewBean.getRv_date()%></span>
 								<div class="modifybtn float-right">
 									<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
 									<span class="ml-1">/</span>
@@ -194,8 +201,8 @@
 								</div>
 								<div class="mt-2 p-2">
 									<!-- 리뷰내용 -->
-									독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
-									독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
+									<%=reviewBean.getContent()%>
+									<%=reviewBean.getRating()%>
 								</div>
 							</div>
 						</div>
@@ -222,7 +229,7 @@
 	}else if(type.equals("diary")){
 		
 		boolean diary = true;
-		//도서 일기가 없는 경우
+		//도서 일기가 있는 경우
 		if(diary!=false){
 	%>
 		<!-- 일기 -->
@@ -238,14 +245,17 @@
 			</thead>
 			<tbody>
 			<%
-				for(int i=0;i<8;i++){
+				Vector vDiary = diaryMgr.getDiaryList(mem_id, "all");
+				for(int i = 0; i < vDiary.size(); i++){
+					DiaryBean diaryBean = (DiaryBean)vDiary.get(i);
+					BookBean bookBean = bookMgr.getBook(diaryBean.getBook_id());
 			%>
 				<tr>
 					<td>
 						<div class="p-3 border shadow-sm">
 							<div class="review-title">
 								<!-- 도서명 -->									<!-- 작성날짜 -->
-								<span>아무도 나를 모를때</span><span class="ml-2 log-date">2020.09.09</span>
+								<span><%=bookBean.getName()%></span><span class="ml-2 log-date"><%=diaryBean.getDiary_date().substring(0, 10)%></span>
 								<div class="modifybtn float-right">
 									<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
 									<span class="ml-1">/</span>						
@@ -255,18 +265,16 @@
 							<hr>
 							<div class="diary-content">
 								<div class="diary-book p-2 p-3">
-									<img class="shadow-sm" width="110" height="140" src="/img/ex1.jpg" alt="이미지가 없습니다">
+									<img class="shadow-sm" width="110" height="140" src="<%=new BucketManager().base64DownLoader(bookBean.getImage())%>" alt="이미지가 없습니다">
 								</div>
 								<div class="diary-text p-1">
 									<!-- 인상 깊은 구절 -->
 									<div class="diary-sentence">
-										<span class="quote"><i class="fas fa-quote-left"></i></span><span class="sentence"> 인상 깊었던 구절 </span><span class="quote"><i class="fas fa-quote-right"></i></span>
+										<span class="quote"><i class="fas fa-quote-left"></i></span><span class="sentence"><%=diaryBean.getSentence()%></span><span class="quote"><i class="fas fa-quote-right"></i></span>
 									</div>
 									<div class="mt-3 p-2">
 										<!-- 리뷰내용 -->
-										독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
-										독후감이란 독서 후 자신이 몰랐던 사실에 대해 느끼는 생각이나 내용에 대한 감상 등을 어떠한 형식으로든 구애받지 않고 자연스럽게 작성한 문서이다.
-										리뷰내용리뷰내용
+										<%=diaryBean.getContent()%>
 									</div>
 								</div>
 							</div>
@@ -308,11 +316,18 @@
 						</tr>
 					</thead>
 					<tbody>
+					<%
+					Vector Vreport = reportMgr.getReportList(null, "all");
+					for(int i=0;i<Vreport.size();i++){
+						ReportBean reportBean = (ReportBean)Vreport.get(i);		
+						BookBean bookBean = bookMgr.getBook(reportBean.getBook_id());
+					%>
 						<tr>
-							<td>1</td>
-							<td class="alink"><a href="reportDetail">제목제목제목제목</a></td>
-							<td>도서명도서명도서명도서명</td>
+							<td><%=i+1%></td>
+							<td class="alink"><a href="/contents/community/GoDetailProc.jsp?report_id=<%=reportBean.getReport_id()%>"><%=reportBean.getName() %></a></td>
+							<td><%=bookBean.getName()%></td>
 						</tr>
+					<%}%>
 					</tbody>
 				</table>
 				</div>
@@ -331,10 +346,16 @@
 						</tr>
 					</thead>
 					<tbody>
+					<%
+					Vector Vboard = boardMgr.getBoardList(null, "all");
+						for(int i=0;i<Vboard.size();i++){
+							BoardBean boardBean = (BoardBean)Vboard.get(i);
+					%>
 						<tr>
-							<td>1</td>
-							<td class="alink"><a href="reportDetail">제목제목제목제목제목</a></td>
+							<td><%=i+1%></td>
+							<td class="alink"><a href="/contents/community/GoDetailProc.jsp?board_id=<%=boardBean.getBoard_id()%>"><%=boardBean.getTitle() %></a></td>
 						</tr>
+					<%}%>
 					</tbody>
 				</table>
 				</div>

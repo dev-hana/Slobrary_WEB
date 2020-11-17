@@ -14,8 +14,9 @@ if(mem_id == null){
 	</script>
 <%}
 else{
-String id_num = request.getParameter("id_num");
+String id_num = request.getParameter("bookid");
 BookBean bookBean = bookMgr.getBook(id_num);
+System.out.println("idnum : "+id_num +", bookbean : " +bookMgr.getBook(id_num));
 %>
 <!DOCTYPE html>
 <html>
@@ -45,8 +46,8 @@ BookBean bookBean = bookMgr.getBook(id_num);
 
 		<div class="diaryInfo">
 			<form action="BookDiaryFormProc.jsp" method="post">
-				<input type="text" name="name" value="도서제목" disabled>
-				<input type="text" name="author" value="저자" disabled> 
+				<input type="text" name="name" value="<%=bookBean.getName() %>" disabled>
+				<input type="text" name="author" value="<%=bookBean.getAuthor() %>" disabled> 
 				<input type="number" name="page" placeholder="읽은 쪽">
 				<div class="sentence">
 					<input type="text" name="sentence" placeholder="인상깊었던 구절">
