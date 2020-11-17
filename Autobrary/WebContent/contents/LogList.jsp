@@ -144,17 +144,17 @@
 			</thead>
 			<tbody>
 			<%
-				Vector Vreview = reviewMgr.getReviewList(mem_id);
-				for(int i=0;i<Vreview.size();i++){
-					ReviewBean reBean = (ReviewBean)Vreview.get(i);
-					BookBean bookBean = bookMgr.getBook(reBean.getBook_id());
+				//Vector Vreview = reviewMgr.getReviewList(mem_id);
+				for(int i=0;i<5;i++){
+					//ReviewBean reBean = (ReviewBean)Vreview.get(i);
+					//BookBean bookBean = bookMgr.getBook(reBean.getBook_id());
 			%>
 				<tr>
 					<td>
 						<div class="p-3 border shadow-sm">
 							<div class="review-title">
 								<!-- 도서명 -->									<!-- 작성날짜 -->
-								<span>[<%=i+1 %>] <%=bookBean.getName() %></span><span class="ml-2 log-date"><%=reBean.getRv_date() %></span>
+								<span>[<%=i+1 %>]책이름</span><span class="ml-2 log-date">2020-11-17</span>
 								<div class="modifybtn float-right">
 									<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
 									<span class="ml-1">/</span>
@@ -166,7 +166,7 @@
 								<div class="review-star pl-2 mt-n2">
 									<!-- 별점 -->
 									<%
-									double star=Double.parseDouble(reBean.getRating());
+									double star=3.5;
 									int fullStar = (int)Math.floor(star/1.0); //꽉찬별 개수
 									boolean halfStar=false;
 									
@@ -199,7 +199,9 @@
 								</div>
 								<div class="mt-2 p-2">
 									<!-- 리뷰내용 -->
-									<%=reBean.getContent() %>
+									내용
+									내용
+									내용
 								</div>
 							</div>
 						</div>
