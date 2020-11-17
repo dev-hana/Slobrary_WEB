@@ -160,7 +160,7 @@
 								<div class="modifybtn float-right">
 									<button class="btn review-btn"><i class="fas fa-trash-alt"></i></button>
 									<span class="ml-1">/</span>
-									<button class="btn review-btn" onclick="modal_view('<%=i+"제목" %>','<%=i+"내용" %>','<%=i %>','<%=i %>')" data-toggle="modal" data-target="#reviewModal"><i class="fas fa-pencil-alt"></i></button>
+									<button class="btn review-btn" onclick="modal_view('<%=bookBean.getName() %>','<%=reviewBean.getContent()%> ','<%=i %>','<%=i %>')" data-toggle="modal" data-target="#reviewModal"><i class="fas fa-pencil-alt"></i></button>
 								</div>
 							</div>
 							<hr>
@@ -168,7 +168,7 @@
 								<div class="review-star pl-2 mt-n2">
 									<!-- 별점 -->
 									<%
-									double star=3.5;
+									double star=Double.parseDouble(reviewBean.getRating());
 									int fullStar = (int)Math.floor(star/1.0); //꽉찬별 개수
 									boolean halfStar=false;
 									
@@ -201,8 +201,7 @@
 								</div>
 								<div class="mt-2 p-2">
 									<!-- 리뷰내용 -->
-									<%=reviewBean.getContent()%>
-									<%=reviewBean.getRating()%>
+									<%=reviewBean.getContent()%>								
 								</div>
 							</div>
 						</div>
