@@ -190,12 +190,13 @@
 		<div class="bookReviews" id="bookReviews">
 			<h2 class="subTitle">도서 리뷰</h2>
 			<button type="button" class="btn btn-more">모두 보기</button>
-
+		<!-- 
 			<select name="keytype" class="sort">
 				<option value="all">최근 등록 순</option>
 				<option value="title">높은 평가 순</option>
 				<option value="author">낮은 평가 순</option>
 			</select>
+		 
 			<%
 			for (int k = 0; k < 3; k++) {
 			%>
@@ -215,12 +216,17 @@
 			<%
 			}
 		%>
+		-->
+		<div class="text-center p-5">
+			등록된 리뷰가 없습니다.
+		</div>
+		
 		</div>
 		
 		<div class="bookDiaries" id="bookDiaries">
 			<h2 class="subTitle">독서 일기</h2>
 			<button type="button" class="btn btn-more">모두 보기</button>
-
+		<!--  
 			<select name="keytype" class="sort">
 				<option value="all">최근 등록 순</option>
 				<option value="title">오래된 순</option>
@@ -251,11 +257,16 @@
 			<%
 			}
 		%>
+		-->
+		<div class="text-center p-5">
+			등록된 도서일기가 없습니다.
+		</div>
 		</div>
 
 		<div class="bookReports" id="bookReports">
 			<h2 class="subTitle">독후감</h2>
 			<button type="button" class="btn btn-more">모두 보기</button>
+			<!--  
 			<select name="keytype" class="sort">
 				<option value="all">최근 등록 순</option>
 				<option value="title">작성자 순</option>
@@ -271,6 +282,10 @@
 						재밌는데 지루하고 어쩌구이다.이 책은 어쩌구 저쩌구 재밌는데 지루하고 어쩌구이다.이 책은 어쩌구 저쩌구 재밌는데
 						지루하고 어쩌구이다.</p>
 				</div>
+			</div>
+			-->
+			<div class="text-center p-5">
+				등록된 독후감이 없습니다.
 			</div>
 		</div>
 
