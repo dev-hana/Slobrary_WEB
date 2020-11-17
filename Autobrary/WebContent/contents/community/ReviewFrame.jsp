@@ -38,10 +38,6 @@
 		</button>
 
 		<div class="userInfo dropdown">
-			<button type="button" aria-label="Open user menu"
-				class="dropdown-button">
-				<strong>닉네임</strong> <img src="/img/default/userImg/boy1.png">
-			</button>
 			<div class="dropdown-menu">
 				<a href="#">프로필 보기</a> <a href="#">다른 리뷰 보기</a>
 			</div>
